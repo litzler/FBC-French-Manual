@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Option NoKeyword</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Option NoKeyword</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Annule la d&eacute;finition d'un mot-cl&eacute; r&eacute;serv&eacute;<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Option NoKeyword</b> <i>keyword</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>keyword</i></tt><br \>
+<div class="fb_indent">le mot-cl&eacute; dont on annule la d&eacute;finition<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Option NoKeyword</b></tt> est une d&eacute;claration qui annule la d&eacute;finition d'un mot-cl&eacute; r&eacute;serv&eacute; du FreeBASIC, ce qui signifie qu'il peut &ecirc;tre utilis&eacute; comme un identifiant d'une variable, d'un objet, d'une proc&eacute;dure ou de tout autre symbole. La d&eacute;finition du mot-cl&eacute; n'est plus d&eacute;finie pour le reste du module dans lequel <tt><b>Option NoKeyword</b></tt> est utilis&eacute;.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Compile&nbsp;with&nbsp;the&nbsp;"-lang&nbsp;fblite"&nbsp;compiler&nbsp;switch</span><br />
+<br />
+<span class="def">#lang&nbsp;"fblite"<br />
+</span><br />
+<span class="key">Option</span>&nbsp;<span class="key">NoKeyword</span>&nbsp;<span class="key">Int</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;remove&nbsp;the&nbsp;keyword&nbsp;'int'&nbsp;from&nbsp;the&nbsp;internal</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;symbol&nbsp;table</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">Int</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;declare&nbsp;a&nbsp;variable&nbsp;with&nbsp;the&nbsp;name&nbsp;'int'</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Disponible seulement dans les dialectes <i><a href="CompilerOptlang.html">-lang fblite</a></i> et <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgPpundef.html">#undef</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

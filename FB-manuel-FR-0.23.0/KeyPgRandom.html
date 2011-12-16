@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Random</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Random</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Sp&eacute;cifie le fichier ou le p&eacute;riph&eacute;rique &agrave; ouvrir en mode binaire<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgOpen.html">Open</a> <i>filename</i> for <b>Random</b> [<a href="KeyPgAccess.html">Access</a> <i>access_type</i>] [<a href="KeyPgLock.html">Lock</a> <i>lock_type</i>] as [#]<i>filenum</i> [Len = <i>record_length</i>]<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>filename</i></tt><br \>
+<div class="fb_indent">nom du fichier &agrave; ouvrir<br \>
+</div><tt><i>access_type</i></tt><br \>
+<div class="fb_indent">indique si le fichier doit &ecirc;tre lu, &eacute;crit ou les deux<br \>
+</div><tt><i>lock_type</i></tt><br \>
+<div class="fb_indent">verrouillage &agrave; utiliser quand le fichier est ouvert<br \>
+</div><tt><i>filenum</i></tt><br \>
+<div class="fb_indent">un num&eacute;ro inutilis&eacute; de fichier pour l'associer au fichier ouvert<br \>
+</div><tt><i>record_length</i></tt><br \>
+<div class="fb_indent">la taille des enregistrements utilis&eacute;e pour le fichier<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Ouvre un fichier ou un p&eacute;riph&eacute;rique en lecture et/ou &eacute;criture de donn&eacute;es binaires dans le fichier donn&eacute; <tt><i>filenum</i></tt>, avec des enregistrements de taille <tt><i>record_length</i></tt>.<br \>
+Si le fichier n'existe pas, un nouveau fichier sera cr&eacute;&eacute;, sinon toutes les donn&eacute;es existantes dans le fichier sont pr&eacute;serv&eacute;es par <tt><a href="KeyPgOpen.html">Open</a></tt>.  Le pointeur du fichier est initialis&eacute; par <tt><a href="KeyPgOpen.html">Open</a></tt> au d&eacute;but du fichier, &agrave; l'enregistrement num&eacute;ro <tt>1</tt>. Les op&eacute;rations sur le fichier d&eacute;place la position par pas de <tt><i>record_length</i></tt> octets.<br \>
+Ce mode de fichier utilise une variable tampon de <tt><a href="KeyPgType.html">Type</a></tt> d&eacute;fini par l'utilisateur pour lire/&eacute;crire des enregistrements complets dans le fichier. La variable tampon utilis&eacute;e peut inclure plusieurs champs.<br \>
+Les donn&eacute;es sont sauvegard&eacute;es en mode binaire, dans le m&ecirc;me format interne utilis&eacute; par FreeBasic, par le biais de <tt><a href="KeyPgGetfileio.html">Get #</a></tt> et <tt><a href="KeyPgPutfileio.html">Put #</a></tt>.<br \>
+<br \>
+<tt><i>filename</i></tt> doit &ecirc;tre une expression cha&icirc;ne correspondant &agrave; un nom de fichier l&eacute;gal dans le syst&egrave;me d'exploitation cible, sans jokers de remplacement. Le fichier sera recherch&eacute; dans le r&eacute;pertoire courant, sauf si <tt><i>filename</i></tt> contient un chemin.<br \>
+<br \>
+<tt><i>Access_type</i></tt> - par d&eacute;faut le mode <tt><b>Random</b></tt> permet &agrave; la fois lire et &eacute;crire dans le fichier, sauf si un type d'<tt><a href="KeyPgAccess.html">Access</a></tt> est sp&eacute;cifi&eacute;, il doit &ecirc;tre l'un de ceux-ci:<br \>
+<ul><ul><li> <tt><b>Read</b></tt> - le fichier est ouvert en lecture seulement<br \>
+<li> <tt><b>Write</b></tt> - le fichier est ouvert en &eacute;criture seulement<br \>
+<li> <tt><b>Read Write</b></tt> - le fichier est ouvert en lecture et &eacute;criture (par d&eacute;faut)<br \>
+<br \>
+</ul></ul><tt><i>Lock_type</i></tt> indique la fa&ccedil;on dont le fichier est verrouill&eacute; pour les autres processus (utilisateurs ou fils), il est l'un de ceux-ci:<br \>
+<ul><ul><li> <tt><b>Shared</b></tt> - Le fichier peut &ecirc;tre librement consult&eacute; par d'autres processus<br \>
+<li> <tt><b>Lock Read</b></tt> - Le fichier ne peut pas &ecirc;tre ouvert en m&ecirc;me temps pour la lecture<br \>
+<li> <tt><b>Lock Write</b></tt> - Le fichier ne peut pas &ecirc;tre ouvert en m&ecirc;me temps pour l'&eacute;criture<br \>
+<li> <tt><b>Lock Read Write</b></tt> - Le fichier ne peut pas &ecirc;tre ouvert simultan&eacute;ment par d'autres processus.<br \>
+</ul></ul><div class="fb_indent">Si aucun type de verrouillage n'est indiqu&eacute;, le fichier sera <tt><b>Shared</b></tt> pour les autres "threads" du programme et <tt><b>Lock Read Write</b></tt> pour les autres programmes.<br \>
+<tt><a href="KeyPgLock.html">Lock</a></tt> et <tt><a href="KeyPgUnlock.html">Unlock</a></tt> peuvent &ecirc;tre utilis&eacute;s pour restreindre temporairement l'acc&egrave;s &agrave; des parties d'un fichier.<br \>
+<br \>
+</div><tt><i>filenum</i></tt> est un num&eacute;ro de fichier valide (dans la plage <tt>1..255</tt>) non utilis&eacute; par un autre fichier actuellement ouvert. Le num&eacute;ro de fichier identifie celui-ci pour le reste des op&eacute;rations. Un num&eacute;ro de fichier libre peut &ecirc;tre trouv&eacute; avec la fonction <tt><a href="KeyPgFreefile.html">FreeFile</a></tt>.<br \>
+<br \>
+<tt><i>record_length</i></tt> est le nombre d'octets que le pointeur du fichier va parcourir pour chaque  <tt><a href="KeyPgGetfileio.html">Get</a></tt> et <tt><a href="KeyPgPutfileio.html">Put</a></tt>, il doit correspondre &agrave; la taille de la variable tampon utilis&eacute;e lors d'un <tt><a href="KeyPgGetfileio.html">Get</a></tt> et <tt><a href="KeyPgPutfileio.html">Put</a></tt> de donn&eacute;es. Si omis, sa valeur par d&eacute;faut est de <tt>128</tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">UDT</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">slen</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">sdata</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">10</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">u</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">UDT</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">ff</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">fpos</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="wrd">ff</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">FreeFile</span><br />
+<span class="wrd">fpos</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10</span><br />
+<br />
+<span class="key">Open</span>&nbsp;<span class="quo">"testfile"</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Random</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="wrd">ff</span>&nbsp;<span class="key">Len</span><span class="oth">=</span><span class="key">SizeOf</span><span class="oth">(</span><span class="wrd">UDT</span><span class="oth">)</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Read</span>&nbsp;<span class="wrd">s</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">u</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Type</span><span class="oth">(</span>&nbsp;<span class="key">Len</span><span class="oth">(</span><span class="wrd">s</span><span class="oth">),</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Put</span>&nbsp;<span class="oth">#</span><span class="wrd">ff</span><span class="oth">,</span>&nbsp;<span class="wrd">i</span><span class="oth">,</span>&nbsp;<span class="wrd">u</span><br />
+<span class="key">Next</span><br />
+<br />
+<span class="key">Do</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Input</span>&nbsp;<span class="quo">"Record&nbsp;number:&nbsp;"</span><span class="oth">,</span>&nbsp;<span class="wrd">i</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">&lt;</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">Or</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="num">9</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Exit</span>&nbsp;<span class="key">Do</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Get</span>&nbsp;<span class="oth">#</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="wrd">i</span><span class="oth">,</span>&nbsp;<span class="wrd">u</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">":&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="key">Left</span><span class="oth">(</span>&nbsp;<span class="wrd">u.sdata</span><span class="oth">,</span>&nbsp;<span class="wrd">u.slen</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span><br />
+<span class="key">Loop</span><br />
+<br />
+<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="wrd">ff</span><br />
+<span class="key">End</span>&nbsp;<span class="num">0</span><br />
+<br />
+<span class="key">Data</span>&nbsp;<span class="quo">".,-?!'@:"</span><span class="oth">,</span>&nbsp;<span class="quo">"abc"</span><span class="oth">,</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="quo">"def"</span><br />
+<span class="key">Data</span>&nbsp;<span class="quo">"ghi"</span><span class="oth">,</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="quo">"jkl"</span><span class="oth">,</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="quo">"mno"</span><br />
+<span class="key">Data</span>&nbsp;<span class="quo">"pqrs"</span><span class="oth">,</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="quo">"tuv"</span><span class="oth">,</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="quo">"wxyz"</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Dans QB, les cha&icirc;nes de contenu d'ex&eacute;cution de type d&eacute;fini par l'utilisateur ne sont pas impl&eacute;ment&eacute;es dans FreeBASIC.<br \>
+<li> Le mot-clef <tt><a href="KeyPgField.html">Field</a></tt> ne peut &ecirc;tre utilis&eacute; qu'avec <tt><a href="KeyPgType.html">Type</a></tt> pour sp&eacute;cifier l'empaquetage du type d&eacute;fini par l'utilisateur<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOpen.html">Open</a></tt><br \>
+<li> <tt><a href="KeyPgBinary.html">Binary</a></tt><br \>
+<li> <tt><a href="KeyPgGetfileio.html">Get #</a></tt><br \>
+<li> <tt><a href="KeyPgPutfileio.html">Put #</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

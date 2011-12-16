@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Constructor (Module)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Constructor (Module)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Sp&eacute;cifie l'ex&eacute;cution d'une proc&eacute;dure avant le code niveau module<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+[<a href="KeyPgPublic.html">Public</a> | <a href="KeyPgPrivate.html">Private</a>] <a href="KeyPgSub.html">Sub</a> <i>procedure_name</i> [<a href="KeyPgAlias.html">Alias</a> "<i>external_identifier</i>"] [()] <b>Constructor</b> [<i>priority</i>] [<a href="KeyPgStatic.html">Static</a>]<br \>
+<div class="fb_indent">{ <i>procedure body</i> }<br \>
+</div><a href="KeyPgEndblock.html">End</a> <a href="KeyPgSub.html">Sub</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Le mot-cl&eacute; <tt><b>Constructor</b></tt> est utilis&eacute; dans les d&eacute;finitions de <tt><a href="KeyPgSub.html">Sub</a></tt> pour forcer l'ex&eacute;cution de la proc&eacute;dure avant celle du code au niveau module. Les proc&eacute;dures d&eacute;finies comme des constructeurs peuvent &ecirc;tre utilis&eacute;s de la m&ecirc;me mani&egrave;re que les proc&eacute;dures ordinaires, c'est &agrave; dire, qu'elles peuvent &ecirc;tre appel&eacute;es &agrave; partir du code au niveau du module, ainsi que d'autres proc&eacute;dures.<br \>
+<br \>
+La proc&eacute;dure doit avoir une liste de param&egrave;tres vide.  Une erreur de compilation sera g&eacute;n&eacute;r&eacute;e si le mot-clef <tt><b>Constructor</b></tt> est utilis&eacute; dans une d&eacute;finition de <tt><a href="KeyPgSub.html">Sub</a></tt> ayant un ou plusieurs param&egrave;tres. Dans un ensemble de proc&eacute;dures surcharg&eacute;es, un seul (1) constructeur peut &ecirc;tre d&eacute;fini en raison de l'ambigu&iuml;t&eacute; d'avoir plusieurs <tt><a href="KeyPgSub.html">Sub</a></tt> qui n'ont aucun argument.<br \>
+<br \>
+Dans un seul module, les constructeurs sont normalement ex&eacute;cut&eacute;s dans l'ordre dans lequel ils ont &eacute;t&eacute; d&eacute;finis.<br \>
+<br \>
+L'attribut <tt><i>priority</i></tt>, un entier compris entre 101 et 65535, peut &ecirc;tre utilis&eacute; pour forcer les constructeurs &agrave; &ecirc;tre ex&eacute;cut&eacute;s dans un certain ordre.  La valeur de <tt><i>priority</i></tt> n'a pas de signification particuli&egrave;re, que la relation entre le num&eacute;ro et les priorit&eacute;s des autres constructeurs.  101 est la plus haute priorit&eacute; et est ex&eacute;cut&eacute; en premier.  Tous les constructeurs ayant un attribut de <tt><i>priority</i></tt> sont ex&eacute;cut&eacute;s avant les constructeurs n'ayant pas cet attribut.  La valeur de priorit&eacute; de 65535 est &eacute;quivalente &agrave; "ne pas attribuer une valeur de priorit&eacute;".<br \>
+<br \>Un module peut d&eacute;finir des proc&eacute;dures constructeur multiples, et plusieurs modules peuvent d&eacute;finir des constructeurs suppl&eacute;mentaires &agrave; condition que deux constructeurs <tt><a href="KeyPgPublic.html">Public</a></tt> ne partagent pas la m&ecirc;me <i>procedure_name</i>.<br \>
+<br \>
+Lors de l'&eacute;dition de liens avec des modules qui d&eacute;finissent &eacute;galement les constructeurs, l'ordre d'ex&eacute;cution n'est pas garanti au moment de la liaison sauf si l'attribut <tt><i>priority</i></tt> est utilis&eacute;. Par cons&eacute;quent, une attention particuli&egrave;re doit &ecirc;tre prise lors de l'utilisation de constructeurs qui font appel &agrave; un module secondaire qui &eacute;galement d&eacute;finit un constructeur.  Dans un tel cas, il est conseill&eacute; d'utiliser un seul constructeur qui appelle explicitement les proc&eacute;dures d'initialisation dans ces modules.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;ConDesExample.bas&nbsp;:&nbsp;An&nbsp;example&nbsp;program&nbsp;that&nbsp;defines&nbsp;two&nbsp;sets&nbsp;of</span><br />
+<span class="com">''&nbsp;constructors&nbsp;and&nbsp;destructors.&nbsp;Demonstrates&nbsp;when&nbsp;and&nbsp;in&nbsp;what&nbsp;order</span><br />
+<span class="com">''&nbsp;they&nbsp;are&nbsp;called&nbsp;when&nbsp;linking&nbsp;a&nbsp;single&nbsp;module.</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">Constructor1</span><span class="oth">()</span>&nbsp;<span class="key">Constructor</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Constructor1()&nbsp;called"</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">Destructor1</span><span class="oth">()</span>&nbsp;<span class="key">Destructor</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Destructor1()&nbsp;called"</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">Constructor2</span><span class="oth">()</span>&nbsp;<span class="key">Constructor</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Constructor2()&nbsp;called"</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">Destructor2</span><span class="oth">()</span>&nbsp;<span class="key">Destructor</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Destructor2()&nbsp;called"</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;----------------------</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"module-level&nbsp;code"</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;----------------------</span><br />
+</div></tt><br />
+<b>Affichage:</b><br \>
+<pre class="fb_pre">
+Constructor1() called
+Constructor2() called
+module-level code
+Destructor1() called
+Destructor2() called
+</pre><br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="KeyPgConstructor.html">Constructor (Classe)</a><br \>
+<li> <a href="KeyPgModuleDestructor.html">Destructor (Module)</a><br \>
+<li> <a href="KeyPgSub.html">Sub</a><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

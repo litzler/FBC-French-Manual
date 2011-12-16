@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Storage Classes</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Classes de stockage</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Visibilit&eacute; et dur&eacute;e de vie des variables, des objets et des tableaux<br \>
+<br \>
+Une classe de stockage pour variable, object ou tableau d&eacute;termine quand et o&ugrave; de la m&eacute;moire leur est allou&eacute;e et quand elle sera d&eacute;truite. Il existe deux 2 classes de stockage dans FreeBASIC: <i>automatic</i> et <i>static</i>.<br \>
+<br \>
+<div class="fb_sect_title">Automatic (Automatique)</div><div class="fb_sect_cont"><br \>
+<br \>
+La dur&eacute;e de vie d'une variable, d'un objet ou d'un tableau <i>automatic</i> commence au point de d&eacute;claration et se termine quand on quitte la port&eacute;e de leur d&eacute;claration.<br \>
+<br \>
+Les entit&eacute;s <i>automatic</i> ont la garantie d'avoir un stockage unique pour chaque instance du bloc dans lequel elles sont d&eacute;clar&eacute;es. Par exemple, les variables <i>automatic</i> d&eacute;clar&eacute;es dans une proc&eacute;dure seront allou&eacute;s &agrave; des adresses diff&eacute;rentes et auront un &eacute;tat unique (valeur) pour chaque appel de la proc&eacute;dure.<br \>
+<br \>
+Les variables, objets et tableaux <i>automatic</i> sont d&eacute;finis en utilisant les mots-clefs <tt><a href="KeyPgDim.html">Dim</a></tt>, <tt><a href="KeyPgRedim.html">ReDim</a></tt> et <tt><a href="KeyPgVar.html">Var</a></tt> sans le sp&eacute;cificateur <tt><a href="KeyPgShared.html">Shared</a></tt>.<br \>
+<br \>
+La m&eacute;moire pour les variables, objets et tableaux <i>automatic</i> est allou&eacute;e sur la pile du programme.<br \>
+<br \>
+Les variables, objets et tableaux <i>automatic</i> ne sont pas li&eacute;s.<br \>
+<br \>
+</div><div class="fb_sect_title">Static (Statique)</div><div class="fb_sect_cont"><br \>
+<br \>
+La dur&eacute;e de vie d'une variable, d'un objet ou d'un tableau <i>static</i> commence &agrave; la cr&eacute;ation du programme et se termine quand on quitte le programme.<br \>
+<br \>
+Les entit&eacute;s <i>static</i> ont la garantie d'avoir le m&ecirc;me stockage pour chaque instance du bloc dans lequel elles sont d&eacute;clar&eacute;es. Par exemple, les variables <i>static</i> d&eacute;clar&eacute;es dans une proc&eacute;dure seront allou&eacute;s &agrave; la m&ecirc;me adresse et conserveront leur &eacute;tat (valeur) pour chaque appel &agrave; la proc&eacute;dure.<br \>
+<br \>
+Les variables, objets et tableaux <i>static</i> sont d&eacute;clar&eacute;es en utilisant le mot-clef <tt><a href="KeyPgStatic.html">Static</a></tt>. Entit&eacute;s d&eacute;clar&eacute;s en utilisant le sp&eacute;cificateur <tt><a href="KeyPgShared.html">Shared</a></tt> sont implicitement <i>static</i>. Toutes les entit&eacute;s d&eacute;clar&eacute;es dans une proc&eacute;dure qui est d&eacute;clar&eacute;e en utilisant le sp&eacute;cificateur <tt><a href="KeyPgStatic.html">Static</a></tt> sont aussi implicitement <i>static</i>.<br \>
+<br \>
+La m&eacute;moire pour les variables, objets et tableaux <i>static</i> est allou&eacute;e dans la section <tt>.BSS</tt> de l'ex&eacute;cutable ou dans la section <tt>.DATA</tt> si les variables, objets et tableaux ont &eacute;t&eacute;  initialis&eacute;s lors de leur d&eacute;finition. Les tableaux de longueur variable <i>static</i> doivent &ecirc;tre d&eacute;clar&eacute;s vides, avec une liste de gamme d'indices vide; leurs &eacute;l&eacute;ments de donn&eacute;es sont toujours allou&eacute;s dans le stock libre (quand ils sont redimensionn&eacute;s), mais le tableau interne des donn&eacute;es est allou&eacute; dans la section <tt>.DATA</tt> de l'ex&eacute;cutable pour permettre aux l'&eacute;l&eacute;ments de donn&eacute;es de persister tout au long de l'ex&eacute;cution du programme.<br \>
+<br \>
+Les variables, objets et tableaux <i>static</i> sont li&eacute;s en interne par d&eacute;faut, &agrave; moins qu'ils n'aient &eacute;t&eacute; pr&eacute;alablement d&eacute;clar&eacute;s en utilisant les mots-clefs <tt><a href="KeyPgExtern.html">Extern</a></tt> ou <tt><a href="KeyPgCommon.html">Common</a></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li>  Sous DOS et Windows, la taille de la pile du programme peut &ecirc;tre ajust&eacute;e &agrave; la compilation en utilisant l'<a href="CompilerCmdLine.html">option de ligne de commande</a> <tt><i>-t</i></tt>. Sous Linux, la taille de la pile du programme peut &ecirc;tre ajust&eacute;e au moment du chargement en modifiant <tt>/etc/security/limits.conf</tt> ou sur une base par thread &agrave; l'aide de la commande interne du shell <tt>ulimit</tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> QuickBASIC permet aux entit&eacute;s <i>static</i> d'&ecirc;tre d&eacute;clar&eacute;es seulement dans les proc&eacute;dures et les routines <tt>DEF FN</tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgExtern.html">Extern</a></tt>, <tt><a href="KeyPgCommon.html">Common</a></tt><br \>
+<li> <tt><a href="KeyPgDim.html">Dim</a></tt>, <tt><a href="KeyPgRedim.html">ReDim</a></tt>, <tt><a href="KeyPgVar.html">Var</a></tt>, <tt><a href="KeyPgShared.html">Shared</a></tt><br \>
+<li> <tt><a href="KeyPgStatic.html">Static</a></tt><br \>
+<li> <a href="ProPgVarProcLinkage.html">Liens</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

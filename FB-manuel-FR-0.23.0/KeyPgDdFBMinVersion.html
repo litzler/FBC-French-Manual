@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>__FB_MIN_VERSION__</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">__FB_MIN_VERSION__</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Fonction macro pour tester la version minimum du compilateur<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgPpdefine.html">#define</a> <b>__FB_MIN_VERSION__</b>( <i>major</i>, <i>minor</i>, <i>patch</i>) _<br \>
+<div class="fb_indent">((<a href="KeyPgDdFBVerMajor.html">__FB_VER_MAJOR__</a> &gt; major) or _<br \>
+((<a href="KeyPgDdFBVerMajor.html">__FB_VER_MAJOR__</a> = major) and ((<a href="KeyPgDdFBVerMinor.html">__FB_VER_MINOR__</a> &gt; minor) or _<br \>
+(<a href="KeyPgDdFBVerMinor.html">__FB_VER_MINOR__</a> = minor and <a href="KeyPgDdFBVerPatch.html">__FB_VER_PATCH__</a> &gt;= patch_level))))<br \>
+</div></tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<b>__FB_MIN_VERSION__</b>( <i>major</i>, <i>minor</i>, <i>patch</i>)<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>major</i></tt><br \>
+<div class="fb_indent">version majeure minimum &agrave; tester<br \>
+</div><tt><i>minor</i></tt><br \>
+<div class="fb_indent">version mineure minimum &agrave; tester<br \>
+</div><tt><i>patch</i></tt><br \>
+<div class="fb_indent">version patch minimum &agrave; tester<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne z&eacute;ro (0) si la version du compilateur est inf&eacute;rieure &agrave; la version sp&eacute;cifi&eacute;e ou non-z&eacute;ro (-1) si la version du compilateur est sup&eacute;rieure ou &eacute;gale &agrave; la version sp&eacute;cifi&eacute;e.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt>__FB_MIN_VERSION__</tt> teste pour une version minimale du compilateur.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="def">#if&nbsp;Not&nbsp;__FB_MIN_VERSION__(0,&nbsp;18,&nbsp;2)<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#error&nbsp;fbc&nbsp;must&nbsp;be&nbsp;at&nbsp;least&nbsp;version&nbsp;0.18.2&nbsp;To&nbsp;compile&nbsp;This&nbsp;module<br />
+#endif<br />
+</span></div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="KeyPgPpif.html">#if</a><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

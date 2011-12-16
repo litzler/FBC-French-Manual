@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>__FUNCTION_NQ__</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">__FUNCTION_NQ__</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;finition intrins&egrave;que (valeur de la macro) fix&eacute;e par le compilateur<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+__FUNCTION_NQ__<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Remplac&eacute; par le nom du fichier source entre guillemets o&ugrave; il est utilis&eacute;.<br \>
+<br \>                                                                                                                                                                                                                                   
+Si <tt><b>__FUNCTION_NQ__</b></tt> est utilis&eacute; au niveau module, le nom de fonction donn&eacute; sera <tt>__FB_MAINPROC__</tt> pour le module principal (main), ou <tt>__FB_MODLEVELPROC__</tt> pour un module diff&eacute;rent.  Cependant ce n'est pas le nom r&eacute;el de la fonction, ce n'est donc pas tr&egrave;s utile.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Sub</span>&nbsp;<span class="wrd">MySub</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Address&nbsp;of&nbsp;"</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="key">__FUNCTION__</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="quo">"&nbsp;is&nbsp;"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Hex</span><span class="oth">(</span>&nbsp;<span class="oth">@</span><span class="key">__FUNCTION_NQ__</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="wrd">MySub</span><br />
+</div></tt><br />
+<br \>
+<pre class="fb_pre">
+Address of MYSUB is 4012D0
+</pre><br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> N'existait pas dans QB<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDdfilenq.html">__FILE_NQ__</a></tt><br \>
+<li> <tt><a href="KeyPgDdfunction.html">__FUNCTION__</a></tt><br \>
+<li> <tt><a href="KeyPgDdline.html">__LINE__</a></tt><br \>
+<br \>
+</ul><br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

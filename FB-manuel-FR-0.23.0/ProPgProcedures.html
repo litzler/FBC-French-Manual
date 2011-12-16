@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Procedures Overview</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Vue d'ensemble des proc&eacute;dures</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Vue d'ensemble des diff&eacute;rents types de proc&eacute;dures FB.<br \>
+<br \>
+Les proc&eacute;dures sont des blocs de code qui peuvent &ecirc;tre ex&eacute;cut&eacute;s ou appel&eacute;s, un certain nombre de fois, depuis n'importe quel endroit d'un programme. Le code qui est ex&eacute;cut&eacute; est appel&eacute; le corps de la proc&eacute;dure. Il existe deux types de proc&eacute;dures sous FreeBASIC: des proc&eacute;dures qui ne retournent pas de valeur et des proc&eacute;dures qui en retournent une.<br \>
+<br \>
+<div class="fb_sect_title">Les proc&eacute;dures Sub</div><div class="fb_sect_cont"><br \>
+Les <i>Sub</i> sont des procedures qui ne retournent aucune valeur. Eles sont d&eacute;clar&eacute;es en utilisant le mot-clef <tt><a href="KeyPgDeclare.html">Declare</a></tt> et d&eacute;finies en utilisant le mot-clef <tt><a href="KeyPgSub.html">Sub</a></tt>. D&eacute;clarer une de proc&eacute;dures introduit son nom afin qu'elle puisse &ecirc;tre appel&eacute;e et la d&eacute;finition de la proc&eacute;dure liste les instructions de code qui seront ex&eacute;cut&eacute;es lorsqu'elle sera appel&eacute;e. Une <i>sub</i> est  appel&eacute;e simplement en utilisant son nom queque part dans le programme.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;introduces&nbsp;the&nbsp;sub&nbsp;'MyProcedure'</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">MyProcedure</span><br />
+<br />
+<span class="com">'&nbsp;calls&nbsp;the&nbsp;procedure&nbsp;'MyProcedure'</span><br />
+<span class="wrd">MyProcedure</span><br />
+<br />
+<span class="com">'&nbsp;defines&nbsp;the&nbsp;procedure&nbsp;body&nbsp;for&nbsp;'MyProcedure'</span><br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">MyProcedure</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"the&nbsp;body&nbsp;of&nbsp;MyProcedure"</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt><br />
+produira l'affichage:<br \>
+<br \>
+<pre class="fb_pre">
+the body of MyProcedure
+</pre><br \>
+Notez que seule la d&eacute;claration est n&eacute;cessaire pour appeler la proc&eacute;dure. La proc&eacute;dure peut &ecirc;tre d&eacute;finie ult&eacute;rieurement dans le code ou m&ecirc;me dans un fichier source tout &agrave; fait diff&eacute;rent.<br \>
+<br \>
+</div><div class="fb_sect_title">Les fonctions</div><div class="fb_sect_cont"><br \>
+Les <i>fonctions</i> sont des proc&eacute;dures qui retournent une valeur au point du code depuis lequel elles ont &eacute;t&eacute; appel&eacute;es. Vous pouvez penser qu'un appel de <i>fonction</i> est comme l'&eacute;valuation d'une expression, tout comme une variable ou un objet. Elles sont d&eacute;clar&eacute;es en utilisant le mot-clef <tt><a href="KeyPgDeclare.html">Declare</a></tt> et d&eacute;finies en utilisant le mot-clef <tt><a href="KeyPgFunction.html">Function</a></tt>. Le type de valeur que la <i>fonction</i> retourne est sp&eacute;cifi&eacute; &agrave; la fin de la d&eacute;claration.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;introduces&nbsp;and&nbsp;defines&nbsp;a&nbsp;procedure&nbsp;that&nbsp;returns&nbsp;an&nbsp;integer&nbsp;value</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">MyProcedure</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="num">10</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="com">'&nbsp;calls&nbsp;the&nbsp;procedure,&nbsp;and&nbsp;stores&nbsp;its&nbsp;return&nbsp;value&nbsp;in&nbsp;a&nbsp;variable</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">MyProcedure</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">i</span><br />
+</div></tt><br />
+produira l'affichage:<br \>
+<br \>
+<pre class="fb_pre">10</pre>
+Comme la d&eacute;finition est une d&eacute;claration, ainsi la proc&eacute;dure peut &ecirc;tre appel&eacute;e apr&egrave;s qu'elle a &eacute;t&eacute; d&eacute;finie.<br \>
+<br \>
+Il s'agit d'une convention commune, lors de l'appel d'une proc&eacute;dure de placer des parenth&egrave;ses <tt>'()'</tt> apr&egrave;s le nom de la proc&eacute;dure, pour signifier un appel de proc&eacute;dure. Cependant, FreeBASIC ne l'exige pas.<br \>
+<br \>
+</div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="ProPgPassingArguments.html">Passage d'arguments aux proc&eacute;dures</a><br \>
+<li> <a href="ProPgReturnValue.html">Retourner une valeur</a><br \>
+<li> <tt><a href="KeyPgDeclare.html">Declare</a></tt><br \>
+<li> <tt><a href="KeyPgSub.html">Sub</a></tt><br \>
+<li> <tt><a href="KeyPgFunction.html">Function</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

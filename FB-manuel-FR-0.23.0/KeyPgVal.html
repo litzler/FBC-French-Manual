@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Val</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Val</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Conversion d'une cha&icirc;ne en un nombre &agrave; virgule flottante<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>Val</b> <a href="KeyPgOverload.html">Overload</a> ( <a href="KeyPgByref.html">ByRef</a> <i>str</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgString.html">String</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>Val</b> ( <a href="KeyPgByref.html">ByRef</a> <i>str</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgWstring.html">WString</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>Val</b>( <i>strnum</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>strnum</i></tt><br \>
+<div class="fb_indent">la cha&icirc;ne contenant le nombre &agrave; convertir<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne un nombre converti en nombre <tt><a href="KeyPgDouble.html">Double</a></tt> pr&eacute;cision<br \>
+<br \>
+Si le premier caract&egrave;re de la cha&icirc;ne est invalide, <tt><b>Val</b></tt> retournera <tt>0</tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Val</b>("10")</tt> retournera <tt>10.0</tt>, et <tt><b>Val</b>("10.10")</tt> retournera <tt>10.1</tt>. La fonction analyse la cha&icirc;ne &agrave; partir de la gauche, en sautant tout espace blanc, et retourne le plus long nombre qu'elle peut lire, s'arr&ecirc;tant au premier caract&egrave;re non-appropri&eacute;, qu'elle trouve.  La notation scientifique est reconnue, en utilisant <tt>"D"</tt> ou <tt>"E"</tt> pour pr&eacute;ciser l'exposant.<br \>
+<br \>
+<tt><b>Val</b></tt> peut convertir des nombres entiers dans le format binaire / octal / hexad&eacute;cimal, s'il y a devant l'identificateur pertinent (<tt>"&B"</tt> / <tt>"&O"</tt> / <tt>"&H"</tt>), par exemple: <tt><b>Val</b>("&HFF")</tt> retourne <tt>255</tt>.<br \>
+<br \>
+<b>Note</b>:<br \>
+Si vous souhaitez obtenir une valeur enti&egrave;re &agrave; partir d'une cha&icirc;ne, pensez plut&ocirc;t &agrave; utiliser <tt><a href="KeyPgValint.html">ValInt</a></tt> ou <tt><a href="KeyPgVallng.html">ValLng</a></tt>.  Ils sont plus rapides, car ils n'utilisent pas de nombres &agrave; virgule flottante, et seul <tt><a href="KeyPgVallng.html">ValLng</a></tt> procure une pleine pr&eacute;cision 64-bit pour les types <tt><a href="KeyPgLongint.html">LongInt (entier long)</a></tt>.<br \>
+<br \>
+<br \>
+Si vous voulez convertir un nombre en une cha&icirc;ne, utilisez la fonction <tt><a href="KeyPgStr.html">Str</a></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="wrd">a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"2.1E+30xa211"</span><br />
+<span class="wrd">b</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Val</span><span class="oth">(</span><span class="wrd">a</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">a</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span><br />
+</div></tt><br />
+<br \>
+<pre class="fb_pre">
+2.1E+30xa211   2.1e+030
+</pre><br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Aucune<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgCdbl.html">CDbl</a></tt><br \>
+<li> <tt><a href="KeyPgValint.html">ValInt</a></tt><br \>
+<li> <tt><a href="KeyPgValuint.html">ValUInt</a></tt><br \>
+<li> <tt><a href="KeyPgVallng.html">ValLng</a></tt><br \>
+<li> <tt><a href="KeyPgValulng.html">ValULng</a></tt><br \>
+<li> <tt><a href="KeyPgStr.html">Str</a></tt><br \>
+<li> <tt><a href="KeyPgChr.html">Chr</a></tt><br \>
+<li> <tt><a href="KeyPgAsc.html">Asc</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

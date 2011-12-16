@@ -1,0 +1,374 @@
+<html>
+<head>
+<title>Beginners Guide to Types as Objects</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Guide pour d&eacute;butants, de types en tant qu'objets (Partie 1)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+<b>Introduction</b><br \>
+<br \>
+  Ce tutoriel est destin&eacute; aux personnes qui veulent en savoir plus sur les nouvelles fonctionnalit&eacute;s ajout&eacute;es &agrave; <tt><b>Type</b></tt>, commun&eacute;ment d&eacute;nomm&eacute;es '<i>types comme des objets</i>' et '<i>du genre POO</i>' (Programmation Orient&eacute;e Objets).  Il vise &agrave; vous guider &agrave; travers ces nouvelles fonctionnalit&eacute;s, ainsi est il destin&eacute; aux personnes qui ne comprennent pas vraiment encore, mais qui veulent apprendre.  Un <tt><b>Type</b></tt> en FreeBASIC est un type de donn&eacute;es agr&eacute;g&eacute;es, comme une structure en C ou un '<i>record</i>' en Pascal.  Voici un court exemple d'utilisation typique de <tt><b>Type</b></tt>.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">person_info</span><br />
+&nbsp;&nbsp;<span class="wrd">first_name</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+&nbsp;&nbsp;<span class="wrd">last_name</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+&nbsp;&nbsp;<span class="wrd">house_number</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="wrd">street_name</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+&nbsp;&nbsp;<span class="wrd">town</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+</div></tt><br />
+<br \>
+Dans cette utilisation, il est employ&eacute; comme un type de conteneur pour les donn&eacute;es relatives; dans cet exemple, il pourrait &ecirc;tre aussi une entr&eacute;e dans un carnet d'adresses.  Avec les nouvelles fonctionnalit&eacute;s, cependant, il peut &ecirc;tre utilis&eacute; plus comme une classe en C++, car il peut faire beaucoup plus que contenir de simples champs de donn&eacute;es.  Il devient un moyen d'exprimer une id&eacute;e d'un objet, ce qui rend la programmation orient&eacute;e objet beaucoup plus simple.  Nous allons maintenant examiner ces nouvelles fonctionnalit&eacute;s.<br \>
+<br \>
+<b>Property</b><br \>
+<br \>
+Nous allons commencer par examiner la <tt><b>Property</b></tt> (propri&eacute;t&eacute;).  Quand vous ajoutez une <tt><b>Property</b></tt> &agrave; un <tt><b>Type</b></tt>, vous y acc&eacute;der comme s'il s'agissait d'un membre ordinaire, mais que se passe-t-il, est-ce seulement pour obtenir ou d&eacute;finir une variable comme d'habitude, au lieu de cela il appelle une fonction.  Jetez un oeil &agrave; cet exemple:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Property</span>&nbsp;<span class="wrd">x</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Property</span>&nbsp;<span class="wrd">x</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">p_x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Property</span>&nbsp;<span class="wrd">bar.x</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"bar.x()"</span><br />
+&nbsp;&nbsp;<span class="key">Property</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">p_x</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Property</span><br />
+<br />
+<span class="key">Property</span>&nbsp;<span class="wrd">bar.x</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"bar.x(ByVal&nbsp;n&nbsp;As&nbsp;Integer)"</span><br />
+&nbsp;&nbsp;<span class="wrd">p_x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">n</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Property</span><br />
+<br />
+<span class="com">'---</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">foo</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><br />
+<br />
+<span class="wrd">foo.x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">foo.x</span><br />
+</div></tt><br />
+<br \>
+Nous incluons dans notre <tt><b>Type</b></tt> certaines d&eacute;clarations de <tt><b>Property</b></tt>; elles sont tr&egrave;s semblables aux d&eacute;clarations de fonction ordinaires.  La premi&egrave;re d&eacute;clare un procureur (getter), la seconde un fixeur (setter).  Le membre <tt>p_x</tt> est simplement un nombre <tt><b>Integer</b></tt>.<br \>
+<br \>
+Ensuite, nous &eacute;crivons le code pour les <tt><b>Property</b></tt>; encore une fois, la syntaxe est tr&egrave;s similaire &agrave; celle des fonctions normales.  Notez la mani&egrave;re dont nous retournons une valeur: au lieu de <tt><b>Function = valeur</b></tt>, nous faisons <tt><b>Property = valeur</b></tt>.  Vous pouvez faire aussi <tt><b>Return valeur</b></tt>.  Notez &eacute;galement que vous pouvez vous r&eacute;f&eacute;rer directement au membre <tt><b>p_x</b></tt>; vous pouvez &eacute;galement utiliser le mot-cl&eacute; <tt><b>this</b></tt>, par exemple <tt><b>this.p_x = n</b></tt>; utiliser <tt><b>this</b></tt> n'est g&eacute;n&eacute;ralement pas n&eacute;cessaire, mais il peut aider dans certaines circonstances ambigu&euml;s.<br \>
+<br \>
+Vient ensuite un peu de code de test; cela montre comment nous pouvons utiliser <tt><b>Property</b></tt> comme s'il s'agissait d'un membre ordinaire.  Lorsque vous ex&eacute;cutez le programme, il sera &eacute;galement affich&eacute; &agrave; l'&eacute;cran pour montrer quel code de <tt><b>Property</b></tt> "get/set" a &eacute;t&eacute; appel&eacute;.<br \>
+<br \>
+Maintenant, ce code est assez trivial, mais comme on s'habitue &agrave; l'id&eacute;e vous verrez qu'il peut &ecirc;tre utilis&eacute; pour certains bons usages.  Imaginez, comme un exemple, que vous &eacute;crivez une interface graphique (GUI) et que le <tt><b>Type</b></tt> repr&eacute;sente un bouton sur l'&eacute;cran, vous pourriez avoir <tt><b>button.text = "Hello World!"</b></tt>, et faire que le code de <tt><b>Property</b></tt> mette &agrave; jour l'&eacute;cran pour montrer les changements.  Ou peut-&ecirc;tre que vous utilisez <tt><b>Type</b></tt> pour maintenir une sorte de liste; vous pouvez avoir <tt><b>list.size += 10</b></tt> et puis mettre un peu de code dans votre <tt><b>Property</b></tt> de rendre la liste plus grande.<br \>
+<br \>
+<b>Constructeur/Destructeur</b><br \>
+<br \>
+Les <tt><b>Constructor</b></tt>s sont des fonctions qui sont appel&eacute;es quand le <tt><b>Type</b></tt> est cr&eacute;&eacute; - lorsque vous utilisez <tt><b>Dim</b></tt>, par exemple.  Un <tt><b>Destructor</b></tt> est une fonction appel&eacute;e quand <tt><b>Type</b></tt> sort de la port&eacute;e; il peut s'agir de la fin du programme, pour un <tt><b>Type</b></tt> dans le code principal ou quand une fonction se termine, pour un <tt><b>Type</b></tt> local.  Regardez l'exemple suivant, expansion du pr&eacute;c&eacute;dent.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Constructor</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Destructor</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Property</span>&nbsp;<span class="wrd">x</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Property</span>&nbsp;<span class="wrd">x</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">p_x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Constructor</span>&nbsp;<span class="wrd">bar</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Constructor&nbsp;bar()"</span><br />
+&nbsp;&nbsp;<span class="wrd">p_x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span><span class="key">SizeOf</span><span class="oth">(</span><span class="key">Integer</span><span class="oth">))</span><br />
+&nbsp;&nbsp;<span class="oth">*</span><span class="wrd">p_x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Constructor</span><br />
+<br />
+<span class="key">Destructor</span>&nbsp;<span class="wrd">bar</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Destructor&nbsp;bar()"</span><br />
+&nbsp;&nbsp;<span class="key">Deallocate</span><span class="oth">(</span><span class="wrd">p_x</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Destructor</span><br />
+<br />
+<span class="key">Property</span>&nbsp;<span class="wrd">bar.x</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"bar.x()"</span><br />
+&nbsp;&nbsp;<span class="key">Property</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">*</span><span class="wrd">p_x</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Property</span><br />
+<br />
+<span class="key">Property</span>&nbsp;<span class="wrd">bar.x</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"bar.x(ByVal&nbsp;n&nbsp;As&nbsp;Integer)"</span><br />
+&nbsp;&nbsp;<span class="oth">*</span><span class="wrd">p_x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">n</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Property</span><br />
+<br />
+<span class="com">'---</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">foo</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="wrd">foo.x</span><br />
+<span class="wrd">foo.x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">foo.x</span><br />
+</div></tt><br />
+<br \>
+Encore une fois la syntaxe est quelque peu semblable &agrave; toutes les fonctions normales.  Notez que cette fois j'ai modifi&eacute; <tt><b>p_x</b></tt> pour un <tt><b>Integer ptr</b></tt>.  Le <tt><b>Constructor</b></tt>, ensuite <tt><b>Allocate</b></tt> de la m&eacute;moire pour lui quand <tt><b>foo</b></tt> est cr&eacute;&eacute;, et lui donne une valeur par d&eacute;faut; puis le <tt><b>Destructor</b></tt> <tt><b>Deallocate</b></tt> cette m&eacute;moire.  Ainsi, vous pouvez utiliser <tt><b>Constructor</b></tt>s et <tt><b>Destructor</b></tt>s pour mettre les choses en place pour vous, puis nettoyer une fois termin&eacute;.  Retour sur un exemple trivial, ramenant l'exemple d'une certaine liste, la mettant en place pour vous et la nettoyant lorsque tout est fini, cela peut &ecirc;tre tr&egrave;s pratique.<br \>
+<br \>
+<b>M&eacute;thodes</b><br \>
+<br \>
+Vous pouvez &eacute;galement avoir des <tt><b>Sub</b></tt>s et <tt><b>Function</b></tt>s ordinaires dans votre <tt><b>Type</b></tt>; dans une certaine terminologie, ce sont des m&eacute;thodes.  Nous allons poursuivre notre exemple:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Constructor</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Destructor</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Property</span>&nbsp;<span class="wrd">x</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Property</span>&nbsp;<span class="wrd">x</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">Mul5</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">Addr</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;<span class="wrd">p_x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Constructor</span>&nbsp;<span class="wrd">bar</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Constructor&nbsp;bar()"</span><br />
+&nbsp;&nbsp;<span class="wrd">p_x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span><span class="key">SizeOf</span><span class="oth">(</span><span class="key">Integer</span><span class="oth">))</span><br />
+&nbsp;&nbsp;<span class="oth">*</span><span class="wrd">p_x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Constructor</span><br />
+<br />
+<span class="key">Destructor</span>&nbsp;<span class="wrd">bar</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Destructor&nbsp;bar()"</span><br />
+&nbsp;&nbsp;<span class="key">Deallocate</span><span class="oth">(</span><span class="wrd">p_x</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Destructor</span><br />
+<br />
+<span class="key">Property</span>&nbsp;<span class="wrd">bar.x</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"bar.x()"</span><br />
+&nbsp;&nbsp;<span class="key">Property</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">*</span><span class="wrd">p_x</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Property</span><br />
+<br />
+<span class="key">Property</span>&nbsp;<span class="wrd">bar.x</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"bar.x(ByVal&nbsp;n&nbsp;As&nbsp;Integer)"</span><br />
+&nbsp;&nbsp;<span class="oth">*</span><span class="wrd">p_x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">n</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Property</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">bar.mul5</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="oth">*</span><span class="wrd">p_x</span>&nbsp;<span class="oth">*=</span>&nbsp;<span class="num">5</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">bar.Addr</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;<span class="key">Function</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">p_x</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="com">'---</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">foo</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="wrd">foo.x</span><br />
+<span class="wrd">foo.x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">foo.x</span><br />
+<span class="wrd">foo.mul5</span><span class="oth">()</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">foo.x</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"address&nbsp;p_x&nbsp;points&nbsp;to"</span><span class="oth">,</span>&nbsp;<span class="wrd">foo.Addr</span><span class="oth">()</span><br />
+</div></tt><br />
+<br \>
+Alors, cette fois nous avons ajout&eacute; une <tt><b>Sub</b></tt>, qui multiplie par 5 l'entier point&eacute; par <tt><b>p_x</b></tt> et une fonction qui r&eacute;cup&egrave;re l'adresse m&eacute;moire contenue dans ce pointeur.<br \>
+<br \>
+<b>Private/Public</b><br \>
+<br \>
+Par d&eacute;faut, tous les membres du <tt><b>Type bar</b></tt> sont <tt><b>Public</b></tt>; cela signifie que nous pouvons les lire/&eacute;crire ou appeler.  Cependant, parfois, vous voudrez peut-&ecirc;tre les rendre <tt><b>Private</b></tt>.  Prenons l'exemple de notre membre <tt><b>p_x</b></tt>; alors nous pouvons faire <tt><b>Print *foo.p_x</b></tt> et cela nous permettra d'afficher la valeur vers laquelle il pointe.  Nous pourrions vouloir le rendre <tt><b>Private</b></tt>, de sorte que seuls les membres du <tt><b>Type bar</b></tt> (<tt><b>Constructor</b></tt>, <tt><b>Destructor</b></tt>, <tt><b>Property</b></tt> et <tt><b>M&eacute;thodes</b></tt>) peuvent y acc&eacute;der.  De cette fa&ccedil;on, nous pouvons nous assurer que nous ne tra&icirc;tons avec <tt><b>p_x</b></tt> que par les moyens que nous avons choisis.  Si par exemple on '<tt><b>Deallocate(foo.p_x)</b></tt>' dans notre code principal, lorsque le <tt><b>Destructor</b></tt> fonctionnera, il essaiera de le lib&eacute;rer &agrave; nouveau, ce qui est connu sous le nom de "double lib&eacute;ration".  Modifiez la d&eacute;claration de <tt><b>Type</b></tt> comme suit:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Constructor</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Destructor</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Property</span>&nbsp;<span class="wrd">x</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Property</span>&nbsp;<span class="wrd">x</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">Mul5</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">Addr</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Private</span><span class="oth">:</span><br />
+&nbsp;&nbsp;<span class="wrd">p_x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+</div></tt><br />
+<br \>
+Maintenant, essayez d'ajouter <tt><b>Print *foo.p_x</b></tt> dans le code principal et compilez-le.  Vous recevrez un message de fbc <tt><b>error 173: Illegal member access, found 'p_x' in 'Print *foo.p_x'</b></tt>, montrant bien que le compilateur est maintenant oblig&eacute; de faire respecter le fait que nous avons d&eacute;clar&eacute; <tt><b>p_x Private</b></tt>.  Quand vous utilisez <tt><b>Private:</b></tt> ou <tt><b>Public:</b></tt>, tous les membres suivant cette d&eacute;claration suivent la r&egrave;gle.  Voici un exemple, assez inutile, juste pour montrer la syntaxe:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+<span class="key">Private</span><span class="oth">:</span><br />
+&nbsp;&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Public</span><span class="oth">:</span><br />
+&nbsp;&nbsp;<span class="wrd">c</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="wrd">d</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Private</span><span class="oth">:</span><br />
+&nbsp;&nbsp;<span class="wrd">e</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+</div></tt><br />
+<br \>
+Dans le <tt><b>Type</b></tt> ci-dessus, les membres <tt>a</tt>, <tt>b</tt> et <tt>e</tt> sont <tt><b>Private</b></tt>; <tt>c</tt> et <tt>d</tt> sont <tt><b>Public</b></tt>.<br \>
+<br \>
+<b>Surcharge des op&eacute;rateurs</b><br \>
+<br \>
+La surcharge d'op&eacute;rateur est une fa&ccedil;on de dire au compilateur ce qu'il faut faire dans le cas o&ugrave; nous voulons effectuer une certaine sorte d'op&eacute;ration impliquant notre <tt><b>Type</b></tt>.  Prenez cet exemple:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span>&nbsp;<span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><span class="oth">,</span>&nbsp;<span class="wrd">z</span><br />
+<br />
+<span class="wrd">z</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">y</span><br />
+</div></tt><br />
+<br \>
+Maintenant, normalement le compilateur g&eacute;n&egrave;re une erreur lorsqu'il voit cela, car il n'a aucune id&eacute;e de comment ajouter ensemble deux <tt><b>Type</b></tt>s, mais nous pouvons d&eacute;finir ce que nous voulons qu'il se produise.  Voici comment:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Operator</span>&nbsp;<span class="oth">+(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">lhs</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><span class="oth">,</span>&nbsp;<span class="key">ByRef</span>&nbsp;<span class="wrd">rhs</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="key">Operator</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Type</span><span class="oth">(</span><span class="wrd">lhs.n</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">rhs.n</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Operator</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span>&nbsp;<span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><span class="oth">,</span>&nbsp;<span class="wrd">z</span><br />
+<br />
+<span class="wrd">x.n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+<span class="wrd">y.n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10</span><br />
+<span class="wrd">z</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">y</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">z.n</span><br />
+</div></tt><br />
+<br \>
+Dans ce code, j'utilise <tt><b>lhs</b></tt> (left-hand) et <tt><b>rhs</b></tt> (right-hand) pour d&eacute;signer les op&eacute;randes du c&ocirc;t&eacute; gauche et du c&ocirc;t&eacute; droit de l'op&eacute;rateur.  Notez aussi l'expression <tt><b>type(lhs.n + rhs.n)</b></tt>; ceci construit le <tt><b>Type</b></tt> qui sera retourn&eacute;.  Si vous aviez un <tt><b>Type</b></tt> comme:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="wrd">x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="wrd">y</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="wrd">z</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+</div></tt><br />
+<br \>
+Vous l'auriez construit ainsi <tt><b>type(xpart, ypart, zpart)</b></tt>.<br \>
+<br \>
+La plupart ou tous les op&eacute;rateurs peuvent &ecirc;tre surcharg&eacute;s, et la plupart d'entre eux sont des op&eacute;rateurs binaires, ce qui signifie qu'ils ont deux op&eacute;randes comme dans l'exemple <b>+</b> ci-dessus.  Certains sont des op&eacute;rateurs unaires ayant seulement le c&ocirc;t&eacute; droit, comme <tt><b>Not</b></tt> et <tt><b>- unaire</b></tt>.  Ils seraient obtenus comme ceci <tt><b>Operator Not(ByRef rhs As bar) As bar</b></tt>.<br \>
+<br \>
+Il y a quelques cas particuliers o&ugrave; ils doivent &ecirc;tre d&eacute;clar&eacute;s &agrave; l'int&eacute;rieur du <tt><b>Type</b></tt>; ce sont les op&eacute;rateurs d'affectation et les "cast".<br \>
+<br \>
+Les op&eacute;rateurs d'affectation sont comme ceci <tt><b>+= -= mod=</b></tt> etc, et aussi <tt><b>Let</b></tt>.  <tt><b>Let</b></tt> est utilis&eacute; lorsque vous faites une t&acirc;che d'affectation comme:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span>&nbsp;<span class="wrd">foo</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">x</span><br />
+<span class="wrd">foo</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">x</span><br />
+</div></tt><br />
+<br \>
+Et "casts" sont des cas inverses, ils sont utilis&eacute;s lorsque vous "cast" vers un autre type de donn&eacute;es comme ceci:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span>&nbsp;<span class="wrd">foo</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">x</span><br />
+<span class="wrd">x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">foo</span><br />
+</div></tt><br />
+<br \>
+Voici un court exemple utilisant <tt><b>Let</b></tt> et <tt><b>Cast</b></tt>:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Operator</span>&nbsp;<span class="key">Let</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">rhs</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Operator</span>&nbsp;<span class="key">Let</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">rhs</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Operator</span>&nbsp;<span class="key">Cast</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Operator</span>&nbsp;<span class="wrd">bar.Let</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">rhs</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">rhs</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Operator</span><br />
+<br />
+<span class="key">Operator</span>&nbsp;<span class="wrd">bar.Let</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">rhs</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Val</span><span class="oth">(</span><span class="wrd">rhs</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Operator</span><br />
+<br />
+<span class="key">Operator</span>&nbsp;<span class="wrd">bar.Cast</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+&nbsp;&nbsp;<span class="key">Operator</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Str</span><span class="oth">(</span><span class="wrd">n</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Operator</span><br />
+<br />
+<span class="key">Operator</span>&nbsp;<span class="oth">+(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">lhs</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><span class="oth">,</span>&nbsp;<span class="key">ByRef</span>&nbsp;<span class="wrd">rhs</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="key">Operator</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Type</span><span class="oth">(</span><span class="wrd">lhs.n</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">rhs.n</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Operator</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span>&nbsp;<span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><span class="oth">,</span>&nbsp;<span class="wrd">z</span><br />
+<br />
+<span class="wrd">x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+<span class="wrd">y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"10"</span><br />
+<span class="wrd">z</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">y</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">z</span><br />
+</div></tt><br />
+<br \>
+Vous devez avoir s&eacute;par&eacute; les <b>let</b>s et <b>cast</b>s pour chaque type de donn&eacute;es que vous voulez supporter. Les op&eacute;rateurs qui doivent &ecirc;tre d&eacute;clar&eacute;s dans le <tt><b>Type</b></tt> sont connus comme non-statiques et ceux qui ne sont pas connus comme globals.  Il y a une raison technique pour cela; les non-statiques doivent savoir &agrave; quelle instance (dans le jargon technique, dans notre exemple pr&eacute;c&eacute;dent, nous dirions que <tt><b>x</b></tt> est une instance de <tt><b>bar</b></tt>) de <tt><b>Type</b></tt> ils font r&eacute;f&eacute;rence et ceci est accompli par la r&eacute;f&eacute;rence cach&eacute;e <tt><b>this</b></tt>.  Cette r&eacute;f&eacute;rence cach&eacute;e <tt><b>this</b></tt> est le moyen pour que les autres membres comme les op&eacute;rateurs et les m&eacute;thodes sachent &agrave; quelle instance de <tt><b>Type</b></tt> se r&eacute;f&egrave;re l'appel.  La plupart des op&eacute;rateurs peuvent &ecirc;tre surcharg&eacute;s; voici une liste de ceux qui actuellement peuvent l'&ecirc;tre:<br \>
+<br \>
+op&eacute;rateurs d'affectation:<br \>
+  <tt>let</tt>, <tt>+=</tt>, <tt>-=</tt>, <tt>*=</tt>, <tt>/=</tt>, <tt>\=</tt>, <tt>mod=</tt>, <tt>shl=</tt>, <tt>shr=</tt>, <tt>and=</tt>, <tt>or=</tt>, <tt>xor=</tt>, <tt>imp=</tt>, <tt>eqv=</tt>, <tt>^=</tt><br \>
+op&eacute;rateurs unaires:<br \>
+  <tt>-</tt>, <tt>not</tt>, <tt>@</tt>, <tt>*</tt>, <tt>-&gt;</tt><br \>
+op&eacute;rateurs binaires:<br \>
+  <tt>+</tt>, <tt>-</tt>, <tt>*</tt>, <tt>/</tt>, <tt>\</tt>, <tt>mod</tt>, <tt>shl</tt>, <tt>shr</tt>, <tt>and</tt>, <tt>or</tt>, <tt>xor</tt>, <tt>imp</tt>, <tt>eqv</tt>, <tt>^</tt>, <tt>=</tt>, <tt>&lt;&gt;</tt>, <tt>&lt;</tt>, <tt>&gt;</tt>, <tt>&lt;=</tt>, <tt>&gt;=</tt><br \>
+<br \>
+<b>Constructeurs/M&eacute;thodes surcharg&eacute;s</b><br \>
+<br \>
+Comme pour les fonctions normales, le <tt><b>Constructor</b></tt> et les m&eacute;thodes de notre <tt><b>Type</b></tt> peuvent &ecirc;tre surcharg&eacute;s.  Pour les <tt><b>Constructor</b></tt>s, cela fournit un moyen de sp&eacute;cifier les d&eacute;tails sur la fa&ccedil;on dont l'instance doit l'&ecirc;tre construite.  Voici un court exemple:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Constructor</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Constructor</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">initial_val</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Constructor</span>&nbsp;<span class="wrd">bar</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Constructor</span><br />
+<br />
+<span class="key">Constructor</span>&nbsp;<span class="wrd">bar</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">initial_val</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">initial_val</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Constructor</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">foo</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">foo.x</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">baz</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">bar</span><span class="oth">(</span><span class="num">25</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">baz.x</span><br />
+</div></tt><br />
+<br \>
+Le premier <tt><b>Constructor</b></tt>, qui n'a aucun argument, est appel&eacute; le <tt><b>Constructor</b></tt> par d&eacute;faut.  Il d&eacute;finit <tt>foo.x</tt> avec une valeur initiale de 10.  Cependant, nous avons aussi sp&eacute;cifi&eacute; un autre <tt><b>Constructor</b></tt> qui accepte une valeur initiale.  Notez la mani&egrave;re avec laquelle nous l'appelons <tt><b>Dim baz As bar = bar(25)</b></tt>.  Vous pouvez &eacute;galement omettre le <tt><b>Constructor</b></tt> par d&eacute;faut et alors vous devrez toujours sp&eacute;cifier une valeur initiale en utilisant le <tt><b>Constructor</b></tt> qui n&eacute;cessite un argument. Vous ne pouvez pas avoir un <tt><b>Destructor</b></tt> surcharg&eacute;, parce qu'il n'existe aucun moyen manuel de choisir celui que vous d&eacute;sirez appeler.<br \>
+<br \>
+Les m&eacute;thodes surcharg&eacute;es sont tr&egrave;s similaires:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">foo</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">foo</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">some_value</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">foo</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">some_value</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">some_other</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+</div></tt><br />
+<br \>
+Elles fonctionnent de la m&ecirc;me fa&ccedil;on que les fonctions normales surcharg&eacute;es.<br \>
+<br \>
+<b>Cl&ocirc;ture</b><br \>
+<br \>
+J'esp&egrave;re que ce tutoriel vous a &eacute;t&eacute; utile, mais il y a encore quelques petites choses &agrave; apprendre; si vous avez pu aller jusqu'ici, il ne devrait pas &ecirc;tre trop difficile pour vous de les int&eacute;grer.  Il y a quelques informations disponibles dans le wiki et sur les forums, et aussi dans la partie 2 de ce tutoriel qui est disponible ici - <a href="TutBeginnersGuideToTypesAsObjects2.html">Guide pour d&eacute;butants, de types en tant qu'objets (Partie 2)</a><br \>
+<br \>
+<b>Lectures suppl&eacute;mentaires</b><br \>
+<br \>
+<ul><li> <tt><a href="KeyPgProperty.html">Property</a></tt><br \>
+<li> <tt><a href="KeyPgConstructor.html">Constructor</a></tt><br \>
+<li> <tt><a href="KeyPgDestructor.html">Destructor</a></tt><br \>
+<li> <tt><a href="KeyPgOperator.html">Operator</a></tt><br \>
+<li> <tt><a href="KeyPgThis.html">This</a></tt><br \>
+<li> <a href="KeyPgTypeTemp.html">Types anonymes</a><br \>
+<li> <a href="ProPgTypeObjects.html">Types comme objets</a><br \>
+<li> <tt><a href="KeyPgVisPublic.html">Public:</a></tt><br \>
+<li> <tt><a href="KeyPgVisPrivate.html">Private:</a></tt><br \>
+<li> <tt><a href="KeyPgVisProtected.html">Protected:</a></tt></ul>
+</div>
+</div> 
+</div> 
+</body>
+</html>

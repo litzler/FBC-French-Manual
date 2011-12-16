@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>Using FreeBASIC Built Libraries with GCC</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Utilisation de biblioth&egrave;ques FreeBASIC construites avec GCC</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<i>par Jeff Marshall</i><br \>
+<br \>
+Montre comment cr&eacute;er une biblioth&egrave;que statique avec FreeBASIC puis l'appeler &agrave; partir d'un programme C en utilisant GCC comme compilateur.<br \>
+<br \>
+<ul><li> <i>Test&eacute; avec la version mimimum fbc v0.18.2b</i><br \>
+<br \>
+</ul>Cet article montre l'utilisation sous Windows, mais l'application &agrave; FreeBASIC sur d'autres plates-formes est similaire.<br \>
+<br \>
+<b><u>Dans ce tutoriel:</u></b><br \>
+<div class="fb_indent"><a href="#S1">Un simple test</a><br \>
+<a href="#S2">Biblioth&egrave;que FreeBASIC avec d&eacute;pendances</a><br \>
+<a href="#S3">Utiliser FreeBASIC comme un "Linker" intelligent</a><br \>
+<br \>
+<br \>
+</div><a name="S1"></a><b><u>Un simple test</u></b><br \>
+<br \>
+Pour ce test simple, nous allons cr&eacute;er une biblioth&egrave;que statique FreeBASIC, une sans aucune d&eacute;pendance. Pour la premi&egrave;re fois cela rendra les choses plus faciles et va nous permettre de v&eacute;rifier que les bases sont fonctionnelles:<br \>
+<br \>Nous avons d'abord besoin d'une biblioth&egrave;que et ce sera juste une seule fonction triviale qui va ajouter deux entiers ensemble et retourner le r&eacute;sultat. Notez l'utilisation de <tt><b>cdecl</b></tt> et <tt><b>Alias</b></tt> dans notre d&eacute;finition de la proc&eacute;dure. Par d&eacute;faut, C utilise la convention d'appel <tt><b>cdecl</b></tt>. Utiliser <tt><b>Alias</b></tt> dans la d&eacute;claration FreeBASIC rend plus facile la correspondance de sensibilit&eacute; &agrave; la casse entre FreeBASIC et C. <i>C est sensible &agrave; la casse, alors que FreeBASIC ne l'est normalement pas.</i><br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;mylib1.bas</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">Add2Numbers</span>&nbsp;<span class="key">cdecl</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"Add2Numbers"</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">y</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">y</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+Cr&eacute;er un fichier appel&eacute; <tt>mylib1.bas</tt> comme ci-dessus et le compiler avec:<br \>
+<br \>
+<div class="fb_indent"><tt>fbc -lib mylib1.bas</tt>.  <br \>
+<br \>
+</div>Cela va cr&eacute;er notre biblioth&egrave;que statique <tt>libmylib1.a</tt>. Ensuite nous avons besoin d'un programme C qui va appeler la biblioth&egrave;que que nous venons de cr&eacute;er. Nous devons ajouter un prototype qui correspond exactement &agrave; la fonction que nous avons dans la biblioth&egrave;que FreeBASIC. Le listing C ci-dessous est notre principal point d'entr&eacute;e, il met en place un couple de variables pour appeler <tt>Add2Numbers()</tt> et afficher les r&eacute;sultats.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="oth">/*</span>&nbsp;<span class="wrd">test1.c</span>&nbsp;<span class="oth">*/</span><br />
+<br />
+<span class="def">#include&nbsp;&lt;stdio.h&gt;<br />
+</span><br />
+<span class="oth">/*</span>&nbsp;<span class="wrd">Prototype</span>&nbsp;<span class="wrd">from</span>&nbsp;<span class="wrd">libmylib.a</span>&nbsp;<span class="oth">*/</span><br />
+<span class="key">Int</span>&nbsp;<span class="wrd">Add2Numbers</span><span class="oth">(</span>&nbsp;<span class="key">Int</span>&nbsp;<span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="key">Int</span>&nbsp;<span class="wrd">y</span>&nbsp;<span class="oth">);</span><br />
+<br />
+<span class="key">Int</span>&nbsp;<span class="wrd">main</span>&nbsp;<span class="oth">()</span><br />
+<span class="oth">{</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Int</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Int</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">7</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Int</span>&nbsp;<span class="wrd">c</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">Add2Numbers</span><span class="oth">(</span>&nbsp;<span class="wrd">a</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">);</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">printf</span><span class="oth">(</span>&nbsp;<span class="quo">"a&nbsp;=&nbsp;%d\n"</span><span class="oth">,</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">);</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">printf</span><span class="oth">(</span>&nbsp;<span class="quo">"c&nbsp;=&nbsp;%d\n"</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">);</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">printf</span><span class="oth">(</span>&nbsp;<span class="quo">"a&nbsp;+&nbsp;b&nbsp;=&nbsp;%d\n"</span><span class="oth">,</span>&nbsp;<span class="wrd">c</span>&nbsp;<span class="oth">);</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><span class="oth">;</span><br />
+<span class="oth">}</span><br />
+</div></tt><br />
+<br \>
+Pour compiler ce programme C utilisant la biblioth&egrave;que FreeBASIC que nous venons juste de cr&eacute;er, nous devons compiler <tt>test1.c</tt> comme nous l'aurions fait normalement, mais il faut aussi lui dire quelles biblioth&egrave;ques sont n&eacute;cessaires.  Dans notre cas c'est <tt>libmylib1.a</tt>.<br \>
+<br \>
+<div class="fb_indent"><tt>gcc test1.c -L . -l mylib1 -o test1.exe</tt><br \>
+<br \>
+</div>L'option '-L .' indique &agrave; l'&eacute;diteur de liens de chercher les biblioth&egrave;ques dans le r&eacute;pertoire courant, et '-l mylib1' indique que nous voulons lier avec la biblioth&egrave;que que nous avons c&eacute;&eacute;e. C'est la cas le plus simple car la biblioth&egrave;que libmylib1.a n'a pas de d&eacute;pendances. Si mylib1.bas n&eacute;cessite d'autres biblioth&egrave;ques, par exemple la biblioth&egrave;que FreeBASIC d'ex&eacute;cution libfb.a, nous devrions le sp&eacute;cifier aussi &agrave; gcc.<br \>
+<br \>
+<br \>
+<a name="S2"></a><b><u>Biblioth&egrave;que FreeBASIC avec d&eacute;pendances</u></b><br \>
+<br \>
+Ici, nous cr&eacute;ons une biblioth&egrave;que FreeBASIC qui utilise certaines fonctionnalit&eacute;s des biblioth&egrave;ques d'ex&eacute;cution et graphique de FreeBASIC. Dans ce cas, nous aurons &agrave; pr&eacute;ciser toutes les biblioth&egrave;ques suppl&eacute;mentaires n&eacute;cessaires pour GCC.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;mylib2.bas</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">TestGfx</span>&nbsp;<span class="key">cdecl</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"TestGfx"</span>&nbsp;<span class="oth">()</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">12</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">0</span><span class="oth">,</span><span class="num">0</span><span class="oth">)-(</span><span class="num">100</span><span class="oth">,</span><span class="num">100</span><span class="oth">),</span><span class="num">15</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Sleep</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt><br />
+<br \>
+Cr&eacute;ez un fichier appel&eacute; <tt>mylib2.bas</tt> avec le listing ci-dessus et le compiler avec:<br \>
+<br \>
+<div class="fb_indent"><tt>fbc -lib mylib2.bas</tt>.<br \>
+<br \>
+</div>Cela va cr&eacute;er notre biblioth&egrave;que statique <tt>libmylib2.a</tt>.  Ensuite nous avons besoin d'un programme C qui va appeler la biblioth&egrave;que que nous venons de cr&eacute;er. Nous devons ajouter un prototype qui correspondra exactement &agrave; la fonction que nous avons dans la biblioth&egrave;que FreeBASIC. Ce listing C fournira notre point d'entr&eacute;e et il suffit d'appeler <tt>TestGfx()</tt> avant de terminer.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="oth">/*</span>&nbsp;<span class="wrd">test2.c</span>&nbsp;<span class="oth">*/</span><br />
+<br />
+<span class="wrd">void</span>&nbsp;<span class="wrd">TestGfx</span><span class="oth">();</span><br />
+<br />
+<span class="key">Int</span>&nbsp;<span class="wrd">main</span><span class="oth">()</span><br />
+<span class="oth">{</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">TestGfx</span><span class="oth">();</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><span class="oth">;</span><br />
+<br />
+<span class="oth">}</span><br />
+</div></tt><br />
+<br \>
+Pour compiler et lier <tt>test2.c</tt> directement avec <tt>GCC</tt>, non seulement nous avons besoin de dire &agrave; <tt>GCC</tt> que nous voulons le lier avec <tt>libmylib2.a</tt>, mais aussi toutes les autres biblioth&egrave;ques que <tt>libmylib2.a</tt> n&eacute;cessite.<br \>
+<br \>
+<div class="fb_indent"><tt>gcc test2.c -L. -lmylib2 -L"C:\FreeBASIC\lib\win32" "C:\FreeBASIC\lib\win32\fbrt0.o" -lfbgfx -lfb -lgdi32 -o test2.exe</tt><br \>
+<br \>
+</div>Selon ce que notre biblioth&egrave;que FreeBASIC utilise, elle peut utiliser plusieurs biblioth&egrave;ques suppl&eacute;mentaires, nous devons sp&eacute;cifier tous les noms de ces biblioth&egrave;ques sur la ligne de commande de CCG. Dans cet exemple, FreeBASIC est situ&eacute; dans "C:\FreeBasic", mais vous pouvez sp&eacute;cifier n'importe quel autre r&eacute;pertoire o&ugrave; vous avez install&eacute; FreeBASIC. "C:\FreeBasic\lib\win32\fbrt0.o" est un fichier sp&eacute;cial de d&eacute;marrage qui va initialiser la biblioth&egrave;que d'ex&eacute;cution FreeBASIC. Plus pr&eacute;cis&eacute;ment, il est initialis&eacute; apr&egrave;s la biblioth&egrave;que d'ex&eacute;cution C, mais avant que tout code de notre programme ne soit appel&eacute;. <tt>-lfbgfx</tt>, <tt>-lfb</tt>, <tt>-lgdi32</tt>, sont les biblioth&egrave;ques suppl&eacute;mentaires n&eacute;cessaires pour compl&eacute;ter la liaison. Les biblioth&egrave;ques r&eacute;elles peuvent varier en fonction des fonctions d'ex&eacute;cution FreeBASIC qui sont utilis&eacute;es, et de la plate-forme, DOS ou Linux, pour laquelle le programme est compil&eacute;.<br \>
+<br \>
+<br \>
+<a name="S3"></a><b><u>Utiliser FreeBASIC comme un "Linker" intelligent</u></b><br \>
+<br \>
+FreeBASIC a une fonctionnalit&eacute; int&eacute;gr&eacute;e int&eacute;ressante qui stocke un peu d'informations suppl&eacute;mentaires dans la biblioth&egrave;que indiquant quelles options de compilation ont &eacute;t&eacute; utilis&eacute;es et quelles biblioth&egrave;ques d&eacute;pendantes sont n&eacute;cessaires. C'est une fonctionnalit&eacute; propre &agrave; FreeBASIC, donc ce genre de capacit&eacute; n'existera pas lors de l'utilisation de <tt> CCG </tt> comme compilateur principal et "linker".<br \>
+<br \>
+Si nous r&eacute;utilisons les exemples de la section pr&eacute;c&eacute;dente, <tt> mylib2.bas </tt> et <tt> test2.c </tt>, mais juste pour les compiler et les lier diff&eacute;remment, nous pouvons nous &eacute;pargner un tas d'&eacute;criture. Avantage: nous n'avons normalement pas &agrave; savoir ou &agrave; se rappeler avec quelles d&eacute;pendances notre biblioth&egrave;que FreeBASIC a &eacute;t&eacute; construite. Compiler <tt>mylib2.bas</tt> comme avant en une biblioth&egrave;que statique.<br \>
+<br \>
+<div class="fb_indent"><tt>fbc -lib mytest2.bas</tt><br \>
+<br \>
+</div>Ensuite, nous compilons notre programme de test en C. Notez l'option '-c' de la commande en ligne de <tt>GCC</tt>. Cela indique que nous allons nous contenter de compiler le code source en C, mais sans le lier. <tt>test2.o</tt> aura encore le point d'entr&eacute;e, mais nous allons le mettre dans un fichier objet au lieu d'essayer de cr&eacute;er un ex&eacute;cutable imm&eacute;diatement.<br \>
+<br \>
+<div class="fb_indent"><tt>gcc -c test2.c -o test2.o</tt><br \>
+<br \>
+</div>Enfin, nous utilisons <tt>fbc</tt> pour r&eacute;aliser l'&eacute;tape lien. Nous ne compilerons pas des fichiers source basiques ici, mais nous allons utiliser les fonctionnalit&eacute;s intelligentes de lien de FreeBASIC de telle sorte que la ligne de commande est assez simple:<br \>
+<br \>
+<div class="fb_indent"><tt>fbc test2.o -l mylib2</tt><br \>
+<br \>
+</div>Cela cr&eacute;era un ex&eacute;cutable nomm&eacute; <tt>test2.exe</tt> car <tt>test2.o</tt> a &eacute;t&eacute; sp&eacute;cifi&eacute; en premier sur la ligne de commande.  FreeBASIC lira les informations suppl&eacute;mentaires stock&eacute;es dans <tt>libmylib2.a</tt> et conna&icirc;tra automatiquement les biblioth&egrave;ques suppl&eacute;mentaires &agrave; lier.  C'est plus facile que les charger directement &agrave; l'aide de <tt>gcc</tt>, surtout lorsque de nombreuses biblioth&egrave;ques suppl&eacute;mentaires FreeBASIC sont n&eacute;cessaires.<br \>
+<br \>
+<br \>
+<div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="ProPgStaticLibraries.html">Les biblioth&egrave;ques statiques</a></tt><br \>
+<br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

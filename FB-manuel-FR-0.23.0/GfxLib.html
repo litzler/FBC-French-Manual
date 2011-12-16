@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>GfxLib - FreeBASIC graphics library overview</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">GfxLib - Aper&ccedil;u de la biblioth&egrave;que graphique FreeBasic</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+GfxLib est la biblioth&egrave;que graphique int&eacute;gr&eacute;e dans FreeBASIC. En plus de re-cr&eacute;er toutes les commandes graphiques de QuickBASIC, GfxLib a int&eacute;gr&eacute; des commandes pour g&eacute;rer les entr&eacute;es du clavier et de la souris. Les principaux contributeurs de la biblioth&egrave;que sont Lillo, CoderJeff et DrV.<br \>
+<br \>
+La biblioth&egrave;que prend en charge des pilotes diff&eacute;rents en fonction de la plate-forme: <br \>
+<br \>
+<ul><li> Toutes:<br \>
+<ul><li> <b><tt>Null</tt></b> Ne fait rien. But = ??? <a href="http://fbc.svn.sourceforge.net/viewvc/fbc/trunk/FreeBASIC/src/gfxlib2/libfb_gfx_driver_null.c?view=markup">(SVN libfb_gfx_driver_null.c)</a> <br \>
+<br \>
+</ul><li> Win32 et Linux:<br \>
+<ul><li> <b><tt>OpenGL</tt></b> <br \>
+<br \>
+</ul><li> Win32:<br \>
+<ul><li> <b><tt>DirectX</tt></b> La s&eacute;lection par d&eacute;faut de la FB GfxLib. Peut ne pas &ecirc;tre disponible sur les anciennes installations Windows. <a href="http://fbc.svn.sourceforge.net/viewvc/fbc/trunk/FreeBASIC/src/gfxlib2/win32/libfb_gfx_driver_ddraw.c?view=markup">(SVN libfb_gfx_driver_ddraw.c)</a> Bug note: broken in FB versions 0.20 and (some ?) 0.18.x (crash if not available), fixed in 0.21 SVN. <a href="http://www.freebasic.net/forum/viewtopic.php?p=106600#106600">(forum discussion: p=106600)</a><br \>
+<li> <b><tt>GDI</tt></b> Le "plus s&ucirc;r" , disponible dans toutes les versions Win32. <a href="http://fbc.svn.sourceforge.net/viewvc/fbc/trunk/FreeBASIC/src/gfxlib2/win32/libfb_gfx_driver_gdi.c?view=markup">(SVN libfb_gfx_driver_gdi.c)</a> Bug note: broken in FB versions 0.20 and  (some ?) 0.18.x ("banding effects"), not fixed in 0.21 SVN. <a href="http://www.freebasic.net/forum/viewtopic.php?p=106600#106600">(forum discussion: p=106600)</a><br \>
+<br \>
+</ul><li> Linux:<br \>
+<ul><li> <b><tt>???</tt></b><br \>
+<br \>
+</ul><li> DOS:<br \>
+<ul><li> <b><tt>BIOS</tt></b> <a href="http://fbc.svn.sourceforge.net/viewvc/fbc/trunk/FreeBASIC/src/gfxlib2/dos/libfb_gfx_driver_bios.c?view=markup">(SVN libfb_gfx_driver_bios.c)</a><br \>
+<li> <b><tt>ModeX</tt></b> "tuned" 320x240x8bpp VGA mode <a href="http://fbc.svn.sourceforge.net/viewvc/fbc/trunk/FreeBASIC/src/gfxlib2/dos/libfb_gfx_driver_modex.c?view=markup">(SVN libfb_gfx_driver_modex.c)</a><br \>
+<li> <b><tt>VESA banked</tt></b> compatible avec de tr&egrave;s vieilles impl&eacute;mentations VESA 1.x <a href="http://fbc.svn.sourceforge.net/viewvc/fbc/trunk/FreeBASIC/src/gfxlib2/dos/libfb_gfx_driver_vesa_bnk.c?view=markup">(SVN libfb_gfx_driver_vesa_bnk.c)</a><br \>
+<li> <b><tt>VESA linear</tt></b> a besoin de la version VESA au moins 2.0, g&eacute;n&eacute;ralement plus rapide que "banked VESA" <a href="http://fbc.svn.sourceforge.net/viewvc/fbc/trunk/FreeBASIC/src/gfxlib2/dos/libfb_gfx_driver_vesa_lin.c?view=markup">(SVN libfb_gfx_driver_vesa_lin.c)</a><br \>
+<li> <b><tt>VGA</tt></b> <a href="http://fbc.svn.sourceforge.net/viewvc/fbc/trunk/FreeBASIC/src/gfxlib2/dos/libfb_gfx_driver_vga.c?view=markup">(SVN libfb_gfx_driver_vga.c)</a><br \>
+<li> Bug note: <a href="KeyPgPalette.html">Palette</a> ne fonctionne pas bien <a href="http://freebasic.net/forum/viewtopic.php?t=12691">(forum discussion: t=12691)</a> <br \>
+<br \>
+</ul></ul><tt><a href="KeyPgScreencontrol.html">ScreenControl</a></tt> peut &ecirc;tre utilis&eacute; (SET_DRIVER_NAME 103) pour remplacer les pr&eacute;f&eacute;rences par d&eacute;faut du pilote. <br \>
+<br \>
+<div class="fb_sect_title">Diff&eacute;rences plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li> Sous DOS, GfxLib permettra de cr&eacute;er et de "g&eacute;rer" une fl&egrave;che de la souris si un pilote de la souris est d&eacute;tect&eacute;e. Il n'y a pas de moyen «officiel » pour d&eacute;sactiver ceci. &Eacute;galement la fl&egrave;che ne r&eacute;agit pas pour des mouvements de la souris pendant que l'&eacute;cran est verrouill&eacute;.<br \>
+<li> Sous DOS, les commandes Windowing et OpenGL connexes et les commutateurs ne sont pas disponibles (ils existent, mais ne font rien ou retournent des valeurs sans signification)<br \>
+<li> Sous DOS, la r&eacute;solution doit correspondre &agrave; une, prise en charge par la carte graphique. GfxLib va essayer de trouver un mode VGA appropri&eacute; de modes, ModeX ou VESA, preferring VESA LFB interface si disponible, ou "banked" VESA autrement. Les r&eacute;solutions non prises en charge peuvent actuellement planter le programme, m&ecirc;me si &agrave; l'avenir GfxLib peut essayer de trouver une correspondance proche. Pour une compatibilit&eacute; optimale, vous devriez utiliser des r&eacute;solutions "s&eacute;curit&eacute;" comme 640x480 et 800x600, et peut-&ecirc;tre 1024x768. Il existe diff&eacute;rents modes suppl&eacute;mentaires comme 768x576, mais ils sont sp&eacute;cifiques &agrave; un fournisseur et n'existent pas sur de nombreuses autres cartes. &Eacute;galement, les modes de 1024x768 et plus, ne sont pas disponibles sur les cartes plus anciennes et les ordinateurs portables. <br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Le support graphique a &eacute;t&eacute; remani&eacute; en interne. QB utilisait les modes graphiques VGA et &eacute;crivait directement dans la RAM VGA. Plusieurs pages &eacute;taient disponibles pour autant que la carte les admettait. FB utilisait des "backbuffers", un par page d&eacute;finie, et les copiait dans la RAM vid&eacute;o (VGA (DOS), VESA (DOS), DirectX (Win32), ...) en arri&egrave;re-plan. Les commandes graphiques doivent travailler comme elles le faisaient dans QB, mais quelques diff&eacute;rences notables sont pr&eacute;sentes:<br \>
+<ul><li> La mise &agrave; jour de l'&eacute;cran en arri&egrave;re-plan "mange" une quantit&eacute; consid&eacute;rable des ressources du processeur.<br \>
+<li> Il y a un "thread" (Win32 et Linux) ou ISR (DOS, utilise le PIT) actif pour ceci.<br \>
+<li> M&eacute;langer le support graphique de FB avec avec des acc&egrave;s &eacute;cran de bas niveau (VGA) n'est pas support&eacute;, m&ecirc;me sous DOS. Cependant, des acc&egrave;s directs &agrave; la m&eacute;moire sont possibles en utilisant Screenptr et Screenlock et sont pleinement portables. Sous DOS, VGA et VESA sont encore disponibles, mais ne peuvent pas &ecirc;tre m&eacute;lang&eacute;s avec le support graphique de FB.<br \>
+<br \>
+</ul></ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="CatPgGfx.html">Index des fonctions GFX</a><br \>
+<li> <tt><a href="KeyPgScreengraphics.html">Screen</a></tt> La fa&ccedil;on QB-like pour d&eacute;finir le mode graphique<br \>
+<li> <tt><a href="KeyPgScreenres.html">ScreenRes</a></tt>L'alternative la plus flexible &agrave; <tt><b>Screen</b></tt><br \>
+<li> <tt><a href="KeyPgScreenlist.html">ScreenList</a></tt> V&eacute;rification des modes d'affichage disponibles et utilisables pour FB GfxLib<br \>
+<li> <tt><a href="KeyPgScreencontrol.html">ScreenControl</a></tt> S&eacute;lectionner le pilote et plus <br \>
+<li> <tt><a href="KeyPgScreenlock.html">ScreenLock</a></tt><br \>
+<li> <tt><a href="KeyPgScreenunlock.html">ScreenUnlock</a></tt><br \>
+<li> <tt><a href="KeyPgScreenptr.html">ScreenPtr</a></tt> Acc&egrave;s au niveau semi-bas<br \>
+<li> <tt><a href="KeyPgScreenset.html">ScreenSet</a></tt><br \>
+<li> <tt><a href="KeyPgScreencopy.html">ScreenCopy</a></tt><br \>
+<li> <tt><a href="KeyPgScreeninfo.html">ScreenInfo</a></tt><br \>
+<li> <tt><a href="KeyPgScreenglproc.html">ScreenGLProc</a></tt><br \>
+<li> <tt><a href="GfxInternalFormats.html">Formats internes des pixels</a></tt><br \>
+<br \>
+</ul><br \>
+<br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

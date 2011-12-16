@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Frequently Asked FreeBASIC Graphics Library Questions</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Questions Fr&eacute;quemment Pos&eacute;es sur la biblioth&egrave;que graphique de FreeBASIC</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+<a name="item0"></a><br \>
+<br \>
+<b>Questions sur la biblioth&egrave;que graphique de FreeBASIC:</b><br \>
+<div class="fb_indent"><b>- <a href="#item1">Comment puis-je lier/utiliser Gfxlib?</a></b><br \>
+<b>- <a href="#item2">Qu'en est-il du fichier d'en-t&ecirc;te <tt>fbgfx.bi</tt>?</a></b><br \>
+<b>- <a href="#item3">Comment sont manag&eacute;s les tableaux GET/PUT?</a></b><br \>
+<b>- <a href="#item4">Pourquoi BSAVE/BLOAD se plantent-ils?</a></b><br \>
+<b>- <a href="#item5">Comment puis-je obtenir les  composantes rouge, vert, bleu ou alpha d'une couleur?</a></b><br \>
+<b>- <a href="#item6">Comment puis-je faire pour que le bouton "x" dans l'en-t&ecirc;te la fen&ecirc;tre ferme mon application?</a></b><br \>
+<b>- <a href="#item7">Impossible d'ex&eacute;cuter des programmes en utilisant SCREEN 13 ou 14 en mode plein &eacute;cran!</a></b><br \>
+<br \>
+</div><br \>
+<br \>
+<br \>
+<div style="text-align: center;"><b>Questions sur la biblioth&egrave;que graphique de FreeBASIC</b></div><br \>
+<br \>
+<a name="item1"></a><b>Comment puis-je lier/utiliser Gfxlib?</b><br \>
+<div class="fb_indent">Gfxlib est "int&eacute;gr&eacute;e" dans le langage, il n'est pas n&eacute;cessaire d'inclure n'importe quel fichier .bi ou de lier n'importe quelle biblioth&egrave;que de fa&ccedil;on explicite. FreeBASIC d&eacute;tecte que vous voulez utiliser Gfxlib quand il trouve l'instruction <a href="KeyPgScreengraphics.html">Screen</a> or <a href="KeyPgScreenres.html">ScreenRes</a>. Donc, pour utiliser Gfxlib, il suffit de commencer par un mode d'&eacute;cran graphique et d'utiliser les commandes graphiques.<br \>
+<br \>
+</div><a href="#item0">Retour en haut de la page</a><br \>
+<br \>
+<a name="item2"></a><b>Qu'en est-il du fichier d'en-t&ecirc;te <tt>fbgfx.bi</tt>?</b><br \>
+<div class="fb_indent">Le fichier en-t&ecirc;te <tt>fbgfx.bi</tt> est disponible pour &ecirc;tre inclus dans un programme et contient des d&eacute;finitions de constantes et de type qui peuvent &ecirc;tre utiles pour le programmeur lors de l'utilisation Gfxlib. Cependant vous n'avez pas &agrave; inclure explicitement ce fichier pour utiliser Gfxlib; l'en-t&ecirc;te est uniquement disponible comme une aide. Le contenu inclut constantes indicateurs de mode de <a href="KeyPgScreengraphics.html">Screen</a> / <a href="KeyPgScreenres.html">ScreenRes</a>, les d&eacute;finitions des <a href="GfxScancodes.html">scancodes clavier</a> et plus encore.<br \>
+<br \>
+</div><a href="#item0">Retour en haut de la page</a><br \>
+<br \>
+<a name="item3"></a><b>Comment sont manag&eacute;s les tableaux GET/PUT?</b><br \>
+<div class="fb_indent">Dans FreeBasic, les images peuvent &ecirc;tre utilis&eacute;es comme des tableaux (comme dans QB) ou en tant que pointeurs. De toute fa&ccedil;on, les donn&eacute;es d'image sont contenues dans un seul bloc continu. La partie principale se compose d'une en-t&ecirc;te suivie par les donn&eacute;es image. L'en-t&ecirc;te peut &ecirc;tre de deux types (ancien style et nouveau style) et d&eacute;termine le format des donn&eacute;es d'image suivants, pour les d&eacute;tails voir <a href="GfxInternalFormats.html">Formats graphiques internes</a>.<br \>
+<br \>
+</div><a href="#item0">Retour en haut de la page</a><br \>
+<br \>
+<a name="item4"></a><b>Pourquoi BSAVE/BLOAD se plantent-ils?</b><br \>
+<div class="fb_indent">BSAVE/BLOAD ne peuvent &ecirc;tre utilis&eacute;s que pour charger et enregistrer des &eacute;crans graphiques sous FreeBASIC. Ils ne peuvent pas &ecirc;tre utilis&eacute;s pour enregistrer un &eacute;cran en mode texte. Pour charger et sauvegarder un tableau voyez cet <a href="FaqPgbloadworkaround.html">extrait de fichier utilisant GET/PUT</a> .<br \>
+<br \>
+</div><a href="#item0">Retour en haut de la page</a><br \>
+<br \>
+<a name="item5"></a><b>Comment puis-je obtenir les  composantes rouge, vert, bleu ou alpha d'une couleur?</b><br \>
+<br \>
+<div class="fb_indent">Chaque octet dans un attribut de couleur correspond aux  composantes rouge, vert, bleu et alpha.  L'exemple suivant montre comment extraire les valeurs des composantes &agrave; partir d'un attribut de couleur 16, 24 ou 32 bits.<br \>
+<br \>
+</div><tt><div class="freebasic">
+<span class="def">#define&nbsp;rgb_a(x)&nbsp;((x)&nbsp;Shr&nbsp;24)<br />
+#define&nbsp;rgb_r(x)&nbsp;((x)&nbsp;Shr&nbsp;16&nbsp;And&nbsp;255)<br />
+#define&nbsp;rgb_g(x)&nbsp;((x)&nbsp;Shr&nbsp;8&nbsp;And&nbsp;255)<br />
+#define&nbsp;rgb_b(x)&nbsp;((x)&nbsp;And&nbsp;255)<br />
+</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="wrd">c</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="wrd">red</span><span class="oth">,</span>&nbsp;<span class="wrd">green</span><span class="oth">,</span>&nbsp;<span class="wrd">blue</span><span class="oth">,</span>&nbsp;<span class="key">Alpha</span><br />
+<br />
+<span class="com">''&nbsp;Assume&nbsp;a&nbsp;16,&nbsp;24,&nbsp;or&nbsp;32&nbsp;bit&nbsp;screen&nbsp;mode&nbsp;has&nbsp;been&nbsp;set</span><br />
+<span class="wrd">c</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Point</span><span class="oth">(</span><span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><span class="oth">)</span><br />
+<span class="wrd">red</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">rgb_r</span><span class="oth">(</span><span class="wrd">c</span><span class="oth">)</span><br />
+<span class="wrd">green</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">rgb_g</span><span class="oth">(</span><span class="wrd">c</span><span class="oth">)</span><br />
+<span class="wrd">blue</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">rgb_b</span><span class="oth">(</span><span class="wrd">c</span><span class="oth">)</span><br />
+<span class="key">Alpha</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">rgb_a</span><span class="oth">(</span><span class="wrd">c</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+<a href="#item0">Retour en haut de la page</a><br \>
+<br \>
+<a name="item6"></a><b>Comment puis-je faire pour que le bouton "x" dans l'en-t&ecirc;te la fen&ecirc;tre ferme mon application?</b><br \>
+<div class="fb_indent">En mode graphique fen&ecirc;tr&eacute;, vous pouvez tester pour l'appui sur le bouton "X" (fermer) de la fen&ecirc;tre avec <tt><a href="KeyPgInkey.html">Inkey</a></tt>. Ceci s'applique &agrave; Win32 et Linux, sous DOS il n'y a pas de bouton "X".<br \>
+<br \>
+Voici un petit exemple:<br \>
+<br \>
+</div><tt><div class="freebasic">
+<span class="com">''&nbsp;"X"&nbsp;close&nbsp;button&nbsp;example&nbsp;,&nbsp;Win32&nbsp;and&nbsp;Linux&nbsp;only</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="wrd">key</span><br />
+<span class="key">Screen</span>&nbsp;<span class="num">13</span><br />
+<span class="key">Do</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Click&nbsp;the&nbsp;'x'&nbsp;to&nbsp;close&nbsp;this&nbsp;app."</span><br />
+&nbsp;&nbsp;<span class="key">Sleep</span><br />
+&nbsp;&nbsp;<span class="wrd">key</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Inkey</span><br />
+<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="wrd">key</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Chr</span><span class="oth">(</span><span class="num">27</span><span class="oth">)</span>&nbsp;<span class="key">Or</span>&nbsp;<span class="wrd">key</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Chr</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">107</span><span class="oth">)</span>&nbsp;<span class="com">'escape&nbsp;or&nbsp;x-button</span><br />
+</div></tt><br />
+<br \>
+<div class="fb_indent">NOTE: Si vous utilisez une ancienne version de FreeBASIC, vous pouvez avoir &agrave; utiliser Chr(255)+"X"<br \>
+<br \>
+</div><a href="#item0">Retour en haut de la page</a><br \>
+<br \>
+<a name="item7"></a><b>Impossible d'ex&eacute;cuter des programmes en utilisant SCREEN 13 ou 14 en mode plein &eacute;cran!</b><br \>
+<div class="fb_indent">Il s'agit d'une limitation mat&eacute;rielle/pilote (Win32 et Linux seulement?). Les cartes vid&eacute;o, de nos jours, ne g&egrave;rent pas ces modes &agrave; faible r&eacute;solution graphique. Si le mode plein &eacute;cran est n&eacute;cessaire vous devez r&eacute;&eacute;crire en utilisant au moins SCREEN 17 ou 18, ou une r&eacute;solution de 640x480 ou sup&eacute;rieure, pour &ecirc;tre sûr que du mat&eacute;riel moderne puisse la g&eacute;rer.<br \>
+<br \>
+</div><a href="#item0">Retour en haut de la page</a><br \>
+<br \>
+<div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="CompilerFAQ.html">FAQ du compilateur</a>.<br \>
+<li> <a href="FaqPgrtlib.html">FAQ de la biblioth&egrave;que d'ex&eacute;cution de FB</a>.<br \>
+<li> <a href="FaqPggfxlib2.html">FAQ de la biblioth&egrave;que graphique de FreeBASIC</a><br \>
+<br \>
+</ul><br \>
+   <br \>
+<br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

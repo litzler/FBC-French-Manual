@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>Const Qualifiers and You</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Les Qualificateurs Const et Vous</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Remarque: Comme pour tout ce qui concerne la port&eacute;e, les qualificatifs Const peuvent &ecirc;tre un peu difficile &agrave; comprendre. Vous devriez avoir une compr&eacute;hension approfondie de la port&eacute;e des variables avant de tenter de comprendre les qualficateurs Const.<br \>
+<br \>
+A noter &eacute;galement mon titre clich&eacute;, que j'ai choisi &agrave; cause de sa "clichetitude".<br \>
+<br \>
+Que diable sont les qualificatifs Const? Les qualificatifs Const sont une caract&eacute;ristique ajout&eacute;e r&eacute;cemment au langage (FBC 0.18.3), ils sont un &eacute;l&eacute;ment standard du C++ et maintenant, ils existent aussi dans FreeBASIC. Les qualificatifs Const sont encore une autre forme de protection - ils permettent &agrave; certaines "variables" d'agir comme des constantes dans certaines parties de votre programme, en d'autres termes certaines parties du programme sont autoris&eacute;s &agrave; acc&eacute;der &agrave; eux (en lecture), mais pas de les modifier. Juste un autre genre de type de s&eacute;curit&eacute;, vraiment, mais extr&ecirc;mement utile. Ils sont tr&egrave;s utiles, en particulier, dans les situations de OO (Orient&eacute;e Objet), mais vous pouvez probablement en b&eacute;n&eacute;ficier &agrave; un certain degr&eacute;, m&ecirc;me si vous n'&ecirc;tes pas int&eacute;ress&eacute; &agrave; la POO (Programmation Orient&eacute;e Objet).<br \>
+<br \>
+Le qualificatif Const dans FreeBASIC est essentiellement un prolongement des d&eacute;clarations de type de donn&eacute;es, et il peut &ecirc;tre utilis&eacute; avec Dim, les membres UDT (d&eacute;finis par l'utilisateur) et les param&egrave;tres de proc&eacute;dure. En g&eacute;n&eacute;ral, vous le mettez juste apr&egrave;s le <tt><i>AS</i></tt> faisant partie de la d&eacute;claration des variables de type de donn&eacute;es:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">my_const_int</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+</div></tt><br />
+<br \>
+(A propos, dans ce tutoriel, je n'utilise que des entiers et des pointeurs d'entiers comme exemples - cependant, les qualificatifs Const <i> doivent</i> fonctionner de la m&ecirc;me fa&ccedil;on avec tous les autres types de variables, y compris les types, &eacute;num&eacute;rations et bien d'autres qui d&eacute;clarent quelque chose. Si pour quelque raison ce n'est pas pas le cas, c'est probablement un bug et vous devez le signaler.)<br \>
+<br \>
+Notez que dans ce cas, nous sommes autoris&eacute;s &agrave; modifer sa valeur une fois - lors de la cr&eacute;ation. Mais apr&egrave;s cela, vous ne pouvez pas le changer plus. En fait, vous <i>devez</i> l'initialiser - le compilateur donnera une erreur si vous ne l'avez pas fait (fait int&eacute;ressant, vous &ecirc;tes autoris&eacute;s &agrave; le fixer &agrave; elle &eacute;gale &agrave; "<i>Any</i>", dans lequel le contenu n'est pas garanti et pourrait &ecirc;tre n'importe quoi). Mais vous ne pouvez pas faire quelque chose qu'il le modifie par la suite. Il vous donnera vraiment une erreur si, par exemple, vous essayez de faire quelque chose comme ceci:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="wrd">my_const_int</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+</div></tt><br />
+<br \>
+Pourtant, puisque cela ne change pas la variable existante, vous pouvez le faire.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Print</span>&nbsp;<span class="wrd">my_const_int</span><br />
+</div></tt><br />
+<br \>
+Maintenant tout cela est tr&egrave;s bon, mais ne semble pas tr&egrave;s diff&eacute;rent de l'utilisation normale de Const. Autrement dit, les deux lignes suivantes semblent dire jusqu'&agrave; pr&eacute;sent, &agrave; toutes fins pratiques, la m&ecirc;me chose:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">my_const_int</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">my_int</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+</div></tt><br />
+<br \>
+Est-ce vrai? Pas tout &agrave; fait. Vous voyez, le qualificatif Const vous permet de cr&eacute;er des constantes qui agissent comme des variables, sauf qu'elles ne peuvent pas &ecirc;tre modifi&eacute;es. Cela signifie que vous pouvez les mettre &agrave; l'int&eacute;rieur de Types et d'autres endroits. De plus, vous pouvez les mettre &agrave; l'int&eacute;rieur de d&eacute;clarations de Sub / Function - et c'est une raison tr&egrave;s essentielle de leur existence:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Sub</span>&nbsp;<span class="wrd">my_sub</span>&nbsp;<span class="oth">(</span><span class="wrd">some_num</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt><br />
+<br \>
+Normalement les fonctions sont autoris&eacute;es &agrave; modifier les variables que vous leur envoyez. Bien s&ucirc;r, soit elles modifient la variable d'origine, soit tout simplement une copie locale de la variable; cela d&eacute;pend de l'utilisation de ByVal ou ByRef (et bien s&ucirc;r de pointeurs, ce qui est tout &agrave; fait diff&eacute;rent), mais elles sont normalement autoris&eacute;es &agrave; modifier une variable. Cela peut &ecirc;tre ind&eacute;sirable, pour une raison quelconque, et le qualificatif Const existe pour emp&ecirc;cher cela. Dans la fonction ci-dessus, some_num peut &ecirc;tre modifi&eacute; par la fonction. Normalement, ce ne serait qu'une copie locale qui serait modifi&eacute;e, ce qui est bien, car elle n'affecte pas l'"Integer Const" original, mais si nous d&eacute;clarion la fonction comme cela?<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Sub</span>&nbsp;<span class="wrd">my_sub</span>&nbsp;<span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">some_num</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt><br />
+<br \>
+Maintenant my_sub a un acc&egrave;s direct &agrave; toute variable que vous lui passez, et pour cette raison vous n'&ecirc;tes pas autoris&eacute; &agrave; faire ce genre de chose<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="wrd">my_sub</span><span class="oth">(</span><span class="wrd">my_const_int</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Pourquoi? Tout simplement parce que la fonction peut modifier la variable. Nous ne sommes pas certain qu'elle le fera, bien s&ucirc;r, mais elle le pourrait, donc nous ne pouvons pas faire cela. En fait, l'erreur que vous obtiendrez si vous essayez de compiler est "affectation / conversion invalide". C'est presque comme si l'entier Const &eacute;tait un autre type de variable, mais seulement quand il est ByRef. Dans ce cas, il agit comme s'il essayait de passer une cha&icirc;ne &agrave; un argument entier (ou vice-versa). Pourtant, s'il n'est pas pass&eacute; ByRef, nous n'avons pas de probl&egrave;me, car il n'y a aucun moyen pour que la fonction puisse &eacute;ventuellement modifier la variable!<br \>
+<br \>
+Et bien s&ucirc;r, si nous faisions quelque chose comme ceci:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Sub</span>&nbsp;<span class="wrd">my_sub</span>&nbsp;<span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">some_num</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt><br />
+<br \>
+Ensuite la compilation se passe tr&egrave;s bien, mais si vous essayez de faire ce qui suit dans la fonction, vous obtiendrez une erreur:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="wrd">some_num</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+</div></tt><br />
+<br \>
+Pourquoi? Une fois encore, la variable d'origine a &eacute;t&eacute; transmise ByRef &agrave; la Sub. Nous avons maintenant une port&eacute;e locale, mais parce que c'est ByRef, toute modification de la variable modifierait l'original, ce qui ne peut pas &ecirc;tre fait. Une fois encore, il est tout &agrave; fait possible de cr&eacute;er une copie de la variable et de la modifier tant que vous voulez:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">copy_of_some_num</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">some_num</span><br />
+<span class="wrd">copy_of_some_num</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+</div></tt><br />
+<br \>
+Mais vous ne pouvez pas modifier some_num lui-m&ecirc;me!<br \>
+<br \>
+Nous arrivons maintenant aux pointeurs. Qu'est-ce qui se passe pour eux? Pour les pointeurs, c'est un peu plus compliqu&eacute;, il est possible de d&eacute;clarer le pointeur <i>lui-m&ecirc;me</i> comme const OU ce que le pointeur pointe - ou m&ecirc;me LES DEUX! Donc toutes les d&eacute;clarations suivantes sont valables:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">my_sub_a</span>&nbsp;<span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">ptr_A</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span><br />
+<br />
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">my_sub_b</span>&nbsp;<span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">ptr_B</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span><br />
+<br />
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">my_sub_c</span>&nbsp;<span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">ptr_C</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+La premi&egrave;re fait en sorte que vous pouvez changer le pointeur lui-m&ecirc;me comme vous voulez, mais pas les donn&eacute;es vers lesquelles il pointe (m&ecirc;me si vous changez *ce que* le pointeur pointe). La seconde vous permet de changer ce que le pointeur pointe, mais vous ne pouvez pas le faire pointer vers autre chose. Le troisi&egrave;me ne vous laissera pas changer ce que le pointeur pointe OU le pointeur lui-m&ecirc;me! Dans tous les cas vous pouvez faire une copie du pointeur - <i> mais il doit &ecirc;tre un Ptr Integer Const ou un Const Integer Const Ptr car sinon vous seriez en mesure de modifier le contenu de ce vers quoi le pointeur original pointe!</i> Ceci est une excellente protection contre quoi que ce soit en cours de modification!<br \>
+<br \>
+Vous pouvez &eacute;galement utiliser le qualificatif Const dans types d&eacute;finis par l'utilisateur. En fait, c'est vraiment une chose tr&egrave;s importante pour la POO (de fa&ccedil;on similaire aux espaces de noms, qui tout en n'&eacute;tant pas directement partie de la POO sont n&eacute;anmoins tr&egrave;s li&eacute;s) - mais m&ecirc;me si vous n'utilisez pas la POO, vous pouvez toujours utiliser des qualificatifs Const dans vos types. Je n'ai m&ecirc;me pas vraiment besoin de vous montrer un exemple, maintenant que leur fonctionnement est assez &eacute;vident, mais voici quand m&ecirc;me un exemple pour vous:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">my_type</span><br />
+&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">t_int</span><span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">my_type</span>&nbsp;<span class="wrd">t</span><br />
+<br />
+<span class="wrd">t.t_int</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+</div></tt><br />
+<br \>
+Et, &eacute;videmment, la compilation &eacute;chouera, puisque le membre t_int est Const. En outre, vous pouvez aussi d&eacute;clarer la variable de ce type (dans ce cas, t) avec le qualificatif Const. Ce qui suit ne se compilera pas non plus, puisque TOUS les membres de t sont Const:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">my_type</span><br />
+&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">t_int</span><span class="oth">=</span>&nbsp;<span class="num">5</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="wrd">my_type</span>&nbsp;<span class="wrd">t</span><br />
+<br />
+<span class="wrd">t.t_int</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+</div></tt><br />
+<br \>
+Comme pour le c&ocirc;t&eacute; POO des choses (et si vous n'&ecirc;tes pas int&eacute;ress&eacute; par la POO, vous pouvez sauter cette partie) - vous vous posez peut-&ecirc;tre des questions sur les m&eacute;thodes. Les m&eacute;thodes implicitement passe l'objet ByRef lorsqu'elles sont appel&eacute;es. Y-a-t-il un moyen de cr&eacute;er des objets constants? Bien s&ucirc;r! Nous avons d&eacute;j&agrave; vu cela. Mais certaines m&eacute;thodes modifieront l'objet, et d'autres non. Y-a-t-il une distinction? La r&eacute;ponse est oui. Le 23 Novembre 2007, nous avons maintenant des procs Const. Cela signifie que vous pouvez faire ceci:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">my_object</span><br />
+&nbsp;&nbsp;<span class="key">Public</span><span class="oth">:</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">modifier_sub</span>&nbsp;<span class="oth">()</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'Subs&nbsp;that&nbsp;do&nbsp;not&nbsp;modify&nbsp;the&nbsp;object&nbsp;are&nbsp;declared&nbsp;Const...</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">non_modifier_sub</span>&nbsp;<span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Private</span><span class="oth">:</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">some_num</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">my_object.modifier_sub</span>&nbsp;<span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="wrd">this.some_num</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">my_object.non_modifier_sub</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">this.some_num</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="com">'Note&nbsp;that&nbsp;only&nbsp;Const&nbsp;objects&nbsp;must&nbsp;be&nbsp;initialized&nbsp;(though&nbsp;in&nbsp;this&nbsp;case&nbsp;the&nbsp;non-Const&nbsp;object&nbsp;will&nbsp;also&nbsp;be),</span><br />
+<span class="com">'just&nbsp;like&nbsp;variables.&nbsp;&nbsp;Thus,&nbsp;you&nbsp;must&nbsp;either&nbsp;have&nbsp;a&nbsp;Constructor&nbsp;for&nbsp;the&nbsp;object,&nbsp;or&nbsp;else&nbsp;you&nbsp;must&nbsp;give&nbsp;all&nbsp;variables</span><br />
+<span class="com">'default&nbsp;initial&nbsp;values&nbsp;(as&nbsp;I&nbsp;did&nbsp;here),&nbsp;in&nbsp;which&nbsp;case&nbsp;the&nbsp;compiler&nbsp;makes&nbsp;a&nbsp;default&nbsp;constructor&nbsp;for&nbsp;you.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="wrd">my_object</span>&nbsp;<span class="wrd">t</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">my_object</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">my_object</span>&nbsp;<span class="wrd">u</span><br />
+<br />
+<span class="com">'Both&nbsp;of&nbsp;these&nbsp;will&nbsp;compile:</span><br />
+<span class="wrd">t.non_modifier_sub</span><span class="oth">()</span><br />
+<span class="wrd">u.non_modifier_sub</span><span class="oth">()</span><br />
+<br />
+<span class="com">'...but&nbsp;the&nbsp;first&nbsp;of&nbsp;these&nbsp;will&nbsp;not&nbsp;compile,&nbsp;since&nbsp;non-Const&nbsp;methods&nbsp;of&nbsp;Const&nbsp;objects&nbsp;may&nbsp;not&nbsp;be&nbsp;called!</span><br />
+<span class="wrd">t.modifier_sub</span><span class="oth">()</span><br />
+<span class="wrd">u.modifier_sub</span><span class="oth">()</span><br />
+<br />
+<span class="com">'Sleep&nbsp;so&nbsp;we&nbsp;can&nbsp;see&nbsp;the&nbsp;results</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+Une fois encore, la fa&ccedil;on dont cela fonctionne est bas&eacute; sur la r&egrave;gle simple. Comme la copie implicite est pass&eacute;e ByRef, toute m&eacute;thode est normalement capable de modifier le contenu de l'objet - et si l'objet est d&eacute;clar&eacute; As Const, ce n'est pas cens&eacute; se produire! Ainsi, il existe essentiellement deux types de m&eacute;thode. Les deux types ont des noms donn&eacute;s dans la page de documentation C++ (list&eacute;es ci-dessous dans les r&eacute;f&eacute;rences): il y a des manipulateurs et des inspecteurs. Les mutateurs peuvent modifier les objets, mais les inspecteurs ne le peuvent pas. Ainsi, pour les objets d&eacute;clar&eacute;s As Const, seules les m&eacute;thodes inspecteurs peuvent &ecirc;tre utilis&eacute;es pour ces objets - alors que toutes les m&eacute;thodes peuvent &ecirc;tre appel&eacute;es en cas de objets non-Const. Les m&eacute;thodes inspecteurs sont, bien s&ucirc;r, celles d&eacute;clar&eacute;es comme des m&eacute;thodes Const. Ainsi, pour les objets Const seules leurs m&eacute;thodes Const peut &ecirc;tre utilis&eacute;es.<br \>
+<br \>
+<br \>
+Tout cela est tr&egrave;s bien, mais certains d'entre vous se demandent peut-&ecirc;tre - Pourquoi dois-je conna&icirc;tre cela? Eh bien, une r&eacute;ponse directe serait hors de la *port&eacute;e* (h&eacute;) de ce tutoriel, je vais donc aller &agrave; l'encontre - Pourquoi avons-nous besoin de la port&eacute;e du tout? La raison des qualificatifs Const (et des m&eacute;thodes Const futures) est la m&ecirc;me que la raison de la port&eacute;e dans les proc&eacute;dures et les modules, et la raison m&ecirc;me pour cacher des objets variables: parce que nous voulons &ecirc;tre certains que quelque chose ne changera pas de fa&ccedil;on inattendue au milieu du programme, quand on s'y attend le moins. Parfois, nous voulons que les choses changent et c'est pourquoi nous n'utilisons pas le qualificatif Const. Mais quand vous voulez les choses restent ce qu'elles sont, vous utilisez le qualificateur Const, et vous pouvez &ecirc;tre certain que rien ne changera (et le compilateur ne compilera pas le code s'il existe un danger que cela se produise!). Ceci est la d&eacute;finition de Const, comment il fonctionne, et c'est la raison pour laquelle vous l'utilisez! Et en g&eacute;n&eacute;ral, c'est la raison pour laquelle vous utilisez tout contr&ocirc;le de port&eacute;e ou de donn&eacute;es cach&eacute;es.<br \>
+<br \>
+<b>Quelques notes finales</b><br \>
+Si vous utilisez le qualificatif Const, n'oubliez pas que c'est un &eacute;l&eacute;ment relativement nouveau. Il y a tr&egrave;s peu de documentation pour nous dire ce qui est "mauvais" ou "correct", aussi g&eacute;n&eacute;ralement il faudra faire quelques exp&eacute;riences. Si vous sentez qu'il fait quelque chose qu'il ne doit pas faire (ou ne pas faire quelque chose qu'il doit faire), par tous moyens signaler-le sur le forum! Si c'est consid&eacute;r&eacute; comme un probl&egrave;me par quelqu'un d'autre, soumettez un rapport de bogue. En g&eacute;n&eacute;ral, cependant, il devrait fonctionner exactement comme je l'ai dit et tous les exemples donn&eacute;s devraient s'ex&eacute;cuter comme j'ai dit qu'ils le devraient (compil&eacute;s si je dis qu'ils le seront, non compil&eacute;s si je dis qu'ils ne le seront pas). Une chose tr&egrave;s importante &agrave; se rappeler, bien s&ucirc;r, c'est qu'ils ne sont pas dans la derni&egrave;re version officielle - vous devez avoir la derni&egrave;re version SVN pour en b&eacute;n&eacute;ficier (si le compilateur donne une erreur sur l'un des exemples donn&eacute;s ici que j'ai indiqu&eacute; comme compilable, alors vous saurez que vous avez besoin d'une version plus r&eacute;cente).<br \>
+<br \>
+Si vous avez d'autres difficult&eacute;s avec les qualificatifs Const, n'oubliez pas que m&ecirc;me s'il n'y a pas de documentation pour eux il, y a beaucoup de gens sur le forum qui les connaissent et les comprennent, et qui peuvent vous aider pour toutes les questions que vous pourriez poser.<br \>
+<br \>
+Si vous ne comprenez toujours pas les qualificatifs Const, vous &ecirc;tes probablement un d&eacute;butant qui ne conna&icirc;t pas encore suffisamment la notion de port&eacute;e - et c'est tr&egrave;s bien, vous allez apprendre en pratiquant. Finalement certains documents convenables pour cette fonction seront cr&eacute;&eacute;s, mais jusque-l&agrave; c'est tout ce que vous avez. Gardez &agrave; l'esprit: si vous ne comprenez pas comment ils fonctionnent, vous n'aurez probablement pas besoin d'eux. Pour ma part, j'ai &eacute;crit des programmes corrects longtemps avant qu'ils n'apparaissent, et je vais probablement continuer &agrave; le faire sans les utiliser l&agrave; o&ugrave; ils ne sont pas n&eacute;cessaires. Il y a des cas sp&eacute;cifiques o&ugrave; ils sont utiles, et si vous comprenez ces cas, alors vous pouvez aussi bien les utiliser quand ces cas se pr&eacute;sentent. Mais si vous ne comprenez pas, ce n'est pas grave!<br \>
+<br \>
+Enfin, voici quelques liens qui devraient &ecirc;tre utiles. Le premier est une page de documentation C++ sur le qualificatif Const en C++ - bien s&ucirc;r, elle n'a de sens que si vous comprenez le C++, et elle parle de notions que nous n'avons pas encore (c'est &agrave; dire, les m&eacute;thodes Const). N&eacute;anmoins c'est une bonne fa&ccedil;on pour commencer si vous connaissez le C++, donc allez v&eacute;rifier si vous voulez. Il y a aussi un lien vers un sujet du forum dans lequel j'ai questionn&eacute; sur le d&eacute;veloppement FreeBASIC (et appris les qualificatifs Const), et un lien vers la page d'origine SourceForge Feature Request dans lequel qualificatifs Const ont initialement &eacute;t&eacute; demand&eacute;s comme une caract&eacute;ristique:<br \>
+<br \>
+http://www.parashift.com/c++-faq-lite/const-correctness.html<br \>
+http://www.freebasic.net/forum/viewtopic.php?t=9975&postdays=0&postorder=asc&start=0<br \>
+http://sourceforge.net/tracker/index.php?func=detail&aid=1480621&group_id=122342&atid=693199
+</div>
+</div> 
+</div> 
+</body>
+</html>

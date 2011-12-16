@@ -1,0 +1,257 @@
+<html>
+<head>
+<title>The Pointer Data Type</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Le type pointeur de donn&eacute;es</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<i>Ecrit par <a href="WikiRick.html">rdc</a></i><br \>
+<br \>
+Le type pointeur de donn&eacute;es est unique parmi les types donn&eacute;es num&eacute;riques de FreeBASIC. Au lieu de contenir des donn&eacute;es, comme les autres types num&eacute;riques, un pointeur contient l'adresse m&eacute;moire de donn&eacute;es.<br \>
+<br \>
+Sur un syst&egrave;me 32 bits, le type  pointeurde donn&eacute;es occupe 4 octets. FreeBASIC utilise des pointeurs pour un certain nombre de fonctions telles que ImageCreate, et ils sont utilis&eacute;s massivement dans des biblioth&egrave;ques externes telles que l'API Windows. Les pointeurs sont aussi assez rapides, car le compilateur peut acc&eacute;der directement &agrave; l'emplacement m&eacute;moire point&eacute; par le pointeur. Une bonne compr&eacute;hension des pointeurs est essentielle pour une programmation efficace sous FreeBASIC.<br \>
+<br \>
+Pour de nombreux programmeurs d&eacute;butants les pointeurs semblent comme une b&ecirc;te &eacute;trange et myst&eacute;rieuse. Toutefois, si vous gardez &agrave; l'esprit une r&egrave;gle, vous ne devriez avoir aucun probl&egrave;me en utilisant des pointeurs dans votre programme. La r&egrave;gle est tr&egrave;s simple: un pointeur contient une adresse, pas de donn&eacute;es. Si vous gardez cette r&egrave;gle simple &agrave; l'esprit, vous devriez avoir aucun probl&egrave;me en utilisant des pointeurs.<br \>
+<br \>
+<div class="fb_header"> Pointeurs et m&eacute;moire </div><br \>
+<br \>
+Vous pouvez imaginer la m&eacute;moire de votre ordinateur comme un ensemble de bo&icirc;tes postales (PO Box) de votre bureau de poste local. Quand vous y allez pour louer une bo&icirc;te postale, le greffier vous donnera un num&eacute;ro, le 100 par exemple. C'est l'adresse de votre bo&icirc;te postale. Vous &eacute;crivez le nombre sur un feuillet de papier et vous le mettez dans votre portefeuille. Le lendemain, vous allez &agrave; la poste et sortez le bout de papier. Vous localisez la bo&icirc;te 100, regardez &agrave; l'int&eacute;rieur de la bo&icirc;te et trouvez une bonne pile de courrier ind&eacute;sirable. Bien s&ucirc;r, vous voulez jeter le courrier ind&eacute;sirable, mais il n'y a pas de poubelle &agrave; port&eacute;e de main, alors vous d&eacute;cidez simplement de remettre le courrier dans la bo&icirc;te et de le jeter plus tard. Travailler avec des pointeurs sous FreeBASIC est tr&egrave;s similaire &agrave; l'utilisation d'une bo&icirc;te postale.<br \>
+<br \>
+Lorsque vous d&eacute;clarez un pointeur, il ne pointe pas vers quelque chose ceci est analogue au morceau de papier blanc. Afin d'utiliser un pointeur, il doit &ecirc;tre initialis&eacute; avec une adresse m&eacute;moire, ce qui est identique &agrave; l'&eacute;criture du num&eacute;ro 100 sur le bout de papier. Une fois que vous avez l'adresse, trouvez la bonne bo&icirc;te postale, vous pouvez d&eacute;r&eacute;f&eacute;rencer le pointeur, ouvrir la bo&icirc;te aux lettres, ajouter ou r&eacute;cup&eacute;rer des donn&eacute;es point&eacute;es par l'emplacement m&eacute;moire. Comme vous pouvez le voir il y a trois &eacute;tapes de base pour utiliser des pointeurs.<br \>
+<br \>
+<div class="fb_indent"> D&eacute;clarer une variable pointeur.<br \>
+ Initialiser le pointeur vers une adresse m&eacute;moire.<br \>
+ D&eacute;r&eacute;f&eacute;rencement du pointeur pour manipuler les donn&eacute;es &agrave; l'emplacement m&eacute;moire point&eacute;.<br \>
+<br \>
+</div>Ce n'est pas vraiment diff&eacute;rent de l'utilisation d'une variable standard et vous utiliserez les pointeurs en grande partie de la m&ecirc;me mani&egrave;re que les variables standard. La seule vraie diff&eacute;rence entre les deux est que dans une variable standard, vous pouvez acc&eacute;der directement aux donn&eacute;es, et avec un pointeur, vous devez le d&eacute;r&eacute;f&eacute;rencer pour interagir avec les donn&eacute;es.<br \>
+<br \>
+<div class="fb_header"> Pointeurs typ&eacute;s et non typ&eacute;s </div><br \>
+<br \>
+FreeBASIC a deux types de pointeurs: typ&eacute;s et non typ&eacute;s. Un pointeur typ&eacute; est d&eacute;clar&eacute; en association avec un type de donn&eacute;es.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">myPointer</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+</div></tt><br />
+<br \>
+Cela indique au compilateur que ce pointeur sera utilis&eacute; pour des donn&eacute;es nombres entiers. L'utilisation de pointeurs typ&eacute;s permet au compilateur de faire la v&eacute;rification du type pour s'assurer que vous n'utilisez pas le mauvais type de donn&eacute;es avec le pointeur et simplifie l'arithm&eacute;tique des pointeurs.<br \>
+<br \>
+Les pointeurs non typ&eacute;s sont d&eacute;clar&eacute;s en utilisant le mot-cl&eacute; "Any".<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">myPointer</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+</div></tt><br />
+<br \>
+Les pointeurs non typ&eacute;s n'ont aucune v&eacute;rification de type et par d&eacute;faut la taille d'un octet. Les pointeurs non typ&eacute;s sont utilis&eacute;s dans la biblioth&egrave;que d'ex&eacute;cution C et de nombreuses librairies tierces, telles que l'API Win32, pour accueillir le type pointeur void en C. Sauf si vous avez sp&eacute;cifiquement besoin d'un pointeur non typ&eacute;, vous devriez utiliser des pointeurs typ&eacute;s afin que le compilateur peut v&eacute;rifier les affectations pointeur.<br \>
+<br \>
+<div class="fb_header"> Les op&eacute;rateurs pointeur</div><br \>
+<br \>
+FreeBASIC a les <a href="CatPgOpPoint.html">op&eacute;rateurs pointeur</a> suivants.<br \>
+<br \>
+Vous remarquerez que l'op&eacute;rateur @ (Adresse de) non seulement renvoie l'adresse m&eacute;moire d'une variable, mais il peut aussi renvoyer l'adresse d'un sous-programme ou d'une fonction. Vous pourriez utiliser l'adresse d'un sous-programme ou d'une fonction pour cr&eacute;er une fonction de rappel telle que celle utilis&eacute;e dans la fonction CRT qsort.<br \>
+<br \>
+<div class="fb_header"> Fonctions m&eacute;moire </div><br \>
+<br \>
+FreeBASIC a &eacute;galement un certain nombre de <a href="CatPgMemory.html">fonctions m&eacute;moire</a> qui sont utilis&eacute;es avec des pointeurs.<br \>
+<br \>
+Ces fonctions sont utiles pour cr&eacute;er un certain nombre de structures dynamiques comme les listes cha&icirc;n&eacute;es, tableaux non-rectangulaires (ragged) ou dynamiques et les tampons utilis&eacute;s avec des librairies tierces.<br \>
+<br \>
+Lorsque vous utilisez la fonction "Allocate" vous devez sp&eacute;cifier la taille de stockage bas&eacute;e sur le type de donn&eacute;es en utilisant l'&eacute;quation nombre_d_elements * sizeof (type de donn&eacute;es). Pour allouer de l'espace pour 10 entiers votre code devrait ressembler &agrave; ceci: myPointer = Allocate (10 * sizeof (Integer)). Un entier occupe 4 octets donc pour allouer 10 entiers 40 octets seront mis de c&ocirc;t&eacute; en m&eacute;moire. "Allocate" n'efface pas le segment de m&eacute;moire, donc les donn&eacute;es dans le segment seront al&eacute;atoires, donn&eacute;es sans aucun sens jusqu'&agrave; l'initialisation.<br \>
+<br \>
+"Callocate" fonctionne de la m&ecirc;me fa&ccedil;on, sauf que le calcul est fait en interne. Pour allouer les 10 m&ecirc;mes entiers en utilisant "Callocate" votre code ressemblera &agrave; cela: myPointer = Callocate(10, Sizeof(Integer)). Contrairement &agrave; "Allocate", "Callocate" va effacer le segment de m&eacute;moire.<br \>
+<br \>
+"Reallocate" change la taille d'un segment existant en m&eacute;moire, le rendant plus ou moins grand selon les besoins. Si le nouveau segment est plus grand que le segment existant, alors les donn&eacute;es dans le segment existant seront conserv&eacute;es. Si le nouveau segment est plus petit que le segment existant, les donn&eacute;es existantes dans le segment seront tronqu&eacute;es. "Reallocate" n'efface pas la m&eacute;moire ajout&eacute;e ou modifie toutes les donn&eacute;es existantes.<br \>
+<br \>
+Toutes ces fonctions renvoient une adresse m&eacute;moire en cas de succ&egrave;s. Si les fonctions ne peuvent pas allouer le segment de m&eacute;moire, alors un pointeur NULL (0) est retourn&eacute;. Vous devriez v&eacute;rifier la valeur retourn&eacute;e chaque fois que vous utilisez ces fonctions pour &ecirc;tre s&ucirc;r que le segment de m&eacute;moire a &eacute;t&eacute; cr&eacute;&eacute; correctement. Tenter d'utiliser un mauvais pointeur se traduira par un comportement ind&eacute;sirable ou plantage du syst&egrave;me.<br \>
+<br \>
+<div class="fb_table"><table><tr><td> Il n'y a pas de m&eacute;thode intrins&egrave;que pour d&eacute;terminer la taille d'une allocation. Vous devez garder une trace de cette information vous-m&ecirc;me.</td></tr></table></div><br \>
+<div class="fb_table"><table><tr><td>Attention &agrave; ne pas utiliser la m&ecirc;me variable pointeur pour allouer deux ou plusieurs segments de m&eacute;moire. R&eacute;utiliser un pointeur, sans premi&egrave;rement le d&eacute;sallouer, se traduira par la perte du segment de m&eacute;moire pr&eacute;c&eacute;dent, provoquant une perte de m&eacute;moire.</td></tr></table></div><br \>
+<br \>
+<div class="fb_header"> Arithm&eacute;tique des pointeurs et d'indexation de pointeur </div><br \>
+<br \>
+Lorsque vous cr&eacute;ez un segment de m&eacute;moire en utilisant les fonctions d'allocation, vous aurez besoin d'un moyen pour acc&eacute;der aux donn&eacute;es contenues dans le segment. En FreeBASIC, il existe deux m&eacute;thodes pour acc&eacute;der aux donn&eacute;es dans le segment; utiliser l'op&eacute;rateur d'indirection avec l'arithm&eacute;tique des pointeurs et l'indexation du pointeur.<br \>
+<br \>
+L'arithm&eacute;tique des pointeurs, comme son nom l'indique, ajoute et soustrait des valeurs &agrave; un pointeur pour acc&eacute;der aux &eacute;l&eacute;ments individuels au sein d'un segment de m&eacute;moire. Lorsque vous cr&eacute;ez un pointeur typ&eacute; comme "Dim myPointer as Integer ptr", le compilateur sait que les donn&eacute;es utilis&eacute;es avec ce pointeur ont la taille d'un entier ou 4 octets. Le pointeur, quand il est initialis&eacute;, pointe sur le premier &eacute;l&eacute;ment du segment. Vous pouvez exprimer ceci ainsi *(myPtr+0). Pour acc&eacute;der au deuxi&egrave;me &eacute;l&eacute;ment, vous devez ajouter 1 au pointeur, ce qui peut &ecirc;tre exprim&eacute; *(myPtr+1).<br \>
+<br \>
+Comme le compilateur sait que le pointeur est un pointeur d'entier, ajouter 1 &agrave; la r&eacute;f&eacute;rence pointeur consistera effectivement &agrave; incr&eacute;menter l'adresse contenue dans "myPtr" de 4 (de la taille d'un Entier). C'est pourquoi l'utilisation de pointeurs typ&eacute;s est pr&eacute;f&eacute;rable &agrave; celle des pointeurs non typ&eacute;s. Le compilateur effectue une grande partie du travail pour vous dans l'acc&egrave;s aux donn&eacute;es dans le segment de m&eacute;moire.<br \>
+<br \>
+Notez que la construction est *(myPtr+1) et non *myPtr+1. L'op&eacute;rateur * est plus prioritaire que +, donc *myPtr+1  incr&eacute;mentera effectivement le contenu de l'adresse point&eacute;e par myPtr, et non l'adresse du pointeur.<br \>
+<br \>
+<div class="fb_indent">myPtr sera &eacute;valu&eacute; en premier, il renverra le contenu de l'emplacement m&eacute;moire, puis +1 sera &eacute;valu&eacute;, ajoutant 1 &agrave; l'emplacement de la m&eacute;moire. En encapsulant myPtr+1 entre parenth&egrave;ses, vous forcez le compilateur &agrave; &eacute;valuer myPtr+1 d'abord, ce qui incr&eacute;mente l'adresse du pointeur, puis le * est appliqu&eacute; pour retourner le contenu de la nouvelle adresse.<br \>
+<br \>
+</div>L'indexation de pointeurs fonctionne de la m&ecirc;me mani&egrave;re que l'arithm&eacute;tique des pointeurs, mais les d&eacute;tails sont tra&icirc;t&eacute;s par le compilateur. *(myPtr+1) est &eacute;quivalent &agrave; myPtr[1]. Encore une fois, puisque le compilateur sait que myPtr est un pointeur d'entier, il peut calculer les d&eacute;calages m&eacute;moire corrects pour retourner les valeurs correctes &agrave; l'aide de l'indice. Quel est le format que vous utiliserez, la r&eacute;ponse vous appartient, mais la m&eacute;thode avec indice ressemble &agrave; la m&eacute;thode standard d'acc&egrave;s aux tableau et est visuellement plus facile &agrave; comprendre que l'op&eacute;rateur d'indirection.<br \>
+<br \>
+<div class="fb_header"> Fonctions pointeur </div><br \>
+<br \>
+FreeBASIC a un ensemble de fonctions pointeur pour compl&eacute;ter les op&eacute;rateurs pointeur.<br \>
+<br \>
+<div class="fb_indent"> <a href="KeyPgCptr.html">CPtr</a> Convertit une expression en un pointeur data_type. L'expression peut &ecirc;tre un autre pointeur ou un entier.<br \>
+ <a href="KeyPgPeek.html">Peek</a> Peek retourne le contenu de l'emplacement m&eacute;moire point&eacute; par le pointeur. Data_type sp&eacute;cifie le type de donn&eacute;es attendues.<br \>
+ <a href="KeyPgPoke.html">Poke</a> Met la valeur de l'expression dans l'emplacement m&eacute;moire point&eacute; par le pointeur. data_type sp&eacute;cifie le type de donn&eacute;es &agrave; placer dans l'emplacement m&eacute;moire.<br \>
+ <a href="KeyPgSadd.html">SAdd</a> Renvoie l'emplacement m&eacute;moire o&ugrave; les donn&eacute;es de la cha&icirc;ne d'une cha&icirc;ne dynamique sont situ&eacute;es.<br \>
+ <a href="KeyPgOpStrptr.html">StrPtr</a> Comme Sadd.<br \>
+ <a href="KeyPgOpProcptr.html">ProcPtr</a> Renvoie l'adresse d'une fonction. Fnctionne de la m&ecirc;me mani&egrave;re que l'op&eacute;rateur @ (adresse de).<br \>
+ <a href="KeyPgOpVarptr.html">VarPtr</a> Cette fonction fonctionne de la m&ecirc;me mani&egrave;re que l'op&eacute;rateur @ (adresse de).<br \>
+<br \>
+</div>Les fonctions Sadd et StrPtr travaillent avec les donn&eacute;es des types cha&icirc;nes pour retourner l'adresse de donn&eacute;es de la cha&icirc;ne. Les fonctions Peek et Poke ont &eacute;t&eacute; ajout&eacute;es aux fins de soutenir le code h&eacute;rit&eacute;. Procptr et Varptr fonctionnent toutes les deux exactement comme l'op&eacute;rateur @ (adresse de), mais Proptr fonctionnent seulement sur les sous-programmes et  fonctions et Varptr seulement sur les variables. Cptr est utile pour changer (cast) un pointeur non typ&eacute; en un pointeur typ&eacute;, comme la valeur retourn&eacute;e d'une biblioth&egrave;que tierce partie.<br \>
+<br \>
+<div class="fb_header"> Pointeurs de sous-programmes et de fonctions </div><br \>
+<br \>
+Les sous-programmes et fonctions, comme les variables, r&eacute;sident en m&eacute;moire et ont une adresse associ&eacute;e &agrave; leur point d'entr&eacute;e. Vous pouvez utiliser ces adresses pour cr&eacute;er des &eacute;v&eacute;nements dans vos programmes, pour cr&eacute;er des pseudo-objets et sont utilis&eacute;s dans des fonctions de rappel. Vous cr&eacute;ez un pointeur de sous-programme ou de fonction comme tout autre pointeur, sauf vous d&eacute;clarez votre variable comme un pointeur vers un sous-programme ou une fonction, plut&ocirc;t que comme un pointeur vers un type de donn&eacute;es.<br \>
+<br \>
+Avant d'utiliser un pointeur de fonction, il doit &ecirc;tre initialis&eacute; &agrave; l'adresse d'un sous-programme ou d'une fonction en utilisant "Procptr" ou @. Une fois initialis&eacute;, vous utilisez le pointeur de la m&ecirc;me mani&egrave;re que pour appeler le sous-programme ou la fonction original.<br \>
+<br \>
+Vous d&eacute;clarez un pointeur de fonction en utilisant la syntaxe de d&eacute;claration anonyme.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">FuncPtr</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Function</span><span class="oth">(</span><span class="wrd">x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+</div></tt><br />
+<br \>
+Vous devez ensuite associer ce pointeur de fonction avec un sous-programme ou une fonction r&eacute;el au sein de votre code.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Function</span>&nbsp;<span class="wrd">Power</span><span class="oth">(</span><span class="wrd">number</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">pwr</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Return</span>&nbsp;<span class="wrd">number</span><span class="oth">^</span><span class="wrd">pwr</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="wrd">FuncPtr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">@</span><span class="wrd">Power</span><br />
+<br />
+</div></tt><br />
+<br \>
+Vous pouvez alors appeler le pointeur de fonction un peu comme vous appelez la fonction r&eacute;elle.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="wrd">FuncPtr</span><span class="oth">(</span><span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">4</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+M&ecirc;me si cela peut ne pas &ecirc;tre utile &agrave; premi&egrave;re vue, vous pouvez utiliser cette technique pour mettre en oeuvre des fonctions polymorphes, o&ugrave; une seule instance variable peut pointer vers l'un des sous-programmes ou l'une des fonctions choisi(e)s parmi une s&eacute;rie de sous-programmes ou de fonctions diff&eacute;rent(e)s.<br \>
+<br \>
+Par exemple, supposons que vous avez des objets chien et de chat. Les deux objets ont besoin d'une m&eacute;thode Speak. En d&eacute;finissant Speak comme un pointeur de fonction et en associant Speak avec un sous-programme Bark (aboyer) pour un chien et un sous-programme Meow (miauler) pour un chat, vous pouvez faire parler et &eacute;mettre un "Woof!" ou "Miaou!" selon le type d'objet.<br \>
+<br \>
+<div class="fb_header"> Cr&eacute;ation d'une fonction de rappel (callback) </div><br \>
+<br \>
+Une des utilisations principales pour les pointeurs de fonction est de cr&eacute;er des fonctions de rappel (callback). Une fonction de rappel (callback) est une fonction que vous avez cr&eacute;&eacute;e dans votre programme qui est appel&eacute;e par une autre fonction ou un sous-programme, soit dans votre propre espace de code ou dans une biblioth&egrave;que externe. Windows utilise des fonctions de rappel (callback) pour d&eacute;nombrer des objets Windows comme les polices, les imprimantes et les formes.<br \>
+<br \>
+La fonction qsort contenue dans la Biblioth&egrave;que C Runtime trie les &eacute;l&eacute;ments d'un tableau en utilisant une fonction de rappel (callback) pour d&eacute;terminer l'ordre de tri. Le prototype de la fonction qsort est contenu dans stdlib.bi:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">qsort</span>&nbsp;<span class="key">cdecl</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"qsort"</span>&nbsp;<span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">size_t</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">size_t</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="key">cdecl</span><span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+La liste suivante &eacute;num&egrave;re les informations sur les param&egrave;tres du sous-programme qsort.<br \>
+<br \>
+<div class="fb_indent"> Le premier param&egrave;tre est l'adresse du premier &eacute;l&eacute;ment du tableau. La meilleure fa&ccedil;on de transmettre cette information &agrave; qsort est d'ajouter l'op&eacute;rateur "adresse de" &agrave; l'indice du premier &eacute;l&eacute;ment: @myArray(0).<br \>
+Le deuxi&egrave;me param&egrave;tre est le nombre d'&eacute;l&eacute;ments dans le tableau, c'est le compte des &eacute;l&eacute;ments du tableau.<br \>
+Le troisi&egrave;me param&egrave;tre est la taille de chaque &eacute;l&eacute;ment en octets. Pour un tableau d'entiers, la taille de l'&eacute;l&eacute;ment serait de 4 octets.<br \>
+Le quatri&egrave;me param&egrave;tre est un pointeur de fonction vers la fonction de comparaison cr&eacute;&eacute; par l'utilisateur. La fonction doit &ecirc;tre d&eacute;clar&eacute;e avec le mod&egrave;le de pasage Cdecl, comme indiqu&eacute; dans ce param&egrave;tre.<br \>
+<br \>
+<br \>
+</div>En utilisant cette information, vous pouvez voir comment qsort fonctionne. En passant l'adresse du premier &eacute;l&eacute;ment avec le compte des &eacute;l&eacute;ments et la taille de chaque &eacute;l&eacute;ment, qsort peut parcourir le tableau en utilisant l'arithm&eacute;tique des pointeurs.<br \>
+<br \>
+Qsort prend deux &eacute;l&eacute;ments du tableau, les transmet &agrave; votre fonction de comparaison et utilise de valeur de retour de la fonction de comparaison pour trier les &eacute;l&eacute;ments du tableau. Elle r&eacute;p&egrave;te cela jusqu'&agrave; ce que chaque &eacute;l&eacute;ment du tableau soit dans l'ordre.<br \>
+<br \>
+Vous devez d&eacute;clarer le prototype de fonction Cdecl qui garantit la transmission des param&egrave;tres dans le bon ordre.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">QCompare</span>&nbsp;<span class="key">cdecl</span>&nbsp;<span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">e1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">e2</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+</div></tt><br />
+<br \>
+Vous pouvez ensuite d&eacute;finir la fonction comme ceci.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'The&nbsp;qsort&nbsp;function&nbsp;expects&nbsp;three&nbsp;numbers</span><br />
+<span class="com">'from&nbsp;the&nbsp;compare&nbsp;function:</span><br />
+<span class="com">'-1:&nbsp;if&nbsp;e1&nbsp;is&nbsp;less&nbsp;than&nbsp;e2</span><br />
+<span class="com">'0:&nbsp;if&nbsp;e1&nbsp;is&nbsp;equal&nbsp;to&nbsp;e2</span><br />
+<span class="com">'1:&nbsp;if&nbsp;e1&nbsp;is&nbsp;greater&nbsp;than&nbsp;e2</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">QCompare</span>&nbsp;<span class="key">cdecl</span>&nbsp;<span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">e1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">_</span><br />
+<span class="key">ByVal</span>&nbsp;<span class="wrd">e2</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">el1</span><span class="oth">,</span>&nbsp;<span class="wrd">el2</span><br />
+<span class="key">Static</span>&nbsp;<span class="wrd">cnt</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="com">'Get&nbsp;the&nbsp;call&nbsp;count&nbsp;and&nbsp;items&nbsp;passed</span><br />
+<span class="wrd">cnt</span>&nbsp;<span class="oth">+=</span>&nbsp;<span class="num">1</span><br />
+<span class="com">'Get&nbsp;the&nbsp;values,&nbsp;must&nbsp;cast&nbsp;to&nbsp;integer&nbsp;ptr</span><br />
+<span class="wrd">el1</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">*(</span><span class="key">CPtr</span><span class="oth">(</span><span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">e1</span><span class="oth">))</span><br />
+<span class="wrd">el2</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">*(</span><span class="key">CPtr</span><span class="oth">(</span><span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">e2</span><span class="oth">))</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Qsort&nbsp;called"</span><span class="oth">;</span><span class="wrd">cnt</span><span class="oth">;</span><span class="quo">"&nbsp;time(s)&nbsp;with"</span><span class="oth">;</span><span class="wrd">el1</span><span class="oth">;</span><span class="quo">"&nbsp;and"</span><span class="oth">;</span><span class="wrd">el2</span><span class="oth">;</span><span class="quo">"."</span><br />
+<span class="com">'Compare&nbsp;the&nbsp;values</span><br />
+<span class="key">If</span>&nbsp;<span class="wrd">el1</span>&nbsp;<span class="oth">&lt;</span>&nbsp;<span class="wrd">el2</span>&nbsp;<span class="key">Then</span><br />
+<span class="key">Return</span>&nbsp;<span class="oth">-</span><span class="num">1</span><br />
+<span class="key">ElseIf</span>&nbsp;<span class="wrd">el1</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="wrd">el2</span>&nbsp;<span class="key">Then</span><br />
+<span class="key">Return</span>&nbsp;<span class="num">1</span><br />
+<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+Vous pouvez ensuite appeler la fonction qsort en passant l'adresse de la fonction de rappel (callback).<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="wrd">qsort</span>&nbsp;<span class="oth">@</span><span class="wrd">myArray</span><span class="oth">(</span><span class="num">0</span><span class="oth">),</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(</span><span class="key">Integer</span><span class="oth">),</span>&nbsp;<span class="oth">@</span><span class="wrd">QCompare</span><br />
+</div></tt><br />
+<br \>
+<div class="fb_header"> Pointeur vers un pointeur </div><br \>
+<br \>
+En FreeBASIC vous pouvez cr&eacute;er un pointeur vers un des types de donn&eacute;es pris en charge, y compris le type de donn&eacute;es pointeur. Un pointeur vers un pointeur est utile dans les situations o&ugrave; vous devez retourner un pointeur vers une fonction ou dans la cr&eacute;ation de structures sp&eacute;cialis&eacute;es de donn&eacute;es tels que les listes li&eacute;es et des tableaux non-rectangulaires. Un pointeur vers un pointeur est appel&eacute; indirection multi-niveau.<br \>
+<br \>
+Une application d'un pointeur vers un pointeur est la cr&eacute;ation d'un segment de m&eacute;moire qui se comporte exactement comme un tableau. Par exemple, supposons que vous voulez cr&eacute;er un segment de m&eacute;moire pour contenir un nombre inconnu d'entiers. Vous pouvez cr&eacute;er un segment de m&eacute;moire dynamique que vous pouvez redimensionner si n&eacute;cessaire en cours d'ex&eacute;cution pour traiter  autant d'entiers que n&eacute;cessaire. Vous commencez par cr&eacute;er une variable pointeur-vers-pointeur.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">myMemArray</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="key">Ptr</span><br />
+</div></tt><br />
+<br \>
+Vous pouvez ensuite initialiser la r&eacute;f&eacute;rence pointeur en utilisant Allocate ou Callocate.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'Create&nbsp;10&nbsp;rows&nbsp;of&nbsp;integer&nbsp;pointers</span><br />
+<span class="wrd">myMemArray</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="num">10</span><span class="oth">,</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(</span><span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><span class="oth">))</span><br />
+</div></tt><br />
+<br \>
+Notez que la variable est initialis&eacute;e ave un <i>Integer Ptr</i> car cette liste va pointer vers une autre liste; c'est le pointeur qui pointe vers un autre pointeur. Vous pouvez ensuite initialiser les r&eacute;f&eacute;rences individuelles des pointeurs qui viennent d'&ecirc;tre cr&eacute;&eacute;s pour pointer vers les segments de m&eacute;moire n&eacute;cessaires.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'Add&nbsp;10&nbsp;columns&nbsp;of&nbsp;integers&nbsp;to&nbsp;each&nbsp;row</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+<span class="wrd">myMemArray</span><span class="oth">[</span><span class="wrd">i</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="num">10</span><span class="oth">,</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(</span><span class="key">Integer</span><span class="oth">))</span><br />
+<span class="key">Next</span><br />
+</div></tt><br />
+<br \>
+Dans cet extrait de code, les pointeurs individuels de la liste sont initialis&eacute;s &agrave; 10 segments de m&eacute;moire qui contiendront des donn&eacute;es enti&egrave;res r&eacute;elles.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'Add&nbsp;some&nbsp;data&nbsp;to&nbsp;the&nbsp;memory&nbsp;segment</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">j</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+<span class="wrd">myMemArray</span><span class="oth">[</span><span class="wrd">i</span><span class="oth">][</span><span class="wrd">j</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Int</span><span class="oth">(</span><span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">10</span><span class="oth">)</span><br />
+<span class="key">Next</span><br />
+<span class="key">Next</span><br />
+</div></tt><br />
+<br \>
+Cet extrait de code utilise la m&eacute;thode de l'indice pour charger les donn&eacute;es r&eacute;elles dans les segments de m&eacute;moire. Remarquez que cela ressemble et agit comme un tableau &agrave; deux dimensions. Tout cela ne semble pas utile dans ce contexte, vous pouvez utiliser ce code pour cr&eacute;er un tableau dynamique dans une d&eacute;finition de type. Puisque vous ne pouvez pas avoir un tableau standard dynamique au sein d'un type, ceci vous permet d'obtenir la m&ecirc;me fonctionnalit&eacute;.<br \>
+<br \>
+Une chose dont vous devez &ecirc;tre conscient est de savoir comment lib&eacute;rer une telle structure. La r&egrave;gle est de simplement faire l'inverse des op&eacute;rations d'allocation. Depuis la derni&egrave;re op&eacute;ration d'allocation qui a initialis&eacute; les segments de m&eacute;moire de donn&eacute;es, vous d&eacute;sallouez d'abord ces segments de m&eacute;moire, puis vous pouvez d&eacute;sallouer le pointeur de base.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'Free&nbsp;memory&nbsp;segment</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+<span class="key">Deallocate</span>&nbsp;<span class="wrd">myMemArray</span><span class="oth">[</span><span class="wrd">i</span><span class="oth">]</span><br />
+<span class="key">Next</span><br />
+<br />
+<span class="com">'Free&nbsp;the&nbsp;pointer&nbsp;to&nbsp;pointer</span><br />
+<span class="key">Deallocate</span>&nbsp;<span class="wrd">myMemArray</span><br />
+</div></tt><br />
+<br \>
+Vous devez &ecirc;tre s&ucirc;r que la d&eacute;sallocation se fait dans le bon ordre, sinon vous allez vous retrouver avec des segments de m&eacute;moire qui ne seront pas lib&eacute;r&eacute;s, mais inaccessibles. Ce seront des fuites de m&eacute;moire et pourront causer une multitude de probl&egrave;mes dans votre programme.<br \>
+
+</div>
+</div> 
+</div> 
+</body>
+</html>

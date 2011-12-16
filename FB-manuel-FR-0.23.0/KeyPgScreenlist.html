@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>ScreenList</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">ScreenList</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;termine les modes plein &eacute;cran valides<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>ScreenList</b> ( <a href="KeyPgByval.html">ByVal</a> <i>depth</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = 0 ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>ScreenList</b>( [ <i>depth</i> ] )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>depth</i></tt><br \>
+<div class="fb_indent">la profondeur de couleur pour laquelle on d&eacute;termine la liste de modes (les profondeurs support&eacute;es sont 8, 15, 16, 24 and 32)<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>retourne 0, s&apos;il n&apos;y a aucune r&eacute;solution &agrave; lire.<br \>
+<br \>
+Fonctionnement identique &agrave; celui de la fonction <tt><a  href="KeyPgDir.html">Dir</a></tt> : au premier appel de la fonction le param&egrave;tre <tt><i>depth</i></tt> est obligatoire, la fonction renvoie la r&eacute;solution la plus basse support&eacute;e par cette profondeur de couleur. Les appels suivants &agrave;  <tt><b>ScreenList</b></tt> sans argument renvoie les r&eacute;solutions suivantes. Quand il n&apos;y a plus de r&eacute;solution valable, <tt><a href="KeyPgScreenlist.html">ScreenList</a></tt> retourne 0.<br \>
+<br \>
+Le r&eacute;sultat de <tt><a href="KeyPgScreenlist.html">ScreenList</a></tt> est encod&eacute; dans un entier, la largeur d&apos;&eacute;cran dans le mot de poids fort et la hauteur d&apos;&eacute;cran dans le mot de poids faible.<br \>
+<br \>
+Les r&eacute;solutions support&eacute;es sont renvoy&eacute;es de la plus faible &agrave; la plus forte. <br \>
+<br \>
+Il est pr&eacute;f&eacute;rable d&apos;appeler cette fonction avant qu&apos;un mode graphique soit valid&eacute;.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">mode</span><span class="oth">,</span>&nbsp;<span class="wrd">w</span><span class="oth">,</span>&nbsp;<span class="wrd">h</span><br />
+<span class="com">&apos;&apos;&nbsp;Cherche&nbsp;quelles&nbsp;resolutions&nbsp;8bit&nbsp;sont&nbsp;supportees</span><br />
+<span class="wrd">mode</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ScreenList</span><span class="oth">(</span><span class="num">8</span><span class="oth">)</span><br />
+<span class="key">While</span>&nbsp;<span class="oth">(</span><span class="wrd">mode</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">w</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">HiWord</span><span class="oth">(</span><span class="wrd">mode</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">h</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">LoWord</span><span class="oth">(</span><span class="wrd">mode</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Str</span><span class="oth">(</span><span class="wrd">w</span><span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="quo">"x"</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="key">Str</span><span class="oth">(</span><span class="wrd">h</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">mode</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ScreenList</span><br />
+<span class="key">Wend</span><br />
+</div></tt><br />
+<br \>
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de Dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Not available in the <i><a href="CompilerOptlang.html">-lang qb</a></i> dialect unless referenced with the alias <tt><b>__Screenlist</b></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveaut&eacute; FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">See also</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgScreengraphics.html">Screen</a></tt><br \>
+<li> <tt><a href="KeyPgScreenres.html">ScreenRes</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

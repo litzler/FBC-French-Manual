@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>TimeSerial</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">TimeSerial</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Forme une <a href="ProPgDates.html">Date Serial</a> avec les heures, minutes et secondes sp&eacute;cifi&eacute;es<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>TimeSerial</b> ( <a href="KeyPgByval.html">ByVal</a> <i>hour</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, <a href="KeyPgByval.html">ByVal</a> <i>minute</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, <a href="KeyPgByval.html">ByVal</a> <i>second</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+#include "vbcompat.bi"<br \>
+<i>result</i> = <b>TimeSerial</b>( <i>hours</i>, <i>minutes</i>, <i>seconds</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>hours</i></tt><br \>
+<div class="fb_indent">nombre d'heures, de 0 &agrave; 23<br \>
+</div><tt><i>minute</i></tt><br \>
+<div class="fb_indent">nombre de minutes<br \>
+</div><tt><i>second</i></tt><br \>
+<div class="fb_indent">nombre de secondes<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne une <a href="ProPgDates.html">date serial</a> contenant l'heure form&eacute;e avec les valeurs des param&egrave;tres <tt><i>hours</i></tt>, <tt><i>minutes</i></tt> et <tt><i>seconds</i></tt>. La "date serial" retourn&eacute;e n'a pas de partie enti&egrave;re.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<br \>
+<tt><i>hours</i></tt> doit avoir une valeur de 0 &agrave; 23<br \>
+<br \>
+Le compilateur ne reconna&icirc;t cette fonction que si <tt>vbcompat.bi</tt> ou <tt>datetime.bi</tt> est inclus.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="def">#include&nbsp;"vbcompat.bi"<br />
+</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">ds</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">DateSerial</span><span class="oth">(</span><span class="num">2005</span><span class="oth">,</span>&nbsp;<span class="num">11</span><span class="oth">,</span>&nbsp;<span class="num">28</span><span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="key">TimeSerial</span><span class="oth">(</span><span class="num">7</span><span class="oth">,</span>&nbsp;<span class="num">30</span><span class="oth">,</span>&nbsp;<span class="num">50</span><span class="oth">)</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="key">Format</span><span class="oth">(</span><span class="wrd">ds</span><span class="oth">,</span>&nbsp;<span class="quo">"yyyy/mm/dd&nbsp;hh:mm:ss"</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> N'existe pas dans QB. Cette fonction est apparue dans PDS et VBDOS<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="ProPgDates.html">Date Serials</a><br \>
+<li> <tt><a href="KeyPgDateSerial.html">DateSerial</a></tt><br \>
+<li> <tt><a href="KeyPgTimeValue.html">TimeValue</a></tt><br \>
+<li> <tt><a href="KeyPgDateValue.html">DateValue</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

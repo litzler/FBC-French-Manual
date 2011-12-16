@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>#define</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">#define</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Directive du pr&eacute;processeur pour d&eacute;finir une macro<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+#define <i>identifier</i>( [ <i>parameters</i> ] ) <i>macro_text</i><br \>
+#define <i>identifier</i>( [ <i>parameters</i>, ] <i>variadic_parameter</i><a href="KeyPgDots.html">...</a> ) <i>macro_text</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Mot-cl&eacute; du pr&eacute;processeur qui d&eacute;finit un identifiant avec un sens personnalis&eacute;:<br \>
+<ul><li> Des <tt><i>define</i></tt> non-vides (avec <tt><i>texte</i></tt>) sont remplac&eacute;s par leur <tt><i>texte</i></tt> lorsque le source est analys&eacute;, permettant une sorte de "raccourci".  <tt><i>text</i></tt> peut &ecirc;tre vide, ce qui est utile pour faire des <tt><i>define</i></tt> con&ccedil;us pour le contr&ocirc;le des <tt><a href="KeyPgPpifdef.html">#ifdef</a></tt> et <tt><a href="KeyPgPpifndef.html">#ifndef</a></tt>.<br \>
+<li> Des <tt><i>define</i></tt> avec des param&egrave;tres sont remplac&eacute;s par le <tt><i>macro_text</i></tt>, qui contiendra tous les arguments pass&eacute;s remis &agrave; leur place.  <b>Note:</b> Le caract&egrave;re ouverture des parenth&egrave;ses ("<tt>(</tt>") doit suivre imm&eacute;diatement l' <tt><i>identifier</i></tt>, il ne doit y avoir aucun espace-blanc entre eux, sinon les parenth&egrave;ses seront prises comme faisant partie du <tt><i>text</i></tt>.<br \>
+<li> Les <tt><i>define</i></tt> ne sont visibles que dans la port&eacute;e o&ugrave; ils sont d&eacute;finis.  S'il est d&eacute;fini au niveau du module, <tt><i>define</i></tt> est visible tout au long du module.  Si l'<tt><i>identifier</i></tt> est d&eacute;fini dans une instruction &agrave; port&eacute;e compos&eacute;e (<tt><a href="KeyPgSub.html">Sub</a></tt>, <tt><a href="KeyPgFornext.html">For..Next</a></tt>, <tt><a href="KeyPgWhilewend.html">While..Wend</a></tt>, <tt><a href="KeyPgDoloop.html">Do..Loop</a></tt>, <tt><a href="KeyPgScope.html">Scope..End Scope</a></tt>, etc), l'<tt><i>identifier</i></tt> n'est visible que dans cette port&eacute;e.<br \>
+<li> Les espaces de noms n'ont aucun effet sur la visibilit&eacute; d'un <tt><i>define</i></tt>.<br \>
+</ul>
+<br \>
+Les <tt><i>Identifier</i></tt> peuvent &ecirc;tre examin&eacute;s pour voir si ils ont &eacute;t&eacute; d&eacute;finis avec <tt><a href="KeyPgPpifdef.html">#ifdef</a></tt> et <tt><a href="KeyPgPpifndef.html">#ifndef</a></tt>, ce qui peut &ecirc;tre utilis&eacute; pour cacher des parties du code pour le compilateur (compilation conditionnelle).<br \>
+<br \>
+Pour d&eacute;finir des identificateurs avec des valeurs constantes qui leur sont associ&eacute;es, <tt><a href="KeyPgConst.html">Const</a></tt> peut &ecirc;tre utilis&eacute; comme une m&eacute;thode plus puissante.<br \>
+<br \>
+Utiliser <tt><a href="KeyPgDots.html">...</a></tt> (une ellipse) derri&egrave;re le dernier param&egrave;tre d'une macro permet de cr&eacute;er une macro variadique. Cela signifie qu'il est possible de passer n'importe quel nombre d'arguments &agrave; <i>variadic_parameter</i>, qui peuvent &ecirc;tre utilis&eacute;s dans <i>macro_text</i>, tout comme un param&egrave;tre macro normal. Le <i>variadic_parameter</i> sera &eacute;tendu &agrave; la liste compl&egrave;te des arguments pass&eacute;s, y compris les virgules et peut &eacute;galement &ecirc;tre compl&egrave;tement vide.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Definition&nbsp;and&nbsp;check</span><br />
+<span class="def">#define&nbsp;DEBUGGING<br />
+#ifdef&nbsp;DEBUGGING<br />
+</span>&nbsp;&nbsp;<span class="com">'&nbsp;...&nbsp;statements</span><br />
+<span class="def">#endif<br />
+</span><br />
+<span class="com">''&nbsp;Simple&nbsp;definition/text&nbsp;replacement</span><br />
+<span class="def">#define&nbsp;FALSE&nbsp;0<br />
+#define&nbsp;TRUE&nbsp;(Not&nbsp;FALSE)<br />
+</span><br />
+<span class="com">''&nbsp;Function&nbsp;like&nbsp;definition</span><br />
+<span class="def">#define&nbsp;MyRGB(R,G,B)&nbsp;(((R)Shl&nbsp;16)&nbsp;&nbsp;Or&nbsp;((G)Shl&nbsp;8)&nbsp;Or&nbsp;(B))&nbsp;<br />
+</span><span class="key">Print</span>&nbsp;<span class="key">Hex</span><span class="oth">(</span>&nbsp;<span class="wrd">MyRGB</span><span class="oth">(</span><span class="num">&amp;hff</span><span class="oth">,</span>&nbsp;<span class="num">&amp;h00</span><span class="oth">,</span>&nbsp;<span class="num">&amp;hff</span><span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="com">''&nbsp;Line&nbsp;continuation&nbsp;and&nbsp;statements&nbsp;in&nbsp;a&nbsp;definition</span><br />
+<span class="def">#define&nbsp;printval(bar)&nbsp;_<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="oth">#</span><span class="wrd">bar</span><span class="oth">;</span>&nbsp;<span class="quo">"&nbsp;="</span><span class="oth">;</span>&nbsp;<span class="wrd">bar</span><br />
+<br />
+<span class="com">''&nbsp;#defines&nbsp;are&nbsp;visible&nbsp;only&nbsp;in&nbsp;the&nbsp;scope&nbsp;where&nbsp;they&nbsp;are&nbsp;defined</span><br />
+<span class="key">Scope</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#define&nbsp;LOCALDEF&nbsp;1<br />
+</span><span class="key">End</span>&nbsp;<span class="key">Scope</span><br />
+<br />
+<span class="def">#ifndef&nbsp;LOCALDEF<br />
+#&nbsp;&nbsp;&nbsp;&nbsp;Print&nbsp;LOCALDEF&nbsp;Is&nbsp;Not&nbsp;defined<br />
+#endif<br />
+</span><br />
+<span class="com">''&nbsp;namespaces&nbsp;have&nbsp;no&nbsp;effect&nbsp;on&nbsp;the&nbsp;visibility&nbsp;of&nbsp;a&nbsp;define</span><br />
+<span class="key">Namespace</span>&nbsp;<span class="wrd">foo</span><br />
+<span class="def">#&nbsp;&nbsp;&nbsp;&nbsp;define&nbsp;NSDEF<br />
+</span><span class="key">End</span>&nbsp;<span class="key">Namespace</span><br />
+<br />
+<span class="def">#ifdef&nbsp;NSDEF<br />
+#&nbsp;&nbsp;&nbsp;&nbsp;Print&nbsp;NSDEF&nbsp;Is&nbsp;defined<br />
+#endif<br />
+</span></div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Using&nbsp;a&nbsp;variadic&nbsp;macro&nbsp;to&nbsp;wrap&nbsp;a&nbsp;variadic&nbsp;function</span><br />
+<span class="def">#include&nbsp;"crt.bi"<br />
+#define&nbsp;eprintf(Format,&nbsp;args...)&nbsp;fprintf(stderr,&nbsp;Format,&nbsp;args)<br />
+</span><span class="wrd">eprintf</span><span class="oth">(!</span><span class="quo">"Hello&nbsp;from&nbsp;printf:&nbsp;%i&nbsp;%s&nbsp;%i\n"</span><span class="oth">,</span>&nbsp;<span class="num">5</span><span class="oth">,</span>&nbsp;<span class="quo">"test"</span><span class="oth">,</span>&nbsp;<span class="num">123</span><span class="oth">)</span><br />
+<br />
+<span class="com">''&nbsp;LISP-like&nbsp;accessors&nbsp;allowing&nbsp;to&nbsp;modify&nbsp;comma-separated&nbsp;lists</span><br />
+<span class="def">#define&nbsp;car(a,&nbsp;b...)&nbsp;a<br />
+#define&nbsp;cdr(a,&nbsp;b...)&nbsp;b<br />
+</span></div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour Freebasic<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgPpmacro.html">#macro</a></tt><br \>
+<li> <tt><a href="KeyPgOpPpStringize.html"># Preprocessor Stringize</a></tt><br \>
+<li> <tt><a href="KeyPgOpPpConcat.html">## Preprocessor Concatenate</a></tt><br \>
+<li> <tt><a href="KeyPgPpifdef.html">#ifdef</a></tt><br \>
+<li> <tt><a href="KeyPgPpifndef.html">#ifndef</a></tt><br \>
+<li> <tt><a href="KeyPgPpundef.html">#undef</a></tt><br \>
+<li> <tt><a href="KeyPgDefined.html">defined</a></tt><br \>
+<li> <tt><a href="KeyPgConst.html">Const</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

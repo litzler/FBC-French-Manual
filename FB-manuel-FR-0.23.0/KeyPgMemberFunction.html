@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Function (Member)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Function (Membre)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;clare ou d&eacute;finit une proc&eacute;dure membre qui renvoie une valeur.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+{ <a href="KeyPgType.html">Type</a> | <a href="KeyPgClass.html">Class</a> | <a href="KeyPgUnion.html">Union</a> } <i>typename</i><br \>
+<div class="fb_indent"><a href="KeyPgDeclare.html">Declare</a> [ <a href="KeyPgStaticMember.html">Static</a> | <a href="KeyPgConstMember.html">Const</a> ] <b>Function</b> <i>fieldname</i> [<i>calling convention specifier</i>] [ <a href="KeyPgAlias.html">Alias</a> <i>external_name</i> ] ( [ <i>parameters</i> ] ) <a href="KeyPgAs.html">As</a> <a href="DataType.html">datatype</a> [ <a href="KeyPgStatic.html">Static</a> ]<br \>
+</div>End { <a href="KeyPgType.html">Type</a> | <a href="KeyPgClass.html">Class</a> | <a href="KeyPgUnion.html">Union</a> }<br \>
+<br \>
+<b>Function</b> <i>typename</i>.<i>fieldname</i> ( [ <i>parameters</i> ] ) <a href="KeyPgAs.html">As</a> <a href="DataType.html">datatype</a><br \>
+<div class="fb_indent"><i>statements</i><br \>
+</div><b>End Function</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>typename</i></tt> <br \>
+<div class="fb_indent">nom de <tt><a href="KeyPgType.html">Type</a></tt>, <tt><a href="KeyPgClass.html">Class</a></tt> ou <tt><a href="KeyPgUnion.html">Union</a></tt><br \>
+</div>
+<tt><i>fieldname</i></tt> <br \>
+<div class="fb_indent">nom de la proc&eacute;dure<br \>
+</div>
+<tt><i>external_name</i></tt><br \>
+<div class="fb_indent">nom de champ vu quand on &eacute;tablit des liens externes<br \>
+</div>
+<tt><i>parameters</i></tt> <br \>
+<div class="fb_indent">les param&egrave;tres &agrave; passer &agrave; la proc&eacute;dure<br \>
+</div>
+<tt><i>calling convention specifier</i></tt>	<br \>
+<div class="fb_indent">peut &ecirc;tre: <tt><a href="KeyPgCdecl.html">cdecl</a></tt>, <tt><a href="KeyPgStdcall.html">stdcall</a></tt> ou <tt><a href="KeyPgPascal.html">pascal</a></tt><br \>
+<br \>
+</div>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Les membres de <tt><b>Function</b></tt> sont accessibles avec <tt><a href="KeyPgOpMemberAccess.html">Operator . (Acc&egrave;s de membre)</a></tt> ou <tt><a href="KeyPgOpPtrMemberAccess.html">Operator -&gt; (Pointeur vers Acc&egrave;s de membre)</a></tt> pour appeler une proc&eacute;dure membre qui retourne une valeur.  La proc&eacute;dure peut &eacute;ventuellement accepter des param&egrave;tres <tt><a href="KeyPgByval.html">ByVal</a></tt> ou <tt><a href="KeyPgByref.html">ByRef</a></tt>.  <tt><i>typename</i></tt> peut &ecirc;tre surcharg&eacute;, sans utilisation explicite du mot-cl&eacute; <tt><a href="KeyPgOverload.html">Overload</a></tt>.<br \>
+<br \>
+<tt><i>typename</i></tt> est le nom du type avec lequel la <tt><b>Function</b></tt> est d&eacute;clar&eacute;e et d&eacute;finie.  La r&eacute;solution de noms pour <tt><i>typename</i></tt> suit les m&ecirc;mes r&egrave;gles que pour les proc&eacute;dures en cas d'utilisation dans un <tt><a href="KeyPgNamespace.html">Namespace = Espace de noms</a></tt>.<br \>
+<br \>
+Un param&egrave;tre cach&eacute; <tt><a href="KeyPgThis.html">This</a></tt> ayant le m&ecirc;me type que <tt><i>typename</i></tt> est pass&eacute; aux proc&eacute;dures membres non statiques.  <tt><a href="KeyPgThis.html">This</a></tt> est utilis&eacute; pour acc&eacute;der aux champs de <tt><a href="KeyPgType.html">Type</a></tt>, <tt><a href="KeyPgClass.html">Class</a></tt> ou <tt><a href="KeyPgUnion.html">Union</a></tt>.<br \>
+<br \>
+Un <tt><a href="KeyPgStaticMember.html">Static (Membre)</a></tt> peut &ecirc;tre d&eacute;clar&eacute; en utilisant le sp&eacute;cificateur <tt><b>Static</b></tt>.  A <tt><a href="KeyPgConstMember.html">Const (Membre)</a></tt> peut &ecirc;tre d&eacute;clar&eacute; en utilisant le sp&eacute;cificateur <tt><b>Const</b></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="def">#include&nbsp;"vbcompat.bi"<br />
+</span><br />
+<span class="key">Type</span>&nbsp;<span class="key">Date</span><br />
+<br />
+&nbsp;&nbsp;<span class="wrd">value</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Static</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">Today</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Date</span><br />
+<br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="key">Year</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="key">Month</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="key">Day</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">Date.Today</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Date</span><br />
+&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="key">Type</span><span class="oth">(</span><span class="key">Now</span><span class="oth">())</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">Date.Year</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">..</span><span class="key">Year</span><span class="oth">(</span><span class="wrd">value</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">Date.Month</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">..</span><span class="key">Month</span><span class="oth">(</span><span class="wrd">value</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">Date.Day</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">..</span><span class="key">Day</span><span class="oth">(</span><span class="wrd">value</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Date</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">Date.Today</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Year&nbsp;&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">d.Year</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Month&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">d.Month</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Day&nbsp;&nbsp;&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">d.Day</span><br />
+<br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Disponible seulement dans le dialecte <i><a href="CompilerOptlang.html">-lang fb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgClass.html">Class</a></tt><br \>
+<li> <tt><a href="KeyPgFunction.html">Function</a></tt><br \>
+<li> <tt><a href="KeyPgMemberSub.html">Sub (Membre)</a></tt><br \>
+<li> <tt><a href="KeyPgType.html">Type</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Conditional Compilation And You</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">La compilation conditionnelle et vous</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+<i>Ecrit par aetherFox pour <a href="http://petesqbsite.com/sections/express/issue9/index.html#compilation">QB Express Issue #9</a></i><br \>
+<br \>
+La compilation conditionnelle est une de ces parties de la programmation qui sont oubli&eacute;es dans les coins poussi&eacute;reux des banques de connaissances des programmeurs du monde fini, mais c'est encore l'un des ajouts les plus ing&eacute;nieux pour n'importe quelle langage. Habituellement r&eacute;serv&eacute;e aux programmeurs C, avec la puissance du nouveau pr&eacute;processeur FreeBASIC, vous pouvez maintenant utiliser la compilation conditionnelle pour am&eacute;liorer votre programme.<br \>
+<br \>
+Le pr&eacute;processeur permet de la flexibilit&eacute; en changeant la fa&ccedil;on dont le code est g&eacute;n&eacute;r&eacute; par l'utilisation de la compilation conditionnelle. Prenez ce sc&eacute;nario: vous d&eacute;bogguez du code dans votre programme et vous voulez ajouter du code suppl&eacute;mentaire pour afficher quelques variables, mais celles-ci seront supprim&eacute;es dans la version finale. Le code ressemblerait &agrave; ceci:<br \>
+<br \>
+<tt><tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#define&nbsp;DEBUG<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#ifdef&nbsp;DEBUG<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Debug&nbsp;Value"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#endif&nbsp;'DEBUG<br />
+</span></div></tt><br />
+</tt><br \>
+<br \>
+<b>Notez</b> que le commentaire apr&egrave;s <tt><a href="KeyPgEndif.html">#endif</a></tt> n'est pas obligatoire, mais c'est une bonne habitude.<br \>
+<br \>
+Fondamentalement, le code ci-dessus v&eacute;rifie si <tt>DEBUG</tt> a &eacute;t&eacute; d&eacute;fini, et si c'est le cas, alors le code entre les <tt><a href="KeyPgPpifdef.html">#ifdef</a>...<a href="KeyPgPpendif.html">#endif</a></tt> sera ex&eacute;cut&eacute;. M&ecirc;me si cela peut sembler idiot, les utilisations de ceci sont &eacute;tonnantes. Si vous enlevez simplement une ligne en haut de votre programme (<tt><a href="KeyPgPpdefine.html">#define</a> DEBUG</tt>), alors tout le code de d&eacute;boggage que vous avez ajout&eacute; ne sera pas envoy&eacute; au compilateur -- le pr&eacute;processeur le supprimera --, r&eacute;duisant ainsi l'expansion exag&eacute;r&eacute;e de l'ex&eacute;cutable final.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'Turn&nbsp;on&nbsp;debugging</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#define&nbsp;DEBUG<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'Turn&nbsp;off&nbsp;debugging&nbsp;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#undef&nbsp;DEBUG<br />
+</span></div></tt><br />
+</tt><br \>
+<br \>
+La directive <tt><a href="KeyPgPpundef.html">#undef</a></tt> est une fa&ccedil;on de "d&eacute;-d&eacute;finir" quelque chose, dans ce cas, DEBUG. Alors qu'elle est strictement inutile (il suffit de commenter la ligne <tt><a href="KeyPgPpdefine.html">#define</a> DEBUG</tt>), elle rend le code plus clair, et a d'autres usages:<br \>
+<br \>
+<tt><tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#ifndef&nbsp;DEBUG<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Production&nbsp;Version"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#endif&nbsp;'DEBUG<br />
+</span></div></tt><br />
+</tt><br \>
+<br \>
+Bien que n'&eacute;tant pas l'exemple le plus utile, ceci d&eacute;montre l'utilisation d'une autre directive: <tt><a href="KeyPgPpifndef.html">#ifndef</a></tt>. Cette directive va provoquer la compilation du code si le symbole n'est pas d&eacute;fini.<br \>
+<br \>
+Tout comme dans un langage de programmation normale, le sens du conditionnel peut &ecirc;tre invers&eacute; en utilisant une variante de "else", <tt><a href="KeyPgElse.html">#else</a></tt>:<br \>
+<br \>
+<tt><tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#ifdef&nbsp;DEBUG<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Test&nbsp;Version"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#else<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Production&nbsp;Version"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#endif&nbsp;'DEBUG&nbsp;<br />
+</span></div></tt><br />
+</tt><br \>
+<br \>
+Bien s&ucirc;r, il existe de nombreuses applications &agrave; cela. Qui a dit que vous avez besoin pour ce faire sur le code de d&eacute;bogage uniquement? Vous pouvez effectivement v&eacute;rifier l'effet d'un nouveau morceau de code ou de quelques routines de test en d&eacute;finissant simplement un nom comme <tt>TESTCODE</tt> et l'utilisation des directives du pr&eacute;processeur pour inclure votre code pour la compilation conditionnelle:<br \>
+<br \>
+<tt><tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#define&nbsp;TESTCODE<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#ifdef&nbsp;TESTCODE<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">BulletRoutine</span><span class="oth">()</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">TestFireRoutine</span><span class="oth">()</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#endif&nbsp;<br />
+</span></div></tt><br />
+</tt><br \>
+<br \>
+La port&eacute;e de ce tutoriel est limit&eacute;e, mais cette m&eacute;thode est utilis&eacute;e par les professionnels. Elle rend la vie plus facile lors de la programmation. J'ai utilis&eacute; cette m&eacute;thode dans mon propre code. Pour voir ce code en action, afficher la source <a href="http://avinash.apeshell.net/stuff/ship/flyaround.bas">ici</a>.<br \>
+<br \>
+Avinash 'aetherFox' Vora <br \>
+<b>avinashvora</b> [at] <b>gmail</b> [dot] <b>com</b>.<br \>
+http://avinash.apeshell.net
+</div>
+</div> 
+</div> 
+</body>
+</html>

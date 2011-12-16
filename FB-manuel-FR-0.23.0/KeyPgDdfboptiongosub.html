@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>__Fb_Option_Gosub__</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">__Fb_Option_Gosub__</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;finition intrins&egrave;que (valeur de la macro) fix&eacute;e par le compilateur<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+__FB_OPTION_GOSUB__<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Indique comment <tt><a href="KeyPgGosub.html">GoSub</a></tt> et <tt><a href="KeyPgReturn.html">Return</a></tt> seront pris en charge au moment de la compilation. Si l'option est valid&eacute;e (-1) alors <tt><a href="KeyPgGosub.html">GoSub</a></tt> est permis et <tt><a href="KeyPgReturn.html">Return</a></tt> est reconnu seulement comme <tt><i>"retour-de-gosub"</i></tt>.  Si l'option n'est pas valid&eacute;e (0) alors <tt><a href="KeyPgGosub.html">GoSub</a></tt> n'est pas permis et <tt><a href="KeyPgReturn.html">Return</a></tt> est reconnu seulement comme <tt><i>"retour-de-proc&eacute;dure"</i></tt>.<br \>
+<br \>
+Cette valeur macro peut &ecirc;tre chang&eacute;e au moment de la compilation.  <tt><a href="KeyPgOptiongosub.html">Option Gosub</a></tt> validera l'option (valide le support de gosub) et <tt><a href="KeyPgOptionnogosub.html">Option Nogosub</a></tt> annulera l'option (annulation du support de gosub).<br \>
+<br \>
+<tt>__FB_OPTION_GOSUB__</tt> retourne z&eacute;ro (0) si l'option n'a pas &eacute;t&eacute; valid&eacute;e.  Retourne non-z&eacute;ro (-1) si l'option a &eacute;t&eacute; valid&eacute;e.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="def">#if(&nbsp;__FB_OPTION_GOSUB__&nbsp;&lt;&gt;&nbsp;0&nbsp;)<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;turn&nbsp;off&nbsp;gosub&nbsp;support</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Option</span>&nbsp;<span class="wrd">nogosub</span><br />
+<span class="def">#endif<br />
+</span></div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Par d&eacute;faut, <tt>-1</tt> dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> et <tt>0</tt> dans tous les autres dialectes.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOptiongosub.html">Option Gosub</a></tt><br \>
+<li> <tt><a href="KeyPgOptionnogosub.html">Option Noosub</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

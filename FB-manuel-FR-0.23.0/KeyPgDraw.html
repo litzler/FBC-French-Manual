@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Draw</title>
+
+
+<link rel="stylesheet" type="text/css" href="style.css"></head><body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Draw</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif"></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;claration pour l'&eacute;criture s&eacute;quentielle de pixel<br \="">
+<br \="">
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \="">
+<b>Draw</b> [<i>target</i>,] <i>cmd</i><br \="">
+</tt><br \="">
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \="">
+
+<tt><i>target</i></tt><br \="">
+<div class="fb_indent">le tampon o&ugrave; dessiner<br \="">
+</div>
+<tt><i>cmd</i></tt><br \="">
+<div class="fb_indent">une cha&icirc;ne contenant une s&eacute;quence de commandes<br \="">
+<br \="">
+</div>
+</div><div class="fb_sect_title">Description</div>
+<div class="fb_sect_cont"><br \="">Le dessin sera sur la page courante de travail valid&eacute;e par <tt><a href="KeyPgScreenset.html">ScreenSet</a></tt> ou sur le tampon <tt><i>cible (target)</i></tt> <tt><a href="KeyPgGetgraphics.html">Get</a></tt>/<tt><a href="KeyPgPutgraphics.html">Put</a></tt> s'il est sp&eacute;ecifi&eacute;.<br \="">
+
+La d&eacute;claration <tt><b>Draw</b></tt>
+peut &ecirc;tre utilis&eacute;e pour ex&eacute;cuter plusieurs commandes de dessin d'un
+seul coup; c'est tr&egrave;s utile pour dessiner rapidement des figures. La
+cha&icirc;ne contenant les commandes accepte les commandes suivantes:<br \="">
+
+<br \="">
+Commandes pour &eacute;crire des pixels:<br \=""><br \>
+<div class="fb_table"><table><tbody><tr><td>Commande</td><td>Description</td></tr><tr><td>&nbsp;</td><td>Commandes pour &eacute;crire des pixels:</td></tr><tr><td>B</td><td>Pr&eacute;fixe facultatif: d&eacute;place mais n'&eacute;crit pas.</td></tr><tr><td>N</td><td>Pr&eacute;fixe facultatif: &eacute;crit mais ne d&eacute;place pas.</td></tr><tr><td>Mx,y</td><td>D&eacute;place &agrave; la position &eacute;cran sp&eacute;cifi&eacute;e. Si + ou - pr&eacute;c&egrave;de x, le mouvement est relatif &agrave; la position courante du curseur.</td></tr><tr><td>U[n]</td><td>D&eacute;place de n unit&eacute;s vers le haut. Si n est omis, n = 1 par d&eacute;faut.</td></tr><tr><td>D[n]</td><td>D&eacute;place de n unit&eacute;s vers le bas. Si n est omis, n = 1 par d&eacute;faut.</td></tr><tr><td>L[n]</td><td>D&eacute;place de n unit&eacute;s vers la gauche. Si n est omis, n = 1 par d&eacute;faut.</td></tr><tr><td>R[n]</td><td>D&eacute;place de n unit&eacute;s vers la droite. Si n est omis, n = 1 par d&eacute;faut.</td></tr><tr><td>E[n]</td><td>D&eacute;place de n unit&eacute;s vers le haut et la droite. Si n est omis, n = 1 par d&eacute;faut.</td></tr><tr><td>F[n]</td><td>D&eacute;place de n unit&eacute;s vers le bas et la droite. Si n est omis, n = 1 par d&eacute;faut..</td></tr><tr><td>G[n]</td><td>D&eacute;place de n unit&eacute;s vers le bas et la gauche. Si n est omis, n = 1 par d&eacute;faut.</td></tr><tr><td>H[n]</td><td>D&eacute;place de n unit&eacute;s vers le haut et la gauche. Si n est omis, n = 1 par d&eacute;faut.</td></tr><tr><td>&nbsp;</td><td>Commandes de couleur:</td></tr><tr><td>Cn</td><td>La couleur de premier-plan courante devient n.</td></tr><tr><td>Pp,b</td><td>Remplit la r&eacute;gion avec une bordure de couleur b en utilisant la couleur p.</td></tr><tr><td>&nbsp;</td><td>Commandes pour modifier la taille et effectuer une rotation:</td></tr><tr><td>Sn</td><td>Valide l'unit&eacute; courante de longueur, 4 par d&eacute;faut.  Une unit&eacute; de longueur 4 est &eacute;gale &agrave; 1 pixel.</td></tr><tr><td>An</td><td>Rotation de n*90 degr&eacute;s (n de 0 &agrave; 3).</td></tr><tr><td>TAn</td><td>Rotation de n degr&eacute;s (n de 0 &agrave; 359)</td></tr><tr><td>&nbsp;</td><td>Commande suppl&eacute;mentaire:</td></tr><tr><td>Xp</td><td>Ex&eacute;cute la commande &agrave; l'addresse p, o&ugrave; p est un STRING PTR.</td></tr></tbody></table></div><br \="">
+<br \="">
+<br \>
+Les commandes pour r&eacute;gler la couleur, la taille et l'angle auront une incidence sur toutes les op&eacute;rations <tt><b>Draw</b></tt> ult&eacute;rieures.<br \>
+<br \>
+</div>
+<div class="fb_sect_title">Exemple</div>
+<div class="fb_sect_cont"><br \="">
+<tt><div class="freebasic">
+<span class="key">Screen</span>&nbsp;<span class="num">13</span><br />
+<br />
+<span class="com">'Deplace&nbsp;vers&nbsp;(50,50)&nbsp;sans&nbsp;dessin</span><br />
+<span class="key">Draw</span>&nbsp;<span class="quo">"BM&nbsp;50,50"</span><br />
+<br />
+<span class="com">'Valide&nbsp;couleur&nbsp;dessin&nbsp;a&nbsp;2&nbsp;(vert)</span><br />
+<span class="key">Draw</span>&nbsp;<span class="quo">"C2"</span><br />
+<br />
+<span class="com">'Dessine&nbsp;une&nbsp;boite</span><br />
+<span class="key">Draw</span>&nbsp;<span class="quo">"R50&nbsp;D30&nbsp;L50&nbsp;U30"</span><br />
+<br />
+<span class="com">'Deplace&nbsp;dans&nbsp;la&nbsp;boite</span><br />
+<span class="key">Draw</span>&nbsp;<span class="quo">"BM&nbsp;+1,1"</span><br />
+<br />
+<span class="com">'Remplit&nbsp;couleur&nbsp;1&nbsp;(bleu)&nbsp;jusqu'aux&nbsp;bords&nbsp;couleur&nbsp;2&nbsp;</span><br />
+<span class="key">Draw</span>&nbsp;<span class="quo">"P&nbsp;1,2"</span><br />
+<br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<div class="fb_img"><img src="images/draw1.png" /></div><br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Dessine&nbsp;une&nbsp;fleur&nbsp;sur&nbsp;ecran</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">i</span><span class="oth">,</span>&nbsp;<span class="wrd">a</span><span class="oth">,</span>&nbsp;<span class="wrd">c</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="wrd">fill</span><span class="oth">,</span>&nbsp;<span class="wrd">setangle</span><br />
+<br />
+<span class="com">''&nbsp;motif&nbsp;pour&nbsp;chaque&nbsp;petale</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Const</span>&nbsp;<span class="key">String</span>&nbsp;<span class="wrd">petal</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">(</span><span class="quo">"X"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="key">VarPtr</span><span class="oth">(</span><span class="wrd">setangle</span><span class="oth">))</span>&nbsp;<span class="wrd">_</span>&nbsp;<span class="com">''&nbsp;link&nbsp;to&nbsp;angle-setting&nbsp;string</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"C15"</span>&nbsp;<span class="wrd">_</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;set&nbsp;outline&nbsp;color&nbsp;(white)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"M+100,+10"</span>&nbsp;<span class="wrd">_</span>&nbsp;<span class="com">''&nbsp;draw&nbsp;outline</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="quo">"M&nbsp;+15,-10"</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="quo">"M&nbsp;-15,-10"</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="quo">"M-100,+10"</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"BM+100,0"</span>&nbsp;<span class="wrd">_</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;move&nbsp;inside&nbsp;petal</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="oth">(</span><span class="quo">"X"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="key">VarPtr</span><span class="oth">(</span><span class="wrd">fill</span><span class="oth">))</span>&nbsp;<span class="wrd">_</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;flood-fill&nbsp;petal&nbsp;(by&nbsp;linking&nbsp;to&nbsp;fill&nbsp;string)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"BM-100,0"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;move&nbsp;back&nbsp;out</span><br />
+<br />
+<br />
+<br />
+<span class="com">''&nbsp;set&nbsp;screen</span><br />
+<span class="key">ScreenRes</span>&nbsp;<span class="num">320</span><span class="oth">,</span>&nbsp;<span class="num">240</span><span class="oth">,</span>&nbsp;<span class="num">8</span><br />
+<br />
+<span class="com">''&nbsp;move&nbsp;to&nbsp;center</span><br />
+<span class="key">Draw</span>&nbsp;<span class="quo">"BM&nbsp;160,&nbsp;120"</span><br />
+<br />
+<span class="com">''&nbsp;set&nbsp;initial&nbsp;angle&nbsp;and&nbsp;color&nbsp;number</span><br />
+<span class="wrd">a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">:</span>&nbsp;<span class="wrd">c</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">32</span><br />
+<br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">24</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;make&nbsp;angle-setting&nbsp;and&nbsp;filling&nbsp;command&nbsp;strings</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">setangle</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"TA"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">a</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">fill</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"P"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">c</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">",15"</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;draw&nbsp;the&nbsp;petal&nbsp;pattern,&nbsp;which&nbsp;links&nbsp;to&nbsp;angle-setting&nbsp;and&nbsp;filling&nbsp;strings</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Draw</span>&nbsp;<span class="wrd">petal</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;short&nbsp;delay</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Sleep</span>&nbsp;<span class="num">100</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;increment&nbsp;angle&nbsp;and&nbsp;color&nbsp;number</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">+=</span>&nbsp;<span class="num">15</span><span class="oth">:</span>&nbsp;<span class="wrd">c</span>&nbsp;<span class="oth">+=</span>&nbsp;<span class="num">1</span><br />
+<br />
+<span class="key">Next</span>&nbsp;<span class="wrd">i</span><br />
+<br />
+<span class="key">Sleep</span><br />
+</div></tt><br>
+<div class="fb_img"><img src="images/draw2.png" /></div><br \>
+<br \="">
+</div>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><i>target</i></tt> est nouveau pour FreeBASIC<br \>
+<li> QB utilise le pointeur sp&eacute;cial VARPTR$ avec la commande <tt>X p</tt>.<br \>
+<li> FB ne permet pas actuellement de mouvements de sous-pixels: tous les mouvements sont arrondis &agrave; l'entier de coordonn&eacute;e le plus proche .<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDrawString.html">Draw String</a></tt><br \>
+<li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphique)</a></tt><br \>
+<li> <tt><a href="KeyPgOpVarptr.html">VarPtr</a></tt><br \>
+<li> <tt><a href="KeyPgPaint.html">Paint</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

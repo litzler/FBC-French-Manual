@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>ScreenSync</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">ScreenSync</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Synchronises les mises &agrave; jour d'affichage avec le "hardware"<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>ScreenSync</b> ( ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>ScreenSync</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Z&eacute;ro si r&eacute;ussi, ou non-z&eacute;ro si un mode graphique n'a pas encore &eacute;t&eacute; valid&eacute;.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Cette fonction GfxLib arrêtes l'ex&eacute;cution du programme tant que la carte graphique n'a pas termin&eacute; le balayage complet de l'&eacute;cran et va en commencer un autre. Si le programme utilise le tr&egrave;s petit intervalle de temps entre deux affichages pour redessiner l'image, le scintillement est grandement att&eacute;nu&eacute;.<br \>
+<br \>
+L'utilisation de la forme QB-compatible WAIT &H3DA,8 est obsol&egrave;te.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">'boucle&nbsp;principale</span><br />
+<span class="key">Do</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;<span class="com">'&nbsp;effectue&nbsp;entree&nbsp;utilisateur</span><br />
+&nbsp;&nbsp;<span class="com">'&nbsp;calcule_une_frame</span><br />
+&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;<span class="key">ScreenSync</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;<span class="com">'&nbsp;dessine_&nbsp;une_&nbsp;frame&nbsp;&nbsp;</span><br />
+&nbsp;&nbsp;<br />
+<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">Inkey</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="quo">""</span><br />
+</div></tt><br />
+<br \>
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialectes</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible en dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Screensync</b></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC. <br \>
+<li> QBasic utilisait WAIT &H3DA,8 pour cela.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgWait.html">Wait</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

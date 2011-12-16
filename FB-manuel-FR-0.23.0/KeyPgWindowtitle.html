@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>WindowTitle</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">WindowTitle</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Place le titre programme de la fen&ecirc;tre<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgSub.html">Sub</a> <b>WindowTitle</b> ( <a href="KeyPgByref.html">ByRef</a> <i>title</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgString.html">String</a> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<b>WindowTitle</b> <i>title</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>title</i></tt><br \>
+<div class="fb_indent">la cha&icirc;ne assign&eacute;e comme nouveau titre de la fen&ecirc;tre<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Cette fonction est utile pour changer le titre programme de la fen&ecirc;tre. Le nouveau titre devient actif imm&eacute;diatement si le programme fonctionne toujours en mode fen&ecirc;tr&eacute;, sinon ce sera le titre n'importe quelle fen&ecirc;tre produite ensuite par un appel &agrave; <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt>. Si cette fonction n'est pas appel&eacute;e avant de valider un nouveau mode fen&ecirc;tr&eacute; via <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt>, par d&eacute;faut, la fen&ecirc;tre aura comme titre le nom du fichier ex&eacute;cutable du programme (sans son extension).<br \>
+Cette commande est sans effet en mode console.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">'Titre&nbsp;de&nbsp;la&nbsp;fenetre</span><br />
+<span class="key">WindowTitle</span>&nbsp;<span class="quo">"FreeBASIC&nbsp;example&nbsp;program"</span><br />
+<br />
+<span class="com">'Mode&nbsp;ecran</span><br />
+<span class="key">Screen</span>&nbsp;<span class="num">13</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li> Non pr&eacute;sent en version DOS / cible de FreeBASIC<br \>
+<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de dilectes</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Windowtitle</b></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">See also</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphiques)</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

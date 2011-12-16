@@ -1,0 +1,324 @@
+<html>
+<head>
+<title>How to Program a Game: Lesson 1</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Comment programmer un jeu: Le&ccedil;on 1</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+<br \>
+<b><u>Introduction par Lachie Dazdarian</u></b><br \>
+L'objectif de cette s&eacute;rie de le&ccedil;ons est d'aider les d&eacute;butants qui connaissent un peu le BASIC, &agrave; apprendre les bases de la programmation en FreeBASIC n&eacute;cessaires pour cr&eacute;er un jeu sur ordinateur. Quelues connaissances de base du BASIC seront tr&egrave;s utiles pour faciliter les choses, cependant je crois que ceux qui ne connaissent pas le BASIC &agrave; fond peuvent quand m&ecirc;me comprendre ces le&ccedil;ons. J'utilise ici le mot (enfin, c'est un acronyme) "BASIC" et non pas FreeBASIC, parce que si vous connaissez les bases de QuickBASIC, Visual Basic ou toute autre variante de Basic, ces le&ccedil;ons doivent &ecirc;tre faciles &agrave; comprendre.<br \>
+<br \>
+Je commence cette s&eacute;rie parce que je pense que des tutoriels de ce genre ont toujours &eacute;t&eacute; quelque chose qui a manqu&eacute; &agrave; notre communaut&eacute;, m&ecirc;me avant FreeBASIC. J'ai correspondu durant ma vie de programmeur avec quelques novices en programmation et ils ont toujours eu &agrave; peu pr&egrave;s les m&ecirc;mes probl&egrave;mes quand ils ont essay&eacute; de programmer un jeu. Donc, je pense que je suis capable de d&eacute;tecter ce dont les d&eacute;butants ont besoin et de quelle fa&ccedil;on les choses doivent leur &ecirc;tre expliqu&eacute;es. Je me souviens aussi de mes d&eacute;buts et des probl&egrave;mes que j'ai eus avec l'aide des routines s&eacute;par&eacute;es qui n'ont jamais &eacute;t&eacute; destin&eacute;es &agrave; &ecirc;tre combin&eacute;es et utilis&eacute;es pour cr&eacute;er un jeu. Le point de rupture a &eacute;t&eacute; pour moi le moment o&ugrave; j'ai d&eacute;couvert RelLib (une biblioth&egrave;que graphique en QuickBASIC par R.E.Lope) et le moteur de d&eacute;filement qui a &eacute;t&eacute; cr&eacute;&eacute; avec elle. Ce moteur de d&eacute;filement m'a incit&eacute; &agrave; explorer ses m&eacute;caniciens et &agrave; le d&eacute;velopper (avec une certaine aide de R.E.Lope). En un seul instant j'ai acquis la capacit&eacute; de programmer la plupart des choses (n&eacute;cessaires pour compl&eacute;ter un jeu) tout seul. C'est comme conduire un v&eacute;lo. Le moment o&ugrave; vous avez acquis la comp&eacute;tence r&eacute;elle a dur&eacute; une seconde.<br \>
+<br \>
+Donc, c'est mon objectif avec cette s&eacute;rie. Pour vous en apprendre suffisamment pour que vous soyez auto-suffisant dans 90% des cas. Et la meilleure fa&ccedil;on d'apprendre de nouvelles choses est de les voir appliqu&eacute;es. De nombreux tutoriels &eacute;chouent dans cette t&acirc;che car trop g&eacute;n&eacute;riques. Vous aurez toujours besoin d'aide de programmeurs plus exp&eacute;riment&eacute;s, mais l'id&eacute;e est que vous n'en avez pas besoin &agrave; chaque &eacute;tape. Ayez &agrave; l'esprit que cela d&eacute;pend du type de jeu que vous d&eacute;veloppez et la biblioth&egrave;que graphique / outils que vous utilisez.<br \>
+<br \>
+Les programmes d'exemple et de mini-jeux que nous allons cr&eacute;er seront cod&eacute;s en GFXlib (la biblioth&egrave;que graphique int&eacute;gr&eacute;e de FreeBASIC). Lynn Legacy, Arkade, Line Puissant et Poxie ont &eacute;t&eacute; cod&eacute;es avec elle (entre autres) et je pense que ces jeux sont de bonnes r&eacute;f&eacute;rences. Mais ne vous inqui&eacute;tez pas. Passer d'une librairie graphique &agrave; l'autre est relativement facile quand on sait comment en utiliserer au moins une.<br \>
+<br \>
+Ce tutoriel ne traitera pas des moteurs "raycasting" (programmation 3D) ou quelque chose d'"avanc&eacute;" de ce genre. Si vous voulez utiliser cela, mais n'&ecirc;tes qu'un d&eacute;butant, vous avez BESOIN des le&ccedil;ons suivantes EN PREMIER.<br \>
+<br \>
+Puisque nous allons coder en FreeBASIC vous avez besoin en premier FreeBASIC (si vous ne l'avez pas encore) &agrave; partir de http://www.freebasic.net (les exemples ont &eacute;t&eacute; compil&eacute;s avec la version 0.18b) et l'un des IDE FreeBASIC disponibles. Je recommande FBIDE ou FBEdit.<br \>
+<br \>
+<b><u>Exemple #1: Un programme simple - Le cercle se d&eacute;place!</u></b><br \>
+<br \>
+Nous allons commencer avec des trucs &eacute;l&eacute;mentaires. Le premier programme que nous allons le coder n'aura pas d'&eacute;l&eacute;ments graphiques externes, car le chargement des graphiques &agrave; partir des fichiers externes (g&eacute;n&eacute;ralement des images BMP) est toujours une affaire compliqu&eacute;e et vous embrouillera pour un d&eacute;but. Croyez-moi. Soyez patient.<br \>
+<br \>
+Le programme que nous allons cr&eacute;er va vous permettre de d&eacute;placer un cercle autour de l'&eacute;cran. Un programme tr&egrave;s simple, mais &agrave; travers lui, nous allons apprendre des notions importantes, beaucoup de d&eacute;clarations &eacute;l&eacute;mentaires et m&eacute;thodes n&eacute;cessaires pour cr&eacute;er n'importe quel jeu avec GFXlib.<br \>
+<br \>
+Comme nous utilisons GFXlib vous devez &ecirc;tre au courant du fichier gfxlib.txt (documentation GFXlib) situ&eacute; dans le r&eacute;pertoire /FreeBASIC/docs. C'est notre bible et il tr&egrave;s utile pour ces le&ccedil;ons puisque je ne vais pas expliquer tous les param&egrave;tres de chaque d&eacute;claration utilis&eacute;e dans les programmes d'exemple (le plus probable). Ce document est quelque peu d&eacute;pass&eacute; depuis que FreeBASIC a &eacute;volu&eacute; avec les nouvelles versions, donc n'oubliez pas de consulter aussi le manuel en ligne du FreeBASIC (partie du Wiki FreeBASIC).
+<br \>
+<br \>
+Ouvrez un nouveau programme dans FBIDE. La premi&egrave;re chose que nous allons faire est de d&eacute;finir le mode graphique. Quoi? Fixer un mode graphique? Choix de la r&eacute;solution graphique du programme et de la profondeur des couleurs en bits (8 bits, 16 bits, ...). Par exemple, la profondeur de couleur 8 bits est le standard en mode 256 couleurs (8 bits par pixel). Le mode graphique est r&eacute;gl&eacute; avec la d&eacute;claration &eacute;cran suivante:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span><br />
+</div></tt><br />
+<br \>
+13 signifie une r&eacute;solution graphique de 320*200, 8  signifie graphiques 8-bit, 2 signifie deux pages de travail et 0 signifie mode fen&ecirc;tr&eacute; (1 pour plein &eacute;cran). Un minimum de 2 pages de travail est recommand&eacute;e pour tout programme d&eacute;pendant de graphiques. Ces notions deviendront plus claires un peu plus tard. Pour plus de d&eacute;tails sur la d&eacute;claration SCREEN r&eacute;f&eacute;rez-vous &agrave; la documentation de GFXlib ou au Wiki FreeBASIC (une version plus "avanc&eacute;e" de SCREEN est SCREENRES).<br \>
+<br \>
+La prochaine &eacute;tape est de d&eacute;finir une boucle qui joue jusqu'&agrave; ce que l'utilisateur appuie sur la lettre Q du clavier. Les boucles sont la base de tout programme et pas seulement pour un jeu d'ordinateur. Coder un programme en utilisant une m&eacute;thode qui le ferait s'arr&ecirc;ter et le mettrait en attente d'une action quelconque de l'utilisateur est une m&eacute;thode MAUVAISE et ERRONEE quel que soit ce que vous voulez programmer pour que d'autres personnes puissent y jouer. Nous utiliserons les boucles comme des lieux o&ugrave; le programme attend que l'utilisateur fasse quelque chose (clics avec la souris ou appuie sur une touche) et o&ugrave; le programme ex&eacute;cute une routine selon l'action de l'utilisateur. Elles seront &eacute;galement utilis&eacute;es comme un lieu o&ugrave; les objets non contr&ocirc;l&eacute;s par le joueur (ennemis) seront g&eacute;r&eacute;s / d&eacute;plac&eacute;s. Les boucles sont un "must".<br \>
+<br \>
+Si vous &ecirc;tes au courant de toutes ces choses, vous pouvez passer &agrave; la fin de cette section et t&eacute;l&eacute;charger l'exemple termin&eacute; (avec commentaires). S'il y a dedans quelque chose que vous ne comprenez pas, revenez ici.<br \>
+<br \>
+Nous pouvons d&eacute;finir une boucle de plusieurs fa&ccedil;ons (avec les d&eacute;clarations WHILE: WEND, en utilisant l'instruction GOTO - Noooon), mais la meilleure est d'utiliser DO...LOOP. Ce type de boucle r&eacute;p&egrave;te simplement un bloc d'instructions jusqu'&agrave; ce que la condition soit remplie. Vous &eacute;tablissez la(les) condition(s) apr&egrave;s LOOP avec UNTIL. Testez le code suivant:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Sets&nbsp;the&nbsp;graphic&nbsp;mode</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Do</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;We'll&nbsp;put&nbsp;our&nbsp;statements&nbsp;here&nbsp;later</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">Inkey$</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Q"</span>&nbsp;<span class="key">Or</span>&nbsp;<span class="key">Inkey$</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"q"</span><br />
+</div></tt><br />
+<br \>
+Si vous compilez ce code et l'ex&eacute;cutez, vous aurez une petit fen&ecirc;tre 320 * 200 noire et vide et vous pourrez la d&eacute;sactiver en appuyant sur la touche Q (vous pourriez avoir besoin de la maintenir). Le programme boucle tout simplement jusqu'&agrave; ce que vous appuyez sur "Q" ou "q". J'ai utilis&eacute; les deux: majuscules et minuscules pour la lettre "Q" au cas o&ugrave; les majuscules seraient verrouill&eacute;es sur votre clavier. INKEY $ est une instruction qui retourne la derni&egrave;re touche appuy&eacute;e du clavier . J'expliquerai plus tard pourquoi elle ne doit pas &ecirc;tre utilis&eacute;e dans les jeux et quel est le meilleur substitut.<br \>
+<br \>
+Pour tracer un cercle j'utiliserai la d&eacute;claration CIRCLE (se r&eacute;f&eacute;rer &agrave; la documentation GFXlib). Essayez le code suivant:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Sets&nbsp;the&nbsp;graphic&nbsp;mode</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Do</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Circle</span>&nbsp;<span class="oth">(</span><span class="num">150</span><span class="oth">,</span>&nbsp;<span class="num">90</span><span class="oth">),</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;<span class="num">15</span>&nbsp;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">Inkey$</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Q"</span>&nbsp;<span class="key">Or</span>&nbsp;<span class="key">Inkey$</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"q"</span><br />
+</div></tt><br />
+<br \>
+Le dernier code dessine un petit cercle aux coordonn&eacute;es 150, 90 avec un rayon de 10 et la couleur 15 (Blanc pur) dans une boucle, que vous pouvez essayer si vous compilez le code. Alors, comment d&eacute;placer de ce cercle? Nous devons relier ses coordonn&eacute;es avec des VARIABLES. Pour cela nous allons utiliser deux variables nomm&eacute;es circlex et circley. V&eacute;rifiez le code suivant:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span>&nbsp;<span class="wrd">circlex</span><span class="oth">,</span>&nbsp;<span class="wrd">circley</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Sets&nbsp;the&nbsp;graphic&nbsp;mode</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">150</span>&nbsp;<span class="com">'&nbsp;Initial&nbsp;circle&nbsp;position</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">90</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Do</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Circle</span>&nbsp;<span class="oth">(</span><span class="wrd">circlex</span><span class="oth">,</span>&nbsp;<span class="wrd">circlex</span><span class="oth">),</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;<span class="num">15</span>&nbsp;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">Inkey$</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Q"</span>&nbsp;<span class="key">Or</span>&nbsp;<span class="key">Inkey$</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"q"</span><br />
+</div></tt><br />
+<br \>
+Cela n'apporte aucune modification dans le r&eacute;sultat de notre programme, mais c'est une &eacute;tape vers ce que nous voulons accomplir. Vous pouvez modifier les valeuurs de circlex et circley, mais ce n'est pas ce que nous voulons vraiment. Afin de d&eacute;placer le cercle nous devons connecter les variables circlex et circley avec les d&eacute;clarations du clavier.<br \>
+<br \>
+Nous avons d&eacute;clar&eacute; les deux premi&egrave;res variables dans notre programme. Depuis FreeBASIC ver.0.17 toutes les variables dans les programmes de FreeBASIC doivent &ecirc;tre d&eacute;clar&eacute;es, mais si vous utilisez la  commande en ligne "-lang qb" pendant la compilation, vous pouvez compiler en utilisant la compatibilit&eacute; avec le vieux dialecte QBasic (je ne le recommande pas car cela vous privera des avanc&eacute;es et extensions possibles que la compatibilit&eacute; FB par d&eacute;faut fournit d&eacute;j&agrave; et fournira). Pour plus d'infos sur cela consultez la page appropri&eacute;e du wiki FreeBASIC - Utilisation de la ligne de commande. Les variables sont d&eacute;clar&eacute;es (dimensionn&eacute;es) de cette fa&ccedil;on:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">variable_name</span>&nbsp;<span class="oth">[</span><span class="key">As</span>&nbsp;<span class="wrd">type_of_variable</span><span class="oth">]</span>&nbsp;<br />
+</div></tt><br />
+<br \>
+Ou...<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="oth">[</span><span class="key">As</span>&nbsp;<span class="wrd">type_of_variable</span><span class="oth">]</span>&nbsp;<span class="wrd">variable1</span><span class="oth">,</span>&nbsp;<span class="wrd">variable2</span><span class="oth">,</span>&nbsp;<span class="wrd">variable3</span><span class="oth">,</span>&nbsp;<span class="oth">...</span>&nbsp;<br />
+</div></tt><br />
+<br \>
+Les donn&eacute;es entre [ ] sont facultatives et les crochets ne sont pas utilis&eacute;s. Les types de variables disponibles en FreeBASIC sont BYTE, SHORT, INTEGER, STRING, SINGLE, DOUBLE et quelques autres, mais il n'est pas important, &agrave; ce niveau, de donner des d&eacute;tails sur elles. Ce que vous devez savoir maintenant c'est que vous pouvez d&eacute;clarer des variables ou des tableaux d' INTEGER quand ils contiennent des donn&eacute;es graphiques (tampons m&eacute;moire contenant des &eacute;l&eacute;ments graphiques) ou quand elles repr&eacute;sentent des donn&eacute;es qui ne n&eacute;cessitent de pr&eacute;cision d&eacute;cimale (nombre de vies, points, etc;); les variables qui ont besoin de pr&eacute;cision d&eacute;cimale sont d&eacute;clar&eacute;es AS SINGLE ou DOUBLE. Celles-ci sont g&eacute;n&eacute;ralement des variables utilis&eacute;es dans les jeux qui reposent sur des formules de physique comme les jeux d'arcade de conduite de voiture ou des jeux "Jump 'n run" (effet de la pesanteur). Simplement, la diff&eacute;rence entre la vitesse de deux pixels par cycle et la vitesse d'un pixel par cycle est le plus souvent trop gros, et dans ces limites, vous ne pouvez pas reproduire des effets comme le mouvement des fluides de la mani&egrave;re la plus satisfaisante. Derri&egrave;re DIM vous pouvez ausi ajouter SHARED qui rend la variable sp&eacute;cifique lisible dans l'ensemble du programme (tous les sous-programmes). N' utiliser pas SHARED uniquement avec les variables d&eacute;clar&eacute;es &agrave; l'int&eacute;rieur des sous-routines (je le fais tr&egrave;s rarement). Si vous avez &agrave; d&eacute;clarer des TABLEAUX  dans une routine, je vous conseille de remplacer DIM par REDIM. Les cha&icirc;nes sont utilis&eacute;s pour contenir des donn&eacute;es texte. Comme VotreNom = "Dodo", mais vous devez au pr&eacute;alable d&eacute;clarer VotreNom AS STRING.<br \>
+<br \>
+Maintenant je vais vous pr&eacute;senter une nouvelle fonction rempla&ccedil;ant INKEY$ qui permet de d&eacute;tecter de multiples pressions sur les touches et qui est beaucoup plus r&eacute;active (r&eacute;ponse parfaite) que INKEY$. La faille du INKEY$, en plus d'&ecirc;tre tr&egrave;s non-r&eacute;active (ce que vous avez probablement remarqu&eacute; lorsque vous avez essay&eacute; de fermer les exemples pr&eacute;c&eacute;demment compil&eacute;s), est qu'elle ne peut d&eacute;tecter qu'une seule pression de touche &agrave; tout instant ce qui le rend compl&egrave;tement inutilisable dans les jeux.<br \>
+<br \>
+Le substitut, nous allons utiliser est MULTIKEY (une d&eacute;claration GFXlib) qui dispose d'un seul param&egrave;tre, et c'est le "scancode DOS" de la touche que vous voulez interroger. Vous pourriez &ecirc;tre perdu maintenant. Le "scancode DOS" n'est rien d'autre que le code attribu&eacute; par l'ordinateur aux touches du clavier. Si vous consultez l'annexe A de la documentation de la GFXlib, vous verrez ce que chaque code repr&eacute;sente. Par exemple, MULTIKEY(&h1C) correspond &agrave; un appui sur la touche ENTRER. La GFXlib vous permet de remplacer ces scancodes par des constantes "facile &agrave; lire" comme expliqu&eacute; dans l'annexe A. Pour utiliser GFXlib vous devez inclure son fichier.bi (fbgfx.bi) dans votre source. Qu'est-ce qu'un fichier.bi? Eh bien, ce peut &ecirc;tre n'importe quel type de module que vous joignez &agrave; votre code source et qui peut fournir diff&eacute;rents sous-programmes (si vous ne savez pas ce qu'est un sous-programme est, nous verrons plus tard) et d&eacute;clarations utilis&eacute;es dans votre module principal. Le code que vous devez ajouter corresond aux deux lignes suivantes:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#include&nbsp;"fbgfx.bi"&nbsp;<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Using</span>&nbsp;<span class="wrd">FB</span><br />
+</div></tt><br />
+<br \>
+Il est pr&eacute;f&eacute;rable de mettre ces deux lignes quelque part au d&eacute;but de votre programme (avant ou apr&egrave;s les d&eacute;clarations des "sub"). Vous n'avez pas besoin de d&eacute;finir un chemin vers fbgfx.bi car il a plac&eacute; dans le r&eacute;pertoire /FreeBasic /inc. Vous avez seulement besoin de d&eacute;finir un chemin vers un fichier.bi s'il n'est pas dans ce r&eacute;pertoire ou dans le r&eacute;pertoire du code source. Utiliser FB indique au programme que nous acc&egrave;derons aux symboles GFXlib sans espace de noms, ce qui signifie, sans avoir &agrave; mettre "FB." en face de chaque symbole GFXlib. Reportez-vous au Wiki sur l'UTILISATION de FreeBASIC.<br \>
+<br \>
+Maintenant, le plaisir commence.<br \>
+<br \>
+Nous allons ajouter une nouvelle variable nomm&eacute;e "circlespeed" dont les drapeaux (bits &agrave; 1) indiquent le nombre de pixels du cercle qui se d&eacute;placent dans un cycle (une boucle). Le mouvement sera provoqu&eacute; par les touches fl&egrave;ches. Chaque fois que l'utilisateur appuie sur une touche fl&eacute;ch&eacute;e nous allons dire au programme de modifier "circlex" ou "circley" (cela d&eacute;pend de la touche appuy&eacute;e) par la quantit&eacute; "circlespeed". Testez le code suivant:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#include&nbsp;"fbgfx.bi"<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Using</span>&nbsp;<span class="wrd">FB</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span>&nbsp;<span class="wrd">circlex</span><span class="oth">,</span>&nbsp;<span class="wrd">circley</span><span class="oth">,</span>&nbsp;<span class="wrd">circlespeed</span>&nbsp;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Sets&nbsp;the&nbsp;graphic&nbsp;mode</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">150</span>&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Initial&nbsp;circle&nbsp;position</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">90</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">circlespeed</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="com">'&nbsp;Circle's&nbsp;speed&nbsp;=&gt;&nbsp;1&nbsp;pixel&nbsp;per&nbsp;loop</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Do</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Circle</span>&nbsp;<span class="oth">(</span><span class="wrd">circlex</span><span class="oth">,</span>&nbsp;<span class="wrd">circley</span><span class="oth">),</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;<span class="num">15</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;According&nbsp;to&nbsp;pushed&nbsp;key&nbsp;we&nbsp;change&nbsp;the&nbsp;circle's&nbsp;coordinates.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_RIGHT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">circlespeed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_LEFT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">circlespeed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_DOWN</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">circlespeed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_UP</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">circlespeed</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_Q</span><span class="oth">)</span>&nbsp;<span class="key">Or</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_ESCAPE</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Comme vous le voyez nous avons aussi chang&eacute; la condition apr&egrave;s UNTIL puisque nous utilisons MULTIKEY maintenant. Maintenant vous pouvez aussi quitter le programme en appuyant sur ESCAPE (j'ai ajout&eacute; une autre condition).<br \>
+<br \>
+Si vous compilez la derni&egrave;re version du code, deux choses ind&eacute;sirables se produisent. Le programme s'ex&eacute;cutera si rapidement que vous ne remarquerez m&ecirc;me pas le mouvement du cercle et le cercle "s'&eacute;tale" sur l'&eacute;cran (les cercles trac&eacute;s aux diff&eacute;rentes coordonn&eacute;es dans les cycles pr&eacute;c&eacute;dents ne sont pas effac&eacute;s et s'accumulent &agrave; l'&eacute;cran). Pour &eacute;viter cela vous devez placer l'instruction CLS (nettoie l'&eacute;cran) dans la boucle de fa&ccedil;on que pour chaque nouveau cycle l'ancien cercle du cycle pr&eacute;c&eacute;dent soit effac&eacute; avant le trac&eacute; du nouveau.<br \>
+<br \>
+Pour r&eacute;duire la vitesse du programme le correctif le plus rapide est la commande SLEEP. Que fait-elle? Elle attend (ne fait rien) jusqu'&agrave; ce que la quantit&eacute; de temps sp&eacute;cifi&eacute;e (en millisecondes) soit &eacute;coul&eacute;e ou bien qu'une touche soit appuy&eacute;e. Pour annuler l'option "touche appuy&eacute;e" utilisez "SLEEP millisecondes, 1". Cette instruction est &eacute;galement une solution efficace pour le probl&egrave;me d'utilisation du processeur &agrave; 100%. Vous voyez, si vous n'utilisez pas cette instruction tout type de programme FreeBASIC avec une boucle (m&ecirc;me la plus simple) mobilisera tous les cycles de l'ordinateur et toutes les autres t&acirc;ches de Windows ne pourront &ecirc;tre ex&eacute;cut&eacute;es correctement. Cela rend &eacute;galement difficile pour vous d'ex&eacute;cuter d'autres t&acirc;ches pendant l'ex&eacute;cution ce genre de programme FreeBASIC. Euh ... ce n'est pas un probl&egrave;me &eacute;norme et une bonne quantit&eacute; de programmeurs qui ont r&eacute;alis&eacute; des jeux FreeBASIC jusqu'&agrave; pr&eacute;sent n'ont pas pris la peine de s'en pr&eacute;occuper.<br \>
+<br \>
+Copiez et collez le code suivant et compilez le:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#include&nbsp;"fbgfx.bi"<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Using</span>&nbsp;<span class="wrd">FB</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span>&nbsp;<span class="wrd">circlex</span><span class="oth">,</span>&nbsp;<span class="wrd">circley</span><span class="oth">,</span>&nbsp;<span class="wrd">circlespeed</span>&nbsp;&nbsp;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Sets&nbsp;the&nbsp;graphic&nbsp;mode</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">150</span>&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Initial&nbsp;circle&nbsp;position</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">90</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">circlespeed</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="com">'&nbsp;Circle's&nbsp;speed&nbsp;=&gt;&nbsp;1&nbsp;pixel&nbsp;per&nbsp;loop</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Do</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Cls</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Circle</span>&nbsp;<span class="oth">(</span><span class="wrd">circlex</span><span class="oth">,</span>&nbsp;<span class="wrd">circley</span><span class="oth">),</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;<span class="num">15</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;According&nbsp;to&nbsp;pushed&nbsp;key&nbsp;we&nbsp;change&nbsp;the&nbsp;circle's&nbsp;coordinates.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_RIGHT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">circlespeed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_LEFT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">circlex</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">circlespeed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_DOWN</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">circlespeed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_UP</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">circley</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">circlespeed</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Sleep</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;<span class="num">1</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_Q</span><span class="oth">)</span>&nbsp;<span class="key">Or</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_ESCAPE</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Voila! Notre cercle se d&eacute;placement "assez lentement".<br \>
+<br \>
+La derni&egrave;re version du code ne pr&eacute;sente pas la meilleure mani&egrave;re de coder, mais j'ai &eacute;t&eacute; oblig&eacute; de le simplifier afin de rendre cette le&ccedil;on facile &agrave; comprendre. Nous allons maintenant d&eacute;clarer nos variables de la mani&egrave;re dont elles doivent l'&ecirc;tre dans tout programme "s&eacute;rieux" et de montrer l'utilit&eacute; et l'utilisation de deux pages de travail.<br \>
+<br \>
+La fa&ccedil;on dont les variables sont d&eacute;clar&eacute;es dans le code ci-dessus n'est pas plus pratique que dans les grands projets o&ugrave; nous avons &eacute;norm&eacute;ment de variables habituellement associ&eacute;es &agrave; plusieurs objets (un objet peut &ecirc;tre le joueur, un ennemi ou tout ce qui est d&eacute;fini avec PLUS D'UNE VARIABLE).<br \>
+<br \>
+Alors d'abord nous allons d&eacute;finir un type de donn&eacute;es d&eacute;fini par l'utilisateur avec l'instruction TYPE qui peut contenir plusieurs variables/tableaux (restez avec moi!). Nous allons nommer ce type de donn&eacute;es utilisateur "ObjectType". Le code:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Type</span>&nbsp;<span class="wrd">ObjectType</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">y</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">speed</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+</div></tt><br />
+<br \>
+Apr&egrave;s cela, nous d&eacute;clarons notre cercle comme un objet:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">CircleM</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">ObjectType</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;We&nbsp;can't&nbsp;declare&nbsp;this&nbsp;variable&nbsp;with&nbsp;"Circle"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;since&nbsp;then&nbsp;FB&nbsp;can't&nbsp;differ&nbsp;it&nbsp;from&nbsp;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;the&nbsp;statement&nbsp;CIRCLE,&nbsp;thus&nbsp;"CircleM".</span><br />
+</div></tt><br />
+<br \>
+Comment cette m&eacute;thode est-elle b&eacute;n&eacute;fique? Elle nous permet de g&eacute;rer les variables du programme par un moyen plus efficace et plus propre. Au lieu d'avoir (dans cet exemple) &agrave; d&eacute;clarer les caract&eacute;ristiques de chaque cercle (la position, vitesse, etc) s&eacute;par&eacute;ment, nous allons simplement utiliser un "type:def" qui comprend toutes ces variables et lui associer une variable ou un tableau (dans notre cas, c'est CircleM). Alors maintenant, la position x du cercle est marqu&eacute; avec "CircleM.x", la position y cercle avec "CircleM.y" et la vitesse du cercle avec "CircleM.speed". J'esp&egrave;re que vous comprenez maintenant pourquoi c'est mieux. Un Type d&eacute;fini par l'utilisateur peut &ecirc;tre connect&eacute; &agrave; plusieurs variables ou des tableaux. Dans cet exemple, vous pouvez ajouter un autre objet avec quelque chose comme "DIM SHARED EnemyCircle(8) AS ObjectType" qui nous permettrait de g&eacute;rer 8 "cercles ennemis" avec un ensemble sp&eacute;cifique de routines (une IA d'une certaine sorte) en utilisant les variables "ObjectType type:def (x, y, speed)", et ces cercles pourraient "attaquer" le cercle de l'utilisateur d'une certaine fa&ccedil;on. Dans la prochaine le&ccedil;on tout cela deviendra plus clair. Avoir &agrave; l'esprit que TOUTES les variables ne doivent pas &ecirc;tre d&eacute;clar&eacute;es en utilisant un "type:def". Ce sont seulement pour les "objets" de votre jeu qui seront d&eacute;finis (caract&eacute;ris&eacute;s) avec plusieurs variables (comme un h&eacute;ros d&eacute;termin&eacute; par la sant&eacute;, de l'argent, le score, la force, etc.).<br \>
+<br \>
+Apr&egrave;s le changement de la version finale du code ressemble &agrave; ceci:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#include&nbsp;"fbgfx.bi"<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Using</span>&nbsp;<span class="wrd">FB</span>&nbsp;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Our&nbsp;user&nbsp;defined&nbsp;type.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Type</span>&nbsp;<span class="wrd">ObjectType</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">x</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">y</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">speed</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">CircleM</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">ObjectType</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;We&nbsp;can't&nbsp;declare&nbsp;this&nbsp;variable&nbsp;with&nbsp;"Circle"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;since&nbsp;then&nbsp;FB&nbsp;can't&nbsp;differ&nbsp;it&nbsp;from&nbsp;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;the&nbsp;statement&nbsp;CIRCLE,&nbsp;thus&nbsp;"CircleM".</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Sets&nbsp;the&nbsp;graphic&nbsp;mode</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">SetMouse</span>&nbsp;<span class="num">0</span><span class="oth">,</span><span class="num">0</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Hides&nbsp;the&nbsp;mouse&nbsp;cursor</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">CircleM.x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">150</span>&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Initial&nbsp;circle's&nbsp;position</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">CircleM.y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">90</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">CircleM.speed</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="com">'&nbsp;Circle's&nbsp;speed&nbsp;=&gt;&nbsp;1&nbsp;pixel&nbsp;per&nbsp;loop</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Do</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Cls</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Circle</span>&nbsp;<span class="oth">(</span><span class="wrd">CircleM.x</span><span class="oth">,</span>&nbsp;<span class="wrd">CircleM.y</span><span class="oth">),</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;<span class="num">15</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;According&nbsp;to&nbsp;pushed&nbsp;key&nbsp;we&nbsp;change&nbsp;the&nbsp;circle's&nbsp;coordinates.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_RIGHT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">CircleM.x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">CircleM.x</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">CircleM.speed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_LEFT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">CircleM.x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">CircleM.x</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">CircleM.speed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_DOWN</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">CircleM.y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">CircleM.y</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">CircleM.speed</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_UP</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">CircleM.y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">CircleM.y</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">CircleM.speed</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Sleep</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="com">'&nbsp;Wait&nbsp;for&nbsp;10&nbsp;milliseconds.</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_Q</span><span class="oth">)</span>&nbsp;<span class="key">Or</span>&nbsp;<span class="key">MultiKey</span><span class="oth">(</span><span class="wrd">SC_ESCAPE</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Vous remarquerez, j'ai ajout&eacute; une autre instruction dans le code. L'instructione SETMOUSE positionne le curseur de la souris (les deux premiers param&egrave;tres) et l'affiche ou le cache (le troisi&egrave;me param&egrave;tre; 0 le cache). Vous pouvez utiliser cette instruction avec ces param&egrave;tres par d&eacute;faut dans chacun de vos programmes APRES l'instruction SCREEN (IMPORTANT!), car m&ecirc;me si votre programme cont&ocirc;lera la souris, vous pr&eacute;f&eacute;rerez peut &ecirc;tre dessiner votre propre curseur.  because even if your program is going to feature a mouse controllable interface, you will most likely draw your own cursor. Croyez-moi sur ce point. Euh, j'utilise beaucoup trop cette fa&ccedil;on de voir les choses.<br \>
+<br \>
+T&eacute;l&eacute;chargez l'exemple achev&eacute; avec des commentaires suppl&eacute;mentaires &agrave; l'int&eacute;rieur du source: move_circle.zip<br \>
+<br \>
+Ouf, nous en avons fini avec le premier exemple. Certains d'entre vous pourraient penser que je suis all&eacute; trop dans les d&eacute;tails, mais je me sens que tout cela &eacute;tait n&eacute;cessaire pour rendre les exemples suivants et les le&ccedil;ons de cette aventure des plus agr&eacute;ables.<br \>
+<br \>
+N&eacute;anmoins, cet exemple est loin d'&ecirc;tre ce que nous voulons, non? Alors au chapitre suivant vous apprendrez comment charger des graphismes &agrave; partir de fichiers externes, entre autres. <br \>
+<br \>
+<b><u>Exemple 2: Un guerrier courant autour d'un champ vert</u></b><br \>
+<br \>
+Dans l'exemple suivant nous allons appliquer toutes les connaissances du premier exemple, alors ne vous attendez pas pour cet exemple &agrave; un retour sur chaque instruction. Je vais vous expliquer chaque nouvelle instruction et juste rafraichir les anciennes.<br \>
+<br \>
+Dans cette section, nous allons commencer &agrave; coder notre mini-jeu qui ne sera pas termin&eacute; dans cette le&ccedil;on. Dans cette le&ccedil;on, nous allons simplement cr&eacute;er un programme o&ugrave; un guerrier tourne autour d'un champ vert (un seul &eacute;cran).<br \>
+<br \>
+D'abord je vais vous montrer le graphique que nous allons utiliser. Nous allons travailler en mode couleur 8-bit de profondeur, donc les images que nous allons utiliser doivent &ecirc;tre enregistr&eacute;es dans ce mode (mode 256 couleurs). Pour les "sprites" guerrier je vais utiliser les "sprites" du personnage principal de mon premier jeu "Dark Quest".<br \>
+<br \>
+http://hmcsoft.org/fb/htpagl1-sprites.png<br \>
+<br \>
+Comme vous le voyez cette image dispose de 12 sprites de nos guerriers, chacun ayant 20 * 20 pixels de large. Deux pour chaque direction (animation de marche) et un sprite pour chaque direction lorsque le guerrier se balance avec son &eacute;p&eacute;e. L'&eacute;p&eacute;e balanc&eacute;e n'est mis en oeuvre dans la premi&egrave;re le&ccedil;on, mais deviendra n&eacute;cessaire plus tard.<br \>
+<br \>
+La seconde image est l'image d'arri&egrave;re-plan que vous pouvez t&eacute;l&eacute;charger en cliquant ici (320*200 pixels de large, image BMP 8-bit).<br \>
+<br \>
+T&eacute;l&eacute;chargez les images et placez-les o&ugrave; vous allez placer la source, ou tout simplement T&eacute;l&eacute;chargez l'exemple achev&eacute; &agrave; la fin de cette section.<br \>
+<br \>
+Au d&eacute;but de notre programme, Il faut inclure fbgfx.bi, comme dans le premier exemple, puis d&eacute;finir le m&ecirc;me mode graphique. Le code:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#include&nbsp;"fbgfx.bi"&nbsp;<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Using</span>&nbsp;<span class="wrd">FB</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Sets&nbsp;the&nbsp;graphic&nbsp;mode</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">SetMouse</span>&nbsp;<span class="num">0</span><span class="oth">,</span><span class="num">0</span><span class="oth">,</span><span class="num">0</span>&nbsp;&nbsp;<span class="com">'&nbsp;Hides&nbsp;the&nbsp;mouse&nbsp;cursor</span><br />
+</div></tt><br />
+<br \>
+Maintenant, nous allons d&eacute;clarer deux pointeurs de m&eacute;moire qui pointeront vers les tampons m&eacute;moire o&ugrave; nos graphiques sont stock&eacute;s (un pour les sprites et un pour le fond).<br \>
+<br \>
+Le premier pointeur est nomm&eacute; "background1" et il est d&eacute;clar&eacute; avec la ligne suivante:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">background1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+</div></tt><br />
+<br \>
+ANY PTR nous dit que "background1" sera effectivement un pointeur m&eacute;moire. Un pointeur d&eacute;fini comme ANY PTR d&eacute;sactive le compilateur pour la v&eacute;rification le type de donn&eacute;es sur lequel il pointe. C'est utile car il peut pointer vers diff&eacute;rents types de donn&eacute;es. Nous allons utiliser des pointeurs car nous allons allouer de la m&eacute;moire pour nos graphiques en utilisant l'instruction IMAGECREATE. IMAGECREATE alloue la bonne quantit&eacute; de m&eacute;moire pour un &eacute;lement graphique (sprites / image), si nous donnons sa hauteur et sa largeur. Sinon, nous aurions &agrave; le faire manuellement, ce qui signifie, calculer la quantit&eacute; de m&eacute;moire n&eacute;cessaire d'apr&egrave;s la taille du sprite, la profondeur de bit et la taille de  la variable. IMAGECREATE fait cela pour nous. Comme le r&eacute;sultat d'IMAGECREATE est un pointeur, nous devons nous r&eacute;f&eacute;rer &agrave; un pointeur et non une variable. Ne vous inqui&eacute;tez pas si vous ne savez rien &agrave; propos des pointeurs. Vous n'en avez pas besoin pour comprendre ce tutoriel.<br \>
+<br \>
+Le pointeur suivant pointe vers la m&eacute;moire tampon qui contient les 12 sprites du guerrier. Nous allons le dimensionner comme un tableau unidimensionnel, chaque &eacute;l&eacute;ment du tableau repr&eacute;sentant un sprite.<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">WarriorSprite</span><span class="oth">(</span><span class="num">12</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+</div></tt><br />
+<br \>
+Ces deux lignes devraient &ecirc;tre mis dans le code avant l'instruction SCREEN. C'est la fa&ccedil;on d'&eacute;crire chaque programme. D&eacute;clarations des sous-programmes, d&eacute;clarations des variables, puis les d&eacute;clarations des sous-programmes suppl&eacute;mentaire si n&eacute;cessaire, puis le code r&eacute;el. Le d&eacute;but de notre programme devrait maintenant ressembler &agrave; ceci:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#include&nbsp;"fbgfx.bi"&nbsp;<br />
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Using</span>&nbsp;<span class="wrd">FB</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">background1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="com">'&nbsp;A&nbsp;pointer&nbsp;that&nbsp;points&nbsp;to&nbsp;a&nbsp;memory</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;buffer&nbsp;holding&nbsp;the&nbsp;background&nbsp;graphics</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">WarriorSprite</span><span class="oth">(</span><span class="num">12</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="com">'&nbsp;A&nbsp;pointer&nbsp;that&nbsp;points&nbsp;to&nbsp;a&nbsp;memory</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;buffer&nbsp;holding&nbsp;the&nbsp;warrior&nbsp;sprites</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Screen</span>&nbsp;<span class="num">13</span><span class="oth">,</span><span class="num">8</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">0</span>&nbsp;<span class="com">'&nbsp;Sets&nbsp;the&nbsp;graphic&nbsp;mode</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">SetMouse</span>&nbsp;<span class="num">0</span><span class="oth">,</span><span class="num">0</span><span class="oth">,</span><span class="num">0</span>&nbsp;&nbsp;<span class="com">'&nbsp;Hides&nbsp;the&nbsp;mouse&nbsp;cursor</span><br />
+</div></tt><br />
+<br \>
+D&egrave;s que la r&eacute;solution de l'&eacute;cran, la profondeur de couleur et nombre de pages du travail sont fix&eacute;s, nous allons cacher notre page de travail avant le chargement des graphiques sur elle car nous ne voulons pas que l'utilisateur voit tous les graphique du programme &agrave; chaque fois qu'il ou elle lance notre programme . Pour accomplir cela, nous allons utiliser l'instruction SCREENSET. Que fait-elle? Elle d&eacute;finit la page de travail (premier param&egrave;tre) et la page visible (deuxi&egrave;me param&egrave;tre). Dans notre cas nous allons mettre en page 1 la page de travail et en page 0 la page visible. Apr&egrave;s l'utilisation de "SCREENSET 1, 0" chaque fois que nous dessinerons ou chargerons quelque chose sur l'&eacute;cran, cel sera charg&eacute; / dessin&eacute; sur la page de travail et ne sera pas visible pour l'utilisateur jusqu'&agrave; ce que nous utilisons l'instruction SCREENCOPY ou SCREENSET avec des param&egrave;tres diff&eacute;rents (SCREENSET 1, 1). Cela nous permet de charger des graphiques sur l'&eacute;cran, invisibles pour l'utilisateur et de les supprimer avant que la page de travail ne soit la page visible. Cette permutation (flipping) de pages  est &eacute;galement utile dans les boucles avec des" programmes "exigeant des graphiques" pour &eacute;viter le scintillement ou un autre &eacute;v&eacute;nement ind&eacute;sirable.<br \>
+<br \>
+<br \>
+   <br \>
+
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Constants</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Constantes</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+<div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Les constantes sont des nombres qui ne peuvent pas &ecirc;tre modifi&eacute;s apr&egrave;s avoir &eacute;t&eacute; d&eacute;finis. Par exemple, 5 d&eacute;signe toujours de m&ecirc;me nombre.<br \>
+<br \>
+En FreeBasic, la d&eacute;finition d'une constante diff&egrave;re de la d&eacute;finition d'une variable par l'utilisation de la commande <tt><a href="KeyPgConst.html">Const</a></tt>.<br \>
+<br \>
+Ces constantes sont ensuite disponibles globalement, ce qui signifie que, une fois d&eacute;finies vous pouvez utiliser les mots pour d&eacute;signer ces constantes partout dans votre programme. <br \>
+<br \>
+Apr&egrave;s avoir &eacute;t&eacute; d&eacute;finies avec la commande <tt><a href="KeyPgConst.html">Const</a></tt>, les constantes ne peuvent pas &ecirc;tre modifi&eacute;es. Si le code tente de modifier une constante, un message d'erreur se produit lors de la compilation du code.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">PrintConstants</span>&nbsp;<span class="oth">()</span><br />
+<br />
+<span class="key">Const</span>&nbsp;<span class="wrd">FirstNumber</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">SecondNumber</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">FirstString</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"First&nbsp;string."</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="wrd">FirstNumber</span><span class="oth">,</span>&nbsp;<span class="wrd">SecondNumber</span>&nbsp;<span class="com">'This&nbsp;will&nbsp;print&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">FirstString</span>&nbsp;<span class="com">'This&nbsp;will&nbsp;print&nbsp;First&nbsp;string.</span><br />
+<br />
+<span class="wrd">PrintConstants</span>&nbsp;<span class="oth">()</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">PrintConstants</span>&nbsp;<span class="oth">()</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">FirstNumber</span><span class="oth">,</span>&nbsp;<span class="wrd">SecondNumber</span>&nbsp;<span class="com">'This&nbsp;will&nbsp;also&nbsp;print&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">FirstString</span>&nbsp;<span class="com">'This&nbsp;will&nbsp;also&nbsp;print&nbsp;First&nbsp;string.</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgConst.html">Const</a></tt><br \>
+<li> <tt><a href="KeyPgEnum.html">Enum</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

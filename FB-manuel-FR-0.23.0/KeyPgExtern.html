@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Extern</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Extern</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;clare une variable, un tableau ou un objet ayant une liaison externe<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Extern</b> [ <a href="KeyPgImport.html">Import</a> ] <i>symbolname</i>[ (<i>subscripts</i>) ] [ <a href="KeyPgAlias.html">Alias</a> "<i>aliasname</i>" ] <a href="KeyPgAs.html">As</a> <i><a href="DataType.html">DataType</a></i> [, ...]<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>symbolname</i></tt><br \>
+<div class="fb_indent">Le nom de la variable, du tableau ou de l'objet.<br \>
+</div><tt><i>aliasname</i></tt><br \>
+<div class="fb_indent">Un autre nom externe pour la variable, le tableau ou l'objet.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+D&eacute;clare <tt><i>symbolname</i></tt> comme un nom externe, ce qui signifie qu'il est global pour des modules externes. <tt><b>Extern</b></tt> d&eacute;clare seulement des variables, tableaux et objets, et ne les d&eacute;finira pas (diff&eacute;rent de <tt><a href="KeyPgCommon.html">Common</a></tt> ou <tt><a href="KeyPgDim.html">Dim</a></tt>). Cela a aussi pour effet de faire de <tt><i>symbolname</i></tt> un nom <i>shared</i>, ce qui signifie visible dans les proc&eacute;dures (voir <tt><a href="KeyPgShared.html">Shared</a></tt>).<br \>
+<br \>
+Si <tt><a href="KeyPgAlias.html">Alias</a></tt> est utilis&eacute;, <tt><i>aliasname</i></tt> sera utilis&eacute; comme le nom externe plut&ocirc;t que <tt><i>symbolname</i></tt> et sa casse sera pr&eacute;serv&eacute;e.<br \>
+<br \>
+Si <tt><a href="KeyPgImport.html">Import</a></tt> est utilis&eacute;, le nom sera ajout&eacute; &agrave; la liste des biblioth&egrave;ques dynamiques d'importation de sorte que son adresse ne peut &ecirc;tre fix&eacute;e lors de l'ex&eacute;cution.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;extern1.bas</span><br />
+<br />
+<span class="key">Extern</span>&nbsp;<span class="wrd">Foo</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"foo"</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">SetFoo</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">foo</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1234</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;extern2.bas</span><br />
+<br />
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">SetFoo</span><br />
+<br />
+<span class="key">Extern</span>&nbsp;<span class="wrd">Foo</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"foo"</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">foo</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><br />
+<br />
+<span class="wrd">SetFoo</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="wrd">Foo</span><br />
+</div></tt><br />
+Output:<br \>
+<pre class="fb_pre">
+ 1234
+</pre><br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgExternBlock.html">Extern...End Extern</a></tt><br \>
+<li> <tt><a href="KeyPgCommon.html">Common</a></tt><br \>
+<li> <tt><a href="KeyPgDim.html">Dim</a></tt><br \>
+<li> <tt><a href="KeyPgShared.html">Shared</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

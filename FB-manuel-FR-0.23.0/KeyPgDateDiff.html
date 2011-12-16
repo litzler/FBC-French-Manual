@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>DateDiff</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">DateDiff</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	R&eacute;cup&egrave;re la diff&eacute;rence entre deux dates, mesur&eacute;e &agrave; l'aide d'un intervalle donn&eacute;<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>DateDiff</b> ( <a href="KeyPgByref.html">ByRef</a> <i>interval</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgString.html">String</a>, <a href="KeyPgByval.html">ByVal</a> <i>serial1</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a>, <a href="KeyPgByval.html">ByVal</a> <i>serial2</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a>, <a href="KeyPgByval.html">ByVal</a> <i>firstdayofweek</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = fbUseSystem, <a href="KeyPgByval.html">ByVal</a> <i>firstdayofyear</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = fbUseSystem ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+#include "vbcompat.bi"<br \>
+<i>result</i> = <b>DateDiff</b>( <i>interval</i>, <i>date_serial1</i>, <i>date_serial2</i> [, <i>firstdayofWeek</i> [, <i>firstweekofyear</i> ] ] )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>interval</i></tt><br \>
+<div class="fb_indent">l'unit&eacute; de temps (intervalle) utilis&eacute;e pour calculer la diff&eacute;rence<br \>
+</div><tt><i>date_serial1</i></tt><br \>
+<div class="fb_indent">"date serial" de d&eacute;part<br \>
+</div><tt><i>date_serial2</i></tt><br \>
+<div class="fb_indent">"date serial" de fin<br \>
+</div><tt><i>firstdayofweek</i></tt><br \>
+<div class="fb_indent">1er jour de la semaine<br \>
+</div><tt><i>firstdayofyear</i></tt><br \>
+<div class="fb_indent">1er jour de l'ann&eacute;e<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne un nombre entier correspondant au nombre d'<tt><i>interval</i></tt>s trouv&eacute;s entre deux <a href="ProPgDates.html">Date Serials</a>.<br \>
+<br \>
+Si <tt><i>date_serial1</i></tt> &gt; <tt><i>date_serial2</i></tt>, le r&eacute;sultat est n&eacute;gatif.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<br \>
+<tt><i>interval</i></tt> est sp&eacute;cifi&eacute; comme ci-dessous:<br \>
+<br \>
+<div class="fb_indent"><div class="fb_table"><table><tr><td>valeur</td><td>intervalle</td></tr><tr><td>yyyy</td><td>ann&eacute;es</td></tr><tr><td>q</td><td>trimestres</td></tr><tr><td>m</td><td>mois</td></tr><tr><td>w</td><td> p&eacute;riodes de 7 jours</td></tr><tr><td> ww</td><td>semaines du calendrier</td></tr><tr><td>d,y</td><td>jours</td></tr><tr><td>h</td><td>heures</td></tr><tr><td>n</td><td>minutes</td></tr><tr><td>s</td><td>secondes</td></tr></table></div>  <br \>
+<br \>
+</div><tt><i>first_dayofweek</i></tt> affecte le comptage quand l'intervalle <tt>'ww'</tt> est utilis&eacute;.<br \>
+<br \>
+<div class="fb_indent"><div class="fb_table"><table><tr><td>valeur</td><td>1er jour de la semaine</td><td>constante</td></tr><tr><td>omis</td><td>sunday = dimanche</td><td>&nbsp;</td></tr><tr><td>0</td><td>param&egrave;tres locaux</td><td>fbUseSystem</td></tr><tr><td>1</td><td>sunday = dimanche</td><td>fbSunday</td></tr><tr><td>2</td><td>monday = lundi</td><td>fbMonday</td></tr><tr><td>3</td><td>tuesday = mardi</td><td>fbTuesday</td></tr><tr><td>4</td><td>wednesday = mercredi</td><td>fbWednesday</td></tr><tr><td>5</td><td>thursday = jeudi</td><td>fbThursday</td></tr><tr><td>6</td><td>friday = vendredi</td><td>fbFriday</td></tr><tr><td>7</td><td>saturday = samedi</td><td>fbSaturday</td></tr></table></div><br \>
+<br \>
+</div><tt><i>first_weekofyear</i></tt> sp&eacute;cifie quelle ann&eacute;e (pr&eacute;c&eacute;dente ou suivante) dont la semaine qui est "&agrave; cheval" sur la fin d'une ann&eacute;e et le d&eacute;but de la suivante devrait &ecirc;tre incluse.<br \>
+<br \>
+<div class="fb_indent"><div class="fb_table"><table><tr><td>valeur</td><td>1&egrave;re semaine de l'ann&eacute;e</td><td>constante</td></tr><tr><td>0</td><td>param&egrave;tres locaux</td><td>fbUseSystem</td></tr><tr><td>1</td><td>semaine du 1er janvier</td><td>fbFirstJan1</td></tr><tr><td>2</td><td>1&egrave;re semaine ayant 4 jours dans l'ann&eacute;e</td><td>fbFirstFourDays</td></tr><tr><td>3</td><td>1&egrave;re semaine compl&egrave;te de l'ann&eacute;e</td><td>fbFirstFullWeek</td></tr></table></div><br \>
+<br \>
+</div>Notez que si vous effectuez une soustraction arithm&eacute;tique de deux "date serial"s vous obtenez la diff&eacute;rence en jours.<br \>
+<br \>
+Le compilateur ne reconna&icirc;t cette fonction que si <tt>vbcompat.bi</tt> ou <tt>datetime.bi</tt> est inclus.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="def">#include&nbsp;"vbcompat.bi"<br />
+</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">,</span>&nbsp;<span class="wrd">d1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><span class="oth">,</span>&nbsp;<span class="wrd">d2</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<br />
+<span class="key">Line</span>&nbsp;<span class="key">Input</span>&nbsp;<span class="quo">"Enter&nbsp;your&nbsp;birthday:&nbsp;"</span><span class="oth">,</span>&nbsp;<span class="wrd">s</span><br />
+<br />
+<span class="key">If</span>&nbsp;<span class="key">IsDate</span><span class="oth">(</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;<span class="wrd">d1</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">DateValue</span><span class="oth">(</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">d2</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Now</span><span class="oth">()</span><br />
+<br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"You&nbsp;are&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="key">DateDiff</span><span class="oth">(</span>&nbsp;<span class="quo">"yyyy"</span><span class="oth">,</span>&nbsp;<span class="wrd">d1</span><span class="oth">,</span>&nbsp;<span class="wrd">d2</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"&nbsp;years&nbsp;old."</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"You&nbsp;are&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="key">DateDiff</span><span class="oth">(</span>&nbsp;<span class="quo">"d"</span><span class="oth">,</span>&nbsp;<span class="wrd">d1</span><span class="oth">,</span>&nbsp;<span class="wrd">d2</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"&nbsp;days&nbsp;old."</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"You&nbsp;are&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="key">DateDiff</span><span class="oth">(</span>&nbsp;<span class="quo">"s"</span><span class="oth">,</span>&nbsp;<span class="wrd">d1</span><span class="oth">,</span>&nbsp;<span class="wrd">d2</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"&nbsp;seconds&nbsp;old."</span><br />
+<br />
+<span class="key">Else</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Invalid&nbsp;date"</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> N'existe pas dans QB. Cette fonction est apparue dans Visual Basic.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="ProPgDates.html">Date Serials</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

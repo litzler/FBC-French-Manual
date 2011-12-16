@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Continue</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Continue</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;claration de contr&ocirc;le de flux pour poursuivre avec l'it&eacute;ration suivante d'une boucle<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Continue</b> {<a href="KeyPgDoloop.html">Do</a> | <a href="KeyPgFornext.html">For</a> | <a href="KeyPgWhilewend.html">While</a>}<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Saute tout le code jusqu'&agrave; la clause de fin d'une structure de boucle, c'est &agrave; dire un bloc <tt><a href="KeyPgDoloop.html">Do...Loop</a></tt>, <tt><a href="KeyPgFornext.html">For...Next</a></tt>, ou <tt><a href="KeyPgWhilewend.html">While...Wend</a></tt>, puis ex&eacute;cute la v&eacute;rification de l'&eacute;tat de la limite. Dans le cas d'une boucle <tt><a href="KeyPgFornext.html">For...Next</a></tt>, la variable est incr&eacute;ment&eacute;e selon la valeur de <tt><a href="KeyPgStep.html">Step</a></tt>.<br \>
+<br \>
+Lorsqu'il y a plusieurs blocs <tt><a href="KeyPgDoloop.html">Do</a></tt> / <tt><a href="KeyPgFornext.html">For</a></tt> / <tt><a href="KeyPgWhilewend.html">While</a></tt> imbriqu&eacute;s, cela continuera sur le bloc de ce type le plus int&eacute;rieur, &agrave; savoir le dernier entr&eacute;.  Vous pouvez continuer un bloc pr&eacute;c&eacute;dent de ce type en donnant &agrave; la suite plusieurs mots, s&eacute;par&eacute;s par des virgules.  Par exemple, <tt><b>continue while, while</b></tt><br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">n</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Here&nbsp;are&nbsp;odd&nbsp;numbers&nbsp;between&nbsp;0&nbsp;and&nbsp;10!"</span><br />
+<span class="key">Print</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><br />
+<br />
+&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">Mod</span>&nbsp;<span class="num">2</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">Then</span>&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Continue</span>&nbsp;<span class="key">For</span><br />
+&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">n</span><br />
+&nbsp;&nbsp;<br />
+<span class="key">Next</span>&nbsp;<span class="wrd">n</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+&nbsp;<span class="com">''&nbsp;simple&nbsp;prime&nbsp;number&nbsp;finder</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Here&nbsp;are&nbsp;the&nbsp;prime&nbsp;numbers&nbsp;between&nbsp;1&nbsp;and&nbsp;20!"</span><br />
+<span class="key">Print</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="key">For</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">20</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span>&nbsp;<span class="key">To</span>&nbsp;<span class="key">Int</span><span class="oth">(</span><span class="key">Sqr</span><span class="oth">(</span><span class="wrd">n</span><span class="oth">))</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">Mod</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="com">'&nbsp;d&nbsp;divides&nbsp;n</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Continue</span>&nbsp;<span class="key">For</span><span class="oth">,</span>&nbsp;<span class="key">For</span>&nbsp;<span class="com">'&nbsp;n&nbsp;is&nbsp;not&nbsp;prime,&nbsp;so&nbsp;try&nbsp;next&nbsp;n</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span>&nbsp;<span class="wrd">d</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">n</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<span class="key">Next</span>&nbsp;<span class="wrd">n</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Continue</b></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgExit.html">Exit</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

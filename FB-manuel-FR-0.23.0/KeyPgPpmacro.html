@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>#Macro...#Endmacro</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">#Macro...#Endmacro</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Directive du pr&eacute;processeur pour d&eacute;finir une macro multi-ligne<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>#macro</b> <i>macro_name</i>( [ <i>parameters</i> ] )<br \>
+<div class="fb_indent"><i>macro body</i><br \>
+</div><b>#endmacro</b><br \>
+<br \>
+<b>#macro</b> <i>macro_name</i>( [ <i>parameters</i>, ] <i>variadic_parameter</i><a href="KeyPgDots.html">...</a> )<br \>
+<div class="fb_indent"><i>macro body</i><br \>
+</div><b>#endmacro</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>#macro</b></tt> d&eacute;finit une fonction comme macro o&ugrave; <tt><i>macro body (corps de la macro)</i></tt> peut s'&eacute;tendre sur plusieurs lignes.<br \>
+<br \>
+Les param&egrave;tres fournis &agrave; la fonction comme macro sont mis &agrave; la place o&ugrave; ils fonctionnent dans <tt><i>macro body</i></tt>.  Le <tt><i>macro body</i></tt> est plac&eacute; en entier chaque fois que <tt><i>macro_name</i></tt> appara&icirc;t dans le code source.  Le nombre de param&egrave;tres transmis &agrave; la macro doit correspondre au nombre de param&egrave;tres dans sa <tt><b>#macro</b></tt> d&eacute;finition.<br \>
+<br \>
+Utiliser <tt><a href="KeyPgDots.html">...</a></tt> (une ellipse) derri&egrave;re le dernier param&egrave;tre d'une macro permet de cr&eacute;er une macro variadique, voir <a href="KeyPgPpdefine.html">#define</a>.<br \>
+<br \>
+Les conditionnels du pr&eacute;processeur <tt><a href="KeyPgPpifdef.html">#ifdef</a></tt> et <tt><a href="KeyPgPpifndef.html">#ifndef</a></tt> peuvent tester si <tt><i>macro_name</i></tt> existe ou n'existe pas.<br \>
+<br \>
+La directive pr&eacute;processeur <tt><a href="KeyPgPpundef.html">#undef</a></tt> peut annuler la d&eacute;finition d'une macro de fa&ccedil;on &agrave; pouvoir la red&eacute;finir avec une autre d&eacute;finition.<br \>
+La substitution de macro peut &ecirc;tre v&eacute;rifi&eacute;e en utilisant les options -g -r. Le compilateur n'effacera pas le fichier .asm interm&eacute;diaire dans lequel le code r&eacute;ellement envoy&eacute; au compilateur peut &ecirc;tre vu &agrave; c&ocirc;t&eacute; de sa traduction en assembleur.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;macro&nbsp;as&nbsp;an&nbsp;expression&nbsp;value</span><br />
+<span class="def">#macro&nbsp;Print1(&nbsp;a,&nbsp;b&nbsp;)<br />
+</span>&nbsp;&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">b</span><br />
+<span class="def">#endmacro<br />
+</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">Print1</span><span class="oth">(</span>&nbsp;<span class="quo">"Hello"</span><span class="oth">,</span>&nbsp;<span class="quo">"World"</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="com">''&nbsp;Output&nbsp;:</span><br />
+<span class="com">''&nbsp;Hello&nbsp;World!</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;macro&nbsp;as&nbsp;multiple&nbsp;statements</span><br />
+<span class="def">#macro&nbsp;Print2(&nbsp;a,&nbsp;b&nbsp;)<br />
+</span>&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">a</span><span class="oth">;</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"&nbsp;"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">b</span><span class="oth">;</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"!"</span><br />
+<span class="def">#endmacro<br />
+</span><br />
+<span class="wrd">Print2</span><span class="oth">(</span>&nbsp;<span class="quo">"Hello"</span><span class="oth">,</span>&nbsp;<span class="quo">"World"</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="com">''&nbsp;Output&nbsp;:</span><br />
+<span class="com">''&nbsp;Hello&nbsp;World!</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour Freebasic<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgPpdefine.html">#define</a></tt><br \>
+<li> <tt><a href="KeyPgPpif.html">#if</a></tt><br \>
+<li> <tt><a href="KeyPgPpelse.html">#else</a></tt> <br \>
+<li> <tt><a href="KeyPgPpelseif.html">#elseif</a></tt> <br \>
+<li> <tt><a href="KeyPgPpendif.html">#endif</a></tt> <br \>
+<li> <tt><a href="KeyPgPpifdef.html">#ifdef</a></tt><br \>
+<li> <tt><a href="KeyPgPpifndef.html">#ifndef</a></tt><br \>
+<li> <tt><a href="KeyPgPpundef.html">#undef</a></tt><br \>
+<li> <tt><a href="KeyPgDefined.html">defined</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

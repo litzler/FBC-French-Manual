@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Err</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Err</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Fonction de gestion des erreurs qui renvoie le num&eacute;ro de la derni&egrave;re erreur<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>Err</b> ( ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>Err</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Return Value</div><div class="fb_sect_cont"><br \>
+Apr&egrave;s une erreur, retourne le code de l'erreur qui s'est produite. <br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Err</b></tt> peut toujours &ecirc;tre utilis&eacute;, m&ecirc;me si la gestion des erreurs QB-like n'est pas activ&eacute;e.<br \>
+<br \>
+<tt><b>Err</b></tt> est r&eacute;initialis&eacute; par <tt><a href="KeyPgResume.html">Resume</a></tt> et <tt><a href="KeyPgResumenext.html">Resume Next</a></tt>.<br \>
+<br \>
+NOTE: Des pr&eacute;cautions doivent &ecirc;tre prises lors de l'appel d'une fonction interne (comme <tt><a href="KeyPgPrint.html">Print</a></tt>) apr&egrave;s qu'une erreur se soit produite car la valeur d'erreur sera r&eacute;initialis&eacute;e avec son propre statut d'erreur. Pour pr&eacute;server la valeur <tt><b>Err</b></tt>, il faut la copier dans une variable auxiliaire d&egrave;s que le gestionnaire d'erreurs est lanc&eacute;.<br \>
+<br \>
+Voir <a href="TblRuntimeErrors.html">Codes d'erreur de fonctionnement</a> pour une liste des num&eacute;ros d'erreur d'ex&eacute;cution et leur signification.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+Un exemple en utilisant le style QBasic de gestion d'erreur (compilation avec l'option -ex)<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Compile&nbsp;with&nbsp;-lang&nbsp;fblite&nbsp;or&nbsp;qb</span><br />
+<br />
+<span class="def">#lang&nbsp;"fblite"<br />
+</span><br />
+<span class="key">On</span>&nbsp;<span class="key">Error</span>&nbsp;<span class="key">Goto</span>&nbsp;<span class="wrd">Error_Handler</span><br />
+<span class="key">Error</span>&nbsp;<span class="num">150</span><br />
+<span class="key">End</span><br />
+<br />
+<span class="wrd">Error_Handler</span><span class="oth">:</span><br />
+&nbsp;&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Err</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Error&nbsp;#"</span><span class="oth">;</span>&nbsp;<span class="wrd">n</span><br />
+&nbsp;&nbsp;<span class="key">Resume</span>&nbsp;<span class="key">Next</span><br />
+</div></tt><br />
+Un exemple en utilisant la gestion des erreurs en ligne (note: <tt><a href="KeyPgOpen.html">Open</a></tt> peut aussi retourner son propre status d'erreur s'il est appel&eacute; comme une fonction)<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;compile&nbsp;without&nbsp;-e&nbsp;switch</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">filename</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+<br />
+<span class="key">Do</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Line</span>&nbsp;<span class="key">Input</span>&nbsp;<span class="quo">"Input&nbsp;filename:&nbsp;"</span><span class="oth">,</span>&nbsp;<span class="wrd">filename</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="wrd">filename</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">""</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">End</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Open</span>&nbsp;<span class="wrd">filename</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Input</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="num">1</span><br />
+<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">Err</span><span class="oth">()</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="key">Using</span>&nbsp;<span class="quo">"File&nbsp;'&amp;'&nbsp;opened&nbsp;successfully"</span><span class="oth">;</span>&nbsp;<span class="wrd">filename</span><br />
+<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="num">1</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Les num&eacute;ros d'erreur sont diff&eacute;rents dans QB.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOnerror.html">On Error</a></tt><br \>
+<li> <a href="ProPgErrorHandling.html">Gestion des erreurs</a> <br \>
+<li> <a href="TblRuntimeErrors.html">Codes des erreurs de fonctionnement</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

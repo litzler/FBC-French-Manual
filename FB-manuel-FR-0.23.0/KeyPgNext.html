@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Next</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Next</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;claration de contr&ocirc;le de flux pour marquer la fin d'une boucle <tt><a href="KeyPgFornext.html">For...Next</a></tt>.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Next</b> [ <i>identifier_list</i> ]<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Indique la fin d'un bloc d'instructions associ&eacute; &agrave; une d&eacute;claration <tt><a href="KeyPgFornext.html">For</a></tt>. <br \>
+<br \>
+Quand <tt><b>Next</b></tt> est utilis&eacute; seul sans <i>identifier_list</i>, il ferme le bloc d'instructions <tt><a href="KeyPgFornext.html">For</a></tt> le plus r&eacute;cent.<br \>
+<br \>
+<tt><i>identifier_list</i></tt> est facultatif et correspond &agrave; une ou plusieurs variables s&eacute;par&eacute;es par des virgules.  Cette forme de d&eacute;claration de <tt><b>Next</b></tt> est conserv&eacute;e pour la compatibilit&eacute; avec QB.<br \>
+<tt><i>identifier_list</i></tt>, s'il existe, doit correspondre aux identifiants utilis&eacute;s dans la d&eacute;claration <tt><a href="KeyPgFornext.html">For</a></tt> associ&eacute;e, dans l'ordre inverse.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">j</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span><span class="oth">=</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">j</span><span class="oth">=</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><br />
+&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;...</span><br />
+<span class="key">Next</span><br />
+<span class="key">Next</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">j</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span><span class="oth">=</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">j</span><span class="oth">=</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><br />
+&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;...</span><br />
+<span class="key">Next</span>&nbsp;<span class="wrd">j</span><br />
+<span class="key">Next</span>&nbsp;<span class="wrd">i</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">j</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span><span class="oth">=</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">j</span><span class="oth">=</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><br />
+&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;...</span><br />
+<span class="key">Next</span>&nbsp;<span class="wrd">j</span><span class="oth">,</span><span class="wrd">i</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Les arguments <tt><a href="KeyPgByref.html">ByRef</a></tt> ne peuvent &ecirc;tre utilis&eacute;s comme compteurs.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgFornext.html">For...Next</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

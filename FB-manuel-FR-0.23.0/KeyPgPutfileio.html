@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>Put (File I/O)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Put (Entr&eacute;e/Sortie fichiers)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Ecrit des donn&eacute;es d'un tampon vers un fichier<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Put</b> #<i>filenum</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, [<i>position</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgLongint.html">LongInt</a>], <i>data</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> [, <i>amount</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>]<br \>
+<b>Put</b> #<i>filenum</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, [<i>position</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgLongint.html">LongInt</a>], <i>data</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgString.html">String</a><br \>
+<b>Put</b> #<i>filenum</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, [<i>position</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgLongint.html">LongInt</a>], <i>data()</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<b>Put</b> #<i>filenum</i>, <i>position</i>, <i>data</i> [, <i>amount</i>]<br \>
+varres = <b>Put</b> (#<i>filenum</i>, <i>position</i>, <i>data</i> [, <i>amount</i>])<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>filenum</i></tt><br \>
+<div class="fb_indent">La valeur pass&eacute;e &agrave; <tt><a href="KeyPgOpen.html">Open</a></tt> lorsque le dossier a &eacute;t&eacute; ouvert.<br \>
+</div><tt><i>position</i></tt><br \>
+<div class="fb_indent">Est la position o&ugrave; <tt><b>Put</b></tt> doit commencer dans le fichier. Si le fichier a &eacute;t&eacute; ouvert en mode <tt><i>For Random</i></tt>, la position est &eacute;valu&eacute;e en enregistrements, sinon elle est &eacute;valu&eacute;e en octets. Si omise, l'&eacute;criture commence &agrave; la position actuelle du pointeur.  La position est bas&eacute;e sur 1: par exemple le premier enregistrement ou octet est &agrave; la position <tt>1</tt>.<br \>
+Si <tt><i>position</i></tt> est omise ou z&eacute;ro (<tt>0</tt>), l'&eacute;criture dans le fichier commencera &agrave; partir de la position courante dans le fichier.<br \>
+</div><tt><i>data</i></tt><br \>
+<div class="fb_indent">Est le tampon m&eacute;moire &agrave; partir duquel les donn&eacute;es sont &eacute;crites. Il peut &ecirc;tre une variable num&eacute;rique, une cha&icirc;ne, un tableau ou un type d&eacute;fini par l'utilisateur. L'op&eacute;ration va essayer de transf&eacute;rer sur le disque la variable compl&egrave;te, sauf si <tt><i>amount</i></tt> est pr&eacute;cis&eacute;.<br \>
+Lorsque <tt><b>Put</b></tt> concerne un tableau, <tt><i>data</i></tt> doit &ecirc;tre suivi par une paire de parenth&egrave;ses vides: '<tt>()</tt>'.  <tt><b>Put</b></tt> &eacute;crira toutes les donn&eacute;es du tableau.  <tt><i>amount</i></tt> n'est pas permis.<br \>
+Lorsque <tt><b>Put</b></tt> concerne une <tt><a href="KeyPgString.html">String</a></tt>, le nombre d'octets &eacute;crits est le m&ecirc;me que le nombre d'octets dans la cha&icirc;ne.  <tt><i>amount</i></tt> n'est pas permis.<br \>
+Note: Si vous voulez &eacute;crire des valeurs &agrave; partir d'un tampon, vous NE DEVEZ PAS passer un pointeur vers la m&eacute;moire tampon; au lieu de cela vous devez passer la premi&egrave;re variable dans la m&eacute;moire tampon.  (Cela peut &ecirc;tre fait par le d&eacute;r&eacute;f&eacute;rencement du pointeur avec <tt><a href="KeyPgOpValueOf.html">Operator * (Valeur de)</a></tt>.)  <tt><b>Put</b></tt> d&eacute;duira automatiquement que le reste de la m&eacute;moire tampon se poursuit apr&egrave;s la premi&egrave;re variable.  Si vous passez un pointeur directement, alors <tt><b>Put</b></tt> utilisera la m&eacute;moire &agrave; partir de la variable pointeur et non pas la m&eacute;moire point&eacute;e par lui.<br \>
+</div><tt><i>amount</i></tt><br \>
+<div class="fb_indent"><tt>Put</tt> &eacute;crira dans le fichier <tt><i>amount</i></tt> variables cons&eacute;cutives - c'est &agrave; dire qu'il &eacute;crira, dans le fichier, <tt>( <i>amount</i> * <a href="KeyPgSizeof.html">SizeOf</a>(<i>data</i>) )</tt> octets de donn&eacute;es, commen&ccedil;ant &agrave; la position <tt><i>data</i></tt> dans la m&eacute;moire.  Si <tt><i>amount</i></tt> est omis sa valeur par d&eacute;faut est <tt>1</tt>, ce qui signifie que <tt><b>Put</b></tt> n'&eacute;crit qu'une seule variable.<div class="fb_header"><br \>
+<br \>
+</div></div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+<tt>0</tt> si succ&egrave;s; non z&eacute;ro si erreur. "disk full" (disque complet) est consid&eacute;r&eacute; comme une erreur et il en r&eacute;sulte un code retour de <tt>3</tt>. La quantit&eacute; "exacte" des donn&eacute;es &eacute;crites avant n'est pas disponible et ce ne serait pas vraiment utile de toute fa&ccedil;on. <br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+&Eacute;crit des donn&eacute;es binaires &agrave; partir d'une variable tampon dans un fichier ouvert en mode <tt><a href="KeyPgBinary.html">Binary</a></tt> ou <tt><a href="KeyPgRandom.html">Random</a></tt>.<br \>
+<br \>
+<tt><b>Put</b></tt> peut &ecirc;tre utilis&eacute; comme une fonction, et retournera <tt>0</tt> si succ&egrave;s ou un code d'erreur si &eacute;chec.	<br \>
+<br \>
+Pour les fichiers ouverts en mode <tt><a href="KeyPgRandom.html">Random</a></tt>, la taille en octets des donn&eacute;es &agrave; &eacute;crire doit correspondre &agrave; la taille sp&eacute;cifi&eacute;e de l'enregistrement.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;Create&nbsp;integer&nbsp;variables&nbsp;(our&nbsp;buffer&nbsp;has&nbsp;just&nbsp;4&nbsp;bytes)</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">buffer</span>&nbsp;<span class="oth">,</span>&nbsp;<span class="wrd">f</span>&nbsp;<br />
+<br />
+<span class="com">'&nbsp;Find&nbsp;the&nbsp;first&nbsp;free&nbsp;file&nbsp;file&nbsp;number.</span><br />
+<span class="wrd">f</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">FreeFile</span><br />
+<br />
+<span class="com">'&nbsp;Open&nbsp;the&nbsp;file&nbsp;"file.ext"&nbsp;for&nbsp;binary&nbsp;usage,&nbsp;using&nbsp;the&nbsp;file&nbsp;number&nbsp;"f".</span><br />
+<span class="key">Open</span>&nbsp;<span class="quo">"file.ext"</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Binary</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+&nbsp;&nbsp;<span class="wrd">buffer</span><span class="oth">=</span><span class="num">10</span><br />
+&nbsp;&nbsp;<span class="com">'&nbsp;Write&nbsp;4&nbsp;bytes&nbsp;from&nbsp;the&nbsp;buffer&nbsp;into&nbsp;the&nbsp;file,&nbsp;using&nbsp;file&nbsp;number&nbsp;"f"</span><br />
+&nbsp;&nbsp;<span class="com">'&nbsp;starting&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;file&nbsp;(1).</span><br />
+&nbsp;&nbsp;<span class="key">Put</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="wrd">buffer</span><br />
+<br />
+<span class="com">'&nbsp;Close&nbsp;the&nbsp;file.&nbsp;&nbsp;</span><br />
+<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+<br />
+<span class="com">'&nbsp;End&nbsp;the&nbsp;program.</span><br />
+<span class="key">End</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;Create&nbsp;an&nbsp;integer&nbsp;array</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">buffer</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">buffer</span><span class="oth">(</span><span class="wrd">i</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">i</span><br />
+<span class="key">Next</span><br />
+<br />
+<span class="com">'&nbsp;Find&nbsp;the&nbsp;first&nbsp;free&nbsp;file&nbsp;file&nbsp;number.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">f</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="wrd">f</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">FreeFile</span><br />
+<br />
+<span class="com">'&nbsp;Open&nbsp;the&nbsp;file&nbsp;"file.ext"&nbsp;for&nbsp;binary&nbsp;usage,&nbsp;using&nbsp;the&nbsp;file&nbsp;number&nbsp;"f".</span><br />
+<span class="key">Open</span>&nbsp;<span class="quo">"file.ext"</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Binary</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+<span class="com">'&nbsp;Write&nbsp;the&nbsp;array&nbsp;into&nbsp;the&nbsp;file,&nbsp;using&nbsp;file&nbsp;number&nbsp;"f"</span><br />
+<span class="com">'&nbsp;starting&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;file&nbsp;(1).</span><br />
+<span class="key">Put</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="wrd">buffer</span><span class="oth">()</span><br />
+<br />
+<span class="com">'&nbsp;Close&nbsp;the&nbsp;file.</span><br />
+<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+<br />
+<span class="com">'&nbsp;End&nbsp;the&nbsp;program.</span><br />
+<span class="key">End</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">lpBuffer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">hFile</span><span class="oth">,</span>&nbsp;<span class="wrd">Counter</span><span class="oth">,</span>&nbsp;<span class="wrd">Size</span><br />
+<br />
+<span class="wrd">Size</span><span class="oth">=</span><span class="num">256</span><br />
+<br />
+<span class="wrd">lpBuffer</span><span class="oth">=</span><span class="key">Allocate</span><span class="oth">(</span><span class="wrd">Size</span><span class="oth">)</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">Counter</span><span class="oth">=</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="wrd">Size</span><span class="oth">-</span><span class="num">1</span><br />
+&nbsp;&nbsp;<span class="wrd">lpBuffer</span><span class="oth">[</span><span class="wrd">Counter</span><span class="oth">]=(</span><span class="wrd">Counter</span>&nbsp;<span class="key">And</span>&nbsp;<span class="num">&amp;HFF</span><span class="oth">)</span><br />
+<span class="key">Next</span><br />
+<br />
+<span class="com">'&nbsp;Get&nbsp;free&nbsp;file&nbsp;file&nbsp;number.</span><br />
+<span class="wrd">hFile</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">FreeFile</span><span class="oth">()</span><br />
+<br />
+<span class="com">'&nbsp;Open&nbsp;the&nbsp;file&nbsp;"test.bin"&nbsp;in&nbsp;binary&nbsp;writing&nbsp;mode.</span><br />
+<span class="key">Open</span>&nbsp;<span class="quo">"test.bin"</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Binary</span>&nbsp;<span class="key">Access</span>&nbsp;<span class="key">Write</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="wrd">hFile</span><br />
+&nbsp;&nbsp;<span class="com">'&nbsp;Write&nbsp;256&nbsp;bytes&nbsp;from&nbsp;the&nbsp;memory&nbsp;pointened&nbsp;by&nbsp;lpBuffer.</span><br />
+&nbsp;&nbsp;<span class="key">Put</span>&nbsp;<span class="oth">#</span><span class="wrd">hFile</span><span class="oth">,</span>&nbsp;<span class="oth">,</span>&nbsp;<span class="wrd">lpBuffer</span><span class="oth">[</span><span class="num">0</span><span class="oth">],</span><span class="wrd">Size</span><br />
+<span class="com">'&nbsp;Close&nbsp;the&nbsp;file.&nbsp;&nbsp;</span><br />
+<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="wrd">hFile</span><br />
+<span class="com">'&nbsp;Free&nbsp;the&nbsp;allocated&nbsp;memory.</span><br />
+<span class="key">Deallocate</span>&nbsp;<span class="wrd">lpBuffer</span><br />
+<span class="com">'&nbsp;End&nbsp;the&nbsp;program.</span><br />
+<span class="key">End</span><br />
+</div></tt><br />
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><b>Put</b></tt> peut &eacute;crire des tableaux pleins comme dans VB ou, &agrave; d&eacute;faut, &eacute;crire un multiple de la taille des donn&eacute;es &agrave; partir de la position m&eacute;moire <tt><i>buffer</i></tt>.<br \>
+<li> <tt><b>Put</b></tt> peut &ecirc;tre utilis&eacute; comme une fonction dans FB, pour d&eacute;terminer s'il y a eu succ&egrave;s ou si un code d'erreur a &eacute;t&eacute; renvoy&eacute; sans avoir &agrave; utiliser les proc&eacute;dures de gestion des erreurs.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgPutgraphics.html">Put (Graphique)</a></tt> utilisation diff&eacute;rente du m&ecirc;me mot-cl&eacute;<br \>
+<li> <tt><a href="KeyPgGetfileio.html">Get (Entr&eacute;e/Sortie fichiers)</a></tt><br \>
+<li> <tt><a href="KeyPgOpen.html">Open</a></tt><br \>
+<li> <tt><a href="KeyPgClose.html">Close</a></tt><br \>
+<li> <tt><a href="KeyPgRandom.html">Random</a></tt><br \>
+<li> <tt><a href="KeyPgBinary.html">Binary</a></tt><br \>
+<li> <tt><a href="KeyPgFreefile.html">FreeFile</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

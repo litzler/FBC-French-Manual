@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Union</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Union</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;clare un type union d&eacute;fini par l'utilisateur.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Union</b> <i>typename</i><br \>
+<div class="fb_indent"><i>fieldname</i> as <a href="DataType.html">datatype</a><br \>
+<a href="KeyPgDeclare.html">Declare</a> <i>member function declaration</i> ...<br \>
+...<br \>
+</div>End Union<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>typename</i></tt><br \>
+<div class="fb_indent">Nom de l'<tt><b>Union</b></tt><br \>
+</div><tt><i>fieldname</i></tt><br \>
+<div class="fb_indent">Nom d'un membre champ de donn&eacute;es<br \>
+</div><tt><i>member function declaration</i></tt><br \>
+<div class="fb_indent">N'importe quelle fonction membre support&eacute;e<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Une <tt><b>Union</b></tt> est similaire &agrave; un <tt><a href="KeyPgType.html">Type</a></tt> structure, sauf que les &eacute;l&eacute;ments d'une <tt><b>Union</b></tt> occupent le m&ecirc;me espace dans la m&eacute;moire. La taille de l'<tt><b>Union</b></tt> est celle du plus grand &eacute;l&eacute;ment de donn&eacute;es. Un &eacute;l&eacute;ment de donn&eacute;es peut &ecirc;tre d'un <tt><a href="KeyPgType.html">Type</a></tt> sans nom. Comme ils occupent le m&ecirc;me espace, un seul &eacute;l&eacute;ment peut &ecirc;tre utilis&eacute;. <br \>
+<br \>
+Des <tt><b>Union</b></tt> sans nom peuvent &ecirc;tre imbriqu&eacute;es dans un type structure et des types sans nom peuvent &ecirc;tre imbriqu&eacute;s &agrave; l'int&eacute;rieur d'une <tt><b>Union</b></tt>. Voir Exemple.<br \>
+<br \>
+Les <tt><b>Union</b></tt> supportent des fonctions membres inclus <tt><a href="KeyPgConstructor.html">Constructor</a></tt>, <tt><a href="KeyPgDestructor.html">Destructor</a></tt>, <tt><a href="KeyPgMemberFunction.html">Function</a></tt>, <tt><a href="KeyPgOperator.html">Operator</a></tt>, <tt><a href="KeyPgProperty.html">Property</a></tt> et <tt><a href="KeyPgMemberSub.html">Sub</a></tt>.  Tous les membres d'une <tt><b>Union</b></tt> sont publics et le contr&ocirc;le d'acc&egrave;s n'est pas support&eacute;.<br \>
+<br \>
+Une <tt><b>Union</b></tt> peut &ecirc;tre pass&eacute;e comme un type d&eacute;fini par l'utilisateur pour surcharger des  fonctions op&eacute;rateurs.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">'define&nbsp;our&nbsp;union</span><br />
+<span class="key">Union</span>&nbsp;<span class="wrd">AUnion</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Union</span><br />
+<span class="com">'define&nbsp;a&nbsp;composite&nbsp;type</span><br />
+<span class="key">Type</span>&nbsp;<span class="wrd">CompType</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">s</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">20</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">ui</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="com">'Flag&nbsp;to&nbsp;tell&nbsp;us&nbsp;what&nbsp;to&nbsp;use&nbsp;in&nbsp;union.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Union</span>&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">au</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">bu</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">Union</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="com">'Flags&nbsp;to&nbsp;let&nbsp;us&nbsp;know&nbsp;what&nbsp;to&nbsp;use&nbsp;in&nbsp;union.</span><br />
+<span class="com">'You&nbsp;can&nbsp;only&nbsp;use&nbsp;a&nbsp;single&nbsp;element&nbsp;of&nbsp;a&nbsp;union.</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">IsInteger</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">IsUByte</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">MyUnion</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">AUnion</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">MyComposite</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">CompType</span><br />
+<br />
+<span class="com">'Can&nbsp;only&nbsp;set&nbsp;one&nbsp;value&nbsp;in&nbsp;union</span><br />
+<span class="wrd">MyUnion.a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">128</span><br />
+<br />
+<span class="wrd">MyComposite.s</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Type&nbsp;+&nbsp;Union"</span><br />
+<span class="wrd">MyComposite.ui</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">IsInteger</span>&nbsp;<span class="com">'Tells&nbsp;us&nbsp;this&nbsp;is&nbsp;an&nbsp;integer&nbsp;union</span><br />
+<span class="wrd">MyComposite.bu</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1500</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Union:&nbsp;"</span><span class="oth">;</span><span class="wrd">MyUnion.a</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Composite:&nbsp;"</span><span class="oth">;</span><br />
+<span class="key">If</span>&nbsp;<span class="wrd">MyComposite.ui</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">IsInteger</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">MyComposite.bu</span><br />
+<span class="key">ElseIf</span>&nbsp;<span class="wrd">MyComposite.ui</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">IsUByte</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">MyComposite.au</span><br />
+<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Unknown&nbsp;type."</span><br />
+<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Les fonctionnalit&eacute;s relatives aux objets telles que les fonctions d&eacute;clar&eacute;es &agrave; l'int&eacute;rieur de blocs <tt><b>Union</b></tt> ne sont support&eacute;es que dans le dialecte <i><a href="CompilerOptlang.html">-lang fb</a></i>.<br \>
+<li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Union</b></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgType.html">Type</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Goto</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Goto</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;claration de contr&ocirc;le de flux pour sauter vers une autre partie du programme<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Goto</b> <i>label</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+L'ex&eacute;cution du code saute vers une ligne avec une &eacute;tiquette.<br \>
+<br \>
+Pour plus de lisibilit&eacute; du code source, l'utilisation excessive de <tt><b>Goto</b></tt> doit &ecirc;tre &eacute;vit&eacute;e en faveur de structures plus modernes telles que <tt><a href="KeyPgDoloop.html">Do...Loop</a></tt>, <tt><a href="KeyPgFornext.html">For...Next</a></tt>, <tt><a href="KeyPgSub.html">Sub</a></tt> et <tt><a href="KeyPgFunction.html">Function</a></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Goto</span>&nbsp;<span class="wrd">there</span><br />
+<br />
+<span class="wrd">backagain</span><span class="oth">:</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span><br />
+<br />
+<span class="wrd">there</span><span class="oth">:</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Welcome!"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Goto</span>&nbsp;<span class="wrd">backagain</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Compile&nbsp;with&nbsp;-lang&nbsp;qb&nbsp;or&nbsp;fblite</span><br />
+<br />
+<span class="com">'$lang:&nbsp;"qb"</span><br />
+<br />
+<span class="num">1</span>&nbsp;<span class="key">Goto</span>&nbsp;<span class="num">3</span><br />
+<span class="num">2</span>&nbsp;<span class="key">End</span><br />
+<span class="num">3</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Welcome!"</span><br />
+<span class="num">4</span>&nbsp;<span class="key">Goto</span>&nbsp;<span class="num">2</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Les num&eacute;ros de ligne ne sont permis que dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a href="CompilerOptlang.html">-lang deprecated</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Aucune<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgGosub.html">GoSub</a></tt><br \>
+<li> <tt><a href="KeyPgSub.html">Sub</a></tt><br \>
+<li> <tt><a href="KeyPgFunction.html">Function</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

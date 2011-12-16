@@ -1,0 +1,405 @@
+<html>
+<head>
+<title>Linked Lists</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Listes cha&icirc;n&eacute;es</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+Une liste cha&icirc;n&eacute;e est une structure qui est facilement extensible en utilisant une seule fonction et qui devient dans tr&egrave;s utile lorsque vous avez besoin d'un tableau de quelque chose, mais dont vous n'avez aucune id&eacute;e de combien. Le concept derri&egrave;re une liste cha&icirc;n&eacute;e est que chaque structure de noeud a un pointeur vers la structure de noeud suivante et pr&eacute;c&eacute;dente. C'est ce qu'on appelle une double liste  cha&icirc;n&eacute;e, car il relie deux noeuds diff&eacute;rents. En utilisant un pointeur sur une structure, vous pouvez sp&eacute;cifier un pointeur nul si il n'y a pas de noeud suivant ou pr&eacute;c&eacute;dent, et puisque le pointeur stocke une adresse m&eacute;moire, le montant des noeuds, vous pouvez stocker est limit&eacute; uniquement par la m&eacute;moire.<br \>
+<br \>
+Le seul inconv&eacute;nient de l'utilisation d'une liste cha&icirc;n&eacute;e est que dans le but de stocker par exemple un entier, vous devez allouer de l'espace non seulement pour ce nombre entier, mais aussi pour une structure qui contient un pointeur vers l'entier et un pointeur vers les noeuds environnants. Cependant, cela n'a pas beaucoup d'importance sur les ordinateurs modernes, sauf si vous stockez des millions de noeuds.<br \>
+<br \>
+La structure de base de la liste cha&icirc;n&eacute;e est le noeud. La d&eacute;claration est la suivante:<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">listnode</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pData</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pPrev</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+</div></tt><br />
+Une petite remarque, si quelqu'un qui a acc&egrave;s &agrave; ces scripts d&eacute;sire les mettre &agrave; jour car ils contiennent des mots-clefs nouveaux pour FreeBASIC (comme ptr), il est libre de le faire :) Aussi, LIST n'appara&icirc;t pas comme un mot-clef FB keyword (corrigez-moi si je me trompe).<br \>
+<br \>
+Cette structure contient trois pointeurs. Le premier est un pointeur sur quelque chose (Any Ptr), ce qui signifie que vous pouvez stocker des cha&icirc;nes, des entiers, des caract&egrave;res, m&ecirc;me des types d&eacute;finis par l'utilisateur et des unions. Mais cela signifie aussi que vous devez passer un pointeur. Vous pouvez obtenir un pointeur en utilisant la fonction Allocate (ou CAllocate).<br \>
+Les deux pointeurs suivants sont des pointeurs vers des <i>listnode</i>s, ceci dit, vous &ecirc;tes techniquement autoris&eacute; &agrave; faire cela:<br \>
+Print node-&gt;pNext-&gt;pNext-&gt;pNext-&gt;pNext-&gt;pNext...<br \>
+puisque chaque noeud contient un pointeur vers un autre noeud. Le probl&egrave;me avec la syntaxe ci-dessus est que vous &ecirc;tes limit&eacute; par la quantit&eacute; de noeuds auxquels vous pouvez acc&eacute;der et le code est difficile &agrave; comprendre. Vous pouvez utiliser la fonction de <i>ListGetNext</i> &agrave; cet effet et une boucle avec <i>While</i>.<br \>
+<br \>
+Avant d'aller plus loin, voyons toutes les d&eacute;clarations pour l'utilisation de listes cha&icirc;n&eacute;es. Notez que chaque fonction a un pr&eacute;fixe "List".<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListCreate</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListAdd</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">item</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListAddHead</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">item</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetFirst</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetLast</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetNext</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetPrev</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetData</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListRemove</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">bDelete</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListRemoveAll</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">bDelete</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+</div></tt><br />
+Hmm, il semble qu'il n'aime pas mon utilisation de "Rem" dans une fonction. Mais il le compile quand m&ecirc;me.<br \>
+<br \>
+Vous pouvez voir qu'il y a une fonction pour cr&eacute;er une liste cha&icirc;n&eacute;e, ajouter un &eacute;l&eacute;ment, obtenir diff&eacute;rents noeuds, obtenir des donn&eacute;es et supprimer des noeuds. Actuellement, nous allons nous concentrer sur la fonction "ListCreate". Elle n'a aucun param&egrave;tre et renvoie un pointeur "listnode" La structure qu'elle cr&eacute;e ne contient pas de donn&eacute;es. La structure enti&egrave;re est nulle, mais c'est quand m&ecirc;me une structure. Si vous ajoutez un noeud, le membre pNext va changer et pointer vers le nouvel &eacute;l&eacute;ment, de sorte qu'il ne restera pas comme un noeud nul, car cela n'aurait pas de sens. Toutefois, la valeur retourn&eacute;e par "ListCreate" ne stockera pas toutes les donn&eacute;es  et n'aura pas un noeud pr&eacute;c&eacute;dent.<br \>
+<br \>
+La fonction "ListCreate" ressemble &agrave; ceci:br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;CREATE</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListCreate</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pTemp</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">listnode</span><span class="oth">))</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;CAllocate&nbsp;automatically&nbsp;zeroes&nbsp;memory.</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">pTemp</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+Je pr&eacute;f&egrave;re utiliser l'instruction Return pour renvoyer une valeur &agrave; partir d'une fonction, mais FUNCTION = pTemp et ListCreate = pTemp sont aussi permis, bien qu'ils ne fassent pas quitter imm&eacute;diatement la fonction.<br \>
+<br \>
+Le but de cette fonction est facile &agrave; voir, un noeud est allou&eacute; et retourn&eacute;. Le commentaire dit que la fonction CAllocate remplit automatiquement la m&eacute;moire de  z&eacute;ros. Si vous avez utilis&eacute; la fonction "Allocate", la m&eacute;moire ne serait pas remplie automatiquement de z&eacute;ros et vous auriez &agrave; le faire vous-m&ecirc;me.<br \>
+<br \>
+Les fonctions suivantes, ListAdd et ListAddHead, ajoutent un noeud &agrave; la liste. ListAdd ajoute un noeud &agrave; la fin de la liste (la queue), tandis que ListAddHead met un noeud tout en haut (la t&ecirc;te).<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;ADD,&nbsp;ADDHEAD</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListAdd</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">item</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pTemp</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">item</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListGetLast</span><span class="oth">(</span><span class="wrd">list</span><span class="oth">)</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">listnode</span><span class="oth">))</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pTemp</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pData</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">item</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">item</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListAddHead</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">item</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pTemp</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">item</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">listnode</span><span class="oth">))</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pData</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">item</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pTemp</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">pTemp</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">item</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+Vous pouvez voir que ListeAdd fait r&eacute;f&eacute;rence &agrave; une fonction qui n'est pas encore pr&ecirc;te, ListGetLast. Pour l'instant tout ce que vous devez savoir est qu'elle retourne un pointeur sur le dernier noeud de la liste. Elle sera tra&icirc;t&eacute;e plus tard.<br \>
+<br \>
+ListeAdd r&eacute;cup&egrave;re le dernier noeud et d&eacute;finit son pointeur "pNext" vers une nouvelle structure "listnode". Cela ne provoquera pas de perte de m&eacute;moire puisque le dernier noeud a un "pNext" de valeur nulle et vient apr&egrave;s. Une fois que notre noeud est ajout&eacute;, nous pouvons y acc&eacute;der en utilisant l'op&eacute;rateur -&gt;. La ligne <br \>
+pTemp-&gt;pNext-&gt;pPrev = pTemp <br>
+est toute la base de listes cha&icirc;n&eacute;es, la pi&egrave;ce de liaison. Ce qui est dit c'est que nous avons une r&eacute;f&eacute;rence &agrave; un noeud. Ce noeud sait o&ugrave; se trouve le noeud suivant, et maintenant nous pouvons dire que le noeud apr&egrave;s ce suivant est l&agrave; o&ugrave; le pr&eacute;c&eacute;dent est. Cela peut sembler un peu redondant au premier abord, mais le compilateur ne sait pas o&ugrave; sont les noeuds jusqu'&agrave; ce que vous les d&eacute;finissiez. Une fois que vous avez fait cela, vous pouvez parcourir la liste cha&icirc;n&eacute;e.<br \>
+<br \>
+La fonction "ListAddHead" est un peu plus compliqu&eacute;e, puisque nous ins&eacute;rons sommes un noeud entre le premier noeud actuel et le noeud nul de "ListCreate". Ce qu'il fait essentiellement est d'allouer de l'espace pour contenir le noeud courant d'abord, cr&eacute;er un nouveau noeud l&agrave; et les lier tous ensemble. Si vous regardez d'un peu plus pr&egrave;s, cela devrait vous sembler beaucoup plus clair. L'instruction "If" &agrave; la fin est tout simplement l&agrave; pour &eacute;viter un acc&egrave;s &agrave; de la m&eacute;moire qui n'existe pas (NULL-&gt;pPrev). Si pTemp n'est pas dans les fait &eacute;gal &agrave; z&eacute;ro, alors le membre pPrev sera assign&eacute;. Sinon, il n'y a aucune raison de s'inqui&eacute;ter &agrave; ce sujet.<br \>
+<br \>
+Les fonctions suivantes sont ListGetFirst et ListGetLast. Je les ai mises en oeuvre car "ListGetLast" a &eacute;t&eacute; r&eacute;f&eacute;renc&eacute;e dans une fonction pr&eacute;c&eacute;demment.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;GETFIRST,&nbsp;GETLAST</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetFirst</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetLast</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pTemp</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">While</span>&nbsp;<span class="oth">(</span><span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Wend</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">pTemp</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+La premi&egrave;re fonction est probablement la fonction la plus courte et la plus facile &agrave; comprendre, m&ecirc;me si elle repose sur le fait que vous d&eacute;tenez un pointeur vers le noeud retourn&eacute; par "ListCreate". Si vous ne le faites pas, elle pourrait retourner n'importe quel noeud al&eacute;atoire. Tout ce qu'elle fait est de retourner un pointeur vers le premier noeud ou le noeud qui vient juste apr&egrave;s le noeud nul.<br \>
+<br \>
+La seconde fonction, "ListGetLast", boucle &agrave; travers la liste jusqu'&agrave; ce qu'elle trouve un noeud nul. La raison pour laquelle je v&eacute;rifie si "pTemp-&gt;pNext = 0" au lieu de "pTemp = 0", c'est que je ne veux pas qu'elle retourne z&eacute;ro. Je veux retourner le dernier noeud, qui est le noeud qui a sa valeur pNext mise &agrave; z&eacute;ro. Une fois que le noeud est trouv&eacute;, ListGetLast le renvoie .<br \>
+<br \>
+Les trois prochaines fonctions sont simplement des fonctions d'aide et pourraient &ecirc;tre facilement r&eacute;alis&eacute;es avec une ligne de code. Elles existent r&eacute;ellement, car l'impl&eacute;mentation initiale qui n'a pas &eacute;t&eacute; &eacute;crite par moi, avait une fonction "ListGetNext".<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;GETNEXT,&nbsp;GETPREV</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetNext</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetPrev</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;can't&nbsp;do&nbsp;anything&nbsp;to&nbsp;a&nbsp;null&nbsp;list</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;this&nbsp;is&nbsp;needed&nbsp;for&nbsp;below</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;since&nbsp;the&nbsp;list&nbsp;starts&nbsp;with&nbsp;a&nbsp;null&nbsp;node&nbsp;(pPrev&nbsp;and&nbsp;pData&nbsp;=&nbsp;0),</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;the&nbsp;first&nbsp;should&nbsp;be&nbsp;the&nbsp;one&nbsp;right&nbsp;after&nbsp;the&nbsp;real&nbsp;first.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="com">'&nbsp;GETDATA</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetData</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pData</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+La premi&egrave;re fonction, ListGetNext, est exactement la m&ecirc;me que "ListGetFirst", mais elle se diff&eacute;rencie par le point de vue. Bien que vous puissiez utiliser ListGetFirst sur ​​une valeur noeud dans cette impl&eacute;mentation, ce n'est pas une bonne id&eacute;e parce que certains d'autres impl&eacute;mentations peuvent boucler sur le d&eacute;but de la liste afin de trouver le premier noeud, auquel cas vous seriez coinc&eacute; dans une boucle infinie.<br \>
+<br \>
+La fonction "ListGetPrev" est un peu plus complexe, car je ne veux pas retourner de noeud nul. La premi&egrave;re ligne de code et la troisi&egrave;me (et non les commentaires) sont celles qui sont r&eacute;ellement n&eacute;cessaires, mais la seconde assure que nous n'acc&eacute;dons pas &agrave; de la m&eacute;moire nulle. La troisi&egrave;me ligne dit que si le noeud, deux noeuds au-dessus, est nul, nous devrions retourner z&eacute;ro. Cela signifie que si vous &ecirc;tes au niveau du noeud le plus haut (pas le noeud nul), il n'y a pas de noeud pr&eacute;c&eacute;dent avec lequel vous pourriez faire n'importe quoi, bien qu'il y existe un noeud pr&eacute;c&eacute;dent et on devrait retourner z&eacute;ro. La derni&egrave;re ligne traite le cas par d&eacute;faut, o&ugrave; il existe en fait un noeud pr&eacute;c&eacute;dent qui doit donc &ecirc;tre retourn&eacute;.<br \>
+<br \>
+La fonction "ListGetData" est aussi simple et br&egrave;ve comme les fonctions "ListGetFirst" et "ListGetNext". Elle renvoie simplement un pointeur sur les donn&eacute;es du noeud.<br \>
+<br \>
+Les deux derni&egrave;res fonctions suppriment des noeuds de la liste.<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;REMOVE,&nbsp;REMOVEALL</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListRemove</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">bDelete</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pPrev</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pNext</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">((</span><span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pData</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">And</span>&nbsp;<span class="oth">(</span><span class="wrd">bDelete</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">))</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Deallocate</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pData</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Deallocate</span>&nbsp;<span class="wrd">list</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pPrev</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">pNext</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pPrev</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">pNext</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListRemoveAll</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">bDelete</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">node</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">node</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">While</span>&nbsp;<span class="oth">(</span><span class="wrd">node</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">((</span><span class="wrd">node</span><span class="oth">-&gt;</span><span class="wrd">pData</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">And</span>&nbsp;<span class="oth">(</span><span class="wrd">bDelete</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">))</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Deallocate</span>&nbsp;<span class="wrd">node</span><span class="oth">-&gt;</span><span class="wrd">pData</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">node</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListRemove</span><span class="oth">(</span><span class="wrd">node</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Wend</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+La fonction "ListRemove" a deux utilit&eacute;s: supprimer le noeud sp&eacute;cifi&eacute; et relier ensemble les deux noeuds environnants. Vous pouvez voir que pour ce faire elle stocke le pointeur pr&eacute;c&eacute;dent et le suivant. Le param&egrave;tre optionnel, "bdelete", sp&eacute;cifie si l'&eacute;l&eacute;ment de donn&eacute;es devrait &ecirc;tre supprim&eacute;. Si vous stockez seulement des entiers, ou m&ecirc;me des structures sans pointeurs &agrave; l'int&eacute;rieur, vous pouvez passer 1 &agrave; ce param&egrave;tre et l'&eacute;l&eacute;ment sera supprim&eacute; pour vous. Mais si vous avez une structure contenant des pointeurs, la meilleure id&eacute;e est de supprimer toutes les donn&eacute;es vous-m&ecirc;me et laisser "ListRemove" g&eacute;rer seulement la partie liste pour s'assurer qu'il n'y a pas de perte de m&eacute;moire. Le pointeur "listnode" est d&eacute;sallou&eacute; ind&eacute;pendamment quel que soit la valeur du param&egrave;tre.<br \>
+<br \>
+"ListRemoveAll" s'appuie sur la fonction "ListRemove" pour supprimer les noeuds. Elle boucle simplement &agrave; travers la liste en utilisant une "boucle while" et supprime tous les noeuds. Le code original utilisait une "boucle For", mais FB ne semble pas faire comme mon<br \>
+For node = list To 0 Step ListRemove(node)<br \>
+donc il a &eacute;t&eacute; chang&eacute;<br \>
+<br \>
+Ça y est, voici le fichier complet qui inclut un exemple dans le haut de fa&ccedil;on &agrave; les utiliser. Ceci est la premi&egrave;re fois que j'&eacute;cris un tutoriel, alors n'h&eacute;sitez pas &agrave; laisser des commentaires sur les points que je pourrais am&eacute;liorer. Aussi, si vous trouvez un bug dans mon code (j'ai trouv&eacute; un certain nombre pendant la r&eacute;daction de ce tuto), s'il vous pla&icirc;t faites le moi savoir. N'h&eacute;sitez pas &agrave; modifier le bug, mais je voudrais &ecirc;tre tenu au courant.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">listnode</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pData</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pPrev</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListCreate</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListAdd</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">item</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListAddHead</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">item</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetFirst</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetLast</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetNext</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetPrev</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListGetData</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListRemove</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">bDelete</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">ListRemoveAll</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">bDelete</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">list</span><span class="oth">,</span>&nbsp;<span class="wrd">node</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">item</span><br />
+<span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListCreate</span><span class="oth">()</span><br />
+<span class="wrd">item</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListAdd</span><span class="oth">(</span><span class="wrd">list</span><span class="oth">,</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="key">Integer</span><span class="oth">)))</span><br />
+<span class="oth">*</span><span class="wrd">item</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">4</span><br />
+<span class="wrd">item</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListAdd</span><span class="oth">(</span><span class="wrd">list</span><span class="oth">,</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="key">Integer</span><span class="oth">)))</span><br />
+<span class="oth">*</span><span class="wrd">item</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">44</span><br />
+<span class="wrd">item</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="com">'&nbsp;just&nbsp;to&nbsp;show&nbsp;it&nbsp;works</span><br />
+<span class="wrd">node</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListGetFirst</span><span class="oth">(</span><span class="wrd">list</span><span class="oth">)</span><br />
+<br />
+<span class="key">While</span>&nbsp;<span class="wrd">node</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"found&nbsp;item"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">item</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListGetData</span><span class="oth">(</span><span class="wrd">node</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="oth">*</span><span class="wrd">item</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">node</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListRemove</span><span class="oth">(</span><span class="wrd">node</span><span class="oth">,</span><span class="num">1</span><span class="oth">)</span><br />
+<span class="key">Wend</span><br />
+<br />
+<span class="key">While</span>&nbsp;<span class="key">Inkey$</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">""</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Wend</span><br />
+<br />
+<span class="com">'&nbsp;CREATE</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListCreate</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pTemp</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">listnode</span><span class="oth">))</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;CAllocate&nbsp;automatically&nbsp;zeroes&nbsp;memory.</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">pTemp</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="com">'&nbsp;ADD,&nbsp;ADDHEAD</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListAdd</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">item</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pTemp</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">item</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListGetLast</span><span class="oth">(</span><span class="wrd">list</span><span class="oth">)</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">listnode</span><span class="oth">))</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pTemp</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pData</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">item</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">item</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListAddHead</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">item</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pTemp</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">item</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">CAllocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">listnode</span><span class="oth">))</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pData</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">item</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pTemp</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">pTemp</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">item</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="com">'&nbsp;GETFIRST,&nbsp;GETLAST</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetFirst</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetLast</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pTemp</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">While</span>&nbsp;<span class="oth">(</span><span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pTemp</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pTemp</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Wend</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">pTemp</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="com">'&nbsp;GETNEXT,&nbsp;GETPREV</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetNext</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetPrev</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;can't&nbsp;do&nbsp;anything&nbsp;to&nbsp;a&nbsp;null&nbsp;list</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;this&nbsp;is&nbsp;needed&nbsp;for&nbsp;below</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;since&nbsp;the&nbsp;list&nbsp;starts&nbsp;with&nbsp;a&nbsp;null&nbsp;node&nbsp;(pPrev&nbsp;and&nbsp;pData&nbsp;=&nbsp;0),</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;the&nbsp;first&nbsp;should&nbsp;be&nbsp;the&nbsp;one&nbsp;right&nbsp;after&nbsp;the&nbsp;real&nbsp;first.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="com">'&nbsp;GETDATA</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListGetData</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pData</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="com">'&nbsp;REMOVE,&nbsp;REMOVEALL</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListRemove</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">bDelete</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pPrev</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">pNext</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pNext</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">((</span><span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pData</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">And</span>&nbsp;<span class="oth">(</span><span class="wrd">bDelete</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">))</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Deallocate</span>&nbsp;<span class="wrd">list</span><span class="oth">-&gt;</span><span class="wrd">pData</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Deallocate</span>&nbsp;<span class="wrd">list</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pPrev</span><span class="oth">-&gt;</span><span class="wrd">pNext</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pNext</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">pNext</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pNext</span><span class="oth">-&gt;</span><span class="wrd">pPrev</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pPrev</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">pNext</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">ListRemoveAll</span><span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">bDelete</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">listnode</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">node</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">node</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">list</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">list</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="num">0</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">While</span>&nbsp;<span class="oth">(</span><span class="wrd">node</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">((</span><span class="wrd">node</span><span class="oth">-&gt;</span><span class="wrd">pData</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">And</span>&nbsp;<span class="oth">(</span><span class="wrd">bDelete</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span><span class="oth">))</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Deallocate</span>&nbsp;<span class="wrd">node</span><span class="oth">-&gt;</span><span class="wrd">pData</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">node</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">ListRemove</span><span class="oth">(</span><span class="wrd">node</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Wend</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+Si vous ne l'avez pas d&eacute;j&agrave; remarqu&eacute;, "ListeAdd" et "ListAddHead" renvoient un pointeur sur les donn&eacute;es que vous entrez. L'exemple de code (voir ci-dessus) montre comment utiliser cette fonctionnalit&eacute;. "ListRemove" renvoie un pointeur vers le noeud suivant. Voil&agrave; comment "ListRemoveAll" supprime les noeuds. "ListRemoveAll" est la seule fonction qui ne renvoie rien. Ce n'est pas n&eacute;cessaire, puisque toute la liste sera vide apr&egrave;s l'avoir appel&eacute;e.
+</div>
+</div> 
+</div> 
+</body>
+</html>

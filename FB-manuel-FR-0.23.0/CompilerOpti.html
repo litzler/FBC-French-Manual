@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Compiler Option: -i</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Option du compilateur: -i</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Ajouter un chemin de recherche pour les fichiers "include"<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<div class="fb_indent"><b>-i</b> &lt; <i>include path</i> &gt;<br \>
+</div></tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent"><tt><i>include path</i></tt><br \>
+<div class="fb_indent">Le chemin du r&eacute;pertoire, relatif ou absolu, o&ugrave; chercher des fichiers d'inclusion.<br \>
+<br \>
+</div></div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent">L'option <tt><b>-i</b></tt> permet d'ajouter un r&eacute;pertoire qui sera utilis&eacute; lors de la recherche des fichiers d'en-t&ecirc;te. Par d&eacute;faut, <tt>fbc</tt> cherche dans le r&eacute;pertoire courant et dans <i>prefix</i>/inc --dans cet ordre-- o&ugrave;, <i>prefix</i> est l'emplacement o&ugrave; est install&eacute; FreeBASIC. Un r&eacute;pertoire sp&eacute;cifi&eacute; avec l'option <tt><b>-i</b></tt> sera cherch&eacute; avant ces r&eacute;pertoires par d&eacute;faut, et quand l'option <tt><b>-i</b></tt> est utilis&eacute;e plusieurs fois, <tt>fbc</tt> recherchera les r&eacute;pertoires dans l'ordre o&ugrave; ils sont inscrits sur la ligne de commande.<br \>
+<br \>
+Pour effectuer une recherche des fichiers d'en-t&ecirc;te, en premier dans le sous-r&eacute;pertoire <i>includes</i>, lors de la compilation du fichier source <i>file.bas</i>, tapez:<br \>
+<br \>
+<div class="fb_indent"><tt>fbc -i includes file.bas </tt><br \>
+<br \>
+</div></div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgInclude.html">#include</a></tt><br \>
+<li> <a href="CompilerOptinclude.html">Option du compilateur: -include</a><br \>
+<li> <a href="ProPgHeaderFiles.html">Fichiers d'en-t&ecirc;te</a><br \>
+<li> <a href="CompilerCmdLine.html">Utilisation de la ligne de commande</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

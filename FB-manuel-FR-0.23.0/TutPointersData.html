@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>Pointers, Data Types and Memory</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Pointeurs, types de donn&eacute;es et m&eacute;moire</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<i>Ecrit par <a href="WikiRick.html">rdc</a></i><br \>
+<br \>
+Si vous lisez l'article <a href="TutPointers.html">Introduction aux pointeurs</a> vous savez que les pointeurs contiennent des adresses d'emplacements m&eacute;moire. Vous pouvez manipuler les donn&eacute;es de ces emplacements m&eacute;moire en utilisant l'op&eacute;rateur de r&eacute;f&eacute;rence *. L'utilisation de pointeurs avec un seul item de donn&eacute;es unique n'est pas un probl&egrave;me, mais que faire si vous avez besoin de stocker de multiples &eacute;l&eacute;ments de donn&eacute;es et de les manipuler &agrave; l'aide d'un pointeur? C'est peut &ecirc;tre un peu plus difficile &agrave; moins de comprendre comment les donn&eacute;es sont stock&eacute;es en m&eacute;moire.<br \>
+<br \>
+Un emplacement m&eacute;moire dans un ordinateur a une longueur de 1 octet. Assez grand pour contenir un caract&egrave;re ANSI (par opposition aux caract&egrave;res Unicode, qui sont des caract&egrave;res larges et occupent deux octets. Nous ne discuterons pas de caract&egrave;res Unicode dans cet article.) Cependant, tous les types de donn&eacute;es n'ont pas un seul octet de longueur. Voici un programme simple qui affiche la longueur en octets de chaque type de donn&eacute;es.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Short</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">c</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">LongInt</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">au</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">bu</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UShort</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">cu</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">du</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">ULongInt</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">e</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">f</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">g</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">h</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">s1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">10</span>&nbsp;<span class="com">'fixed&nbsp;string</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">s2</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'variable&nbsp;length&nbsp;string</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">s3</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">ZString</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="com">'zstring</span><br />
+<br />
+<br />
+<span class="wrd">s1</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Hello&nbsp;World!"</span><br />
+<span class="wrd">s2</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Hello&nbsp;World&nbsp;from&nbsp;FreeBasic!"</span><br />
+<span class="wrd">s3</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span>&nbsp;<span class="key">Len</span><span class="oth">(</span>&nbsp;<span class="wrd">s2</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">1</span>&nbsp;<span class="oth">)</span><br />
+<span class="oth">*</span><span class="wrd">s3</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">s2</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Byte:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">a</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Short:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">b</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Integer:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">c</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Longint:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">d</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"UByte:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">au</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"UShort:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">bu</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"UInteger:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">cu</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"ULongint:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">du</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Single:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">e</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Double:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">f</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Integer&nbsp;Pointer:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">g</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Byte&nbsp;Pointer:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">h</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Fixed&nbsp;String:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">s1</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Variable&nbsp;String:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">s2</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"ZString:&nbsp;"</span><span class="oth">;</span><span class="key">Len</span><span class="oth">(*</span><span class="wrd">s3</span><span class="oth">)</span><br />
+<br />
+<span class="key">Deallocate</span>&nbsp;<span class="wrd">s3</span><br />
+<br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+Affiche &agrave; l'&eacute;cran:<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Byte</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">1</span><br />
+<span class="key">Short</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">2</span><br />
+<span class="key">Integer</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">4</span><br />
+<span class="key">LongInt</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">8</span><br />
+<span class="key">UByte</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">1</span><br />
+<span class="key">UShort</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">2</span><br />
+<span class="key">UInteger</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">4</span><br />
+<span class="key">ULongInt</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">8</span><br />
+<span class="key">Single</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">4</span><br />
+<span class="key">Double</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">8</span><br />
+<span class="key">Integer</span>&nbsp;<span class="key">Pointer</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">4</span><br />
+<span class="key">Byte</span>&nbsp;<span class="key">Pointer</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">4</span><br />
+<span class="wrd">Fixed</span>&nbsp;<span class="key">String</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">10</span><br />
+<span class="wrd">Variable</span>&nbsp;<span class="key">String</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">27</span><br />
+<span class="key">ZString</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">27</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+Notez que la longueur d'un pointeur est toujours de 4 octets (la m&ecirc;me que celle d'un entier), ind&eacute;pendamment des donn&eacute;es point&eacute;es, puisque un pointeur contient une adresse m&eacute;moire et non les donn&eacute;es.<br \>
+<br \>
+En regardant la longueur des diff&eacute;rents types de donn&eacute;es, vous voyez que pour <a href="KeyPgAllocate.html">Allocate</a> suffisamment d'espace pour 10 entiers, il faut 40 octets de m&eacute;moire. Chaque entier prend 4 octets. Donc la question est, comment acc&eacute;der &agrave; chaque valeur enti&egrave;re de la m&eacute;moire tampon? La r&eacute;ponse, l'arithm&eacute;tique des pointeurs. Jetez un oeil au programme suivant.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Option</span>&nbsp;<span class="key">Explicit</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">aptr</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+<br />
+<span class="com">'Allocate&nbsp;enough&nbsp;space&nbsp;for&nbsp;2&nbsp;integers</span><br />
+<span class="wrd">aptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">a</span><span class="oth">)</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">2</span><span class="oth">)</span><br />
+<span class="com">'Load&nbsp;our&nbsp;first&nbsp;integer</span><br />
+<span class="oth">*</span><span class="wrd">aptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Int&nbsp;#1:&nbsp;"</span><span class="oth">;*</span><span class="wrd">aptr</span><br />
+<span class="com">'Move&nbsp;the&nbsp;pointer&nbsp;to&nbsp;the&nbsp;next&nbsp;integer&nbsp;position</span><br />
+<span class="com">'aptr&nbsp;+&nbsp;4</span><br />
+<span class="oth">*(</span><span class="wrd">aptr</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">4</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Int&nbsp;#2:&nbsp;"</span><span class="oth">;*(</span><span class="wrd">aptr</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">4</span><span class="oth">)</span><br />
+<br />
+<span class="key">Deallocate</span>&nbsp;<span class="wrd">aptr</span><br />
+<span class="key">Sleep</span><br />
+<span class="key">End</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+Dans ce programme nous dimensionnons deux variables, un <a href="KeyPgInteger.html">Integer</a> et un <a href="KeyPgInteger.html">Integer</a> <a href="KeyPgPointer.html">Pointer</a>, aptr. Aptr pointera sur notre tampon m&eacute;moire qui contiendra deux entiers. La fonction <a href="KeyPgAllocate.html">Allocate</a> requiert la taille du tampon m&eacute;moire dont nous avons besoin, donc nous multiplions la taille d'un <a href="KeyPgInteger.html">Integer</a> par 2 pour r&eacute;server 8 octets de m&eacute;moire (chaque entier prendra 4 octets d'espace). <br \>
+<br \>
+Apr&egrave;s le processus d'allocation, aptr contient l'adresse du premier octet de notre tampon m&eacute;moire. Stocker le premier entier consiste tout simplement &agrave; utiliser la r&eacute;f&eacute;rence de l'op&eacute;rateur et de lui donner la valeur &agrave; 1. Pour afficher sa valeur, nous utilisons simplement *aptr.<br \>
+<br \>
+Maintenant, laissez-moi vous poser une question: Comment le compilateur sait que la valeur 1 requiert 4 octets, et non pas 1 ou 2 octets? Parce que nous avons dimensionn&eacute; aptr comme un <i>integer ptr</i>. Le compilateur sait qu'un entier occupe 4 octets et donc il charge les donn&eacute;es dans quatre octets de m&eacute;moire. C'est pourquoi, lorsque nous affichons la valeur nous obtenons 1 et non pas un nombre &eacute;trange.<br \>
+<br \>
+Pour charger la deuxi&egrave;me valeur dans notre tampon, nous utilisons:<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="oth">*(</span><span class="wrd">aptr</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">4</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+Cela peut para&icirc;tre un peu &eacute;trange au premier abord. Aptr pointe sur le premier octet dans notre tampon m&eacute;moire. Un entier occupe 4 octets, donc pour arriver &agrave; la position de l'octet entier suivant, il faut ajouter 4 &agrave; aptr. Nous avons besoin de parenth&egrave;ses autour de l'op&eacute;ration d'addition, car l'op&eacute;rateur de r&eacute;f&eacute;rence * a une priorit&eacute; sup&eacute;rieure &agrave; +. Les parenth&egrave;ses nous assurent que nous effectuons l'op&eacute;ration d'addition en premier et qu'ensuite nous appliquons l'op&eacute;rateur d'indirection.<br \>
+<br \>
+Notez que nous n'avons pas incr&eacute;menter aptr directement. Si nous l'avions fait, aptr pointerait plus vers le d&eacute;but du tampon m&eacute;moire et le programme planterait quand on d&eacute;sallouerait le tampon, car <a href="KeyPgDeallocate.html">Deallocate</a> s'effectuerait en-dehors du tampon m&eacute;moire. Si le besoin se faisait sentir d' incr&eacute;menter directement un pointeur, alors il faudrait cr&eacute;er une variable pointeur temporaire et l'incr&eacute;menter, plut&ocirc;t que le pointeur utilis&eacute; dans l'allocation initiale.<br \>
+<br \>
+Les tampons m&eacute;moire et les pointeurs sont un moyen puissant pour stocker et manipuler des donn&eacute;es en m&eacute;moire. Des pr&eacute;cautions doivent &ecirc;tre prises pour s'assurer que vous acc&eacute;dez correctement aux donn&eacute;es en fonction du type de donn&eacute;es stock&eacute;es dans le tampon m&eacute;moire.
+</div>
+</div> 
+</div> 
+</body>
+</html>

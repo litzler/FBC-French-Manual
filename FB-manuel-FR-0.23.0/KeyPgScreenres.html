@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>ScreenRes</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">ScreenRes</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Initialise un mode graphique par sp&eacute;cification de la r&eacute;solution horizontale et verticale<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>ScreenRes</b> <i>width</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, <i>height</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, <i>depth</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = 8, <i>num_pages</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = 1, <i>flags</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = 0, <i>refresh_rate</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = 0<br \>
+ </tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<b>ScreenRes</b> <i>width</i>, <i>height</i> [, [<i>depth</i>] [, [<i>num_pages</i>] [, [<i>flags</i>] [, <i>refresh_rate</i> ]]]]<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>width</i></tt>, <tt><i>height</i></tt><br \>
+<div class="fb_indent">Respectivement, la largeur et la hauteur de l'affichage. Pour les modes plein &eacute;cran, l'utilisateur doit v&eacute;rifier l'existence de la r&eacute;solution choisie en utilisant <tt><a href="KeyPgScreenlist.html">ScreenList</a></tt>.<br \>
+</div><tt><i>depth</i></tt><br \>
+<div class="fb_indent">La profondeur de couleur en bits par pixel. Les profondeurs de couleur utilisables sont: 1, 2, 4, 8, 16 et 32.  Les valeurs 15 et 24 sont aussi possibles comme aliases, respectivement, de 16 et 32.  Si omis, la valeur par d&eacute;faut est de 8 bits par pixel.  8 bits et les valeurs inf&eacute;rieures donneront ue palette image.  La palette par d&eacute;faut sera la premi&egrave;re des <tt>2^<i>depth</i></tt> couleurs des "256-color palette" utilis&eacute;es dans <tt><a href="KeyPgScreengraphics.html">Screen</a> 13</tt>.<br \>
+</div><tt><i>num_pages</i></tt><br \>
+<div class="fb_indent">Le nombre de pages vid&eacute;o &agrave; cr&eacute;er, 1 par d&eacute;faut. (voir ci-dessous)<br \>
+</div><tt><i>flags</i></tt><br \>
+<div class="fb_indent">Utilis&eacute;s pour valider diff&eacute;rentes propri&eacute;t&eacute;s de l'&eacute;cran, y compris le mode plein &eacute;cran et le driver graphique utilis&eacute;. (voir <tt><a href="KeyPgScreengraphics.html">Screen</a></tt> ou le fichier en-t&ecirc;te  "fbgfx.bi" pour la liste des drapeaux utilisables)<br \>
+</div><tt><i>refresh_rate</i></tt><br \>
+<div class="fb_indent">La fr&eacute;quence de rafra&icirc;chissement de l'&eacute;cran, une valeur appropri&eacute;e est donn&eacute;e par d&eacute;faut. (des fr&eacute;quences non conformes seront ignor&eacute;es)<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<br \>
+<tt><b>ScreenRes</b></tt> demande au compilateur d'utiliser GfxLib et d'initialiser un QB-only, QB-on-GUI ou mode graphique OpenGL, en fonction des valeurs de <tt><i>flags</i></tt><br \>
+<br \>
+Dans les modes non-plein-&eacute;cran, la r&eacute;solution n'a pas &agrave; correspondre &agrave; une r&eacute;solution de la carte graphique. Des r&eacute;solutions comme <tt>555x111</tt> sont possibles, GfxLib cr&eacute;era une fen&ecirc;tre de cette taille. Voir les "Diff&eacute;rences de plate-forme" pour ces sorties DOS.<br \>
+<br \>
+La taille de la police de caract&egrave;res dans les modes <tt><b>ScreenRes</b></tt> est de 8x8 par d&eacute;faut.  On peut la changer, en validant un nombre de lignes/colonnes, en utilisant la fonction <tt><a href="KeyPgWidth.html">Width</a></tt>.<br \>
+<br \>
+Dans les modes QB-only une simple fen&ecirc;tre ou un &eacute;cran haute r&eacute;solution est valid&eacute;, un ou plusieurs tampons sont cr&eacute;&eacute;s en m&eacute;moire standard,  les commandes graphiques sont redirig&eacute;es vers leur version graphique, une <a href="GfxDefPalettes.html">palette par d&eacute;faut</a> est valid&eacute;e et un "thread" de rafra&icirc;chissement automatique de l'&eacute;cran est lanc&eacute;. QB-like graphics and console statements can be used.  <br \>
+<br \>
+En modes QB-on-GUI, un ou plusieurs tampons sont cr&eacute;&eacute;s en m&eacute;moire standard,  les commandes graphiques sont redirig&eacute;es vers leur version graphique et une <a href="GfxDefPalettes.html">palette par d&eacute;faut</a> est valid&eacute;e. Les &eacute;tats graphiques et console QB-like sont utilisables.  Il appartient &agrave; l'utilisateur de cr&eacute;er une fen&ecirc;tre et de la mettre &agrave; jour avec les contenus des tampons graphiques.<br \>
+<br \>
+Dans les modes OpenGL, une simple fen&ecirc;tre ou un &eacute;cran haute r&eacute;solution est valid&eacute;, un ou plusieurs tampons sont cr&eacute;&eacute;s en m&eacute;moire standar, et la librairie OpenGL du syst&egrave;me est initialis&eacute;e. À partir de ce moment, les commandes OpenGL sont utilisables pour &eacute;crire dans le tampon graphique. Les commandes QB-like et console sont interdites. Ce mode permet d'initialiser OpenGL de façon portable. <br \>
+<br \>
+Voir les d&eacute;tails dans <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Example</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="key">ScreenRes</span>&nbsp;<span class="num">640</span><span class="oth">,</span>&nbsp;<span class="num">480</span><span class="oth">,</span>&nbsp;<span class="num">8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'Cette&nbsp;ligne&nbsp;valide&nbsp;le&nbsp;mode&nbsp;ecran&nbsp;640x480x8.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'Le&nbsp;bloc&nbsp;de&nbsp;code&nbsp;suivant&nbsp;trace&nbsp;lignes&nbsp;diagonales&nbsp;sur&nbsp;tout&nbsp;l'ecran.</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">640</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">480</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">PSet</span>&nbsp;<span class="oth">(</span><span class="wrd">a</span><span class="oth">,</span><span class="wrd">b</span><span class="oth">),(</span><span class="wrd">a</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">b</span><span class="oth">)</span>&nbsp;<span class="key">And</span>&nbsp;<span class="num">255</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span>&nbsp;<span class="wrd">b</span><br />
+<span class="key">Next</span>&nbsp;<span class="wrd">a</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'La&nbsp;ligne&nbsp;suivante&nbsp;ecrit&nbsp;"Hello&nbsp;World!"&nbsp;sur&nbsp;les&nbsp;lignes&nbsp;tracees.</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Hello&nbsp;world!!"</span><br />
+<br />
+<span class="key">Sleep</span><br />
+<span class="key">End</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li> Sous DOS, les drapeaux Windowing et OpenGL ne sont pas disponibles, voir aussi <a href="GfxLib.html">Vue d'ensemble GfxLib</a><br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de dialectes</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible en dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Screenres</b></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgScreengraphics.html">Screen</a></tt> La m&eacute;thode QB-like pour &eacute;tablir les modes graphiques<br \>
+<li> <tt><a href="KeyPgScreenlist.html">ScreenList</a></tt> Recherche des modes disponibles pour utiliser FB GfxLib<br \>
+<li> <tt><a href="KeyPgScreencontrol.html">ScreenControl</a></tt> S&eacute;lection du driver entre autres<br \>
+<li> <tt><a href="KeyPgScreenlock.html">ScreenLock</a></tt><br \>
+<li> <tt><a href="KeyPgScreenunlock.html">ScreenUnlock</a></tt><br \>
+<li> <tt><a href="KeyPgScreenptr.html">ScreenPtr</a></tt> Acc&egrave;s niveau Semi-low<br \>
+<li> <tt><a href="KeyPgScreenset.html">ScreenSet</a></tt><br \>
+<li> <tt><a href="KeyPgScreencopy.html">ScreenCopy</a></tt><br \>
+<li> <tt><a href="KeyPgScreeninfo.html">ScreenInfo</a></tt><br \>
+<li> <tt><a href="KeyPgScreenglproc.html">ScreenGLProc</a></tt><br \>
+<li> <tt><a href="GfxInternalFormats.html">Formats pixel internes</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

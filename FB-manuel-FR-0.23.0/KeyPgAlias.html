@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Alias</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Alias</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Clause de <tt><a href="KeyPgSub.html">Sub</a></tt> et <tt><a href="KeyPgFunction.html">Function</a></tt> qui donne un autre nom interne<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+[<a href="KeyPgDeclare.html">Declare</a>] { <a href="KeyPgSub.html">Sub</a> | <a href="KeyPgFunction.html">Function</a> } <i>usablename</i> <b>Alias "<i>alternatename</i>"</b> (...)<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+declare sub <i>usablename</i> Alias "<i>alternatename</i>" ( ... )<br \>
+<div class="fb_indent"></tt><i>ou</i><tt><br \>
+</div>declare function <i>usablename</i> Alias "<i>alternatename</i>" ( ... )<br \>
+<div class="fb_indent"></tt><i>ou</i><tt><br \>
+</div>sub <i>usablename</i> Alias "<i>alternatename</i>" ( ... )<br \>
+<div class="fb_indent">...<br \>
+</div>end sub<br \>
+<div class="fb_indent"></tt><i>ou</i><tt><br \>
+</div>function <i>usablename</i> Alias "<i>alternatename</i>" ( ... )<br \>
+<div class="fb_indent">...<br \>
+</div>end function<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Alias</b></tt> donne un autre nom &agrave; une proc&eacute;dure.  Ce nom de remplacement ne peut pas &ecirc;tre utilis&eacute; dans le programme pour appeler la proc&eacute;dure, mais il est visible (si la fonction n'est pas priv&eacute;e (private)) &agrave; l'&eacute;diteur de liens lors de la liaison avec le code &eacute;crit dans d'autres langues.<br \>
+<br \>
+<tt><b>Alias</b></tt> est couramment utilis&eacute; pour les proc&eacute;dures dans les biblioth&egrave;ques &eacute;crites dans d'autres langages lorsque les noms de ces proc&eacute;dures sont valables dans l'autre langage, mais non-valides dans le BASIC.  En utilisant <tt>Alias</tt> avec <tt><a href="KeyPgDeclare.html">Declare</a></tt>, seul le nom de remplacement est utilis&eacute; par l'&eacute;diteur de liens.<br \>
+<br \>
+A la diff&eacute;rence des noms normaux de proc&eacute;dure, <tt><b>Alias</b></tt> ne change pas la casse de l'autre nom, c'est donc tr&egrave;s utile lorsque le code externe n&eacute;cessite une fonction export&eacute;e avec un nom particulier ou un cas particulier.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<br \>
+Si il y a un sous-programme appel&eacute; <tt><i>xClearScreen</i></tt> dans une biblioth&egrave;que externe et que vous souhaitez la r&eacute;f&eacute;rencer avec le nom <tt><i>ClearVideoScreen</i></tt>, voici un exemple de code pour le faire:<br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">ClearVideoScreen</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"xClearScreen"</span>&nbsp;<span class="oth">()</span><br />
+</div></tt><br />
+<br \>
+Une proc&eacute;dure destin&eacute;e &agrave; &ecirc;tre utilis&eacute;e par du code C externe, export&eacute;e sous forme de <tt><i>MyExportedPro</i>c</tt>:<br \>
+<tt><div class="freebasic">
+<span class="key">Function</span>&nbsp;<span class="wrd">MultiplyByFive</span>&nbsp;<span class="key">cdecl</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"MyExportedProc"</span>&nbsp;<span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">Parameter</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Export</span><br />
+&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">Parameter</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">5</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Dans QB, <tt><b>Alias</b></tt> ne fonctionne qu'avec <tt><a href="KeyPgDeclare.html">Declare</a></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDeclare.html">Declare</a></tt><br \>
+<li> <tt><a href="KeyPgExport.html">Export</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

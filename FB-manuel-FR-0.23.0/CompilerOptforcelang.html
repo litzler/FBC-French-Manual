@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Compiler Option: -forcelang</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Option du compilateur: -forcelang</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Permet QuickBASIC ou la compatibilit&eacute; descendante<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<div class="fb_indent"><b>-forcelang</b> <i>dialect</i><br \>
+</div></tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent"><tt><i>dialect</i></tt><br \>
+<div class="fb_indent">Le dialecte &agrave; utiliser pour la compilation, l'un de ceux-ci <tt><b>fb</b></tt> (par d&eacute;faut), <tt><b>fblite</b></tt>, <tt><b>qb</b></tt> ou <tt><b>deprecated</b></tt>.<br \>
+<br \>
+</div></div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent">L'option du compilateur <tt>-forcelang</tt> modifie la fa&ccedil;on dont le code source est interpr&eacute;t&eacute;, et est con&ccedil;u comme un outil pour les utilisateurs souhaitant un comportement semblable &agrave; un QuickBASIC  traditionnel, ou le comportement obsol&egrave;te des versions pr&eacute;c&eacute;dentes de FreeBASIC.  Elle remplace les d&eacute;clarations <tt><a href="KeyPgPplang.html">#lang</a></tt> dans le code.<br \>
+<br \>
+La macro intrins&egrave;que <tt><a href="KeyPgDdfblang.html">__FB_LANG__</a></tt> La macro intrins&egrave;que est r&eacute;gl&eacute;e sur la cha&icirc;ne nom du dialecte sp&eacute;cifi&eacute; sur la ligne de commande, ou <tt>"fb"</tt> par d&eacute;faut.<br \>
+<br \>
+Pour en savoir plus sur les diff&eacute;rences entre chacun de ces dialectes du langage, voir <a href="CompilerDialects.html">Les dialectes du compilateur</a>.<br \>
+<br \>
+<b>fb</b><br \>
+<br \>
+<div class="fb_indent">C'est le dialecte par d&eacute;faut, et il permet la compilation du code source en respectant la version la plus r&eacute;cente du langage FreeBasic.<br \>
+<br \>
+</div><b>fblite</b><br \>
+<br \>
+<div class="fb_indent">Ce dialecte fournit un support pour la syntaxe et la fonctionnalit&eacute; de FreeBasic mais avec un style de programmation QuickBASIC plus traditionnel.<br \>
+<br \>
+</div><b>qb</b><br \>
+<br \>
+<div class="fb_indent">Ce dialecte offre le meilleur support du code QuickBASIC plus ancien.<br \>
+<br \>
+</div><b>deprecated</b><br \>
+<br \>
+<div class="fb_indent">Ce dialecte est pour la compatibilit&eacute; descendante avec les versions pr&eacute;c&eacute;dentes de FreeBasic, cependant, ce dialecte peut ne plus exister dans les versions futures.  Les programmeurs doivent envisager d'utiliser plut&ocirc;t le dialecte "fblite".<br \>
+<br \>
+</div></div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgPplang.html">#lang</a></tt><br \>
+<li> <tt><a href="KeyPgDdfblang.html">__FB_LANG__</a></tt><br \>
+<li> <a href="CompilerOptlang.html">Option du compilateur: -lang</a><br \>
+<li> <a href="CompilerDialects.html">Dialectes du compilateur</a><br \>
+<li> <a href="CompilerCmdLine.html">Utilisation de la ligne de commande</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

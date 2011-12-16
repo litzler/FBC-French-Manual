@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>DateAdd</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">DateAdd</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;cale une date avec un intervalle donn&eacute;<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>DateAdd</b> ( <a href="KeyPgByref.html">ByRef</a> <i>interval</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgString.html">String</a>, <a href="KeyPgByval.html">ByVal</a> <i>number</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a>, <a href="KeyPgByval.html">ByVal</a> <i>date_serial</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+#include "vbcompat.bi"<br \>
+<i>result</i> = <b>DateAdd</b>( <i>interval</i>, <i>number</i>, <i>date_serial</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>interval</i></tt><br \>
+<div class="fb_indent">cha&icirc;ne indiquant &agrave; quelle p&eacute;riode de temps correspond une unit&eacute; de <tt><i>number</i></tt><br \>
+</div><tt><i>number</i></tt><br \>
+<div class="fb_indent">le nombre d'intervalles &agrave; ajouter &agrave; la date de base.  Le nombre sera arrondi &agrave; l'entier le plus proche.<br \>
+</div><tt><i>date_serial</i></tt><br \>
+<div class="fb_indent">La date de base<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne une <a href="ProPgDates.html">Date Serial</a> correspondant &agrave; la <tt><i>date_serial</i></tt> re&ccedil;ue plus le <tt><i>nombre (number)</i></tt> d' <tt><i>intervalles (intervals)</i></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+L'intervalle est sp&eacute;cifi&eacute; comme ci-dessous:<br \>
+<br \>
+<div class="fb_table"><table><tr><td>valeur</td><td>intervalle</td></tr><tr><td>yyyy</td><td>ann&eacute;e</td></tr><tr><td>q</td><td>trimestre</td></tr><tr><td>m</td><td>mois</td></tr><tr><td>ww</td><td>semaines</td></tr><tr><td>d,w,y</td><td>jours</td></tr><tr><td>h</td><td>heures</td></tr><tr><td>n</td><td>minutes</td></tr><tr><td>s</td><td>secondes</td></tr></table></div>  <br \>
+<br \>
+Le compilateur ne reconna&icirc;t cette fonction que si <tt>vbcompat.bi</tt> ou <tt>datetime.bi</tt> est inclus.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="def">#include&nbsp;"vbcompat.bi"<br />
+</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">fmt</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"ddddd&nbsp;ttttt"</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="wrd">d</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Now</span><span class="oth">()</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"1&nbsp;hour&nbsp;from&nbsp;now&nbsp;is&nbsp;"</span><span class="oth">;</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">Format</span><span class="oth">(</span>&nbsp;<span class="key">DateAdd</span><span class="oth">(</span>&nbsp;<span class="quo">"h"</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="oth">),</span>&nbsp;<span class="wrd">fmt</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"1&nbsp;day&nbsp;from&nbsp;now&nbsp;is&nbsp;"</span><span class="oth">;</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">Format</span><span class="oth">(</span>&nbsp;<span class="key">DateAdd</span><span class="oth">(</span>&nbsp;<span class="quo">"d"</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="oth">),</span>&nbsp;<span class="wrd">fmt</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"1&nbsp;week&nbsp;from&nbsp;now&nbsp;is&nbsp;"</span><span class="oth">;</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">Format</span><span class="oth">(</span>&nbsp;<span class="key">DateAdd</span><span class="oth">(</span>&nbsp;<span class="quo">"ww"</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="oth">),</span>&nbsp;<span class="wrd">fmt</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"1&nbsp;month&nbsp;from&nbsp;now&nbsp;is&nbsp;"</span><span class="oth">;</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">Format</span><span class="oth">(</span>&nbsp;<span class="key">DateAdd</span><span class="oth">(</span>&nbsp;<span class="quo">"m"</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="wrd">d</span>&nbsp;<span class="oth">),</span>&nbsp;<span class="wrd">fmt</span>&nbsp;<span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> N'existe pas dans QB. Cette fonction est apparue dans Visual Basic.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="ProPgDates.html">Date Serials</a><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

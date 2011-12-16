@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Lock</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Lock</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Limite l'acc&egrave;s en lecture/&eacute;criture sur un fichier ou une partie d'un fichier<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Lock</b> #<i>filenum</i>, <i>record</i><br \>
+<b>Lock</b> #<i>filenum</i>, <i>start</i> To <i>end</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>filenum</i></tt><br \>
+<div class="fb_indent">Le num&eacute;ro du fichier pour <tt><a href="KeyPgOpen.html">Open (=ouvrir)</a></tt> le fichier.<br \>
+</div><tt><i>record</i></tt><br \>
+<div class="fb_indent">L'enregistrement (fichiers <tt><a href="KeyPgRandom.html">Random</a></tt>) &agrave; verrouiller.<br \>
+</div><tt><i>start</i></tt><br \>
+<div class="fb_indent">La position du premier octet (<tt><a href="KeyPgBinary.html">Binary</a></tt> files) &agrave; partir duquel verrouiller.<br \>
+</div><tt><i>end</i></tt><br \>
+<div class="fb_indent">La position du dernier octet (<tt><a href="KeyPgBinary.html">Binary</a></tt> files) jusqu'o&ugrave; verrouiller.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Lock</b></tt> restreint temporairement l'acc&egrave;s par d'autres <tt><i>threads</i></tt> ou programmes dans un fichier, ou une partie d'un fichier, g&eacute;n&eacute;ralement pour permettre une &eacute;criture s&eacute;curis&eacute;e dans ce fichier (ou partie de...).<br \>
+<br \>
+Apr&egrave;s avoir modifi&eacute; les donn&eacute;es, un <tt><a href="KeyPgUnlock.html">Unlock</a></tt> avec les m&ecirc;mes param&egrave;tres que <tt><b>Lock</b></tt> doit &ecirc;tre effectu&eacute;.<br \>
+<br \>
+<b>Note: Cette commande ne fonctionne toujours pas, ni comme document&eacute;e, ni comme pr&eacute;vu. Elle semble &ecirc;tre "cass&eacute;e" pour le moment.</b><br \>
+<br \>
+
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;e.g.&nbsp;locking&nbsp;a&nbsp;file,&nbsp;reading&nbsp;100&nbsp;bytes,&nbsp;and&nbsp;unlocking&nbsp;it.&nbsp;</span><br />
+<span class="com">''&nbsp;To&nbsp;run,&nbsp;make&nbsp;sure&nbsp;there&nbsp;exists&nbsp;a&nbsp;file&nbsp;called&nbsp;'file.ext'&nbsp;</span><br />
+<span class="com">''&nbsp;in&nbsp;the&nbsp;current&nbsp;directory&nbsp;that&nbsp;is&nbsp;at&nbsp;least&nbsp;100&nbsp;bytes.</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">array</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">100</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">f</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="wrd">f</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">FreeFile</span><br />
+<span class="key">Open</span>&nbsp;<span class="quo">"file.ext"</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Binary</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+<span class="key">Lock</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">100</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">100</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Get</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><span class="oth">,</span>&nbsp;<span class="wrd">i</span><span class="oth">,</span>&nbsp;<span class="wrd">array</span><span class="oth">(</span><span class="wrd">i</span><span class="oth">)</span><br />
+<span class="key">Next</span><br />
+<span class="key">Unlock</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">100</span><br />
+<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Actuellement, FB ne peut pas verrouiller implicitement tout le fichier.<br \>
+<li> En mode <tt><a href="KeyPgRandom.html">Random</a></tt>, FB ne peut pas verrouiller une plage d'enregistrements.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOpen.html">Open</a></tt><br \>
+<li> <tt><a href="KeyPgUnlock.html">Unlock</a></tt><br \>
+<li> <tt><a href="KeyPgScreenLock.html">ScreenLock</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

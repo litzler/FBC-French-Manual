@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Namespace</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Namespace</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;clare un bloc d'espace de noms<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Namespace</b> <i>identifier</i> [ <a href="KeyPgAlias.html">Alias</a> "<i>aliasname</i>" ]<br \>
+<div class="fb_indent"><i>statements</i><br \>
+</div><b>End Namespace</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>identifier</i></tt><br \>
+<div class="fb_indent">Le nom de l'espace de noms.<br \>
+</div><tt><i>aliasname</i></tt><br \>
+<div class="fb_indent">Un autre nom externe pour l'espace de noms.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Les espaces de noms sont couramment utilis&eacute;s dans les biblioth&egrave;ques si vous ne voulez pas que tous les symboles de celle-ci s'entassent et s'ajoutent sur l'espace de l'utilisateur (appel&eacute; Global Namespace = Espace de noms global). <br \>
+<br \>
+Par exemple, si vous utilisez la librairie "Forms", elle pourrait d&eacute;finir le type de Point pour d&eacute;crire les coordonn&eacute;es X et Y, et vous pourriez &eacute;galement le d&eacute;finir dans un autre but. Cela peut &ecirc;tre r&eacute;solu par la cr&eacute;ation de l'espace de noms pour la biblioth&egrave;que "Forms", puis se r&eacute;f&eacute;rer &agrave; son type Point comme Forms.Point, et le v&ocirc;tre en tant que Point. <br \>
+<br \>
+Pour acc&eacute;der aux symboles dupliqu&eacute;s d&eacute;finis dans l'espace global de noms utilisez: <tt>.UnSymbole</tt> (ou <tt>..UnSymbole</tt> si &agrave; l'int&eacute;rieur d'un bloc <a href="KeyPgWith.html">With..End With</a>).<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Namespace</span>&nbsp;<span class="wrd">Forms</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Type</span>&nbsp;<span class="key">Point</span>&nbsp;<span class="com">''&nbsp;A&nbsp;2D&nbsp;point</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">x</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">y</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Since&nbsp;we&nbsp;are&nbsp;inside&nbsp;of&nbsp;the&nbsp;namespace,&nbsp;Point&nbsp;resolves&nbsp;to&nbsp;Forms.Point.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">AdjustPoint</span><span class="oth">(</span>&nbsp;<span class="key">ByRef</span>&nbsp;<span class="wrd">pt</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Point</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">newx</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">newy</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pt.x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">newx</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pt.y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">newy</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Namespace</span><br />
+<br />
+<span class="key">Type</span>&nbsp;<span class="key">Point</span>&nbsp;<span class="com">''&nbsp;A&nbsp;3D&nbsp;point</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">x</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">y</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">z</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">AdjustPoint</span><span class="oth">(</span>&nbsp;<span class="key">ByRef</span>&nbsp;<span class="wrd">pt</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Point</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">newx</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">newy</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">newz</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pt.x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">newx</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pt.y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">newy</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pt.z</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">newz</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">pt1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Point</span><br />
+<span class="wrd">AdjustPoint</span><span class="oth">(</span>&nbsp;<span class="wrd">pt1</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">pt2</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">Forms.Point</span><br />
+<span class="wrd">Forms.AdjustPoint</span><span class="oth">(</span>&nbsp;<span class="wrd">pt2</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Les espaces de noms ne sont pas permis dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="KeyPgUsing.html">Using (Espaces de noms)</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

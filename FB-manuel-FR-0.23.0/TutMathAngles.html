@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Different ways angles are measured</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Diff&eacute;rentes fa&ccedil;ons de mesurer les angles</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<div class="fb_indent"></div><i>Ecrit par RandyKeeling</i><br \>
+<br \>
+Ce tutoriel tr&egrave;s simple suppose que vous savez ce qu'est un angle.<br \>
+<br \>
+Il ya trois fa&ccedil;ons couramment utilis&eacute;s pour mesurer la taille d'un angle:<br \>
+<br \>
+<ul><li> Degr&eacute;es (deg)<br \>
+<li> Radians (rad)<br \>
+<li> Grades (grad)<br \>
+<br \>
+</ul><b>Degr&eacute;s</b><br \>
+<br \>
+La plupart des gens sont familiaris&eacute;s avec les angles mesur&eacute;s en degr&eacute;s. Un cercle complet mesure 360&ordm;. Les divisions d'un d&eacute;gr&eacute; sont souvent mesur&eacute;es de deux fa&ccedil;ons diff&eacute;rentes, en degr&eacute;s d&eacute;cimaux et DMS (degr&eacute;s, minutes, secondes).<br \>
+ <br \>
+Nous pouvons toujours pr&eacute;senter un degr&eacute; par un nombre d&eacute;cimal en montrant toutes ses unit&eacute;s suivies par sa partie fractionnaire. Par exemple, 75,23&ordm; signifie que nous avons 75 degr&eacute;s et vingt-trois centi&egrave;mes de degr&eacute;.<br \>
+<br \>
+Dans le syst&egrave;me DMS, chaque degr&eacute; se compose de 60 minutes (ou minutes d'arc) et est marqu&eacute; par un '. Chaque minute est compos&eacute;e de 60 secondes (ou secondes d'arc) et est marqu&eacute; par un ''. Ainsi, une mesure en degr&eacute;s pourrait ressembler &agrave; ceci 36&ordm; 14' 52''. Ce qui se lit 36 degr&eacute;s, 14 minutes, 52 secondes.<br \>
+<br \>
+Pour convertir les DMS en degr&eacute;s d&eacute;cimaux vous pouvez utiliser le code suivant.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">D</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">M</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">S</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">DD</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
+<br />
+<span class="com">''&nbsp;Convert&nbsp;to&nbsp;degree&nbsp;decimal</span><br />
+<span class="wrd">DD</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">D</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">M</span>&nbsp;<span class="oth">/</span>&nbsp;<span class="num">60</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">S</span>&nbsp;<span class="oth">/</span>&nbsp;<span class="num">3600</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;3600&nbsp;comes&nbsp;from&nbsp;1/60&nbsp;*&nbsp;1/60</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+<b>Radians</b><br \>
+<br \>
+Les Radians sont plus communs dans la programmation informatique et en math&eacute;matiques. Pour comprendre les radians, vous devez comprendre la constante Pi (souvent repr&eacute;sent&eacute;e le symbole de la lettre grecque pi minuscule). Pi est un nombre irrationnel et transcendant (sa notation d&eacute;cimale ne se termine jamais) et correspond &agrave; la circonf&eacute;rence d'un cercle divis&eacute;e par le diam&egrave;tre de ce cercle. Une valeur approximative (&agrave; 20 d&eacute;cimales) est Pi = 3,1415926535897932385. La valeur de Pi peut &eacute;galement &ecirc;tre d&eacute;termin&eacute;e en utilisant ce code.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="wrd">Pi</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">4</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="key">Atn</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="num">1</span>&nbsp;<span class="oth">)</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+Avec le syst&egrave;me en radians, un cercle complet a 2 * Pi (6,2831853071795864770) radians. Contrairement aux degr&eacute;s, les radians <b><i>ne sont pas</i></b> indiqu&eacute;s par une forme de symbole. FreeBASIC, comme la plupart des langages de programmation, accepte des mesures d'angle en radians et <b><i>non</i></b> en degr&eacute;s.<br \>
+<br \>
+Pour une conversion entre radians et degr&eacute;s (d&eacute;cimal), vous pouvez utiliser le code suivant.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Const</span>&nbsp;<span class="wrd">PI</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3.1415926535897932</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">D</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">R</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<br />
+<span class="wrd">R</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">D</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="wrd">PI</span>&nbsp;<span class="oth">/</span>&nbsp;<span class="num">180</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;A&nbsp;full&nbsp;circle&nbsp;has&nbsp;360&nbsp;degrees,&nbsp;and&nbsp;a&nbsp;full&nbsp;circle&nbsp;has&nbsp;2*PI&nbsp;Radians</span><br />
+<span class="wrd">D</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">R</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">180</span>&nbsp;<span class="oth">/</span>&nbsp;<span class="wrd">PI</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+La valeur de PI est tr&egrave;s souvent utilis&eacute;e, donc il n'est pas rare de la trouver d&eacute;finie dans les biblioth&egrave;ques et les routines couramment utilis&eacute;es. Les &eacute;l&eacute;ments suivants sont des constantes utiles.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Const</span>&nbsp;<span class="wrd">PI</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3.1415926535897932</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">TWO_PI</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">6.283185307179586</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">HALF_PI</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1.570796326794896</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">DegToRAD</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0.01745329251994330</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;PI/180</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">RADToDeg</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">57.29577951308233</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;180/PI</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+<b>Grades</b><br \>
+<br \>
+Les Grades sont principalement utilis&eacute;s dans certaines formes d'ing&eacute;nierie. Dans ce syst&egrave;me un cercle correspond &agrave; 400 grades.<br \>
+
+</div>
+</div> 
+</div> 
+</body>
+</html>

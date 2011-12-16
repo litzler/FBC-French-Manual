@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Line (Graphics)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Line (Graphique)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Dessine une ligne<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Line</b> [<i>target</i>,] [[STEP] (<i>x1</i>, <i>y1</i>)]-[STEP] (<i>x2, y2</i>) [, [<i>color</i>][, [B|BF][, <i>style</i>]]]<br \>
+or<br \>
+<b>Line</b> - (<i>x2</i>, <i>y2</i>) [, [<i>color</i>][, [B|BF][, <i>style</i>]]]<br \>
+
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>target</i></tt><br \>
+<div class="fb_indent">sp&eacute;cifie le tampon sur lequel dessiner<br \>
+</div><tt>STEP</tt><br \>
+<div class="fb_indent">indique que les coordonn&eacute;es de d&eacute;part sont relatives<br \>
+</div><tt><i>(x1, y1)</i></tt><br \>
+<div class="fb_indent">coordonn&eacute;es de d&eacute;part de la ligne<br \>
+</div><tt>STEP</tt><br \>
+<div class="fb_indent">indique que les coordonn&eacute;es de fin sont relatives<br \>
+</div><tt><i>(x2, y2)</i></tt><br \>
+<div class="fb_indent">coordonn&eacute;es de fin de la ligne<br \>
+</div><tt><i>color</i></tt><br \>
+<div class="fb_indent">l'attribut de couleur.<br \>
+</div><tt>B|BF</tt><br \>
+<div class="fb_indent">sp&eacute;cifie bo&icirc;te ou bo&icirc;te remplie<br \>
+</div><tt><i>style</i></tt><br \>
+<div class="fb_indent">style de la ligne<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+D&eacute;claration graphique qui dessine une ligne droite ou une bo&icirc;te entre deux points. Cela se passera sur la page de travail courante via <a href="KeyPgScreenset.html">ScreenSet</a> ou sur un tampon <a href="KeyPgGetgraphics.html">Get</a>/<a href="KeyPgPutgraphics.html">Put</a> si c'est sp&eacute;cifi&eacute;.<br \>
+<br \>
+Les coordonn&eacute;es de <b>Line</b> sont affect&eacute;es par le syst&egrave;me de coordonn&eacute;es personnel &eacute;tabli via <a href="KeyPgWindow.html">Window</a> et <a href="KeyPgViewgraphics.html">View (Graphique)</a> et respecte le rectangle de d&eacute;coupage (clipping rectangle) &eacute;tabli par <a href="KeyPgViewgraphics.html">View (Graphics)</a>. Si une paire de coordonn&eacute;es est pr&eacute;c&eacute;d&eacute;e par le mot-clef <tt>STEP</tt>, les coordonn&eacute;es sont consid&eacute;r&eacute;es comme relatives &agrave; la derni&egrave;re position du curseur graphique. Si l'indicateur <tt>B</tt> est sp&eacute;cifi&eacute;, un rectangle sera trac&eacute; au lieu d'une ligne, avec <tt>(<i>x1</i>,<i>y1</i>)-(<i>x2</i>,<i>y2</i>)</tt> comme coordonn&eacute;es des coins oppos&eacute;s du rectangle. Si <tt>BF</tt> est sp&eacute;cifi&eacute;, un rectangle plein sera trac&eacute;.<br \>
+<br \>
+<tt><i>Color</i></tt> correspond &agrave; l'attribut de couleur, qui est sp&eacute;cifique au mode (voir <a href="KeyPgColor.html">Color</a> et <a href="KeyPgScreengraphics.html">Screen (Graphique)</a> pour plus de d&eacute;tails). Si omis, la couleur courante d'avant-plan valid&eacute;e par <a href="KeyPgColor.html">Color</a> sera utilis&eacute;e.<br \>
+<br \>
+Si <tt><i>Style</i></tt> est sp&eacute;cifi&eacute;, cela permet de tracer une ligne avec un certain style; sa valeur est interpr&eacute;t&eacute;e comme un masque de 16 bits et <b>Line</b> sera utilis&eacute; pour interpr&eacute;ter le dessin de pixels. D&eacute;butant &agrave; <tt>(<i>x1</i>,<i>y1</i>)</tt>, le bit de poids le plus fort du masque de style est utilis&eacute;: s'il est &agrave; 1, le pixel est dessin&eacute;, s'il est &agrave; 0, il ne l'est pas. Ceci sera r&eacute;p&eacute;t&eacute; pour tous les pixels de la ligne en utilisant les autres bits, le masque &eacute;tant r&eacute;utilis&eacute; depuis le d&eacute;but quand ses 16 bits auront &eacute;t&eacute; utilis&eacute;s.<br \>
+<br \>
+Quand <b>Line</b> est utilis&eacute; de cette fa&ccedil;on: <i>Line - (x2, y2)</i>, une ligne est trac&eacute;e de la position courante du curseur aux coordonn&eacute;es <tt>(<i>x2</i>,<i>y2</i>)</tt> sp&eacute;cifi&eacute;es par LINE. Alternativement, <a href="KeyPgPoint.html">Point</a> peut &ecirc;tre utilis&eacute; pour obtenir la position courante du curseur.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Dessine&nbsp;une&nbsp;ligne&nbsp;diagonale&nbsp;rouge&nbsp;avec&nbsp;une&nbsp;boite&nbsp;blanche,&nbsp;et&nbsp;attend&nbsp;3&nbsp;secondes</span><br />
+<span class="key">Screen</span>&nbsp;<span class="num">13</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">20</span><span class="oth">,</span>&nbsp;<span class="num">20</span><span class="oth">)-(</span><span class="num">300</span><span class="oth">,</span>&nbsp;<span class="num">180</span><span class="oth">),</span>&nbsp;<span class="num">4</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">140</span><span class="oth">,</span>&nbsp;<span class="num">80</span><span class="oth">)-(</span><span class="num">180</span><span class="oth">,</span>&nbsp;<span class="num">120</span><span class="oth">),</span>&nbsp;<span class="num">15</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="num">200</span><span class="oth">,</span>&nbsp;<span class="num">200</span>&nbsp;<span class="oth">),</span>&nbsp;<span class="num">15</span><br />
+<span class="key">Sleep</span>&nbsp;<span class="num">3000</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;Dessine&nbsp;2&nbsp;lignes&nbsp;avec&nbsp;2&nbsp;styles&nbsp;de ligne&nbsp;differents&nbsp;dans&nbsp;2&nbsp;couleurs&nbsp;differentes</span><br />
+<span class="key">ScreenRes</span>&nbsp;<span class="num">320</span><span class="oth">,</span>&nbsp;<span class="num">240</span><br />
+<br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">10</span><span class="oth">,</span>&nbsp;<span class="num">100</span><span class="oth">)-(</span><span class="num">309</span><span class="oth">,</span>&nbsp;<span class="num">140</span><span class="oth">),</span>&nbsp;&nbsp;<span class="num">4</span><span class="oth">,</span>&nbsp;<span class="wrd">B</span><span class="oth">,</span>&nbsp;<span class="num">&amp;b1010101010101010</span>&nbsp;<span class="com">'&nbsp;boite&nbsp;rouge&nbsp;avec&nbsp;bords&nbsp;pointilles</span><br />
+<br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">20</span><span class="oth">,</span>&nbsp;<span class="num">115</span><span class="oth">)-(</span><span class="num">299</span><span class="oth">,</span>&nbsp;<span class="num">115</span><span class="oth">),</span>&nbsp;&nbsp;<span class="num">9</span><span class="oth">,</span>&nbsp;&nbsp;<span class="oth">,</span>&nbsp;<span class="num">&amp;b1111000011111111</span>&nbsp;<span class="com">'&nbsp;ligne&nbsp;bleue&nbsp;tirets</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">20</span><span class="oth">,</span>&nbsp;<span class="num">125</span><span class="oth">)-(</span><span class="num">299</span><span class="oth">,</span>&nbsp;<span class="num">125</span><span class="oth">),</span>&nbsp;<span class="num">10</span><span class="oth">,</span>&nbsp;&nbsp;<span class="oth">,</span>&nbsp;<span class="num">&amp;b0000000011110000</span>&nbsp;<span class="com">'&nbsp;ligne&nbsp;verte&nbsp;tirets</span><br />
+<br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><i>target</i></tt> est nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="KeyPgCircle.html">Circle</a><br \>
+<li> <a href="KeyPgWindow.html">Window</a><br \>
+<li> <a href="KeyPgViewgraphics.html">View (Graphique)</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

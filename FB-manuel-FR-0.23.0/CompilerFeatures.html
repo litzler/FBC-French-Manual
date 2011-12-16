@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Most Important Features</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Principales caract&eacute;ristiques</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+<b><u>Compatibilit&eacute; avec le BASIC</u></b><br \>
+<ul><li> FreeBASIC n'est pas un "nouveau" langage BASIC. Vous n'avez pas besoin d'apprendre beaucoup de nouveaut&eacute;s si vous &ecirc;tes familier avec toutes les variantes de Microsoft BASIC. Vous pouvez utiliser soit <tt>"-lang qb"</tt> pour la compatibilit&eacute;, soit (par d&eacute;faut) <tt>"-lang fb"</tt> pour quelques nouveaut&eacute;s, mais il apporte &eacute;galement certaines restrictions et une certaine similitude avec le langage "C" de programmation. Voir aussi <tt><a href="CompilerDialects.html">Les dialectes du FreeBASIC</a></tt>.<br \>
+<li> FreeBASIC n'est pas sensible &agrave; la casse; une proc&eacute;dure "main" explicite n'est pas requise; la plupart des d&eacute;clarations et proc&eacute;dures graphiques et console de Microsoft QuickBASIC sont impl&eacute;ment&eacute;es, etc.<br \>
+<li> Seulement avec <tt>"-lang qb"</tt>: les variables scalaires n'ont pas besoin d'&ecirc;tre dimensionn&eacute;es et des suffixes peuvent &ecirc;tre utilis&eacute;es; les num&eacute;ros de ligne sont pris en charge; <tt><a href="KeyPgOnerror.html">On Error</a></tt> and <tt><a href="KeyPgGosub.html">GoSub</a></tt> sont utilisables.<br \>
+<br \>
+</ul><b><u>Syntaxe "propre"</u></b><br \>
+<ul><li> Seul un petit nombre de mots-cl&eacute;s ont &eacute;t&eacute; ajout&eacute;s. Toutes les proc&eacute;dures sont mises en oeuvre sous forme de biblioth&egrave;ques, donc pour la plus grande partie, il n'y a pas de nouvelles routines intrins&egrave;ques et donc il y a peu de risque d'avoir des chevauchements de nom avec l'ancien code.<br \>
+<br \>
+</ul><b><u>Relations (fichier en-t&ecirc;te) avec les biblioth&egrave;ques C et les existantes</u></b><br \>
+<ul><li> Pas de "wrappers" ou "helpers" n&eacute;cesaires, juste un fichier d'en-t&ecirc;te port&eacute;, rendant tr&egrave;s facile l'usage de biblioth&egrave;ques C externes.<br \>
+<li> La distribution officielle est d&eacute;j&agrave; fournie avec plusieurs liaisons existantes aux biblioth&egrave;ques C, voir <a href="ExtLibTOC.html">Index des en-t&ecirc;tes de biblioth&egrave;ques externes</a> pour une liste compl&egrave;te et mise &agrave; jour<br \>
+<br \>
+</ul><b><u>Multi-plateforme</u></b><br \>
+<ul><li> FreeBASIC fonctionne actuellement sur Windows 32-bit, Linux et DOS (un DOS 16-bit est suffisant, bien que FreeBASIC lui-m&ecirc;me et ses sorties compilateur soient 32-bit) et cr&eacute;e &eacute;galement des applications pour la console Xbox. D'autres plates-formes &agrave; venir.<br \>
+<li> La biblioth&egrave;que d'ex&eacute;cution a &eacute;t&eacute; &eacute;crite avec la portabilit&eacute; &agrave; l'esprit. Tous les outils tiers utilis&eacute;s existent d&eacute;j&agrave; sur la plupart des syst&egrave;mes d'exploitation en tant que GNU binutils. Le compilateur est &eacute;crit &agrave; 100% en code FreeBASIC (donc, FreeBASIC se compile lui-m&ecirc;me), ce qui le rend simple &agrave; &ecirc;tre lanc&eacute; car il ne d&eacute;pend pas d'outils non portatables.<br \>
+<br \>
+</ul><b><u>Support d'Unicode</u></b><br \>
+<ul><li> Outre les fichiers ASCII avec des s&eacute;quences d'&eacute;chappement (\u) <a href="Unicode.html">Unicode</a>, FreeBASIC peut analyser les fichiers source (.bas) ou en-t&ecirc;te (.bi) UTF-8, UTF-16LE, UTF-16BE, UTF-32LE et UTF-32BE, ils peuvent &ecirc;tre librement m&eacute;lang&eacute;s avec d'autres sources/en-t&ecirc;tes dans le m&ecirc;me projet (&eacute;galement avec d'autres fichiers ASCII).<br \>
+<li> Les cha&icirc;nes litt&eacute;rales peuvent &ecirc;tre tap&eacute;es dans leur alphabet original non-latin, il suffit d'utiliser un &eacute;diteur de texte qui supporte une partie des formats <a href="Unicode.html">Unicode</a> list&eacute;s ci-dessus.<br \>
+<li> Le type <tt><a href="KeyPgWstring.html">WString</a></tt> contient des caract&egrave;res "larges", toutes les proc&eacute;dures cha&icirc;nes (comme <tt><a href="KeyPgLeft.html">Left</a></tt>, <tt><a href="KeyPgTrim.html">Trim</a></tt>, etc) fonctioneront aussi avec les cha&icirc;nes &agrave; caract&egrave;res "larges".<br \>
+<li> <tt><a href="KeyPgOpen.html">Open</a></tt> a &eacute;t&eacute; &eacute;tendu pour supporter les fichiers UTF-8, UTF-16LE and UTF-32LE avec le sp&eacute;cificateur <tt><a href="KeyPgEncoding.html">Encoding</a></tt>. <tt><a href="KeyPgInputPp.html">Input #</a></tt> et <tt><a href="KeyPgLineinputPp.html">Line Input #</a></tt>, ainsi que <tt><a href="KeyPgPrintPp.html">Print #</a></tt> et <tt><a href="KeyPgWritePp.html">Write #</a></tt> peuvent &ecirc;tre utilis&eacute;s normalement, et toute conversion de <a href="Unicode.html">Unicode</a> vers ASCII est effectu&eacute;e si n&eacute;cessaire.<br \>
+<li> <tt><a href="KeyPgPrint.html">Print</a></tt> supporte aussi les sorties <a href="Unicode.html">Unicode</a> (voir <tt><a href="CompilerRequirements.html">Exigences</a></tt>).<br \>
+<br \>
+</ul><b><u>Un grand nombre de types de donn&eacute;es pr&eacute;d&eacute;finis</u></b><br \>
+<ul><li> Entiers: <tt><a href="KeyPgByte.html">Byte</a></tt>, <tt><a href="KeyPgUbyte.html">UByte</a></tt>, <tt><a href="KeyPgShort.html">Short</a></tt>, <tt><a href="KeyPgUshort.html">UShort</a></tt>, <tt><a href="KeyPgInteger.html">Integer</a></tt>, <tt><a href="KeyPgUinteger.html">UInteger</a></tt>, <tt><a href="KeyPgLong.html">Long</a></tt>, <tt><a href="KeyPgUlong.html">Ulong</a></tt>, <tt><a href="KeyPgLongint.html">LongInt</a></tt>, <tt><a href="KeyPgUlongint.html">ULongInt</a></tt><br \>
+<li> A virgule flottante: <tt><a href="KeyPgSingle.html">Single</a></tt>, <tt><a href="KeyPgDouble.html">Double</a></tt><br \>
+<li> Cha&icirc;nes: fix&eacute;e, longueur variable ou termin&eacute;e par NULL (<tt><a href="KeyPgZstring.html">ZString</a></tt>), jusqu'&agrave; 2GB de long<br \>
+<li> Les cha&icirc;nes <a href="Unicode.html">Unicode</a> (<tt><a href="KeyPgWstring.html">WString</a></tt>), comme <tt><a href="KeyPgZstring.html">ZString</a></tt>, mais avec le support de caract&egrave;res "larges". Utilisation directe des API <a href="Unicode.html">Unicode</a>, etc.<br \>
+<br \>
+</ul><b><u>Les types d&eacute;finis par l'utilisateur (UDT)</u></b><br \>
+<ul><li> Nombre illimit&eacute; d'imbrications.<br \>
+<li> Prise en charge de l'instruction <tt><a href="KeyPgType.html">Type</a></tt> du BASIC, avec la nouvelle d&eacute;claration <tt><a href="KeyPgUnion.html">Union</a></tt> (y compris les unions anonymes imbriqu&eacute;es).<br \>
+<li> Les tableaux utilisant jusqu'&agrave; huit dimensions peuvent &ecirc;tre utilis&eacute;s.<br \>
+<li> Les pointeurs de proc&eacute;dure.<br \>
+<li> Les champs de bits.<br \>
+</ul>  	<br \>
+<b><u>Enum&eacute;rations (enums)</u></b><br \>
+<ul><li> D&eacute;claration facile d'une liste de constantes avec des valeurs s&eacute;quentielles avec <tt><a href="KeyPgEnum.html">Enum</a></tt>.<br \>
+<br \>
+</ul><b><u>Tableaux</u></b><br \>
+<ul><li> Les tableaux de longueur fixe ou variable sont admis, jusqu'&agrave; 2 GB de taille.<br \>
+<li> Jusqu'&agrave; huit dimensions, y compris les tableaux avec des dimensions ind&eacute;termin&eacute;es.<br \>
+<li> Toutes possibilit&eacute;s de limites inf&eacute;rieures et sup&eacute;rieures.<br \>
+<li> Pr&eacute;servation des &eacute;l&eacute;ments de donn&eacute;es pendant un redimensionnement de tableau avec <tt><a href="KeyPgRedim.html">ReDim</a></tt> en utilisant le nouveau sp&eacute;cificateur <tt><a href="KeyPgPreserve.html">Preserve</a></tt>.<br \>
+<br \>
+</ul><b><u>Pointeurs</u></b><br \>
+<ul><li> Pointeurs vers tout type de donn&eacute;es list&eacute; pr&eacute;c&eacute;demment, y compris les cha&icirc;nes de caract&egrave;res, les &eacute;l&eacute;ments de tableau et les types d&eacute;finis par l'utilisateur.<br \>
+<li> Utilisation de la m&ecirc;me syntaxe que le langage C.<br \>
+<li> Niveaux d'indirection illimit&eacute; (par ex., pointeur vers pointeur vers ...).<br \>
+<li> Pointeurs de proc&eacute;dures.<br \>
+<li> Indexation avec [ ] (y compris l'indexation de cha&icirc;nes).<br \>
+<li> Transtypage.<br \>
+</ul>  <br \>
+<b><u>Initialisation de variables, objets et tableaux</u></b><br \>
+<ul><li> Pour les variables de niveau module ou locales statiques, les tableaux et les types d&eacute;finis par l'utilisateur.<br \>
+<br \>
+</ul><b><u>Les valeurs par d&eacute;faut des param&egrave;tres de proc&eacute;dure</u></b><br \>
+<ul><li> Pour les param&egrave;tres des types num&eacute;riques, les cha&icirc;nes et les types d&eacute;finis par l'utilisateur.<br \>
+</ul>  <br \>
+<b><u>Surcharge de proc&eacute;dure</u></b><br \>
+<ul><li> Y compris les proc&eacute;dures avec des valeurs par d&eacute;faut de certains param&egrave;tres.<br \>
+<br \>
+</ul><b><u>Assemblage en ligne</u></b><br \>
+<ul><li> Syntaxe Intel.<br \>
+<li> R&eacute;f&eacute;rence aux variables directement par leur nom, pas de "code truc" n&eacute;cessaire.<br \>
+<br \>
+</ul><b><u>Support traditionnel du pr&eacute;processeur</u></b><br \>
+<ul><li> M&ecirc;me syntaxe qu'en C.<br \>
+<li> Support des macros mono-ligne avec la commande <tt><a href="KeyPgPpdefine.html">#define</a></tt>, y compris les param&egrave;tres.<br \>
+<li> Support des macros multi-ligne avec la commande  <tt><a href="KeyPgPpmacro.html">#macro</a></tt>.<br \>
+<br \>
+</ul><b><u>Alias de Type </u></b><br \>
+<ul><li> Support du "forward referencing" (r&eacute;f&eacute;rencement en avance) comme en C, y compris les types d&eacute;finis par l'utilisateur et pointeurs de proc&eacute;dure.<br \>
+<br \>
+</ul><b><u>S&eacute;quences d'&eacute;chappement, comme en C, pour les cha&icirc;nes de caract&egrave;res</u></b><br \>
+<ul><li> Comme en C (mis &agrave; part que les nombres sont interpr&eacute;t&eacute;s comme des d&eacute;cimaux, non en octal).<br \>
+<br \>
+</ul><b><u>Support du d&eacute;bogage</u></b><br \>
+<ul><li> Prise en charge compl&egrave;te du d&eacute;bogage avec <i>GDB</i> (le d&eacute;bogueur de GNU) ou <i>Insight</i> (un GUI pour <i>GDB</i>).<br \>
+<li> Array bounds checking (only enabled by the <tt>-exx</tt> command-line option).<br \>
+<li> V&eacute;rifier pointeur nul (comme pr&eacute;c&eacute;demment).<br \>
+<br \>
+</ul><b><u>Cr&eacute;er OBJ, LIB, DLL et console ou GUI EXE</u></b><br \>
+<ul><li> Vous n'&ecirc;tes en aucune mani&egrave;re bloqu&eacute; sur un IDE ou un &eacute;diteur.<br \>
+<li> Vous pouvez cr&eacute;er des biblioth&egrave;ques statiques et dynamiques / partag&eacute;es en ajoutant juste une option ligne de commande (<tt>-lib</tt> ou <tt>-dylib/-dll</tt>).<br \>
+<br \>
+</ul><b><u>Comme une application 32-bit</u></b><br \>
+<ul><li> FreeBASIC peut compiler des fichiers code source jusqu'&agrave; 2 GB.<br \>
+<li> Le nombre de symboles (variables, constantes, etc) est seulement limit&eacute; par la m&eacute;moire totale disponible pendant la compilation. (Vous pouvez, par exemple, inclure OpenGL, GTK/SDL, BASS, simultan&eacute;ment dans votre code source.)<br \>
+<br \>
+</ul><b><u>G&eacute;n&eacute;ration de code optimis&eacute;</u></b><br \>
+<ul><li> Bien FreeBasic ne soit pas un compilateur qui optimise le code, il fournit de nombreux types d'optimisations g&eacute;n&eacute;rales pour g&eacute;n&eacute;rer le code le plus efficace possible sur x86 CPU, sans oublier d'autres alternatives de base, notamment les commerciales.<br \>
+<br \>
+</ul><b><u>Compl&egrave;tement libre</u></b><br \>
+<ul><li> Tous les outils tiers sont &eacute;galement libres. Aucun morceau de logiciel abandonn&eacute; ou sous copyright n'est utilis&eacute; (except&eacute; GoRC sous Win32). L'assembleur, le linker, l'archiveur et d'autres applications en ligne de commande proviennent des outils de programmation GNU binutils.<br \>
+<br \>
+</ul>
+</div>
+</div> 
+</div> 
+</body>
+</html>

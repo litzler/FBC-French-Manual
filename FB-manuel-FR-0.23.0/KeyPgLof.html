@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>LOF</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">LOF</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Retourne la longueur d'un fichier disque ouvert<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>LOF</b> ( <a href="KeyPgByval.html">ByVal</a> <i>filenum</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgLongint.html">LongInt</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>LOF</b>( <i>filenum</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>filenum</i></tt><br \>
+<div class="fb_indent">Le num&eacute;ro de fichier d'un fichier ouvert sur le disque.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+La longueur en octets d'un fichier ouvert sur le disque.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Renvoie la longueur, en octets, d'un fichier ouvert pr&eacute;c&eacute;demment avec <tt><a href="KeyPgOpen.html">Open (=ouvrir)</a></tt> en utilisant <tt><i>filenum</i></tt>.<br \>
+<br \>
+Avec <tt><a href="KeyPgOpenCom.html">Open Com</a></tt>, il renvoie la longueur des donn&eacute;es en attente d'&ecirc;tre lues, dans le tampon de r&eacute;ception.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">f</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="wrd">f</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">FreeFile</span><br />
+<span class="key">Open</span>&nbsp;<span class="quo">"file.ext"</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Binary</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">LOF</span><span class="oth">(</span><span class="wrd">f</span><span class="oth">)</span><br />
+<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Aucune<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgLoc.html">LOC</a></tt><br \>
+<li> <tt><a href="KeyPgEof.html">EOF</a></tt><br \>
+<li> <tt><a href="KeyPgOpen.html">Open</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

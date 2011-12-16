@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>Getting Started</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Mise en route</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	C'est une bonne introduction &agrave; FB pour les programmeurs QBasic, sur la base d'un tutoriel de SJ Zero.<br \>
+<br \>
+<b>Pour commencer avec le logiciel</b><br \>
+<br \>
+Vous pouvez t&eacute;l&eacute;charger FreeBASIC ici: http://www.freebasic.net/index.php/download<br \>
+Et FBIDE ici: http://fbide.sourceforge.net/<br \>
+<br \>
+Lors de l'installation de FBIDE, s&eacute;lectionnez "FBIDE only," pour ne pas installer l'ancienne version de FB incluse dans ce paquet.<br \>
+Lors de l'ex&eacute;cution FBIDE la premi&egrave;re fois, vous aurez &agrave; parcourir les r&eacute;pertoires (browse) pour trouver le compilateur FB sur votre ordinateur.<br \>
+<br \>
+<b>Hello World!</b><br \>
+<br \>
+Ouvrez FBIDE et tapez la commande suivante:<br \>
+<br \>
+<pre class="fb_pre">
+ PRINT "Bonjour le monde!"
+ SLEEP
+</pre><br \>
+Maintenant, appuyez sur F5. F&eacute;licitations, vous venez de voir comment FreeBasic est vraiment tout comme QB FreeBasic. Maintenant, vous pouvez utiliser la plupart des commandes de la console pour QB comme vous vous en souvenez. Par exemple: <br \>
+<br \>
+<pre class="fb_pre">
+ LOCATE 10,10
+ PRINT "Je suis le centre de l'univers!"
+ SLEEP
+</pre><br \>
+<b>L'extraordinaire Screen 13</b><br \>
+<br \>
+Maintenant, mettez "SCREEN 13" avant votre code, pour voir combien il est facile d'utiliser les modes graphiques:<br \>
+<pre class="fb_pre">
+ SCREEN 13
+ PRINT "Hello World!"
+ SLEEP
+</pre><br \>
+A partir de l&agrave;, toutes les commandes graphiques standard fonctionnent, comme vous pouvez le voir dans cet exemple:<br \>
+<br \>
+<pre class="fb_pre">
+ SCREEN 13
+ LINE (1,1)-(100,100),1,bf
+ PRINT "Hello World!"
+ CIRCLE (10,10),10,2
+ PSET (30,15),3
+
+ SLEEP
+</pre><br \>
+FreeBasic a &eacute;galement de nouvelles fonctionnalit&eacute;s graphiques. Par exemple, QB n'a jamais eu de SCREEN 14 ou plus. Essayez de lancer ce programme:<br \>
+<pre class="fb_pre">
+ SCREEN 15
+ LINE (1,1)-(100,100),1,bf
+ PRINT "Hello World!"
+ CIRCLE (10,10),10,2
+ PSET (30,15),3
+
+ SLEEP
+</pre><br \>
+Apr&egrave;s l'ouverture d'une fen&ecirc;tre graphique via la commande SCREEN, vous pouvez &eacute;galement appuyer sur ALT-ENTRER pour changer du mode fen&ecirc;tr&eacute; et au mode plein &eacute;cran.<br \>
+<br \>
+Une autre fonctionnalit&eacute; int&eacute;ressante de la biblioth&egrave;que graphique dans FreeBasic est que vous pouvez faire un changement de page dans n'importe quel mode vid&eacute;o. Le code suivant illustre cela. <br \>
+<br \>
+<pre class="fb_pre">
+ DIM as integer page
+ DIM as integer notpage
+ DIM as integer a, b
+
+
+ screen 12, , 2 'This sets the screen for 2 pages
+ notpage = 1   'This sets the backpage
+
+ DO
+  IF page = 0 THEN page = 1 ELSE page = 0   'These two lines flip the page and the
+  IF notpage = 1 THEN notpage = 0 ELSE notpage = 1 'backpage
+	
+  SCREENSET page, notpage 'This flips the page
+	
+  CLS  'First we clear the screen
+  b = b + 1 
+  IF b > 100 THEN b = 0
+  FOR a = 1 TO 128
+   PSET (b,a),a 'Then we draw a line. It moves without flickering.
+  NEXT a
+  
+ LOOP UNTIL INKEY = CHR(27)
+</pre><br \>
+Ceci fonctionne pour n'importe quel mode, vous pouvez donc utiliser les modes &agrave; haute r&eacute;solution pour vos programmes avec le changement de page, en utilisant des commandes graphiques QB! <br \>
+<br \>
+<br \>
+<b>Pourquoi ASM n'est plus n&eacute;cessaire</b><br \>
+<br \>
+Je n'aurais pas dit cela si ce n'&eacute;tait pas vrai. Utilisation d' ASM dans BASIC pour augmenter la fonctionnalit&eacute; de votre programme n'est plus n&eacute;cessaire. Ignorant SDL, Allegro, DirectX, OpenGL, etc... pour une minute, vous avez le changement de page et des modes graphiques avanc&eacute;s &agrave; votre disposition, ainsi que Inkey, que nous avons tous appris &agrave; aimer ou d&eacute;tester, mais il y a &eacute;galement deux commandes d'entr&eacute;e nouvelles qui font des choses pour lesquelles les utilisateurs de QB devaient recourir &agrave; du code assembleur, depuis la nuit des temps:<br \>
+<br \>
+<pre class="fb_pre">
+ DIM as integer x, y, buttons
+ CONST as integer escapeKey = 1
+ SCREEN 12
+
+ WHILE NOT MULTIKEY(escapeKey) 'Cela v&eacute;rifie la touche d'&eacute;chappement chaque passage
+  GETMOUSE x, y, , buttons 'Ceci obtient l'&eacute;tat de la souris 
+  PRINT x,y,buttons   
+ WEND
+</pre><br \>
+Avec cette connaissance, vous devriez &ecirc;tre en mesure de commencer la programmation dans FreeBASIC, avec tous les avantages que cela comporte. Vitesse, puissance et la portabilit&eacute;!<br \>
+
+</div>
+</div> 
+</div> 
+</body>
+</html>

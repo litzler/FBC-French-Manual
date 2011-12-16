@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Variables</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Variables</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Symboles repr&eacute;sentant les donn&eacute;es en m&eacute;moire.<br \>
+<br \>
+<div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Les variables sont des noms symboles qui peuvent &ecirc;tre manipul&eacute;s. Elles sont d&eacute;clar&eacute;es et r&eacute;f&eacute;renc&eacute;es en utilisant des noms compos&eacute;s de lettres, de chiffres et le caract&egrave;re "_". Ces noms de r&eacute;f&eacute;rence ne peuvent pas contenir la plupart des autres symboles parce que ceuc-ci font partie du langage de programmation FreeBasic. Ils ne peuvent pas contenir d'espaces.  Voir <i><a href="ProPgIdentifierRules.html">R&egrave;gles d'identification</a></i>.<br \>
+<br \>
+En FreeBasic, les variables peuvent &ecirc;tre d&eacute;finies en utilisant la d&eacute;claration <tt><a href="KeyPgDim.html">Dim</a></tt>. <br \>
+<br \>
+Les variables sont disponibles pour un acc&egrave;s ult&eacute;rieur en fonction du lieu et comment la d&eacute;claration <tt><a href="KeyPgDim.html">Dim</a></tt> a &eacute;t&eacute; donn&eacute;e pour cette variable.  Selon sa <a href="ProPgVariableScope.html">port&eacute;e</a>, une variable d&eacute;finie est accessible dans lapartie principale du programme, dans une proc&eacute;dure, &agrave; travers le module entier ou dans tout le programme.  Voir <i><a href="ProPgVariableScope.html">Port&eacute;e des variables</a></i>.<br \>
+<br \>
+Les variables sont &eacute;galement disponibles lorsqu'elles sont pass&eacute;es comme param&egrave;tres &agrave; une proc&eacute;dure telle que <tt><a href="KeyPgFunction.html">Function</a></tt> ou <tt><a href="KeyPgSub.html">Sub</a></tt>.<br \>
+<br \>
+D&egrave;s qu'une variable est d&eacute;clar&eacute;e avec l'instruction <tt><a href="KeyPgDim.html">Dim</a></tt>, elle peut &ecirc;tre affect&eacute;e, pass&eacute;e &agrave; des proc&eacute;dures et utilis&eacute;e dans des expressions ayant un <a href="CatPgStdDataTypes.html">type de donn&eacute;es standard</a> similaire.  Parfois, les variables sont automatiquement converties vers d'autres types de donn&eacute;es avant d'&ecirc;tre utilis&eacute;es dans des expressions ou transmises en tant que param&egrave;tres &agrave; des proc&eacute;dures.  Voir <i><a href="ProPgDataConversion.html">Promotion et Conversion</a></i>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;compile&nbsp;with&nbsp;-lang&nbsp;qb&nbsp;or&nbsp;fblite</span><br />
+<br />
+<span class="com">'$lang:&nbsp;"qb"</span><br />
+<br />
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">PrintConstants</span><span class="oth">()</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">FirstNumber</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">SecondNumber</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="wrd">FirstNumber</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br />
+<span class="wrd">SecondNumber</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span><br />
+<br />
+<span class="wrd">PrintConstants</span>&nbsp;<span class="oth">()</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">FirstNumber</span><span class="oth">,</span>&nbsp;<span class="wrd">SecondNumber</span><span class="oth">,</span>&nbsp;<span class="wrd">ThirdNumber</span>&nbsp;<span class="com">'This&nbsp;will&nbsp;print&nbsp;1&nbsp;2&nbsp;0</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">PrintConstants</span>&nbsp;<span class="oth">()</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">ThirdNumber</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">ThirdNumber</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">FirstNumber</span><span class="oth">,</span>&nbsp;<span class="wrd">SecondNumber</span><span class="oth">,</span>&nbsp;<span class="wrd">ThirdNumber</span>&nbsp;<span class="com">'This&nbsp;will&nbsp;print&nbsp;0&nbsp;2&nbsp;3</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="ProPgDataConversion.html">Promotion et Conversion</a><br \>
+<li> <tt><a href="KeyPgDim.html">Dim</a></tt><br \>
+<li> <a href="ProPgIdentifierRules.html">R&egrave;gles d'identification</a><br \>
+<li> <a href="ProPgVariableScope.html">Port&eacute;e d'une variable</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>ChDir</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">ChDir</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Change le lecteur et le r&eacute;pertoire<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>ChDir</b> ( <a href="KeyPgByref.html">ByRef</a> <i>path</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgString.html">String</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>ChDir</b>( <i>path</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>path</i></tt><br \>
+<div class="fb_indent">Une <tt><a href="KeyPgString.html">String (= Chaîne)</a></tt> sp&eacute;cifiant le nouveau chemin &agrave; changer.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne z&eacute;ro (0) si succ&egrave;s et une valeur n&eacute;gative (-1) en cas d'&eacute;chec.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Change le lecteur et le r&eacute;pertoire courant pour celui qui est indiqu&eacute;.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">pathname</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"x:\folder"</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">result</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ChDir</span><span class="oth">(</span><span class="wrd">pathname</span><span class="oth">)</span><br />
+<br />
+<span class="key">If</span>&nbsp;<span class="num">0</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="wrd">result</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"error&nbsp;changing&nbsp;current&nbsp;directory&nbsp;to&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">pathname</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"."</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li> Linux n&eacute;cessite que la casse de <i>filename</i> corresponde &agrave; celle du nom r&eacute;el du fichier. Windows et DOS ne sont pas  sensibles &agrave; la casse. <br \>
+<li> Les s&eacute;parateurs de chemin sous Linux sont des barres obliques / . Windows utilise des barres obliques arri&egrave;re  \ mais il permet les barres obliques .  DOS utilise des barres obliques arri&egrave;re  \ .<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Dans QB, le lecteur peut ne pas &ecirc;tre sp&eacute;cifi&eacute;.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgMkdir.html">MkDir</a></tt><br \>
+<li> <tt><a href="KeyPgRmdir.html">RmDir</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

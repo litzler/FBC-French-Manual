@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Operator = (Assign)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Op&eacute;rateur = (Affectation)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Affecte une valeur &agrave; une variable<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>Let</b> ( <a href="KeyPgByref.html">ByRef</a> <i>lhs</i> <a href="KeyPgAs.html">As</a> <i>T1</i>, <a href="KeyPgByref.html">ByRef</a> <i>rhs</i> <a href="KeyPgAs.html">As</a> <i>T2</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>lhs</i> <b>=</b> <i>rhs</i><br \>
+<br \>
+<div class="fb_indent"></tt><i>ou, dans le dialecte </i>QB<i>,</i><tt><br \>
+<br \>
+</div>[ <a href="KeyPgLet.html">Let</a> ] <i>lhs</i> <b>=</b> <i>rhs</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>lhs</i></tt><br \>
+<div class="fb_indent">La variable qui re&ccedil;oit l'affectation.<br \>
+</div><tt><i>T1</i></tt><br \>
+<div class="fb_indent">Une cha&icirc;ne ou un type pointeur.<br \>
+</div><tt><i>rhs</i></tt><br \>
+<div class="fb_indent">La valeur &agrave; assigner &agrave; <tt><i>lhs</i></tt>.<br \>
+</div><tt><i>T2</i></tt><br \>
+<div class="fb_indent">Tout type convertible<tt><i>T2</i></tt>.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Cet op&eacute;rateur affecte la valeur de son op&eacute;rande de droite (<tt><i>rhs</i></tt>) &agrave; son op&eacute;rande de gauche (<tt><i>lhs</i></tt>). L'op&eacute;rande de droite doit &ecirc;tre implicitement convertible dans le type de celui de gauche (<tt><i>T1</i></tt>). Par exemple, vous ne pouvez pas assigner une valeur num&eacute;rique &agrave; un type de cha&icirc;ne; pour le faire, vous devez d'abord convertir la valeur num&eacute;rique en une cha&icirc;ne &agrave; l'aide de <tt><a href="KeyPgStr.html">Str</a></tt> ou <tt><a href="KeyPgWstr.html">WStr</a></tt>.<br \>
+<br \>
+Evitez la confusion avec <tt><a href="KeyPgOpEqual.html">Op&eacute;rateur = (Egal)</a></tt>, qui utilise &eacute;galement le symbole '='.<br \>
+<br \>
+Cet op&eacute;rateur peut &ecirc;tre surcharg&eacute; pour des types d&eacute;finis par l'utilisateur.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">420</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;&lt;-&nbsp;this&nbsp;is&nbsp;the&nbsp;assignment&nbsp;operator</span><br />
+<br />
+<span class="key">If</span>&nbsp;&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">69</span>&nbsp;<span class="key">Then</span>&nbsp;&nbsp;&nbsp;<span class="com">'&lt;-this&nbsp;is&nbsp;the&nbsp;equivalence&nbsp;operator&nbsp;</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"ERROR:&nbsp;i&nbsp;should&nbsp;equal&nbsp;420"</span><br />
+&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="oth">-</span><span class="num">1</span><br />
+<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"All&nbsp;is&nbsp;good."</span><br />
+<span class="key">End</span>&nbsp;<span class="num">0</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;compile&nbsp;with&nbsp;-lang&nbsp;fblite&nbsp;or&nbsp;qb</span><br />
+<br />
+<span class="def">#lang&nbsp;"fblite"<br />
+</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<span class="key">Let</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">300</span>&nbsp;<span class="com">'&nbsp;&lt;-alternate&nbsp;syntax</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, cet op&eacute;rateur ne peut pas &ecirc;tre surcharg&eacute;.<br \>
+<li> Dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, une expression d'affectation peut &ecirc;tre pr&eacute;c&eacute;d&eacute;e par le mot-cl&eacute; <tt><a href="KeyPgLet.html">Let</a></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> None<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOpEqual.html">Op&eacute;rateur = (Egal)</a></tt><br \>
+<li> <tt><a href="KeyPgOpLet.html">Op&eacute;rateur Let (Affectation)</a></tt><br \>
+<li> <tt><a href="KeyPgSwap.html">Swap</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

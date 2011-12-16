@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>Procedures</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Proc&eacute;dures</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Mots-cl&eacute;s qui fonctionnent avec des proc&eacute;dures.<br \>
+<br \>
+<div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent">Ces mots-cl&eacute;s contr&ocirc;lent la d&eacute;claration et la d&eacute;finition des proc&eacute;dures, &agrave; la fois, au niveau du module et au niveau des membres de proc&eacute;dures, comment ils sont appel&eacute;s, comment les arguments sont pass&eacute;s et la mani&egrave;re dont leurs noms sont vus &agrave; l'ext&eacute;rieur par les autres modules. Des proc&eacute;dures peuvent &eacute;galement &ecirc;tre d&eacute;clar&eacute;es d'&ecirc;tre ex&eacute;cut&eacute;es automatiquement avant que tout autre code de niveau module ne soit ex&eacute;cut&eacute;.<br \>
+<br \>
+</div><b><a href="#DECLARATION">D&eacute;claration</a></b><br \>
+<div class="fb_indent">Mots-cl&eacute;s que d&eacute;clarent et d&eacute;finissent des proc&eacute;dures.<br \>
+</div><b><a href="#LINKAGE">Liens</a></b><br \>
+<div class="fb_indent">Mots-cl&eacute;s qui sp&eacute;cifient comment les noms de proc&eacute;dures sont per&ccedil;us par des modules externes.<br \>
+</div><b><a href="#CALLCONV">Conventions d'appel</a></b><br \>
+<div class="fb_indent">Mots-cl&eacute;s qui pr&eacute;cisent comment les arguments sont utilis&eacute;s lors de l'appel de proc&eacute;dures.<br \>
+</div><b><a href="#PARAMCONV">Conventions de passage de param&egrave;tre(s)</a></b><br \>
+<div class="fb_indent">Mots-cl&eacute;s qui sp&eacute;cifient comment les arguments sont pass&eacute;s aux proc&eacute;dures.<br \>
+</div><b><a href="#VARIADIC">Proc&eacute;dures "Variadic"</a></b><br \>
+<div class="fb_indent">Les macros qui permettent de passer un nombre arbitraire d'arguments &agrave; une proc&eacute;dure.<br \>
+</div><b><a href="#AUTOEXEC">Ex&eacute;cution automatique</a></b><br \>
+<div class="fb_indent">Mots-cl&eacute;s qui sp&eacute;cifient l'ex&eacute;cution automatique de proc&eacute;dures.<br \>
+</div><b><a href="#MISC">Divers</a></b><br \>
+<div class="fb_indent">Divers mots-cl&eacute;s.<br \>
+<br \>
+</div><table class="fb_box"><tr><td><a name="DECLARATION"></a><b><u>D&eacute;claration</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgDeclare.html">Declare</a></b><br \>
+<div class="fb_indent">D&eacute;clare une proc&eacute;dure au niveau module ou une proc&eacute;dure membre.<br \>
+</div><b><a href="KeyPgSub.html">Sub</a></b><br \>
+<div class="fb_indent">Indique une proc&eacute;dure qui ne renvoie pas d'argument.<br \>
+</div><b><a href="KeyPgFunction.html">Function</a></b><br \>
+<div class="fb_indent">Indique une proc&eacute;dure qui retourne un argument.<br \>
+</div><b><a href="KeyPgOverload.html">Overload</a></b><br \>
+<div class="fb_indent">Indique que le nom de la proc&eacute;dure peut &ecirc;tre utilis&eacute; dans des d&eacute;clarations d'autres proc&eacute;dures.<br \>
+</div><b><a href="KeyPgStatic.html">Static</a></b><br \>
+<div class="fb_indent">Sp&eacute;cifie un stockage statique pour toutes les variables et les objets dans le corps de la proc&eacute;dure.<br \>
+</div><b><a href="KeyPgConstMember.html">Const (Membre)</a></b><br \>
+<div class="fb_indent">Indique un membre de proc&eacute;dure constant dans des d&eacute;finitions de type d&eacute;fini par l'utilisateur.<br \>
+</div><b><a href="KeyPgStaticMember.html">Static (Membre)</a></b><br \>
+<div class="fb_indent">Indique un membre de proc&eacute;dure static dans des d&eacute;finitions de type d&eacute;fini par l'utilisateur.<br \>
+<br \>
+</div></div><a name="LINKAGE"></a><b><u>Liens</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgPublic.html">Public</a></b><br \>
+<div class="fb_indent">Sp&eacute;cifie un lien externe pour une proc&eacute;dure.<br \>
+</div><b><a href="KeyPgPrivate.html">Private</a></b><br \>
+<div class="fb_indent">Sp&eacute;cifie un lien interne pour une proc&eacute;dure.<br \>
+</div><b><a href="KeyPgAlias.html">Alias</a></b><br \>
+<div class="fb_indent">Sp&eacute;cifie un autre nom externe pour une proc&eacute;dure.<br \>
+</div><b><a href="KeyPgExport.html">Export</a></b><br \>
+<div class="fb_indent">Indique qu'une proc&eacute;dure doit &ecirc;tre export&eacute;e &agrave; partir d'une biblioth&egrave;que partag&eacute;e.<br \>
+</div><b><a href="KeyPgLib.html">Lib</a></b><br \>
+<div class="fb_indent">Indique le chargement automatique d'une biblioth&egrave;que.<br \>
+<br \>
+</div></div><a name="CALLCONV"></a><b><u>Conventions d'appel</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgStdcall.html">stdcall</a></b><br \>
+<div class="fb_indent">Indique la convention d'appel standard pour les langages BASIC, notamment FreeBASIC.<br \>
+</div><b><a href="KeyPgCdecl.html">cdecl</a></b><br \>
+<div class="fb_indent">Indique la convention d'appel standard en langages C and C++.<br \>
+</div><b><a href="KeyPgPascal.html">pascal</a></b><br \>
+<div class="fb_indent">Indique la convention d'appel standard pour les langages Fortran, Pascal et Microsoft QuickBASIC/QBasic.<br \>
+
+</div></div></td><td><a name="PARAMCONV"></a><b><u>Conventions de passage de param&egrave;tre(s)</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgByref.html">ByRef</a></b><br \>
+<div class="fb_indent">Indique le passage d'un argument par r&eacute;f&eacute;rence.<br \>
+</div><b><a href="KeyPgByval.html">ByVal</a></b><br \>
+<div class="fb_indent">Indique le passage d'un argument par valeur.<br \>
+</div><b><a href="KeyPgAny.html">Any</a></b><br \>
+<div class="fb_indent">D&eacute;sactive la v&eacute;rification de type sur des arguments.<br \>
+<br \>
+</div></div><a name="VARIADIC"></a><b><u>Proc&eacute;dures "Variadic"</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgDots.html">... (Ellipse)</a></b><br \>
+<div class="fb_indent">Indique une proc&eacute;dure "variadic" dans une d&eacute;claration.<br \>
+</div><b><a href="KeyPgVaFirst.html">va_first</a></b><br \>
+<div class="fb_indent">Macro pour obtenir la liste des arguments d'une proc&eacute;dure "variadic".<br \>
+</div><b><a href="KeyPgVaArg.html">va_arg</a></b><br \>
+<div class="fb_indent">Macro pour obtenir l'argument courant dans une proc&eacute;dure "variadic".<br \>
+</div><b><a href="KeyPgVaNext.html">va_next</a></b><br \>
+<div class="fb_indent">Macro pour passer &agrave; l'argument suivant dans une proc&eacute;dure "variadic".<br \>
+<br \>
+</div></div><a name="AUTOEXEC"></a><b><u>Ex&eacute;cution automatique</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgModuleConstructor.html">Constructor (Module)</a></b><br \>
+<div class="fb_indent">Indique une proc&eacute;dure qui doit &ecirc;tre ex&eacute;cut&eacute;e avant le code au niveau du module.<br \>
+</div><b><a href="KeyPgModuleDestructor.html">Destructor (Module)</a></b><br \>
+<div class="fb_indent">Indique une proc&eacute;dure qui doit &ecirc;tre ex&eacute;cut&eacute;e apr&egrave;s le code au niveau du module.<br \>
+<br \>
+</div></div><a name="MISC"></a><b><u>Divers</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgCall.html">Call</a></b><br \>
+<div class="fb_indent">Appelle une proc&eacute;dure.<br \>
+</div><b><a href="KeyPgNaked.html">Naked</a></b><br \>
+<div class="fb_indent">Sp&eacute;cifie qu'un corps de la fonction ne doit avoir aucun code prologue/&eacute;pilogue<br \>
+</div></div></td></tr></table><div style="clear:both">&nbsp;</div><br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

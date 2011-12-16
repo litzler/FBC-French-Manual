@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>View (Graphics)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">View (Graphics)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Valide la "cartographie" des nouvelles coordonn&eacute;es physiques et de la zone de visualisation graphique (clipping region)<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>View</b><br \>
+<b>View</b> ( <i>x1</i>, <i>y1</i> )-( <i>x2</i>, <i>y2</i> ) [ [, <i>fill_color</i> ] [, <i>border_color</i> ] ]<br \>
+<b>View Screen</b> ( <i>x1</i>, <i>y1</i> )-( <i>x2</i>, <i>y2</i> ) [ [, <i>fill_color</i> ] [, <i>border_color</i> ] ]<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>x1</i></tt> <tt><a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a></tt>, <tt><i>y1</i></tt> <tt><a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a></tt><br \>
+<div class="fb_indent">Coordonn&eacute;es horizontales et verticales, en pixels, relatives au coin en haut &agrave; gauche de l'&eacute;cran, d'un coin de la zone de visualisation graphique (viewport).<br \>
+</div><tt><i>x2</i></tt> <tt><a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a></tt>, <tt><i>y2</i></tt> <tt><a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a></tt><br \>
+<div class="fb_indent">Coordonn&eacute;es horizontales et verticales, en pixels, relatives au coin en haut &agrave; gauche de l'&eacute;cran, du coin oppos&eacute; de la zone de visualisation graphique (viewport).<br \>
+</div><tt><i>fill_color</i></tt> <tt><a href="KeyPgAs.html">As</a> <a href="KeyPgUinteger.html">UInteger</a></tt><br \>
+<div class="fb_indent">Couleur de remplissage de la nouvelle zone de visualisation graphique.<br \>
+</div><tt><i>border_color</i></tt> <tt><a href="KeyPgAs.html">As</a> <a href="KeyPgUinteger.html">UInteger</a></tt><br \>
+<div class="fb_indent">Couleur des bords &agrave; tracer autour de la nouvelle zone de visualisation graphique.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+La <i>viewport</i>, ou "clipping region" (zone de visualisation graphique), est une zone rectangulaire de l'&eacute;cran graphique, en-dehors de laquelle aucun trac&eacute; n'est possible. That is, only drawing done within this area will be shown. Un &eacute;cran graphique doit avoir &eacute;t&eacute; cr&eacute;&eacute; avec  <tt><a href="KeyPgScreengraphics.html">Screen</a></tt> ou <tt><a href="KeyPgScreenres.html">ScreenRes</a></tt> avant d'appeler <tt><b>View</b></tt> ou <tt><b>View Screen</b></tt>.<br \>
+<br \>
+La premi&egrave;re d&eacute;claration d&eacute;finit la fen&ecirc;tre pour englober la totalit&eacute; de l'&eacute;cran, c'est la valeur par d&eacute;faut de la zone de visualisation graphique pour un nouvel &eacute;cran graphique.<br \>
+<br \>
+Les deuxi&egrave;me et troisi&egrave;me d&eacute;clarations permettent, toutes les deux, une nouvelle zone de visualisation graphique &agrave; d&eacute;finir. Les coins de la zone de visualisation graphique sont donn&eacute;s par les param&egrave;tres <tt><i>x1</i></tt>, <tt><i>y1</i></tt>, <tt><i>x2</i></tt> et <tt><i>y2</i></tt>. <tt><i>fill_color</i></tt> et <tt><i>border_color</i></tt> sont tous les deux dans un format valide pour <tt><a href="KeyPgColor.html">Color</a></tt>. Les effets indiqu&eacute;s pour chaque param&egrave;tre ne se produisent que si celui-ci est sp&eacute;cifi&eacute;.<br \>
+<br \>
+La seconde d&eacute;claration modifie la cartographie des coordonn&eacute;es de l'&eacute;cran graphique de fa&ccedil;on &agrave; ce que les coordonn&eacute;es sp&eacute;cifi&eacute;es pour les op&eacute;rations de dessin soient relatives au en haut &agrave; gauche de la zone de visualisation graphique.<br \>
+<br \>
+La troisi&egrave;me d&eacute;claration modifie la cartographie des coordonn&eacute;es de l'&eacute;cran graphique de fa&ccedil;on &agrave; ce que les coordonn&eacute;es sp&eacute;cifi&eacute;es pour les op&eacute;rations de dessin soient relatives au en haut &agrave; gauche de la zone de visualisation graphique.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Screen</span>&nbsp;<span class="num">12</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">ip</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">i</span><span class="oth">,</span>&nbsp;<span class="wrd">j</span><span class="oth">,</span>&nbsp;<span class="wrd">k</span><br />
+<span class="com">'simple&nbsp;sprite</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">i</span><span class="oth">=</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">63</span><span class="oth">:</span>&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">j</span><span class="oth">=</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">63</span><span class="oth">:</span><span class="key">PSet</span>&nbsp;<span class="oth">(</span><span class="wrd">i</span><span class="oth">,</span><span class="wrd">j</span><span class="oth">),</span>&nbsp;<span class="oth">(</span><span class="wrd">i</span><span class="oth">\</span><span class="num">4</span><span class="oth">)</span>&nbsp;<span class="key">Xor</span>&nbsp;<span class="oth">(</span><span class="wrd">j</span><span class="oth">\</span><span class="num">4</span><span class="oth">):</span><span class="key">Next</span>&nbsp;<span class="wrd">j</span><span class="oth">,</span><span class="wrd">i</span><br />
+<span class="wrd">ip</span><span class="oth">=</span><span class="key">ImageCreate</span><span class="oth">(</span><span class="num">64</span><span class="oth">,</span><span class="num">64</span><span class="oth">)</span><br />
+<span class="key">Get</span>&nbsp;<span class="oth">(</span><span class="num">0</span><span class="oth">,</span><span class="num">0</span><span class="oth">)-(</span><span class="num">63</span><span class="oth">,</span><span class="num">63</span><span class="oth">),</span><span class="wrd">ip</span><br />
+<span class="key">Cls</span><br />
+<span class="com">'viewport</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">215</span><span class="oth">,</span><span class="num">135</span><span class="oth">)-(</span><span class="num">425</span><span class="oth">,</span><span class="num">345</span><span class="oth">),</span><span class="num">1</span><span class="oth">,</span><span class="wrd">bf</span><br />
+<span class="key">View</span>&nbsp;&nbsp;<span class="oth">(</span><span class="num">220</span><span class="oth">,</span><span class="num">140</span><span class="oth">)-(</span><span class="num">420</span><span class="oth">,</span><span class="num">340</span><span class="oth">)</span><br />
+<span class="wrd">k</span><span class="oth">=</span><span class="num">0</span><br />
+<span class="com">'deplace&nbsp;sprite</span><br />
+<span class="key">Do</span><br />
+&nbsp;&nbsp;<span class="wrd">i</span><span class="oth">=</span><span class="num">100</span><span class="oth">*</span><span class="key">Sin</span><span class="oth">(</span><span class="wrd">k</span><span class="oth">*</span><span class="num">.02</span><span class="oth">)+</span><span class="num">50</span><span class="oth">:</span>&nbsp;&nbsp;<span class="wrd">j</span><span class="oth">=</span><span class="num">100</span><span class="oth">*</span>&nbsp;<span class="key">Sin</span><span class="oth">(</span><span class="wrd">k</span><span class="oth">*</span><span class="num">.027</span><span class="oth">)+</span><span class="num">50</span><br />
+&nbsp;&nbsp;<span class="key">ScreenSync</span><br />
+&nbsp;&nbsp;<span class="key">ScreenLock</span><br />
+&nbsp;&nbsp;<span class="key">Cls</span>&nbsp;<span class="num">1</span><span class="oth">:</span>&nbsp;<span class="key">Put</span>&nbsp;<span class="oth">(</span><span class="wrd">i</span><span class="oth">,</span><span class="wrd">j</span><span class="oth">),</span><span class="wrd">ip</span>&nbsp;<span class="oth">,</span><span class="key">PSet</span><br />
+&nbsp;&nbsp;<span class="key">ScreenUnlock</span><br />
+&nbsp;&nbsp;<span class="wrd">k</span><span class="oth">=</span><span class="wrd">k</span><span class="oth">+</span><span class="num">1</span><br />
+<span class="key">Loop</span>&nbsp;<span class="key">Until</span>&nbsp;<span class="key">Len</span><span class="oth">(</span><span class="key">Inkey</span><span class="oth">)</span><br />
+<span class="key">ImageDestroy</span><span class="oth">(</span><span class="wrd">ip</span><span class="oth">)</span><br />
+<br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> QBASIC conserve la cartographie des coordonn&eacute;es de <tt>WINDOW</tt> apr&egrave;s des appels successifs &agrave; <tt>VIEW</tt>.<br \>
+<li> Le comportement actuel de FreeBASIC est conserver les coordonn&eacute;esde <tt>WINDOW</tt> apr&egrave;s des appels &agrave; <tt>VIEW</tt>, ou lors d'une t&acirc;che sur une image, ce qui signifie que les coordonn&eacute;es de cartographie peuvent faire l'objet "mise-&agrave;-l'&eacute;chelle/d&eacute;placements" si la zone de visualisation graphique change. (Si une <tt>WINDOW</tt> a &eacute;t&eacute; d&eacute;finie, il n'y a pas de cartographie des coordonn&eacute;es, et ainsi pas de changements apr&egrave;s des appels &agrave; <tt>VIEW</tt>.)  Ce comportement peut changer &agrave; l'avenir, mais un comportement coh&eacute;rent peut &ecirc;tre assur&eacute; au cours de la visualisation de coordonn&eacute;es inconsistantes de la zone de visualisation graphique par un rappel de <tt>WINDOW</tt> lorsque vous changez <tt>VIEW</tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgViewtext.html">View Print</a></tt><br \>
+<li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt><br \>
+<li> <tt><a href="KeyPgWindow.html">Window</a></tt><br \>
+<li> <tt><a href="KeyPgPmap.html">PMap</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

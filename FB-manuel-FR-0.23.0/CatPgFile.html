@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>File I/O Functions</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Fonctions d'entr&eacute;e/sortie fichier</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;clarations et les proc&eacute;dures pour travailler avec les fichiers et les p&eacute;riph&eacute;riques.<br \>
+<br \>
+<div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent">Ces d&eacute;clarations et proc&eacute;dures fournissent des possibilit&eacute;s d'entr&eacute;e/sortie fichiers et p&eacute;riph&eacute;riques. Des  <i>num&eacute;ros de fichier</i> peuventt &ecirc;tre li&eacute;s &agrave; des fichiers ou des p&eacute;riph&eacute;riques, qui peuvent &ecirc;tre lues ou &eacute;crites &agrave; l'aide de donn&eacute;es format&eacute;es (mode texte) ou non-format&eacute;e (mode binaire). En mode binaire, les fichiers et p&eacute;riph&eacute;riques peuvent &ecirc;tre lus ou &eacute;crits &agrave; des emplacements arbitraires. Pour applications "multi-thread", les fichiers et les p&eacute;riph&eacute;riques peuvent &eacute;galement &ecirc;tre verrouill&eacute;s.<br \>
+<br \>
+</div><b><a href="#FILEOPS">Ouverture de fichiers ou de p&eacute;riph&eacute;riques</a></b><br \>
+<div class="fb_indent">Proc&eacute;dures et autres mots-cl&eacute;s qui permettent l'acc&egrave;s, en lecture ou &eacute;criture, &agrave; un fichier ou un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="#FILEIO">Lecture et &eacute;criture de fichiers ou de p&eacute;riph&eacute;riques</a></b><br \>
+<div class="fb_indent">Proc&eacute;dures pour lire et &eacute;crire des donn&eacute;es dans un fichier ouvert ou un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="#FILEPOS">Position dans un fichier et autres informations</a></b><br \>
+<div class="fb_indent">Proc&eacute;dures qui d&eacute;terminent o&ugrave; la lecture et l'&eacute;criture aura lieu au sein d'un fichier ouvert.<br \>
+<br \>
+</div><table class="fb_box"><tr><td><a name="FILEOPS"></a><b><u>Ouverture de fichiers ou de p&eacute;riph&eacute;riques</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgFreefile.html">FreeFile</a></b><br \>
+<div class="fb_indent">Obtient un num&eacute;ro de fichier disponible qui peut &ecirc;tre utilis&eacute; pour lire ou &eacute;crire &agrave; partir de fichiers ou de p&eacute;riph&eacute;riques.<br \>
+</div><b><a href="KeyPgOpen.html">Open</a></b><br \>
+<div class="fb_indent">Lie un num&eacute;ro de fichier &agrave; un fichier physique pour fournir des capacit&eacute;s de lecture et d'&eacute;criture.<br \>
+</div><b><a href="KeyPgOpenCom.html">Open Com</a></b><br \>
+<div class="fb_indent">Lie un num&eacute;ro de fichier &agrave; un port de communication.<br \>
+</div><b><a href="KeyPgOpenCons.html">Open Cons</a></b><br \>
+<div class="fb_indent">Lie un num&eacute;ro de fichier aux flux d'entr&eacute;e ou de sortie standard.<br \>
+</div><b><a href="KeyPgOpenErr.html">Open Err</a></b><br \>
+<div class="fb_indent">Lie un num&eacute;ro de fichier aux flux d'entr&eacute;e et d'erreur standard.<br \>
+</div><b><a href="KeyPgOpenLpt.html">Open Lpt</a></b><br \>
+<div class="fb_indent">Lie un num&eacute;ro de fichier &agrave; un p&eacute;riph&eacute;rique d'impression.<br \>
+</div><b><a href="KeyPgOpenPipe.html">Open Pipe</a></b><br \>
+<div class="fb_indent">Lie un num&eacute;ro de fichier aux flux d'entr&eacute;e ou de sortie d'un processus.<br \>
+</div><b><a href="KeyPgOpenScrn.html">Open Scrn</a></b><br \>
+<div class="fb_indent">Lie un num&eacute;ro de fichier directement &agrave; la console.<br \>
+</div><b><a href="KeyPgClose.html">Close</a></b><br \>
+<div class="fb_indent">D&eacute;connecte un num&eacute;ro de fichier d'un fichier ou d'un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgReset.html">Reset</a></b><br \>
+<div class="fb_indent">D&eacute;connecte tous les num&eacute;ros de fichiers actifs.<br \>
+<br \>
+</div><b>Modes d'entr&eacute;e/sortie fichier</b><br \>
+<div class="fb_indent"><b><a href="KeyPgInputfilemode.html">Input (Mode fichier)</a></b><br \>
+<div class="fb_indent">Les donn&eacute;es de texte peuvent &ecirc;tre lues &agrave; partir du fichier.<br \>
+</div><b><a href="KeyPgOutput.html">Output</a></b><br \>
+<div class="fb_indent">Les donn&eacute;es de texte peuvent &ecirc;tre &eacute;crites dans le fichier.<br \>
+</div><b><a href="KeyPgAppend.html">Append</a></b><br \>
+<div class="fb_indent">Les donn&eacute;es de texte sont ajout&eacute;es &agrave; la fin d'un fichier qui est d&eacute;j&agrave; ouvert (Output).<br \>
+</div><b><a href="KeyPgBinary.html">Binary</a></b><br \>
+<div class="fb_indent">Des donn&eacute;es binaires peuvent &ecirc;tre lues ou &eacute;crites dans le fichier.<br \>
+</div><b><a href="KeyPgRandom.html">Random</a></b><br \>
+<div class="fb_indent">Des blocs de donn&eacute;es d'une certaine taille peuvent &ecirc;tre lus et &eacute;crits dans le fichier.<br \>
+<br \>
+</div></div><b>Privil&egrave;ges d'acc&egrave;s aux fichiers</b><br \>
+<div class="fb_indent"><b><a href="KeyPgAccess.html">Access</a></b><br \>
+<div class="fb_indent">Un aper&ccedil;u des privil&egrave;ges d'acc&egrave;s aux fichiers.<br \>
+</div><b><a href="KeyPgReadFile.html">Read (Acc&egrave;s fichier)</a></b><br \>
+<div class="fb_indent">Les donn&eacute;es binaires peuvent seulement &ecirc;tre lues &agrave; partir du fichier.<br \>
+</div><b><a href="KeyPgWriteFile.html">Write (Acc&egrave;s fichier)</a></b><br \>
+<div class="fb_indent">Les donn&eacute;es binaires peuvent seulement &ecirc;tre &eacute;crites dans le fichier.<br \>
+</div><b><a href="KeyPgReadWriteFile.html">Read Write(Acc&egrave;s fichier)</a></b><br \>
+<div class="fb_indent">Les donn&eacute;es binaires peuvent &ecirc;tre lues et &eacute;crites dans le fichier..<br \>
+<br \>
+</div></div><b>Encodage des caract&egrave;res</b><br \>
+<div class="fb_indent"><b><a href="KeyPgEncoding.html">Encoding</a></b><br \>
+<div class="fb_indent">Sp&eacute;cifie l'encodage des caract&egrave;res d'un fichier.<br \>
+</div></div></div></td><td><a name="FILEIO"></a><b><u>Lecture et &eacute;criture de fichiers ou de p&eacute;riph&eacute;riques</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgInputPp.html">Input #</a></b><br \>
+<div class="fb_indent">Lit une liste de valeurs &agrave; partir d'un fichier ou un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgWritePp.html">Write #</a></b><br \>
+<div class="fb_indent">Ecrit une liste de valeurs dans un fichier ou un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgInputnum.html">Input()</a></b><br \>
+<div class="fb_indent">Lit un nombre de caract&egrave;res &agrave; partir d'un fichier ou d'un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgWinput.html">Winput()</a></b><br \>
+<div class="fb_indent">Lit un nombre de "caract&egrave;res larges" &agrave; partir d'un fichier ou d'un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgLineinputPp.html">Line Input #</a></b><br \>
+<div class="fb_indent">Lit une ligne de texte &agrave; partir d'un fichier ou d'un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgPrintPp.html">Print #</a></b><br \>
+<div class="fb_indent">&Eacute;crit des donn&eacute;es texte dans un fichier ou un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgPrintusingPp.html">Print # Using</a></b><br \>
+<div class="fb_indent">&Eacute;crit des donn&eacute;es format&eacute;es dans un fichier ou un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgPutfileio.html">Put #</a></b><br \>
+<div class="fb_indent">&Eacute;crit des donn&eacute;es binaires vers un fichier ou un p&eacute;riph&eacute;rique.<br \>
+</div><b><a href="KeyPgGetfileio.html">Get #</a></b><br \>
+<div class="fb_indent">Lit des donn&eacute;es binaires &agrave; partir d'un fichier ou d'un p&eacute;riph&eacute;rique.<br \>
+<br \>
+</div></div><a name="FILEPOS"></a><b><u>Position dans un fichier et autres informations</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgLof.html">LOF</a></b><br \>
+<div class="fb_indent">Obtient la longueur (en octets) d'un fichier.<br \>
+</div><b><a href="KeyPgLoc.html">LOC</a></b><br \>
+<div class="fb_indent">Obtient la position dans un fichier de la derni&egrave;re lecture ou &eacute;criture.<br \>
+</div><b><a href="KeyPgEof.html">EOF</a></b><br \>
+<div class="fb_indent">Renvoie "Vrai" si toutes les donn&eacute;es ont &eacute;t&eacute; lues &agrave; partir d'un fichier.<br \>
+</div><b><a href="KeyPgSeekset.html">Seek (D&eacute;claration)</a></b><br \>
+<div class="fb_indent">D&eacute;finit la position dans un fichier de la prochaine op&eacute;ration de lecture ou d'&eacute;criture.<br \>
+</div><b><a href="KeyPgSeekreturn.html">Seek (Fonction)</a></b><br \>
+<div class="fb_indent">Obtient la position dans un fichier de la prochaine op&eacute;ration de lecture ou d'&eacute;criture.<br \>
+</div><b><a href="KeyPgLock.html">Lock</a></b><br \>
+<div class="fb_indent">Limite l'acc&egrave;s en lecture/&eacute;criture sur un fichier ou une partie d'un fichier.<br \>
+</div><b><a href="KeyPgUnlock.html">Unlock</a></b><br \>
+<div class="fb_indent">Supprime une restriction d'acc&egrave;s pr&eacute;c&eacute;dente impos&eacute;e par la commande <a href="KeyPgLock.html">Lock</a>.<br \>
+</div></div></td></tr></table><div style="clear:both">&nbsp;</div><br \>
+<br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

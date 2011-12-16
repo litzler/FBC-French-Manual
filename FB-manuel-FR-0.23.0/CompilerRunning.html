@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Running</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Fonctionnement du compilateur</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Utilisation du compilateur apr&egrave;s l'installation.<br \>
+<br \>
+<b><u>Windows</u></b><br \>
+<div class="fb_indent">Le compilateur peut &ecirc;tre appel&eacute; manuellement &agrave; partir de la ligne de commande ou automatiquement par votre &eacute;diteur de Code/IDE. Si vous utilisez un IDE, vous aurez g&eacute;n&eacute;ralement &agrave; lui dire o&ugrave; le compilateur a &eacute;t&eacute; install&eacute;, ainsi il peut le trouver. Comment faire exactement cela, d&eacute;pend de l'IDE. <br \>
+<br \>
+Pour compiler manuellement, vous devez ajouter le r&eacute;pertoire d'installation de FreeBasic &agrave; votre variable d'environnement PATH, la s&eacute;parant des autres en utilisant un point-virgule. Maintenant vous pouvez simplement utiliser "fbc" de l'invite de commande, au lieu de toujours avoir &agrave; taper le chemin d'acc&egrave;s complet (exemple "C:\FreeBASIC\fbc.exe").<br \>
+<br \>
+Ensuite, ouvrez une console/invite de commande/invite MS DOS, dans le m&ecirc;me r&eacute;pertoire que votre programme. Pour compiler votre programme, vous pouvez utiliser:<br \>
+<br \>
+<div class="fb_indent"><tt>C:\mystuff\myprogram\&gt; fbc myprogram.bas</tt><br \>
+<br \>
+</div>et <tt>myprogram.exe</tt> sera cr&eacute;&eacute; dans le m&ecirc;me r&eacute;pertoire.<br \>
+<br \>
+Une console peut &ecirc;tre ouverte dans un r&eacute;pertoire sp&eacute;cifique &agrave; partir d'Explorer &agrave; l'aide de Microsoft "Open Command Window Here" PowerToy sur Windows XP. Sous Windows Vista & apr&egrave;s vous pouvez SHIFT+ClicDroit sur un dossier dans l'explorateur pour voir l'option 'Open Command Window Here'. En dernier recours, vous pouvez &eacute;galement s&eacute;lectionner Start -&gt; Ex&eacute;cutez, tapez "cmd" et appuyez sur Entr&eacute;e, et utilisez la commande "cd" pour changer le r&eacute;pertoire courant.<br \>
+<br \>
+<br \>
+Note: Vous pouvez en effet lancer le compilateur &agrave; partir de n'importe quel r&eacute;pertoire, mais vous devez sp&eacute;cifier le chemin d'acc&egrave;s correct &agrave; votre programme, de sorte que le compilateur puisse le trouver, par exemple:<br \>
+<br \>
+<div class="fb_indent"><tt>C:\&gt; fbc mystuff\myprogram\myprogram.bas</tt><br \>
+<br \>
+</div>L'ex&eacute;cutable r&eacute;sultant sera encore mis dans le m&ecirc;me r&eacute;pertoire que le programme.<br \>
+<br \>
+</div><b><u>Linux</u></b><br \>
+<div class="fb_indent">Si le script install.sh a &eacute;t&eacute; ex&eacute;cut&eacute; avec succ&egrave;s avec suffisamment de privil&egrave;ges, le binaire du compilateur doit &ecirc;tre copi&eacute; dans <tt>/usr/local/bin/fbc</tt>, permettant &agrave; tout utilisateur l'acc&egrave;s au compilateur de n'importe quel r&eacute;pertoire.<br \>
+<br \>
+Depuis l'invite, tapez:<br \>
+<br \>
+<div class="fb_indent"> <tt>fbc</tt><br \>
+<br \>
+</div>pour voir une liste d'options.  Pour compiler l'exemple de programme "Hello, world!" ("Bonjour, monde!), acc&eacute;dez au r&eacute;pertoire o&ugrave; les exemples FreeBasic ont &eacute;t&eacute; install&eacute;s (/usr/local/share/freebasic) et tapez:<br \>
+<br \>
+<div class="fb_indent"><tt>fbc examples/misc/hello.bas</tt><br \>
+<br \>
+</div>et un fichier ex&eacute;cutable <tt>./hello</tt> sera cr&eacute;&eacute; dans le r&eacute;pertoire <tt>examples/misc</tt>.<br \>
+<br \>
+</div><b><u>Linux (autonome)</u></b><br \>
+<div class="fb_indent">Si le script <tt>install-standalone.sh</tt> a &eacute;t&eacute; ex&eacute;cut&eacute; avec succ&egrave;s avec suffisamment de privil&egrave;ges, un lien vers le fichier binaire du compilateur doit avoir &eacute;t&eacute; cr&eacute;&eacute; &agrave; <tt>/usr/bin/fbc</tt>, permettant &agrave; tout utilisateur l'acc&egrave;s au compilateur depuis n'importe quel r&eacute;pertoire. S'il n'&eacute;tait pas possible de cr&eacute;er le lien, vous pouvez modifier votre variable d'environnement <tt>PATH</tt> pour &ecirc;tre en mesure d'appeler le compilateur &agrave; partir de n'importe quel r&eacute;pertoire. Acc&eacute;dez au r&eacute;pertoire o&ugrave; a &eacute;t&eacute; install&eacute; FreeBASIC.<br \>
+<br \>
+Depuis l'invite, tapez:<br \>
+<br \>
+<div class="fb_indent"> <tt>fbc</tt><br \>
+<br \>
+</div>pour voir une liste d'options. Pour compiler l'exemple de programme "Hello, world!" ("Bonjour, monde!), tapez:<br \>
+<br \>
+<div class="fb_indent"><tt>fbc examples/misc/hello.bas</tt><br \>
+<br \>
+</div>et un fichier ex&eacute;cutable <tt>./hello</tt> sera cr&eacute;&eacute; dans le r&eacute;pertoire <tt>examples/misc</tt>.<br \>
+<br \>
+</div><b><u>DOS</u></b><br \>
+<div class="fb_indent">Acc&eacute;dez au r&eacute;pertoire o&ugrave; FreeBasic a &eacute;t&eacute; install&eacute;. Par exemple, si FreeBasic est install&eacute; dans le r&eacute;pertoire <tt>C:\FB</tt>, tapez:<br \>
+<br \>
+<div class="fb_indent"><tt>C:</tt><br \>
+<tt>CD FB</tt><br \>
+<br \>
+</div>Certains DOS acceptent aussi "<tt>CDD C:\FB</tt>". Vous pouvez &eacute;galement ajouter le r&eacute;pertoire de FreeBASIC &agrave; votre variable d'environnement PATH (g&eacute;n&eacute;ralement quelque chose comme "<tt>SET PATH=C:\FB\;%PATH%</tt>") de sorte que vous pourrez appeler le compilateur &agrave; partir de n'importe quel r&eacute;pertoire.<br \>
+<br \>
+Depuis l'invite, tapez:<br \>
+<br \>
+<div class="fb_indent"><tt>fbc</tt><br \>
+<br \>
+</div>pour voir une liste d'options. Pour compiler l'exemple de programme "Hello, world!" ("Bonjour, monde!), tapez:<br \>
+<br \>
+<div class="fb_indent"><tt>fbc examples\misc\hello.bas</tt><br \>
+<br \>
+</div>et un fichier ex&eacute;cutable <tt>hello.exe</tt> sera cr&eacute;&eacute; dans le r&eacute;pertoire <tt>examples\misc</tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="CompilerInstalling.html">Installation de FreeBASIC</a><br \>
+<li> <a href="CompilerCmdLine.html">Options de ligne de commande du compilateur</a><br \>
+<li> <a href="CompilerFAQ.html">FAQ du compilateur</a><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

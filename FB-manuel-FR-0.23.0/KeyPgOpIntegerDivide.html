@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Operator \ (Integer Divide)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Op&eacute;rateur \ (Division enti&egrave;re)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Divise deux expressions <tt><a href="KeyPgInteger.html">Integer (=entier)</a></tt><br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>\</b> ( <a href="KeyPgByref.html">ByRef</a> <i>lhs</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, <a href="KeyPgByref.html">ByRef</a> <i>rhs</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <i>lhs</i> <b></tt>\<tt></b> <i>rhs</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>lhs</i></tt><br \>
+<div class="fb_indent">Le dividende, argument c&ocirc;t&eacute; gauche.<br \>
+</div><tt><i>rhs</i></tt><br \>
+<div class="fb_indent">Le diviseur, argument c&ocirc;t&eacute; droit.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+<br \>
+Retourne le quotient d'un dividende et d'un diviseur <tt><a href="KeyPgInteger.html">Integer (=entier)</a></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<b><tt>Operator \</tt> (Division enti&egrave;re)</b> divise deux expressions <tt><a href="KeyPgInteger.html">Integer (=entier)</a></tt> et retourne le r&eacute;sultat. Les valeurs nu&eacute;riques &agrave; virgule sont converties en <tt><a href="KeyPgInteger.html">Integer (=entier)</a></tt> en arrondissant par exc&egrave;s ou par d&eacute;faut, et la partie d&eacute;cimale du quotient r&eacute;sultant est tronqu&eacute;e.<br \>
+<br \>
+Si le diviseur (<tt><i>rhs</i></tt>) est z&eacute;ro (<tt>0</tt>), une erreur "division par z&eacute;ro" (plantage!) est affich&eacute;e.<br \>
+<br \>
+Dans tous les cas, aucun op&eacute;rande n'est modifi&eacute;.<br \>
+<br \>
+Cet op&eacute;rateur peut &ecirc;tre surcharg&eacute; pour accepter les types d&eacute;finis par l'utilisateur.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">\</span>&nbsp;<span class="num">5</span><br />
+<span class="wrd">n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">7</span>&nbsp;<span class="oth">\</span>&nbsp;<span class="num">2.6</span>&nbsp;&nbsp;<span class="com">''&nbsp;=&gt;&nbsp;7&nbsp;\&nbsp;3&nbsp;&nbsp;=&gt;&nbsp;2.33333&nbsp;&nbsp;=&gt;&nbsp;2</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">n</span><br />
+<span class="wrd">n</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">7</span>&nbsp;<span class="oth">\</span>&nbsp;<span class="num">2.4</span>&nbsp;&nbsp;<span class="com">''&nbsp;=&gt;&nbsp;7&nbsp;\&nbsp;2&nbsp;=&gt;&nbsp;3.5&nbsp;=&gt;&nbsp;3</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">n</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+Affiche:<br \>
+<pre class="fb_pre">
+0
+2
+3
+</pre><br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, cet op&eacute;rateur ne peut pas &ecirc;tre surcharg&eacute;.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Aucune<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="KeyPgOpDivide.html">Op&eacute;rateur \ (Division &agrave; virgule)</a><br \>
+<li> <a href="KeyPgOpModulus.html">Op&eacute;rateur Mod (Modulo)</a><br \>
+<li> <a href="CatPgMath.html">Fonctions math&eacute;matiques</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

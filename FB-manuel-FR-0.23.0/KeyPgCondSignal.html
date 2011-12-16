@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>CondSignal</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">CondSignal</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Redémarre un "thread" suspendu par un appel à <tt><a href="KeyPgCondWait.html">CondWait</a></tt><br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgSub.html">Sub</a> <b>CondSignal</b> ( <a href="KeyPgByval.html">ByVal</a> <i>handle</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<b>CondSignal</b> ( <i>handle</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Paramètres</div><div class="fb_sect_cont"><br \>
+<tt><i>handle</i></tt><br \>
+<div class="fb_indent">The handle of a conditional variable, or the null pointer (0) on failure.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Une fois que le conditionnel est <tt><a href="KeyPgCondCreate.html">CondCreate</a></tt> et les "threads" d&eacute;marr&eacute;s, l'un (ou plusieurs) d'entre eux peut &ecirc;tre fix&eacute; &agrave; <tt><a href="KeyPgCondWait.html">CondWait</a></tt> pour le conditionnel, ils seront arr&ecirc;t&eacute;s jusqu'&agrave; un autre "thread" <tt><a href="KeyPgCondSignal.html">CondSignal</a></tt> que le "thread" en attente puisse red&eacute;marrer. <tt><a href="KeyPgCondBroadcast.html">CondBroadcast</a></tt> peut &ecirc;tre utilis&eacute; pour red&eacute;marrer tous les "threads" qui attendent le conditionnel. A la fin du programme <tt><a href="KeyPgCondDestroy.html">CondDestroy</a></tt> doit &ecirc;tre utilis&eacute; pour &eacute;viter les fuites de ressources dans le syst&egrave;me d'exploitation.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+Voir <tt><a href="KeyPgCondCreate.html">CondCreate</a></tt><br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> "Threading" n'est pas utilisable dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i><br \>
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li> <b>Condsignal</b> n'est pas utilisable avec la version/cible DOS de FreeBASIC, parce que le "multithreading" n'est pas support&eacute; par le noyau DOS, ni l'extension utilis&eacute;e.<br \>
+<li> Sous Linux les "threads" sont toujours démarrés dans l'ordre de leur création, ceci n'est pas vrai sous Win32. C'est un OS, pas une question FreeBasic. <br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgCondCreate.html">CondCreate</a></tt><br \>
+<li> <tt><a href="KeyPgCondDestroy.html">CondDestroy</a></tt><br \>
+<li> <tt><a href="KeyPgCondBroadcast.html">CondBroadcast</a></tt><br \>
+<li> <tt><a href="KeyPgCondWait.html">CondWait</a></tt><br \>
+<li> <tt><a href="KeyPgThreadCreate.html">ThreadCreate</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

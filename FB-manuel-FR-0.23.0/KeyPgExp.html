@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Exp</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Exp</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Retourne <i><b>e</b></i> &eacute;lev&eacute; &agrave; la puissance d'un nombre donn&eacute;<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>Exp</b> <a href="KeyPgCdecl.html">cdecl</a> ( <a href="KeyPgByval.html">ByVal</a> <i>number</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgDouble.html">Double</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>Exp</b>( <i>number</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>number</i></tt><br \>
+<div class="fb_indent">Le nombre <tt><a href="KeyPgDouble.html">Double</a></tt> <tt><i>number</i></tt> qui est l'exposant de la puissace &agrave; laquelle <i><b>e</b></i> est &eacute;lev&eacute;.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Renvoie la valeur <a href="KeyPgDouble.html">Double</a> qui correspond &agrave; <i><b>e</b></i> &eacute;lev&eacute; &agrave; la puissance <tt><i>number</i></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+La constante math&eacute;matique <i><b>e</b></i>, aussi appel&eacute;e la constante d'Euler, est la base de <tt><b>Exp</b></tt> et <tt><a href="KeyPgLog.html">Log</a></tt> et est un nombre irrationnel et transcendant. La valeur de <i><b>e</b></i> sur 20 chiffres est: 2.7182818284590452354. L'argument obligatoire <tt><i>number</i></tt> est n'importe quelle valeur num&eacute;rique valide dans l'intervalle de valeurs de la fonction. Si <tt><i>number</i></tt> est trop grand, FreeBASIC retourne une valeur infinie. Si <tt><i>number</i></tt> est trop petit, FreeBASIC retourne z&eacute;ro. Les limites exactes de <tt><i>number</i></tt> d&eacute;pendent du processeur. Si <tt><i>number</i></tt> est une variable non initialis&eacute;e, 1 est renvoy&eacute;.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">'Compute&nbsp;Continuous&nbsp;Compound&nbsp;Interest</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">r</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">p</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">t</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<br />
+<span class="key">Input</span>&nbsp;<span class="quo">"Please&nbsp;enter&nbsp;the&nbsp;initial&nbsp;investment&nbsp;(principal&nbsp;amount):&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">p</span><br />
+<span class="key">Input</span>&nbsp;<span class="quo">"Please&nbsp;enter&nbsp;the&nbsp;annual&nbsp;interest&nbsp;rate&nbsp;(as&nbsp;a&nbsp;decimal):&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">r</span><br />
+<span class="key">Input</span>&nbsp;<span class="quo">"Please&nbsp;enter&nbsp;the&nbsp;number&nbsp;of&nbsp;years&nbsp;to&nbsp;invest:&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">t</span><br />
+<br />
+<span class="wrd">a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">p</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="key">Exp</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">r</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="wrd">t</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">""</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"After"</span><span class="oth">;</span><span class="wrd">t</span><span class="oth">;</span><span class="quo">"&nbsp;years,&nbsp;at&nbsp;an&nbsp;interest&nbsp;rate&nbsp;of"</span><span class="oth">;</span>&nbsp;<span class="wrd">r</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">100</span><span class="oth">;</span>&nbsp;<span class="quo">"%,&nbsp;your&nbsp;initial&nbsp;investment&nbsp;of"</span><span class="oth">;</span>&nbsp;<span class="wrd">p</span><span class="oth">;</span>&nbsp;<span class="quo">"&nbsp;would&nbsp;be&nbsp;worth"</span><span class="oth">;</span><span class="wrd">a</span><br />
+</div></tt><br />
+<br \>
+Affichera:<br \>
+<pre class="fb_pre">
+Please enter the initial investment (principal amount): 100
+Please enter the annual interest rate (As a decimal): .08
+Please enter the number of years To invest: 20
+After 20 years, at an interest rate of 8%, your initial investment of 100 would be worth 495.3032424395115
+</pre><br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Aucune<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgLog.html">Log</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

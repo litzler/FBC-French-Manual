@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Labels</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Les &eacute;tiquettes (labels)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;finit un emplacement dans un programme.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<i>symbolname</i> <b>:</b><br \>
+<div class="fb_indent"><i>ou</i><br \>
+</div><i>literalnumber</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+D&eacute;finit une place dans un programme o&ugrave; <tt><a href="KeyPgGoto.html">Goto</a></tt> ou <tt><a href="KeyPgGosub.html">GoSub</a></tt> peut sauter directement.<br \>
+<br \>
+Une &eacute;tiquette peut &ecirc;tre un num&eacute;ro entier positif de ligne ou un <tt><i>symbolname</i></tt>. Dans les deux cas, l'&eacute;tiquette doit commencer &agrave; la premi&egrave;re colonne de la ligne. Un <tt><i>symbolname</i></tt> doit se terminer par un caract&egrave;re "deux-points" (:).<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Compile&nbsp;with&nbsp;-lang&nbsp;fblite&nbsp;or&nbsp;qb</span><br />
+<br />
+<span class="def">#lang&nbsp;"fblite"<br />
+</span><br />
+<span class="wrd">beginning</span><span class="oth">:</span><br />
+<span class="num">3</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Hello&nbsp;World!"</span><br />
+<span class="key">Goto</span>&nbsp;<span class="wrd">beginning</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;compile&nbsp;with&nbsp;-lang&nbsp;qb</span><br />
+<br />
+<span class="com">'$lang:&nbsp;"qb"</span><br />
+<br />
+<span class="com">''&nbsp;Labels&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;"bookmark"&nbsp;DATA&nbsp;blocks,&nbsp;allowing&nbsp;RESTORE&nbsp;to&nbsp;alter&nbsp;the&nbsp;READ&nbsp;sequence.</span><br />
+<span class="key">Read</span>&nbsp;<span class="wrd">a</span><span class="oth">,</span><span class="wrd">b</span><span class="oth">,</span><span class="wrd">c</span><br />
+<span class="key">Restore</span>&nbsp;<span class="wrd">here</span><br />
+<span class="key">Read</span>&nbsp;<span class="wrd">d</span><span class="oth">,</span><span class="wrd">e</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">a</span><span class="oth">,</span><span class="wrd">b</span><span class="oth">,</span><span class="wrd">c</span><span class="oth">,</span><span class="wrd">d</span><span class="oth">,</span><span class="wrd">e</span>&nbsp;<br />
+<br />
+<span class="key">Data</span>&nbsp;<span class="num">1</span><span class="oth">,</span><span class="num">2</span><span class="oth">,</span><span class="num">3</span><span class="oth">,</span><span class="num">4</span><span class="oth">,</span><span class="num">5</span><br />
+<span class="wrd">here</span><span class="oth">:</span><br />
+<span class="key">Data</span>&nbsp;<span class="num">6</span><span class="oth">,</span><span class="num">7</span><span class="oth">,</span><span class="num">8</span><br />
+</div></tt><br />
+Affichage:<br \>
+<pre class="fb_pre">
+1,2,3,6,7
+</pre><br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Les num&eacute;ros de ligne avec des d&eacute;cimaux sont disponibles uniquement avec le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Aucune si compil&eacute; dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgGosub.html">GoSub</a></tt><br \>
+<li> <tt><a href="KeyPgGoto.html">Goto</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

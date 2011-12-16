@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Lib</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Lib</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Sp&eacute;cifie o&ugrave; un sous-programme / une fonction peut trouver une DLL dans le cadre d'une d&eacute;claration<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> { <a href="KeyPgSub.html">Sub</a> | <a href="KeyPgFunction.html">Function</a> } <i>proc_name</i> <b>Lib</b> "<i>dllname</i>" <a href="KeyPgAlias.html">Alias</a> "<i>symbol_name</i>" ( <i>arguments list</i> ) <a href="KeyPgAs.html">As</a> <i>return_type</i><br \>
+<br \>
+<a href="KeyPgExternBlock.html">Extern</a> "<i>mangling</i>" lib "<i>libname</i>"<br \>
+<div class="fb_indent"><i>declarative statements</i><br \>
+</div>end <a href="KeyPgExternBlock.html">Extern</a><br \>
+<br \>
+<a href="KeyPgType.html">Type</a> <i>T</i><br \>
+<div class="fb_indent"><a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> dummy<br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgConstructor.html">Constructor</a> <b>Lib</b> "<i>libname</i>" [ <a href="KeyPgAlias.html">Alias</a> "<i>symbol_name</i>" ] ( <i>arguments list</i> )<br \>
+</div>end <a href="KeyPgType.html">Type</a><br \>
+<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Dans les d&eacute;clarations <tt><a href="KeyPgSub.html">Sub</a></tt> et <tt><a href="KeyPgFunction.html">Function</a></tt>, <tt><b>Lib</b></tt> indique la "dll" contenant la fonction. Les biblioth&egrave;ques sp&eacute;cifi&eacute;es de cette mani&egrave;re sont li&eacute;es, comme si elles avaient &eacute;t&eacute; sp&eacute;cifi&eacute;es avec <a href="KeyPgInclib.html">#inclib</a>.<br \>
+<br \>
+<tt><b>Lib</b></tt> peut aussi &ecirc;tre utilis&eacute; avec des <a href="KeyPgExternBlock.html">blocs Extern ... End Extern</a> pour sp&eacute;cifier <tt><b>Lib</b></tt> pour toutes les d&eacute;clarations internes.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;mydll.bas</span><br />
+<span class="com">''&nbsp;compile&nbsp;with:</span><br />
+<span class="com">''&nbsp;&nbsp;&nbsp;fbc&nbsp;-dll&nbsp;mydll.bas</span><br />
+<br />
+<span class="key">Public</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">GetValue</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Export</span><br />
+&nbsp;&nbsp;<span class="key">Function</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">&amp;h1234</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">GetValue</span>&nbsp;<span class="key">Lib</span>&nbsp;<span class="quo">"mydll"</span>&nbsp;<span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"GetValue&nbsp;=&nbsp;&amp;h"</span><span class="oth">;</span>&nbsp;<span class="key">Hex</span><span class="oth">(</span><span class="wrd">GetValue</span><span class="oth">())</span><br />
+<br />
+<span class="com">'&nbsp;Expected&nbsp;Output&nbsp;:</span><br />
+<span class="com">'&nbsp;GetValue&nbsp;=&nbsp;&amp;h1234</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDeclare.html">Declare</a></tt><br \>
+<li> <tt><a href="KeyPgInclib.html">#inclib</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

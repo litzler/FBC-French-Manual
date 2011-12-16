@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Dynamic Arrays</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Les tableaux dynamiques</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+<br \>
+Bonjour, cette page explique la bonne utilisation des tableaux dynamiques en FreeBASIC. Bien que ce ne soit pas un tr&egrave;s long tutoriel, beaucoup de gens ont eu quelques probl&egrave;mes avec cette notion et j'ai senti que cela valait la peine dans le mettre dans la partie "Mise en route" des tutoriels.<br \>
+<br \>
+Les tableaux sontsoigneusement ordonn&eacute;s; ils peuvent &ecirc;tre utilis&eacute;s et redimensionn&eacute;es &agrave; travers un programme, avec peu de difficult&eacute;s. Tout d'abord, nous devrions discuter des deux mani&egrave;res de cr&eacute;erun tableau dynamique. Dans le m&ecirc;me code, je vais vous expliquer comment redimensionner un "<i>Dynamic Shared Array</i>" dans une SUB ou FUNCTION. Lisez les commentaires dans le code pour mieux le comprendre.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">mySub</span>&nbsp;<span class="oth">()</span><br />
+<br />
+<span class="com">'&nbsp;Comme&nbsp;depuis&nbsp;0.17&nbsp;DYNAMIC&nbsp;et&nbsp;$DYNAMIC&nbsp;sont&nbsp;inutiles.&nbsp;vous&nbsp;devez&nbsp;d&eacute;finir&nbsp;un&nbsp;tableau&nbsp;dynamique&nbsp;&agrave;&nbsp;chaque&nbsp;fois</span><br />
+<span class="com">'&nbsp;comme&nbsp;vous&nbsp;le&nbsp;voyez&nbsp;les&nbsp;deux&nbsp;m&eacute;thodes&nbsp;sont&nbsp;utilisables&nbsp;pour&nbsp;d&eacute;clarer&nbsp;un&nbsp;tableau&nbsp;avec&nbsp;succ&egrave;s</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">myArray1</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+<span class="key">ReDim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">myArray2</span><span class="oth">(</span><span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+<br />
+<span class="wrd">mySub</span><br />
+<br />
+<span class="com">'&nbsp;comme&nbsp;les&nbsp;tableaux&nbsp;sont&nbsp;partag&eacute;s&nbsp;ils&nbsp;sont&nbsp;accessibles&nbsp;dans&nbsp;tout&nbsp;le&nbsp;module</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">myArray1</span><span class="oth">(</span><span class="num">5</span><span class="oth">)</span>&nbsp;<span class="com">'&nbsp;will&nbsp;print&nbsp;2</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">myArray2</span><span class="oth">(</span><span class="num">6</span><span class="oth">)</span>&nbsp;<span class="com">'&nbsp;will&nbsp;print&nbsp;3</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">mySub</span>&nbsp;<span class="oth">()</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;NE&nbsp;PAS&nbsp;utiliser&nbsp;"redim&nbsp;shared"&nbsp;dans&nbsp;une&nbsp;sub&nbsp;ou&nbsp;function!&nbsp;m&ecirc;me&nbsp;s'il&nbsp;est&nbsp;partag&eacute;,&nbsp;vous&nbsp;devez&nbsp;omettre&nbsp;le&nbsp;mot&nbsp;"shared"&nbsp;pour&nbsp;que&nbsp;cela&nbsp;fonctionne</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ReDim</span>&nbsp;<span class="wrd">myArray1</span><span class="oth">(</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ReDim</span>&nbsp;<span class="wrd">myArray2</span><span class="oth">(</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">myArray1</span><span class="oth">(</span><span class="num">5</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">myArray2</span><span class="oth">(</span><span class="num">6</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt><br />
+<br \>
+Maintenant, vous vous demandez peut-&ecirc;tre comment vous pouvez redimensionner un tableau en utilisant le mot-clef PRESERVE. Normalement, il suffit d'ajouter PRESERVE comme l'indique la syntaxe de REDIM. Pourtant, en fait, cela ne fonctionne que si on ne change que la premi&egrave;re dimension du tableau! Par exemple, le programme suivant ne fonctionnera pas correctement:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;d&eacute;clarer&nbsp;le&nbsp;tableau&nbsp;dynamique&nbsp;de la&nbsp;meilleure&nbsp;fa&ccedil;on</span><br />
+<span class="key">ReDim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><span class="oth">,</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><span class="oth">,</span>&nbsp;<span class="wrd">i</span><br />
+<br />
+<span class="com">'&nbsp;remplir&nbsp;le&nbsp;tableau&nbsp;avec&nbsp;des&nbsp;valeurs</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">+=</span>&nbsp;<span class="num">1</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">i</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span>&nbsp;<span class="wrd">x</span><br />
+<span class="key">Next</span>&nbsp;<span class="wrd">y</span><br />
+<br />
+<span class="com">'&nbsp;prouve&nbsp;que&nbsp;les&nbsp;valeurs&nbsp;sont&nbsp;correctes&nbsp;&agrave;&nbsp;l'origine:</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Using</span>&nbsp;<span class="quo">"##,"</span><span class="oth">;</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><span class="oth">);</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span>&nbsp;<span class="wrd">x</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span><br />
+<span class="key">Next</span>&nbsp;<span class="wrd">y</span><br />
+<span class="key">Print</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Press&nbsp;a&nbsp;key..."</span><br />
+<span class="key">Sleep</span><br />
+<span class="key">Cls</span><br />
+<br />
+<span class="com">'&nbsp;redimensionne&nbsp;le&nbsp;tableau</span><br />
+<span class="key">ReDim</span>&nbsp;<span class="key">Preserve</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">18</span><span class="oth">,</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">12</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+<br />
+<span class="com">'&nbsp;les&nbsp;valeurs&nbsp;n'ont&nbsp;pas&nbsp;&eacute;t&eacute;&nbsp;pr&eacute;serv&eacute;es&nbsp;correctement!</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">y</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">x</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">9</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Using</span>&nbsp;<span class="quo">"##,"</span><span class="oth">;</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">y</span><span class="oth">);</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span>&nbsp;<span class="wrd">x</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span><br />
+<span class="key">Next</span>&nbsp;<span class="wrd">y</span><br />
+<br />
+<span class="key">Sleep</span><br />
+<span class="key">End</span><br />
+</div></tt><br />
+<br \>
+Essayez-le! Vous pouvez voir qu'il ne fonctionne pas correctement. C'est parce que seule la premi&egrave;re dimension d'un tableau peut changer de taille, tandis que le reste conserve la m&ecirc;me taille, pour que PRESERVE fonctionne correctement.<br \>
+<br \>
+Il existe une solution, que je posterai plus tard, apr&egrave;s l'avoir modifi&eacute;e afin de lui donner un sens pour tout programme, pas seulement le mien, et de faire quelques r&eacute;visions afin de ne pas sortir des limites. Pour le moment, soyez cr&eacute;atif ;)
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Pos</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Pos</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Retourne la position horizontale (de gauche &agrave; droite) du curseur texte<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>Pos</b> <a href="KeyPgOverload.html">Overload</a> ( ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>Pos</b> ( <a href="KeyPgByval.html">ByVal</a> <i>dummy</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>Pos</b>[ ( <i>dummy</i> ) ]<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>dummy</i></tt><br \>
+<div class="fb_indent">Un param&egrave;tre inutilis&eacute; pour conserver la compatibilit&eacute; descendante avec QBASIC.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne la position horizontale du curseur texte.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Retourne la position horizontale (de gauche &agrave; droite) du curseur texte. La colonne la plus &agrave; gauche a le num&eacute;ro <tt>1</tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">p</span><br />
+<br />
+<span class="com">''&nbsp;print&nbsp;starting&nbsp;column&nbsp;position</span><br />
+<span class="wrd">p</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Pos</span><span class="oth">()</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"position:&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">p</span><br />
+<br />
+<span class="com">''&nbsp;print&nbsp;a&nbsp;string,&nbsp;without&nbsp;a&nbsp;new-line</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"ABCDEF"</span><span class="oth">;</span><br />
+<br />
+<span class="com">''&nbsp;print&nbsp;new&nbsp;column&nbsp;position:</span><br />
+<span class="wrd">p</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Pos</span><span class="oth">()</span><br />
+<span class="key">Print</span><span class="oth">:</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"position:&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">p</span><br />
+<span class="key">Print</span><br />
+<br />
+<span class="com">''position&nbsp;changes&nbsp;after&nbsp;each&nbsp;Print:</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Column&nbsp;numbers:&nbsp;"</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">Pos</span><span class="oth">(),</span>&nbsp;<span class="key">Pos</span><span class="oth">(),</span>&nbsp;<span class="key">Pos</span><span class="oth">(),</span>&nbsp;<span class="key">Pos</span><span class="oth">(),</span>&nbsp;<span class="key">Pos</span><span class="oth">()</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Le param&egrave;tre <tt><i>dummy</i></tt> n'&eacute;tait pas facultatif dans QBASIC.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgCsrlin.html">CsrLin</a></tt><br \>
+<li> <tt><a href="KeyPgTab.html">Tab</a></tt><br \>
+<li> <tt><a href="KeyPgLocate.html">Locate</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>A Brief Introduction To Trigonometry</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Une br&egrave;ve introduction &agrave; la trigonom&eacute;trie</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<i>Ecrit par RandyKeeling</i><br \>
+<br \>
+Ce tutoriel comprend:<br \>
+<br \>
+<ul><li> Les triangles rectangles<br \>
+<li> Le th&eacute;or&egrave;me de Pythagore<br \>
+<li> Les fonctions trigonom&egrave;triques <br \>
+<li> L'application des fonctions trigonom&egrave;triques<br \>
+<li> Les fonctions trigonom&egrave;triques inverses<br \>
+<li> Les autres fonctions trigonom&egrave;triques<br \>
+<li> Les lois des sinus, des cosinus et autres relations<br \>
+<br \>
+</ul>
+La trigonom&eacute;trie peut &ecirc;tre consid&eacute;r&eacute;e comme l'&eacute;tude des triangles. C'est plus compliqu&eacute; que cela, mais cela suffira pour ce tutoriel. Bien que cela semble &ecirc;tre d'une utilit&eacute; limit&eacute;e, de nombreux probl&egrave;mes dans les mondes r&eacute;el et virtuel peuvent &ecirc;tre r&eacute;solus par l'application cr&eacute;ative de triangles.<br \>
+<br \>
+Un triangle a trois c&ocirc;t&eacute;s et dans l'espace "normal" (c.a.d-euclidien) a trois angles dont la somme des mesures est exactement 180 degr&eacute;s (ou Pi radians). Pour ce tutoriel, nous allons traiter uniquement avec des triangles "normaux" (pour ceux qui s'int&eacute;ressent &agrave; d'autres espaces, faites une recherche sur les triangles non-euclidiens ou la g&eacute;om&eacute;trie non-euclidienne).<br \>
+<br \>
+<b>Les triangles rectangles</b><br \>
+<br \>
+Pour commencer, nous allons faire face &agrave; une classe sp&eacute;ciale de triangles: les triangles rectangles. Un triangle rectangle a un angle qui mesure 90 degr&eacute;s (angle droit). Comme la somme des angles d'un triangle doit &ecirc;tre exactement de 180 degr&eacute;s, il ne peut y avoir qu'un seul angle de 90 degr&eacute;s dans un triangle (et c'est le plus grand angle dans un triangle rectangle). Ci-dessous vous avez le code FreeBASIC pour dessiner une image d'un triangle rectangle. (Cette image sera reprise dans tout le tutoriel.) Dans cette image, les lettres majuscules nomment les c&ocirc;t&eacute;s et leurs correspondances en lettres minuscules nomment l'angle oppos&eacute; de ce c&ocirc;t&eacute;. Par exemple, l'angle y est oppos&eacute; au c&ocirc;t&eacute; Y.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">ScreenRes</span>&nbsp;<span class="num">640</span><span class="oth">,</span><span class="num">480</span><span class="oth">,</span><span class="num">8</span><br />
+<br />
+<span class="com">'Triangle</span><br />
+<span class="key">Color</span>&nbsp;<span class="num">7</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">220</span><span class="oth">,</span><span class="num">140</span><span class="oth">)</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="oth">(</span><span class="num">220</span><span class="oth">,</span><span class="num">340</span><span class="oth">)</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">220</span><span class="oth">,</span><span class="num">140</span><span class="oth">)</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="oth">(</span><span class="num">420</span><span class="oth">,</span><span class="num">340</span><span class="oth">)</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">220</span><span class="oth">,</span><span class="num">340</span><span class="oth">)</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="oth">(</span><span class="num">420</span><span class="oth">,</span><span class="num">340</span><span class="oth">)</span><br />
+<br />
+<span class="com">'right&nbsp;angle</span><br />
+<span class="key">Color</span>&nbsp;<span class="num">12</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">220</span><span class="oth">,</span><span class="num">320</span><span class="oth">)</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="oth">(</span><span class="num">240</span><span class="oth">,</span><span class="num">320</span><span class="oth">)</span><br />
+<span class="key">Line</span>&nbsp;<span class="oth">(</span><span class="num">240</span><span class="oth">,</span><span class="num">320</span><span class="oth">)</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="oth">(</span><span class="num">240</span><span class="oth">,</span><span class="num">340</span><span class="oth">)</span><br />
+<br />
+<span class="com">'angles</span><br />
+<span class="key">Color</span>&nbsp;<span class="num">13</span><br />
+<span class="key">Locate</span>&nbsp;<span class="num">20</span><span class="oth">,</span><span class="num">29</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"x"</span><br />
+<span class="key">Locate</span>&nbsp;<span class="num">42</span><span class="oth">,</span><span class="num">50</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"y"</span><br />
+<br />
+<span class="com">'Sides</span><br />
+<span class="key">Color</span>&nbsp;<span class="num">14</span><br />
+<span class="key">Locate</span>&nbsp;<span class="num">31</span><span class="oth">,</span><span class="num">43</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Z"</span><br />
+<span class="key">Locate</span>&nbsp;<span class="num">31</span><span class="oth">,</span>&nbsp;<span class="num">26</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Y"</span><br />
+<span class="key">Locate</span>&nbsp;<span class="num">45</span><span class="oth">,</span>&nbsp;<span class="num">40</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"X"</span><br />
+<br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+</tt>
+<br \>
+<div class="fb_img"><img src="images/trigo.png"></div>
+<br \="">
+La bo&icirc;te dans le coin inf&eacute;rieur gauche signifie que c'est un angle droit (il mesure 90 degr&eacute;s). Le c&ocirc;t&eacute; oppos&eacute; de cet angle (c&ocirc;t&eacute; Z) est appel&eacute; l'hypot&eacute;nuse et c'est le c&ocirc;t&eacute; le plus long dans un triangle rectangle.<br \>
+<br \>
+<b>Le th&eacute;or&egrave;me de Pythagore</b><br \>
+<br \>
+Peut-&ecirc;tre que le premier &eacute;l&eacute;ment de la trigonom&eacute;trie que la plupart des gens apprennent est la relation commun&eacute;ment appel&eacute;e Th&eacute;or&egrave;me de Pythagore. Il indique simplement que le carr&eacute; de l'hypot&eacute;nuse d'un triangle rectangle est &eacute;gal &agrave; la somme des carr&eacute;s des deux autres c&ocirc;t&eacute;s. Il est plus facile &agrave; comprendre sous forme d'&eacute;quation.<br \>
+<br \>
+Z^2 = X^2 + Y^2<br \>a des fonctions pour ces fonctions trigonom&eacute;triques et d'autres.
+<br \>
+Un exemple trivial d'application de cette loi pourrait &ecirc;tre le suivant.<br \>
+<br \>
+Si le joueur est de 100 m&egrave;tres &agrave; l'est d'un emplacement marqu&eacute; (l'origine) et deux joueurs sont &agrave; 150 m&egrave;tres au nord du m&ecirc;me endroit, &agrave; quelle distance sont-ils?<br \>
+<br \>
+D = SQR(100^2 + 150^2)<br \>
+<br \>
+<b>Les fonctions trigonom&egrave;triques</b><br \>
+<br \>
+Depuis longtemps, des personnes ont d&eacute;couvert que, ind&eacute;pendamment de la taille du triangle, certains ratios &eacute;taient toujours les m&ecirc;mes. Par exemple, dans l'image du triangle ci-dessus, si la mesure de l'angle y est de 45 degr&eacute;s, alors ind&eacute;pendamment de la taille du triangle, le ratio Y/X sera toujours le m&ecirc;me. Les collections de ces ratios constituent les fonctions trigonom&eacute;triques.<br \>
+<br \>
+Les trois principales fonctions sont Sinus (<a href="KeyPgSin.html"> Sin </a>), Cosinus (<a href="KeyPgCos.html"> Cos </a>), et tangente (TAN). Il y a plusieurs mani&egrave;res de d&eacute;finir ces trois fonctions. L'une correspond aux relations entre les c&ocirc;t&eacute;s d'un triangle rectangle.<br \>
+<br \>
+<ul><li>Sinus (<a href="KeyPgSin.html">Sin</a>) est le rapport entre le c&ocirc;t&eacute; oppos&eacute; &agrave; l'angle en question et l'hypot&eacute;nuse. Dans le triangle ci-dessus, le sinus de l'angle y (&eacute;crit SIN(y)) est la longueur du c&ocirc;t&eacute; Y divis&eacute; par la longueur du c&ocirc;t&eacute; Z.<br \>
+<li>Cosinus (<a href="KeyPgCos.html">Cos</a>) est le rapport entre le c&ocirc;t&eacute; adjacent &agrave; l'angle en question et l'hypot&eacute;nuse. Dans le triangle ci-dessus, le cosinus de l'angle y (&eacute;crit COS(y)) est la longueur du c&ocirc;t&eacute; X divis&eacute; par la longueur du c&ocirc;t&eacute; Z.<br \>
+<li>Tangente (<a href="KeyPgTan.html">Tan</a>) est le rapport entre le c&ocirc;t&eacute; oppos&eacute; &agrave; l'angle en question et le c&ocirc;t&eacute; adjacent &agrave; l'angle en question. Dans le triangle ci-dessus, la tangente de l'angle y (&eacute;crit <a href="KeyPgTan.html">Tan</a>(y)) est la longueur du c&ocirc;t&eacute; Y divis&eacute; par la longueur du c&ocirc;t&eacute; X.<br \>
+<br \>
+</ul>De nombreuses personnes se souviennent de ces relations avec le moyen mn&eacute;motechnique SOHCAHTOA (prononcer Sow Cah Toe-a) qui correspond &agrave; <a href="KeyPgSin.html">Sin</a> = oppos&eacute;/hypot&eacute;nuse, <a href="KeyPgCos.html">Cos</a> = adjacent/hypot&eacute;nuse, and <a href="KeyPgTan.html">Tan</a> = oppos&eacute;/adjacent. <br \>
+<br \>
+Le FreeBASIC a des fonctions pour ces fonctions trigonom&eacute;triques et d'autres. <br \>
+<br \>
+<b>L'application des fonctions trigonom&egrave;triques</b><br \>
+<br \>
+En se r&eacute;f&eacute;rant &agrave; nouveau &agrave; l'image ci-dessus du triangle, disons que le joueur 1 est, sur ​​le sol, en un point pr&egrave;s de l'angle y et le joueur 2 est en un point pr&egrave;s de l'angle x (au-dessus du sol). Si le joueur 1 sait &agrave; quelle distance il (ou elle) est du c&ocirc;t&eacute; Y (disons 25,2 m&egrave;tres) et peut mesurer la valeur de l'angle Y (disons 31,5 degr&eacute;s) &agrave; quelle distance de la terre se trouve le joueurs 2? À quelle distance est le joueur 1 du joueur 2?
+
+Referring again to the triangle image above, let's say that player one is on the ground at the point near angle y and player two is at the point near angle x (off of the ground). If player one knows how far he or she is from the side Y (let's say 25.2 meters) and can measure the value of angle y (let's say 31.5 degrees) how far off the ground is player two? How far away is player one from player two?<br \>
+<br \>
+Pour r&eacute;soudre ce probl&egrave;me, examinons les &eacute;l&eacute;ments d'information que nous connaissons. Nous connaissons le c&ocirc;t&eacute; adjacent &agrave; l'angle Y (25,2 m&egrave;tres) et la mesure de l'angle Y (31,5 degr&eacute;s). Cette information est suffisante pour utiliser la fonction tangente. <a href="KeyPgTan.html"> Tan </a> (y) = oppos&eacute;/adjacent, ou TAN (31,5 degr&eacute;s) = Oppos&eacute;/25.2 m&egrave;tres. En utilisant un peu d'alg&egrave;bre pour r&eacute;organiser tout cela, nous obtenons Oppos&eacute; = <a href="KeyPgTan.html"> Tan </a> (31,5 degr&eacute;s) * 25,2 m&egrave;tres. Pour trouver la distance entre les joueurs nous pouvons utiliser le th&eacute;or&egrave;me de Pythagore, maintenant que nous connaissons la mesure des deux c&ocirc;t&eacute;s diff&eacute;rents de l'hypot&eacute;nuse du triangle ou nous pouvons utiliser le cosinus. L'utilisation du cosinus donne <a href="KeyPgCos.html"> Cos </a> (y) = adjacent/hypot&eacute;nuse. Avec un peu d'alg&egrave;bre nous obtenons, l'hypot&eacute;nuse = 25,2 / <a href="KeyPgCos.html"> Cos </a> (31,5 degr&eacute;s).<br \>
+<br \>
+Avant que nous puissions &eacute;crire un programme pour r&eacute;soudre ce probl&egrave;me, il faut rappeler que FreeBASIC, comme la plupart des langages de programmation, travaille en radians, pas en degr&eacute;s (voir Mesure des angles <a href="TutMathAngles.html">Angles</a>).<br \>
+<br \>
+Avec FreeBASIC nous pouvons obtenir la r&eacute;ponse avec le code suivant.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Const</span>&nbsp;<span class="wrd">PI</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3.1415926535897932</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">Opposite</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">Hypotenuse</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">Angle</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span><br />
+<br />
+<span class="wrd">Angle</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">31.5</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="wrd">Pi</span>&nbsp;<span class="oth">/</span>&nbsp;<span class="num">180</span><br />
+<br />
+<span class="wrd">Opposite</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Tan</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">Angle</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">25.2</span><br />
+<span class="wrd">Hypotenuse</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">25.2</span>&nbsp;<span class="oth">/</span>&nbsp;<span class="key">Cos</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">Angle</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="wrd">Opposite</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">Hypotenuse</span><br />
+<br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+Le code ci-dessus nous indique que le joueur 2 est &agrave; environ 15,4 m&egrave;tres du sol et autour de 29,5 m&egrave;tres (le long de l'hypot&eacute;nuse).<br \>
+<br \>
+<b>Les fonctions trigonom&egrave;triques inverses</b><br \>
+<br \>
+Mais que faire si vous connaissez les c&ocirc;t&eacute;s d'un triangle et avez besoin de trouver la valeur de l'angle? Vous pouvez alors utiliser les fonctions trigonom&eacute;triques inverses.<br \>
+<br \>
+<ul><li> <b>Arc</b><b>Sine</b> (or Sinus Inverse)<br \>
+<li> <b>Arc</b><b>Cosine</b> (or Cosinus Inverse)<br \>
+<li> <b>Arc</b><b>Tangent</b> (or Tangente Inverse)<br \>
+<br \>
+</ul>Par exemple, en utilisant la configuration ci-dessus, si le joueur 2 &eacute;tait &agrave; 30 m&egrave;tres du sol et 50 m&egrave;tres du joueur 1 (le long de l'hypot&eacute;nuse) quelle est la mesure de l'angle y? En regardant nos fonctions trigonom&eacute;triques il semble que nous avons besoin de la fonction sinus (oppos&eacute; et hypot&eacute;nuse). <a href="KeyPgSin.html"> Sin </a> (y) = oppos&eacute;/hypot&eacute;nuse, <b>Arc</b><b>Sine</b> (oppos&eacute;/hypot&eacute;nuse) = y.<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Print</span>&nbsp;<span class="key">Asin</span>&nbsp;<span class="oth">(</span><span class="num">30</span><span class="oth">/</span><span class="num">50</span><span class="oth">)</span><br />
+</div></tt><br />
+</tt><br \>
+Cela donne un angle d'environ 0,6435 radians, soit environ 36,9 degr&eacute;s. Les commandes FreeBASIC pour chacune de ces fonctions inverses sont:<br \>
+<br \>
+<ul><li> <a href="KeyPgAsin.html">Asin</a> (arcsine)<br \>
+<li> <a href="KeyPgCos.html">Acos</a> (arccosine)<br \>
+<li> <a href="KeyPgAtn.html">Atn</a> (arctan, il y a aussi <a href="KeyPgAtan2.html">Atan2</a> qui prend les c&ocirc;t&eacute;s oppos&eacute; et adjacent du triangle, et non pas leur rapport)<br \>
+<br \>
+</ul><b>Les autres fonctions trigonom&egrave;triques</b><br \>
+<br \>
+Il existe d'autres fonctions trigonom&eacute;triques qui sont d&eacute;finis en termes dans les fonctions ci-dessus. Bien qu'aucune des fonctions ci-dessous ne soient d&eacute;finies dans FreeBASIC.<br \>
+<br \>
+<ul><li>Secant (sec(y)) is 1/<a href="KeyPgCos.html">Cos</a>(y)<br \>
+<li>Cosecant (csc(y)) is 1/<a href="KeyPgSin.html">Sin</a>(y)<br \>
+<li>Cotangent (cot(y)) is 1/<a href="KeyPgTan.html">Tan</a>(y)<br \>
+<br \>
+</ul>Chacune d'elles a aussi une fonction inverse (ou arc). <br \>
+<br \>
+<br \>
+<b>Les lois des sinus, des cosinus et autres relations</b><br \>
+Tout ce qui pr&eacute;c&egrave;de a d&eacute;montr&eacute; dans un triangle rectangle, mais ce n'est qu'une aide pour expliquer les fonctions trigonom&eacute;triques de base. Ce qui suit ne repose pas sur des triangles rectangles; ces identit&eacute;s sont valables pour n'importe quel triangle.<br \>
+<br \>
+Loi des sinus<br \>
+<a href="KeyPgSin.html">Sin</a> (y)/Y = <a href="KeyPgSin.html">Sin</a> (x)/X = <a href="KeyPgSin.html">Sin</a> (z)/Z<br \>
+<br \>
+Loi des cosinus<br \>
+Z^2 = X^2 + Y^2 - 2*X*Y*<a href="KeyPgCos.html">Cos</a>(z)<br \>
+<br \>
+Autres identit&eacute;s<br \>
+<br \>
+<a href="KeyPgSin.html">Sin</a>^2(y) + <a href="KeyPgCos.html">Cos</a>^2(y) = 1<br \>
+Ce qui est identique &agrave; <a href="KeyPgSin.html">Sin</a>(y)*<a href="KeyPgSin.html">Sin</a>(y) + <a href="KeyPgCos.html">Cos</a>(y)*<a href="KeyPgCos.html">Cos</a>(y) = 1<br \>
+<br \>
+<a href="KeyPgTan.html">Tan</a>(y) = <a href="KeyPgSin.html">Sin</a>((y)/<a href="KeyPgCos.html">Cos</a>(y)<br \>
+<br \>
+Il existe d'autres identit&eacute;s utiles en-dehors de celles-l&agrave;. Faites une recherche sur les identit&eacute;s trigonom&eacute;triques ou consultez une r&eacute;f&eacute;rence math&eacute;matique plus &eacute;lev&eacute;e.
+</div>
+</div> 
+</div> 
+</body>
+</html>

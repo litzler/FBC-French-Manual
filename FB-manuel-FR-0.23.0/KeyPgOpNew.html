@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Operator New</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Op&eacute;rateur New</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Op&eacute;rateur qui alloue dynamiquement de la m&eacute;moire et construit une donn&eacute;e du type sp&eacute;cifi&eacute;<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>New</b> ( <i>size</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgUinteger.html">UInteger</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>new[]</b> ( <i>size</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgUinteger.html">UInteger</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>New</b> <i><a href="DataType.html">datatype</a></i><br \>
+<div class="fb_indent"><i>ou</i><br \>
+</div><i>result</i> = <b>New</b> <i><a href="DataType.html">datatype</a></i> ( <i>initializers</i>, ... )<br \>
+<div class="fb_indent"><i>ou</i><br \>
+</div><i>result</i> = <b>New</b> <i><a href="DataType.html">datatype</a></i><b>[</b> <i>count</i> <b>]</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>size</i></tt> <br \>
+<div class="fb_indent">Nombre d'octets &agrave; allouer.<br \>
+</div><tt><i>initializers</i></tt><br \>
+<div class="fb_indent">Valeur(s) pour initialiser la variable.<br \>
+</div><tt><i>datatype</i></tt><br \>
+<div class="fb_indent">Nom du type de donn&eacute;e &agrave; cr&eacute;er.<br \>
+</div><tt><i>count</i></tt><br \>
+<div class="fb_indent">Nombre exact d'&eacute;l&eacute;ments &agrave; allouer.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Un pointeur du type <a href="DataType.html">datatype</a> vers la nouvelle donn&eacute;e allou&eacute;e.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+L'op&eacute;rateur <tt><b>New</b></tt> alloue dynamiquement de la m&eacute;moire et construit une donn&eacute;e du type sp&eacute;cifi&eacute;. Pour des types simples, comme les entiers, une valeur initiale peut &ecirc;tre attribu&eacute;e. Pour des types sans constructeur(s), des valeurs initiales peuvent &ecirc;tre sp&eacute;cifi&eacute;es pour chaque champ. Les types qui ont des constructeurs, ceux-ci peuvent &ecirc;tre appel&eacute;s par <tt><b>New</b></tt>. Si aucun initialiseur n'est fourni, les valeurs par d&eacute;faut seront attribu&eacute;es pour ces types.<br \>
+<br \>
+<tt><b>New[]</b></tt> est la version pour les tableaux de l'op&eacute;rateur <tt><b>New</b></tt> et alloue suffisamment de m&eacute;moire pour le nombre d'objets sp&eacute;cifi&eacute;.  Le constructeur par d&eacute;faut pour le type sera utilis&eacute; pour initialiser chacun des &eacute;l&eacute;ments.<br \>
+<br \>
+Les objects cr&eacute;&eacute;s avec <tt><b>New</b></tt> doivent &ecirc;tre lib&eacute;r&eacute;s avec <tt><a href="KeyPgOpDelete.html">Delete</a></tt>. La m&eacute;moire allou&eacute;e avec <tt><b>New[]</b></tt> doit &ecirc;tre lib&eacute;r&eacute;e avec <tt><b>Delete[]</b></tt>, la version pour les tableaux de <tt><a href="KeyPgOpDelete.html">Delete</a></tt>. Vous ne pouvez pas m&eacute;langer les deux versions de l'op&eacute;rateur.<br \>
+<br \>
+Sp&eacute;cifier une valeur initiale <tt><a href="KeyPgAny.html">Any</a></tt>, comme dans <tt>new datatype(any)</tt> allouera de la m&eacute;moire pour le type, mais n'initialisera pas les donn&eacute;es.  Ceci n'est valide que pour les types qui n'ont pas de constructeur.<br \>
+<br \>
+Sp&eacute;cifier une valeur initiale <tt><a href="KeyPgAny.html">Any</a></tt>, comme dans <tt>new datatype[count]{any}</tt> allouera de la m&eacute;moire pour le tableau, mais n'initialisera pas les donn&eacute;es.  Ceci n'est valide que pour les types qui n'ont pas de constructeur.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">Rational</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">numerator</span><span class="oth">,</span>&nbsp;<span class="wrd">denominator</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Scope</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Create&nbsp;and&nbsp;initialize&nbsp;a&nbsp;Rational,&nbsp;and&nbsp;store&nbsp;it's&nbsp;address.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">p</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">Rational</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">New</span>&nbsp;<span class="wrd">Rational</span><span class="oth">(</span><span class="num">3</span><span class="oth">,</span>&nbsp;<span class="num">4</span><span class="oth">)</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">p</span><span class="oth">-&gt;</span><span class="wrd">numerator</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"/"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">p</span><span class="oth">-&gt;</span><span class="wrd">denominator</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Destroy&nbsp;the&nbsp;rational&nbsp;and&nbsp;give&nbsp;its&nbsp;memory&nbsp;back&nbsp;to&nbsp;the&nbsp;system.&nbsp;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Delete</span>&nbsp;<span class="wrd">p</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Scope</span><br />
+<br />
+<span class="key">Scope</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Allocate&nbsp;memory&nbsp;for&nbsp;100&nbsp;integers,&nbsp;store&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;first&nbsp;one.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">p</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">New</span>&nbsp;<span class="key">Integer</span><span class="oth">[</span><span class="num">100</span><span class="oth">]</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Assign&nbsp;some&nbsp;values&nbsp;to&nbsp;the&nbsp;integers&nbsp;in&nbsp;the&nbsp;array.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">99</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">p</span><span class="oth">[</span><span class="wrd">i</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">i</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Free&nbsp;the&nbsp;entire&nbsp;integer&nbsp;array.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Delete</span><span class="oth">[]</span>&nbsp;<span class="wrd">p</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Scope</span><br />
+</div></tt><br />
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Utilisable seulement dans le dialecte <i><a href="CompilerOptlang.html">-lang fb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOpDelete.html">Delete</a></tt><br \>
+<li> <tt><a href="KeyPgOpPlacementNew.html">Placement New</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

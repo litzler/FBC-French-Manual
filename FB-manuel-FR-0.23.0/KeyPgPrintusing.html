@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Print Using</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Print Using</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Ecrire du texte format&eacute; &agrave; l'&eacute;cran<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Print Using</b> <i>formatstring</i> <b>;</b> [ <i>expressionlist</i> ]<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>formatstring</i></tt><br \>
+<div class="fb_indent">La cha&icirc;ne de formatage &agrave; utiliser.<br \>
+</div><tt><i>expressionlist</i></tt><br \>
+<div class="fb_indent">Liste des items &agrave; afficher, s&eacute;par&eacute;s par des point-virgule.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Affiche &agrave; l'&eacute;cran des expressions vari&eacute;es en utilisant un format d&eacute;termin&eacute; par le param&egrave;tre <tt><i>formatstring</i></tt>. En interne, <tt><b>Print Using</b></tt> utilise une taille de tampon de 2048 octets: alors qu'il est tr&egrave;s peu probable que ce tampon soit rempli, il convient de noter que la sortie &eacute;cran sera tronqu&eacute;e si cette limite est atteinte.<br \>
+<br \>
+Si aucune liste d'expressions n'est donn&eacute;e, la cha&icirc;ne de format sera imprim&eacute;e jusqu'au premier marqueur sp&eacute;cial.  Notez que le point-virgule apr&egrave;s la cha&icirc;ne de format est toujours n&eacute;cessaire, m&ecirc;me si aucune liste d'expressions n'est donn&eacute;e.<br \>
+<br \>
+La cha&icirc;ne de format d&eacute;termine la fa&ccedil;on dont les expressions sont format&eacute;es lors de la sortie &agrave; l'&eacute;cran, ceci &eacute;tant indiqu&eacute; par l'utilisation de caract&egrave;res marqueurs sp&eacute;ciaux. Il y a des marqueurs pour le formatage de cha&icirc;ne et de sortie num&eacute;rique:<br \>
+<br \>
+</div><div class="fb_sect_title">Formatage de cha&icirc;ne</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent"><div class="fb_table"><table><tr><td>Marqueur</td><td>Formatage</td></tr><tr><td>!</td><td>affiche le 1er caract&egrave;re d'une cha&icirc;ne</td></tr><tr><td>\   \</td><td>imprime autant de caract&egrave;res d'une cha&icirc;ne qu'il y en a entre les deux \ \</td></tr><tr><td>&amp;</td><td>affiche la cha&icirc;ne enti&egrave;re</td></tr></table></div><br \>
+<br \>
+</div></div><div class="fb_sect_title">Formatage num&eacute;rique</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent"><div class="fb_table"><table><tr><td>Marqueur</td><td>Formatage</td></tr><tr><td>#</td><td>espace r&eacute;serv&eacute; soit pour un chiffre d'un entier ou un chiffre d'un d&eacute;cimal si pr&eacute;c&eacute;d&eacute; d'un point</td></tr><tr><td>,</td><td> plac&eacute; apr&egrave;s un chiffre d'un entier indique que les groupes de 3 chiffres doivent &ecirc;tre s&eacute;par&eacute;s par des virgules en notation &agrave; virgule fixe</td></tr><tr><td>.</td><td>plac&eacute; &agrave; proximit&eacute; d'un # indique la place pour le point d&eacute;cimal</td></tr><tr><td>^^^^</td><td>utilise la notation exponentielle (E+/-###) s'il est plac&eacute; &agrave; doite d'un format num&eacute;rique</td></tr><tr><td>+</td><td>plac&eacute; avant/apr&egrave;s la cha&icirc;ne format&eacute;e, contr&ocirc;le si le signe d'un nombre est pr&eacute;fix&eacute;/suffix&eacute;, et implique qu'un explicite signe '+' soit afich&eacute; pour les nombres positifs</td></tr><tr><td>-</td><td>plac&eacute; apr&egrave;s la cha&icirc;ne format&eacute;e, implique que le signe du nombre est suffix&eacute; plut&ocirc;t que pr&eacute;fix&eacute;, fait suivre un espace/signe n&eacute;gatif pour les nombres positifs/n&eacute;gatifs</td></tr><tr><td>$$</td><td>plac&eacute; au d&eacute;but de chiffres entiers, provoque l'&eacute;criture d'un signe de dollar plac&eacute; avant le nombre (apr&egrave;s le signe si l'on est pr&eacute;fix&eacute;)</td></tr><tr><td>**</td><td>plac&eacute; au d&eacute;but de chiffres entiers, provoque le remplacement sur la gauche des espaces par des ast&eacute;risques</td></tr><tr><td>**$</td><td>plac&eacute; au d&eacute;but de chiffres entiers, remplit sur la gauche avec des ast&eacute;risques et pr&eacute;fixe un signe dollar apr&egrave;s les ast&eacute;risques</td></tr><tr><td>&amp;</td><td>affiche un nombre intelligemment, en utilisant le nombre exact de chiffres requis (nouveaut&eacute; version 0.21.0b)</td></tr></table></div><br \>
+<br \>
+</div>Tous les caract&egrave;res marqueurs sp&eacute;ciaux peuvent &ecirc;tre pr&eacute;c&eacute;d&eacute;s du caract&egrave;re de soulignement <tt>"_"</tt>, ce qui permettra de les afficher directement. Par exemple, <tt>"_!"</tt> affichera <tt>"!"</tt> et <tt>"__"</tt> affichera<tt>"_"</tt>.<br \>
+<br \>
+Si une valeur num&eacute;rique ne correspond pas &agrave; la forme indiqu&eacute;e par la cha&icirc;ne de format, le formatage est adapt&eacute; au nombre, &eacute;ventuellement en passant &agrave; la notation scientifique, et le nombre est pr&eacute;c&eacute;d&eacute; par le caract&egrave;re pour cent <tt> "%"</tt >. Par exemple, le nombre <tt>1234</tt> avec un <tt><i>formatstring</i></tt> de <tt>"##.##"</tt> sera affich&eacute; <tt>"%1234.00"</tt>.<br \>
+<br \>
+Tous les autres caract&egrave;res dans la cha&icirc;ne de format sont imprim&eacute;s tels qu'ils apparaissent.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Print</span>&nbsp;<span class="key">Using</span>&nbsp;<span class="quo">"The&nbsp;value&nbsp;is&nbsp;#.##&nbsp;seconds"</span><span class="oth">;</span>&nbsp;<span class="num">1.019</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">Using</span>&nbsp;<span class="quo">"The&nbsp;ASCII&nbsp;code&nbsp;for&nbsp;the&nbsp;pound&nbsp;sign&nbsp;(_#)&nbsp;is&nbsp;###"</span><span class="oth">;</span>&nbsp;<span class="key">Asc</span><span class="oth">(</span><span class="quo">"#"</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">Using</span>&nbsp;<span class="quo">"The&nbsp;last&nbsp;day&nbsp;in&nbsp;the&nbsp;year&nbsp;is&nbsp;&amp;&nbsp;\&nbsp;\"</span><span class="oth">;</span>&nbsp;<span class="num">31</span><span class="oth">;</span>&nbsp;<span class="quo">"December"</span><br />
+</div></tt><br />
+produira la sortie:<br \>
+<br \>
+<pre class="fb_pre">The value is 1.02 seconds
+The ASCII code for the pound sign (#) is  35
+The last day in the year is 31 Dec</pre><br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> QB ne permet pas l'utilisation de <tt>"&"</tt> pour afficher des nombres.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgPrint.html">Print</a></tt><br \>
+<li> <tt><a href="KeyPgPrintusingPp.html">Print # Using</a></tt><br \>
+<li> <tt><a href="KeyPgFormat.html">Format</a></tt><br \>
+<li> <tt><a href="KeyPgUsing.html">Using</a></tt><br \>
+<li> <tt><a href="KeyPgPalette.html">Palette Using</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

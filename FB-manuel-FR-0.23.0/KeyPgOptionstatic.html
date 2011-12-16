@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Option Static</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Option Static</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Revient au comportement par d&eacute;faut de d&eacute;claration de tableau<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Option Static</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Option Static</b></tt> annule le comportement de <tt><a href="KeyPgOptiondynamic.html">Option Dynamic</a></tt>, c'est &agrave; dire que les tableaux d&eacute;clar&eacute;s avec une gamme d'indices constante sont de longueur fixe. Ceci demeure en vigueur pour le reste du module dans lequel <tt><b>Option Static</b></tt> est utilis&eacute; et peut &ecirc;tre modifi&eacute; avec <tt><a href="KeyPgOptiondynamic.html">Option Dynamic</a></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Compile&nbsp;with&nbsp;the&nbsp;"-lang&nbsp;fblite"&nbsp;compiler&nbsp;switch</span><br />
+<br />
+<span class="def">#lang&nbsp;"fblite"<br />
+</span><br />
+<span class="key">Option</span>&nbsp;<span class="key">Dynamic</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">foo</span><span class="oth">(</span><span class="num">100</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;declares&nbsp;a&nbsp;variable-length&nbsp;array</span><br />
+<br />
+<span class="key">Option</span>&nbsp;<span class="key">Static</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">bar</span><span class="oth">(</span><span class="num">100</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;declares&nbsp;a&nbsp;fixed-length&nbsp;array</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialectes</div><div class="fb_sect_cont"><br \>
+<ul><li> Disponible seulement dans les dialectes <i><a href="CompilerOptlang.html">-lang fblite</a></i> et <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgMetaDynamic.html">$Dynamic</a></tt><br \>
+<li> <tt><a href="KeyPgDim.html">Dim</a></tt><br \>
+<li> <tt><a href="KeyPgErase.html">Erase</a></tt><br \>
+<li> <tt><a href="KeyPgRedim.html">ReDim</a></tt><br \>
+<li> <tt><a href="KeyPgOptiondynamic.html">Option Dynamic</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

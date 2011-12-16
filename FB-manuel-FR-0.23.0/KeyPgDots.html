@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>... (Ellipsis)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">... (Ellipse - suggestion)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Utilis&eacute; &agrave; la place d'un param&egrave;tre de proc&eacute;dure pour passer un nombre variable d'arguments, ou comme limite sup&eacute;rieure dans une d&eacute;claration de tableau pour indiquer que le nombre d'&eacute;l&eacute;ments sera d&eacute;termin&eacute; par l'initialiseur.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> { <a href="KeyPgSub.html">Sub</a> | <a href="KeyPgFunction.html">Function</a> } <i>proc_name</i> <a href="KeyPgCdecl.html">cdecl</a> ( <i>param</i> <a href="KeyPgAs.html">As</a> <a href="DataType.html">datatype</a>, <b>...</b> )<br \>
+<br \>
+<a href="KeyPgDim.html">Dim</a> <i>array_symbol</i> ([<i>lbound</i> <a href="KeyPgTo.html">To</a>] <b>...</b>) [<a href="KeyPgAs.html">As</a> <a href="DataType.html">datatype</a>] =&gt; { <i>expression_list</i> }<br \>
+<br \>
+<a href="KeyPgPpdefine.html">#define</a> <i>identifier</i>( [ <i>parameters</i>, ] <i>variadic_parameter</i><b>...</b> ) <i>macro_text</i><br \>
+
+</tt><br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Les points de suspension (trois points, <tt><b>...</b></tt>) sont utilis&eacute;s dans les d&eacute;clarations de proc&eacute;dure et les d&eacute;finitions pour indiquer une liste d'arguments variable. Un premier argument doit toujours &ecirc;tre sp&eacute;cifi&eacute; et la fonction doit &ecirc;tre appel&eacute;e avec la convention d'appel <tt><a href="KeyPgCdecl.html">cdecl</a></tt> du langage C. Dans le corps de la proc&eacute;dure, <tt><a href="KeyPgVaFirst.html">va_first</a></tt>, <tt><a href="KeyPgVaArg.html">va_arg</a></tt> et <tt><a href="KeyPgVaNext.html">va_next</a></tt> sont utilis&eacute;s pour traiter les arguments variables.<br \>
+<br \>
+L'utilisation des points de suspension (<tt><b>...</b></tt>) pour remplacer la limite sup&eacute;rieure dans une d&eacute;claration de tableau, fait que la limite sup&eacute;rieure sera fix&eacute;e selon les donn&eacute;es qui apparaissent dans <tt><i>expression_list</i></tt>. Lorsque l'ellipse est utilis&eacute;e de cette mani&egrave;re, un initialiseur doit appara&icirc;tre, et ne peut &ecirc;tre <tt><a href="KeyPgAny.html">Any</a></tt>.<br \>
+<br \>
+L'utilisation de l'ellipse dans <a href="KeyPgPpdefine.html">#define</a> ou une d&eacute;claration de <a href="KeyPgPpmacro.html">#macro</a>  permet de cr&eacute;er une macro variable, voir <a href="KeyPgPpdefine.html">#define</a>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">FOO</span>&nbsp;<span class="key">cdecl</span>&nbsp;<span class="oth">(</span><span class="wrd">X</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="oth">...)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">myarray</span><span class="oth">(</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="oth">...)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">{</span><span class="num">0</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">3</span><span class="oth">}</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">LBound</span><span class="oth">(</span><span class="wrd">myarray</span><span class="oth">),</span>&nbsp;<span class="key">UBound</span><span class="oth">(</span><span class="wrd">myarray</span><span class="oth">)</span>&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;0,&nbsp;3</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour Freebasic<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgCdecl.html">cdecl</a></tt><br \>
+<li> <tt><a href="KeyPgVaArg.html">va_arg</a></tt><br \>
+<li> <tt><a href="KeyPgVaFirst.html">va_first</a></tt><br \>
+<li> <tt><a href="KeyPgVaNext.html">va_next</a></tt><br \>
+<li> <tt><a href="KeyPgDim.html">Dim</a></tt><br \>
+<li> <tt><a href="KeyPgStatic.html">Static</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

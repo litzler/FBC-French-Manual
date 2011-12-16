@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Compiler Option: -vec</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Option du compilateur: -vec</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Active les optimisations vecteur par le compilateur.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<div class="fb_indent"><b>-vec</b> &lt; <i>level</i> &gt;<br \>
+</div></tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent"><tt><i>level</i></tt><br \>
+    Le niveau de la vectorisation: (<tt>0</tt> | <tt>NONE</tt>) | <tt>1</tt> | <tt>2</tt>.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent">L'option du compilateur <tt>-vec</tt> active de multiples niveaux d'optimisations par la recherche de multiples expressions scalaires qui peuvent &ecirc;tre fusionn&eacute;es en un vecteur d'expression unique. Si cette option n'est pas sp&eacute;cifi&eacute;e, la valeur par d&eacute;faut est <tt>-vec 0</tt>.<br \>
+<br \>
+<tt>-vec 0</tt> | <tt>none</tt> aucune, d&eacute;sactive les optimisations vecteur.<br \>
+<br \>
+<tt>-vec 1</tt> permettra l'expression compl&egrave;te des optimisations vecteur.<br \>
+<br \>
+<tt>-vec 2</tt> inclut <tt>-vec 1</tt> mais active &eacute;galement la vectorisation intra-expression.<br \>
+<br \>
+Cette option d&eacute;pend de l'option de ligne de commande <tt>-fpu SSE</tt>.  Tenter d'activer les optimisations vecteur sans l'aide de <tt>-fpu SSE</tt> g&eacute;n&eacute;rera une erreur.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="CompilerCmdLine.html">Utilisation de le ligne de commande</a><br \>
+<li> <a href="CompilerOptfpu.html">Option du compilateur: -fpu</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

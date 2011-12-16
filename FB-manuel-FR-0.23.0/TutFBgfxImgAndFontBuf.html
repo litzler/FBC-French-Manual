@@ -1,0 +1,527 @@
+<html>
+<head>
+<title>FBgfx Image and Font Buffers</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Image FBgfx et tampons de police de caract&egrave;res</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Cr&eacute;er et comprendre votre image FBgfx et les tampons de la police de caract&egrave;res<br \>
+<br \>
+Le tampon d'image FBgfx<br \>
+<div class="fb_indent">Cr&eacute;er des zones tampons<br \>
+Format tampon<br \>
+R&eacute;cup&eacute;rer des Pixels<br \>
+</div>Le fichier en-t&ecirc;te FBgfx Font<br \>
+<div class="fb_indent">D&eacute;tails du fichier en-t&ecirc;te<br \>
+Cr&eacute;ation d'un tampon police de caract&egrave;res<br \>
+Affectation des caract&egrave;res de la police<br \>
+</div>Trucs et astuces<br \>
+<div class="fb_indent">Coloriage de vos polices personnalis&eacute;es<br \>
+ScrPtr vs ImgBuf<br \>
+<br \>
+</div><b>T&eacute;l&eacute;charger les fichiers d'accompagnement du Tutoriel:  <a href="http://pritchard.hmcsoft.org/files/fb%20font%20tut.7z">FreeBASIC Font Tutorial.7z</a></b><br \>
+<br \>
+<div class="fb_header">Le tampon d'image FBgfx</div><br \>
+<br \>
+FBgfx a un nouveau type de donn&eacute;es depuis la version 0.17 et suivantes. Ce type est appel&eacute; IMAGE. Vous pouvez l'utiliser en incluant l'en-t&ecirc;te FBgfx dans votre programme (# include "fbgfx.bi") et ensuite acc&eacute;der &agrave; l'espace de noms pour FBgfx, via FB.IMAGE. Quand nous cr&eacute;erons des zones tampons dans ce tutoriel, nous utiliserons le type "fb.Image Ptr". Un pointeur, car c'est de la m&eacute;moire dynamique que l'on peut redimensionner.<br \>
+<br \>
+Pour utiliser une image dans la biblioth&egrave;que FBgfx, vous devez le cr&eacute;er via un tampon image. Votre tampon est une zone de m&eacute;moire allou&eacute;e (cr&eacute;&eacute;e, mis &agrave; disposition) pour votre image. Vous avez &agrave; d&eacute;sallouer (lib&eacute;rer, rendre disponible &agrave; d'autres programmes), la m&eacute;moire tampon lorsque vous avez termin&eacute; de l'utiliser &agrave; la fin de votre programme. FBgfx a son propre format de pixel interne, ainsi qu'une t&ecirc;te au d&eacute;but de chaque tampon image cr&eacute;&eacute;. L'en-t&ecirc;te de l'image contient des informations sur votre image. Comme sa largeur, hauteur, profondeur de bits, etc, tandis que le tampon pixel contient les couleurs r&eacute;elles, pour chaque pixel individuel en format RVB (rouge, bleu, vert).<br \>
+<br \>
+<b>Cr&eacute;er des zones tampons</b><br \>
+<br \>
+La taille du buffer que vous cr&eacute;ezt varie en fonction de la profondeur d'&eacute;cran. Le "bytes-per-pixel ou bpp = octets par pixel" est le nombre d'octets n&eacute;cessaires pour stocker les pixels individuels. Ainsi, un &eacute;cran 32-bit de profondeur de pixel aura besoin de 4 octets par pixel (8 bits dans un octet). Vous n'avez pas besoin de vous inqui&eacute;ter &agrave; ce sujet, cependant, l'utilisation de <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt> pour cr&eacute;er votre configuration m&eacute;moire tampon rend cela tr&egrave;s facile pour obtenir les informations n&eacute;cessaires &agrave; la cr&eacute;ation de nos tampons. Vous avez seulement besoin de conna&icirc;tre cette information pour comprendre quelle quantit&eacute; de m&eacute;moire la taille d'un tampon peut occuper au total, concernant les informations d'utilisation de la m&eacute;moire.<br \>
+<br \>
+En fait, la cr&eacute;ation du  tampon m&eacute;moire est tr&egrave;s simple. C'est juste une simple cr&eacute;ation d'un <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt> et un appel &agrave; <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> (Exemple1.bas):<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="def">#include&nbsp;"fbgfx.bi"<br />
+</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Our&nbsp;image&nbsp;width/height</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">ImgW</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">64</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">ImgH</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">64</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Screens&nbsp;have&nbsp;to&nbsp;be&nbsp;created&nbsp;before&nbsp;a&nbsp;call&nbsp;to&nbsp;imagecreate</span><br />
+<span class="key">ScreenRes</span>&nbsp;<span class="num">640</span><span class="oth">,</span>&nbsp;<span class="num">480</span><span class="oth">,</span>&nbsp;<span class="num">32</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Create&nbsp;our&nbsp;buffer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">FB.Image</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myBuf</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ImageCreate</span><span class="oth">(</span><span class="wrd">ImgW</span><span class="oth">,</span>&nbsp;<span class="wrd">ImgH</span><span class="oth">)</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Print&nbsp;the&nbsp;address&nbsp;of&nbsp;our&nbsp;buffer.</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Buffer&nbsp;created&nbsp;at:&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">myBuf</span><br />
+<span class="key">Sleep</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Destroy&nbsp;our&nbsp;buffer.&nbsp;&nbsp;Always&nbsp;DESTROY&nbsp;buffers&nbsp;you&nbsp;CREATE</span><br />
+<span class="key">ImageDestroy</span><span class="oth">(</span>&nbsp;<span class="wrd">myBuf</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Our&nbsp;buffer&nbsp;was&nbsp;destroyed."</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+<b>Dissection du Code</b><br \>
+<br \>
+<tt><div class="freebasic">
+<span class="def">#include&nbsp;"fbgfx.bi"<br />
+</span></div></tt><br />
+<br \>
+Cela inclut le fichier d'en-t&ecirc;te qui contient la d&eacute;finition du type <tt>fb.Image</tt>.<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Our&nbsp;image&nbsp;width/height</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">ImgW</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">64</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">ImgH</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">64</span><br />
+</div></tt><br />
+<br \>
+Ceci cr&eacute;e des constantes qui seront utilis&eacute;es pour d&eacute;cider de la taille de notre image. FBgfx ne conna&icirc;t rien &agrave; ce sujet. Nous devrons les passer &agrave; <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> lorsque nous l'utiliserons.<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Screens&nbsp;have&nbsp;to&nbsp;be&nbsp;created&nbsp;before&nbsp;a&nbsp;call&nbsp;to&nbsp;imagecreate</span><br />
+<span class="key">ScreenRes</span>&nbsp;<span class="num">640</span><span class="oth">,</span>&nbsp;<span class="num">480</span><span class="oth">,</span>&nbsp;<span class="num">32</span><br />
+</div></tt><br />
+<br \>
+Ceci cr&eacute;e notre &eacute;cran FBgfx. <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> a besoin de conna&icirc;tre la profondeur de bit &agrave; l'avance. Toutefois, <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> FBgfx a maintenant un param&egrave;tre suppl&eacute;mentaire vous permettant de r&eacute;gler la profondeur soi-m&ecirc;me.<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Create&nbsp;our&nbsp;buffer</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">FB.Image</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myBuf</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ImageCreate</span><span class="oth">(</span><span class="wrd">ImgW</span><span class="oth">,</span>&nbsp;<span class="wrd">ImgH</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Avant tout il faut cr&eacute;er un pointeur qui du type <tt>fb.Image</tt>. C'est juste un emplacement m&eacute;moire. Nous n'avons encore rien rempli. En fait, actuellement, il est &eacute;gal &agrave; z&eacute;ro et ne peut pas &ecirc;tre utilis&eacute;. Il est consid&eacute;r&eacute; comme nul.<br \>
+<br \>
+L'appel d'<tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> renvoie l'adresse d'une zone de la m&eacute;moire d'un <tt>fb.Image</tt> nouvellement cr&eacute;&eacute; qui sert &agrave; l'initialisation de notre pointeur. La taille de ce tampon d&eacute;pend de la profondeur de bits, mais la largeur et la hauteur de l'image contenue dans le tampon seront celles que nous avons d&eacute;finies pr&eacute;c&eacute;demment. <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> peut aussi prendre une couleur de remplissage et de profondeur dans les troisi&egrave;me et quatri&egrave;me arguments, respectivement; si ce n'est pas sp&eacute;cifi&eacute;, l'image sera cr&eacute;&eacute;e remplie avec la couleur transparente et sa profondeur sera celle de la couleur courante de l'&eacute;cran.<br \>
+<br \>
+Nous avons maintenant un espace allou&eacute; en m&eacute;moire. C'est un espace suffisant pour contenir une image "ImgWxImgH", avec les donn&eacute;es que "FBgfx" d&eacute;tient au sein de son type <tt>fb.Image</tt>. Nous allons avoir besoin de le d&eacute;truire plus tard, pour une gestion appropri&eacute;e de la m&eacute;moire.<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Print&nbsp;the&nbsp;address&nbsp;of&nbsp;our&nbsp;buffer.</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Buffer&nbsp;created&nbsp;at:&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">myBuf</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+Ceci, juste pour vous faire savoir ce que nous avons fait. Nous affichons l'adresse de <tt>myBuf</tt>. Si ce n'est pas <tt>0</tt>, nous pouvons supposer que <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> a fonctionn&eacute;.<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Destroy&nbsp;our&nbsp;buffer.&nbsp;&nbsp;Always&nbsp;DESTROY&nbsp;buffers&nbsp;you&nbsp;CREATE</span><br />
+<span class="key">ImageDestroy</span><span class="oth">(</span>&nbsp;<span class="wrd">myBuf</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Our&nbsp;buffer&nbsp;was&nbsp;destroyed."</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+Ici, nous d&eacute;truisons notre tampon avec un appel &agrave; <tt><a href="KeyPgImageDestroy.html">ImageDestroy</a></tt>. Nous n'avons pas &agrave; utiliser <tt><a href="KeyPgImageDestroy.html">ImageDestroy</a></tt> pour d&eacute;sallouer notre tampon, mais il est pr&eacute;f&eacute;rable de l'utiliser pour la coh&eacute;rence et la clart&eacute;.<br \>
+<br \>
+<b>Format du tampon</b><br \>
+<br \>
+Maintenant que nous savons comment cr&eacute;er des tampons, on peut vouloir avoir plus d'informations sur ce qui aura lieu &agrave; l'int&eacute;rieur. Vous pouvez ouvrir le fichier d'en-t&ecirc;te <tt>fbgfx.bi</tt> et trouver le type <tt>fb.Image</tt> et voir tous ces trucs excellents &agrave; l'int&eacute;rieur de celui-ci.<br \>
+<br \>
+En fait, Nous  n'avons pas besoin d'en savoir beaucoup sur le format lui-m&ecirc;me. La raison en est que nous avons utilis&eacute; une <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt>. Dans la m&eacute;moire, tout ce qui suit <tt>Buf + <a href="KeyPgSizeof.html">SizeOf</a>(fb.Image)</tt>  correspond aux pixels. Tout ce qui est avant correspond &agrave; l'en-t&ecirc;te. L'en-t&ecirc;te est tr&egrave;s facilement accessible parce que nous avons utilis&eacute; un <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt>. Tout ce que vous devez savoir est ce que vous voulez chercher.<br \>
+<br \>
+<b>FB.IMAGE Data Type</b><br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Image&nbsp;buffer&nbsp;header,&nbsp;new&nbsp;style&nbsp;(incorporates&nbsp;old&nbsp;header)</span><br />
+<span class="key">Type</span>&nbsp;<span class="wrd">IMAGE</span>&nbsp;<span class="key">Field</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Union</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">old</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">_OLD_HEADER</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Type</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">Union</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">bpp</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Width</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">height</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pitch</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">_reserved</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">12</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+</div></tt><br />
+<br \>
+Cette m&ecirc;me information peut &ecirc;tre trouv&eacute;e dans <tt>fbgfx.bi</tt>. Comme vous pouvez le voir, ce type de donn&eacute;es permet de stocker *beaucoup* d'information ordonn&eacute;e concernant votre tampon. La largeur, la hauteur, pitch (octets par ligne) et la profondeur de bits (octets par pixel) sont toutes int&eacute;gr&eacute;es. Dans l'union est inclus le type d'en-t&ecirc;te et l'ancienne en-t&ecirc;te elle-m&ecirc;me dans le m&ecirc;me espace. Le format de nouvel en-t&ecirc;te est indiqu&eacute;e par une valeur type de 7. Le format d'ancienne en-t&ecirc;te n'est pas utilis&eacute; dans le dialecte par d&eacute;faut dans les nouvelles versions de FB, alors nous n'allons pas le couvrir ici.<br \>
+<br \>
+Comment pouvons-nous acc&eacute;der &agrave; ces informations dans l'en-t&ecirc;te? Si vous connaissez bien les pointeurs (vous devriez l'&ecirc;tre, nous avons utilis&eacute; un pointeur pour notre tampon dans le premier exemple), alors tout ce que vous avez &agrave; faire est d'acc&eacute;der &agrave; votre tampon comme un pointeur, et acc&eacute;der directement aux donn&eacute;es &agrave; l'int&eacute;rieur. Cela peut vous laisser croire que tout ce qui est contenu dans votre m&eacute;moire tampon est le type <tt>fb.Image</tt> lui-m&ecirc;me, mais ce n'est tout simplement pas vrai. L'utilisation d'une <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt> permet au compilateur de penser que c'est ce qui est contenu dans la m&eacute;moire tampon, m&ecirc;me si seule la premi&egrave;re partie le fait.<br \>
+<br \>
+<b>R&eacute;cup&eacute;rer des Pixels</b><br \>
+<br \>
+La premi&egrave;re section de notre tampon que FreeBASIC nous fournit contient les informations d'en-t&ecirc;te. Ajoutez la taille de la <tt>fb.Image</tt> &agrave; notre adresse et le reste de notre tampon contient les pixels (Example2.bas).<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;We&nbsp;have&nbsp;to&nbsp;include&nbsp;this&nbsp;to&nbsp;use&nbsp;our&nbsp;FB.IMAGE&nbsp;datatype,&nbsp;remember.</span><br />
+<span class="def">#include&nbsp;"fbgfx.bi"<br />
+</span></div></tt><br />
+<br \>
+N'oubliez pas d'inclure notre type de donn&eacute;es <tt>fb.Image</tt>!<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;This&nbsp;one&nbsp;is&nbsp;very&nbsp;important.</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;We&nbsp;cast&nbsp;to&nbsp;a&nbsp;ubyte&nbsp;ptr&nbsp;first&nbsp;off,&nbsp;to&nbsp;get&nbsp;the&nbsp;exact&nbsp;byte&nbsp;our&nbsp;pixels&nbsp;begin.</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;We&nbsp;then&nbsp;cast&nbsp;to&nbsp;a&nbsp;uInteger&nbsp;ptr,&nbsp;simply&nbsp;to&nbsp;avoid&nbsp;"suspicious&nbsp;assignment"</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;warnings.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myPix</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">myBuf</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(</span><span class="wrd">FB.Image</span><span class="oth">)</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Ouf. Tr&egrave;s bien. Nous devons nous assurer que nous obtenons bien l'adresse exacte de nos pixels. Un nombre entier contient 4 octets. 3 d'entre eux sont utilis&eacute;s pour nos RVB et l'extra est g&eacute;n&eacute;ralement utilis&eacute; pour le canal alpha lorsque vous en avez besoin (certaines personnes tr&egrave;s d&eacute;brouillardes et utiliseront l'octet alpha - ou canal alpha - pour stocker toutes sortes de donn&eacute;es). M&ecirc;me si nous avons seulement UN OCTET de d&eacute;calage, notre Rouge deviendra Vert et notre Beu deviendra Rouge! Nous devons donc appliquer un <tt><a href="KeyPgUbyte.html">UByte</a> <a href="KeyPgPtr.html">Ptr</a></tt> en premier.<br \>
+<br \>
+Vous avez sans doute &eacute;galement remarqu&eacute; que nous avons simplement ajout&eacute; <tt>sizeof(fb.Image)</tt>&agrave; notre adresse. C'est un autre avantage de l'utilisation de <tt>fb.Image</tt>! Si vous ajoutez sa taille au d&eacute;but du buffer, nous avons juste saut&eacute; toutes les adresses m&eacute;moire li&eacute;es &agrave; l'en-t&ecirc;te et nous sommes maintenant sur nos pixels.<br \>
+<br \>
+Finalement, nous effectuons un <tt><a href="KeyPgUinteger.html">UInteger</a> <a href="KeyPgPtr.html">Ptr</a></tt> sur la tout, principalement pour la s&eacute;curit&eacute;. Nous sommes en mode 32 bits de profondeur, nous avons donc 4 octets par pixel.  Cela correspond &agrave; un <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
+<br \>
+Voici une petite ligne si vous ne comprenez toujours pas comment cela fonctionne. Voici notre tampon: | FB.IMAGE Header | Pixels |<br \>
+<br \>
+Si ce qui est contenu dans la premi&egrave;re section de notre tampon est l'en-t&ecirc;te de <tt>fb.Image</tt>, c'est bien &eacute;videmment qu'il va &ecirc;tre aussi grand en taille. Ainsi, nous pouvons obtenir notre adresse pour les pixels, simplement en ajoutant la taille de la  <tt>fb.Image</tt> &agrave; l'adresse de notre type de donn&eacute;e d'origine.<br \>
+<br \>
+Un probl&egrave;me cependant! Si nous ajoutons cette taille du tampon &agrave; notre adresse, pour tenter d'en obtenir une nouvelle, nous nous retrouvons avec des r&eacute;sultats &eacute;tranges.  C'est parce que notre type de donn&eacute;es n'est pas d'un octet de longueur. Nous devons d'abord Cast <tt><a href="KeyPgUbyte.html">UByte</a> <a href="KeyPgPtr.html">Ptr</a></tt> puis ajouter l'adresse. Un <tt><a href="KeyPgUbyte.html">UByte</a></tt> a une longueur d'un octet, ainsi nous obtiendrons en m&eacute;moire l'octet exact n&eacute;cessaire pour les manipulatios.<br \>
+<br \>
+Enfin, nous sommes en 32-bits.  Nous avons seulement fait un Cast <tt><a href="KeyPgUbyte.html">UByte</a> <a href="KeyPgPtr.html">Ptr</a></tt>.  Bien que nous puissions simplement attribuer au "uInteger ptr" l'adresse du <tt><a href="KeyPgUbyte.html">UByte</a></tt>, c'est une meilleure pratique de Cast vers un <tt><a href="KeyPgUinteger.html">UInteger</a> <a href="KeyPgPtr.html">Ptr</a></tt> en premier.  Nous avons enfin l'adresse de nos pixels, dans le type de donn&eacute;es convenable (un par pixel!). Nous pouvons manipuler les pixels directement maintenant, si nous le souhaitons.<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Print&nbsp;information&nbsp;stored&nbsp;in&nbsp;our&nbsp;buffer.</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Image&nbsp;Width:&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">myBuf</span><span class="oth">-&gt;</span><span class="key">Width</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Image&nbsp;Height:&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">myBuf</span><span class="oth">-&gt;</span><span class="wrd">Height</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Image&nbsp;Bit&nbsp;Depth:&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">myBuf</span><span class="oth">-&gt;</span><span class="wrd">BPP</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"Image&nbsp;Pitch:&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">myBuf</span><span class="oth">-&gt;</span><span class="wrd">Pitch</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">""</span><br />
+</div></tt><br />
+<br \>
+C'est ce dont je parlais plus t&ocirc;t. FB traitera votre pointeur comme si c'&eacute;tait un <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt>, vous pouvez donc acc&eacute;der aux donn&eacute;es de l'en-t&ecirc;te directement. Puisque nous avons maintenant la taille de l'image ainsi que son adresse pixels, nous pouvons les &eacute;diter et les manipuler comme s'ils &eacute;taient un pointeur sur notre tampon d'&eacute;cran! Voir ScrPtr ImgBuf.bas vs pour un exemple &agrave; ce sujet.<br \>
+<br \>
+<div class="fb_header">L'en-t&ecirc;te FBGfx Font</div><br \>
+<br \>
+<b>D&eacute;tails de l'en-t&ecirc;te</b><br \>
+<br \>
+La premi&egrave;re ligne du tampon d'image qui sera utilis&eacute;e comme une police contient les informations d'en-t&ecirc;te de votre police, sur la base d'un octet par octet (rappelez-vous que la premi&egrave;re rang&eacute;e de pixels correspond aux premiers octets car il sont stock&eacute;s dans ligne -> colonne).<br \>
+<br \>
+Le tout premier octet nous dit quelle version de l'en-t&ecirc;te que nous utilisons. Actuellement, seul 0 est pris en charge, car une seule version en-t&ecirc;te est autoris&eacute;e. Le deuxi&egrave;me octet nous indique le premier caract&egrave;re pris en charge dans notre police et le troisi&egrave;me octet nous indique le dernier.<br \>
+<br \>
+0; Octet; Version de l'en-t&ecirc;te<br \>
+1; Octet; Premier caract&egrave;re support&eacute;<br \>
+2; Octet; Dernier caract&egrave;re support&eacute;<br \>
+3 &agrave; (3 + DernierCaract&egrave;re - PremierCaract&egrave;re); Octet; Largeur de chaque caract&egrave;re dans notre police.<br \>
+<br \>
+<b>Cr&eacute;ation d'une zone tampon de police</b><br \>
+<br \>
+Si vous aviez une police de caract&egrave;res dont le premier est le caract&egrave;re 37 et le dernier le caract&egrave;re 200, vos octets devraient contenir:<br \>
+<br \>
+0 pour la version en-t&ecirc;te. C'est la version actuelle uniquement pris en charge.<br \>
+37 pour le premier caract&egrave;re pris en charge.<br \>
+200 pour le dernier caract&egrave;re pris en charge.<br \>
+94 octets contenant les largeurs de chaque caract&egrave;re.<br \>
+<br \>
+Puisque la premi&egrave;re ligne est prise pour les donn&eacute;es d'en-t&ecirc;te, le tampon de la police sera un tampon d'image dont la hauteur est la hauteur de la police, plus un. Donc, si vous avez une hauteur de police de 8, vous avez besoin d'une hauteur du tampon de 9. Vous mettrez la police dans la deuxi&egrave;me rang&eacute;e de votre tampon, plut&ocirc;t que la premi&egrave;re comme vous le feriez habituellement.<br \>
+<br \>
+Voici un exemple (Exemple3.bas) qui cr&eacute;e une zone tampon de police. Il ne cr&eacute;e qu'elle et affecte seulement les donn&eacute;es d'en-t&ecirc;te, pas la police effective:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;The&nbsp;first&nbsp;supported&nbsp;character</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">FirstChar</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">32</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Last&nbsp;supported&nbsp;character</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">LastChar</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">190</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Number&nbsp;of&nbsp;characters&nbsp;total.</span><br />
+<span class="key">Const</span>&nbsp;<span class="wrd">NumChar</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">(</span><span class="wrd">LastChar</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">FirstChar</span><span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">1</span><br />
+</div></tt><br />
+<br \>
+Ces constantes nous aident. Elles rendent le code plus propre et plus rapide.<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Create&nbsp;a&nbsp;font&nbsp;buffer&nbsp;large&nbsp;enough&nbsp;to&nbsp;hold&nbsp;96&nbsp;characters,&nbsp;with&nbsp;widths&nbsp;of&nbsp;8.</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Remember&nbsp;to&nbsp;make&nbsp;our&nbsp;buffer&nbsp;one&nbsp;height&nbsp;larger&nbsp;than&nbsp;the&nbsp;font&nbsp;itself.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">FB.Image</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myFont</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ImageCreate</span><span class="oth">(</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">NumChar</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">8</span>&nbsp;<span class="oth">),</span>&nbsp;<span class="num">8</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">1</span>&nbsp;<span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Cr&eacute;er notre buffer de police. Rappelez-vous, nous avons besoin d'ajouter un espace horizontal pour chaque caract&egrave;re dans la police (8 pixels de large). Nous avons aussi besoin d'ajouter une rang&eacute;e suppl&eacute;mentaire pour notre information d'en-t&ecirc;te de police.<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Our&nbsp;font&nbsp;header&nbsp;information.</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Cast&nbsp;to&nbsp;uByte&nbsp;ptr&nbsp;for&nbsp;safety&nbsp;and&nbsp;consistency,&nbsp;remember.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myHeader</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span><span class="key">UByte</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">myFont</span>&nbsp;<span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Nous obtenons notre buffer de police, exact, dans le bon format et n'ayant pas d'avertissements concernant les adresses. L'en-t&ecirc;te est sur une base d'un octet pour un octet, donc nous ne pouvons pas travailler sur lui avec un type <tt>fb.Image</tt>.<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Assign&nbsp;font&nbsp;buffer&nbsp;header.</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Header&nbsp;version</span><br />
+<span class="wrd">myHeader</span><span class="oth">[</span><span class="num">0</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;First&nbsp;supported&nbsp;character</span><br />
+<span class="wrd">myHeader</span><span class="oth">[</span><span class="num">1</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">FirstChar</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Last&nbsp;supported&nbsp;character</span><br />
+<span class="wrd">myHeader</span><span class="oth">[</span><span class="num">2</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">LastChar</span><br />
+</div></tt><br />
+<br \>
+Attribuons &agrave; l'en-t&ecirc;te les informations d&eacute;crites ci-dessus, dans les trois premiers octets. La version d'en-t&ecirc;te, le premier caract&egrave;re  et le dernier caract&egrave;re pris en charge.<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Assign&nbsp;the&nbsp;widths&nbsp;of&nbsp;each&nbsp;character&nbsp;in&nbsp;the&nbsp;font.</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">DoVar</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="wrd">NumChar</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="num">1</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Skip&nbsp;the&nbsp;header,&nbsp;if&nbsp;you&nbsp;recall</span><br />
+&nbsp;&nbsp;<span class="wrd">myHeader</span><span class="oth">[</span><span class="num">3</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">DoVar</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">8</span>&nbsp;&nbsp;<br />
+<span class="key">Next</span><br />
+</div></tt><br />
+<br \>
+Chaque caract&egrave;re de notre police peut avoir sa propre largeur, nous devons donc les affecter. Le <tt>3 +</tt> saute les information d'en-t&ecirc;te. ##DoVar## commence &agrave; 0, donc la premi&egrave;re fois qu'il utilise ce code, nous sommes &agrave; l'indice 3. Donnant &agrave; tous les caract&egrave;res pris en charge une largeur de 8.<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Remember&nbsp;to&nbsp;destroy&nbsp;our&nbsp;image&nbsp;buffer.</span><br />
+<span class="key">ImageDestroy</span><span class="oth">(</span>&nbsp;<span class="wrd">myFont</span>&nbsp;<span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Juste pour vous rappeler<br \>
+<br \>
+<b>Affectation des caract&egrave;res de la police</b><br \>
+<br \>
+C'est assez simple. Nous allons utiliser la police par d&eacute;faut de <span >FreeBASIC</span> pour la dessiner sur notre tampon. N'oubliez pas que les dessins commencent &agrave; la colonne 1, non pas la colonne 0, parce que la toute premi&egrave;re colonne est r&eacute;serv&eacute;e pour les donn&eacute;es d'en-t&ecirc;te. D&eacute;marrer en dessinant d'abord le premier caract&egrave;re support&eacute; et donnez-lui la couleur que vous voulez. Attention, vous ne pouvez pas avoir de couleur personnalis&eacute;e lors de l'&eacute;laboration de votre de police. Lorsque vous ajoutez un caract&egrave;re &agrave; votre buffer, sa couleur est bloqu&eacute;e d&eacute;finitivement sur celle qui est utilis&eacute;e pour le dessiner! Voir la section "Conseils et astuces" pour contourner ce probl&egrave;me.<br \>
+<br \>
+Voici le code modifi&eacute; (Exemple4.bas), o&ugrave; nous allons ajouter le dessin de la police via la police FreeBASIC par d&eacute;faut dans notre tampon.<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;NEW!!!</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Our&nbsp;current&nbsp;font&nbsp;character.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="wrd">CurChar</span><br />
+</div></tt><br />
+<br \>
+Juste pour avoir un indice rapide du caract&egrave;re ASCII courant on dessine sur notre police.<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Draw</span>&nbsp;<span class="key">String</span>&nbsp;<span class="wrd">myFont</span><span class="oth">,</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">DoVar</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">8</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="oth">),</span>&nbsp;<span class="key">Chr</span><span class="oth">(</span><span class="wrd">CurChar</span><span class="oth">),</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+Sautez la premi&egrave;re ligne du tampon image, car elle contient des informations sur la police. Utilisez la police police FBgfx pour dessiner notre police personnalis&eacute;e. Remplissez-la avec une couleur al&eacute;atoire. Notez que nous avons dessin&eacute; dans le tampon, avec "<tt>Draw String myFont</tt>...".<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="key">Print</span>&nbsp;<span class="key">Chr</span><span class="oth">(</span><span class="wrd">CurChar</span><span class="oth">);</span><br />
+</div></tt><br />
+<br \>
+Pour plus de clart&eacute; seulement, de fa&ccedil;on &agrave; voir le dessin des caract&egrave;res que nous avons mis dans le tampon.<br \>
+<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;&nbsp;<span class="com">''&nbsp;Use&nbsp;our&nbsp;font&nbsp;buffer&nbsp;to&nbsp;draw&nbsp;some&nbsp;text!</span><br />
+<span class="key">Draw</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">(</span><span class="num">0</span><span class="oth">,</span>&nbsp;<span class="num">80</span><span class="oth">),</span>&nbsp;<span class="quo">"Hello!"</span><span class="oth">,</span>&nbsp;<span class="oth">,</span>&nbsp;<span class="wrd">myFont</span><br />
+<span class="key">Draw</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">(</span><span class="num">0</span><span class="oth">,</span>&nbsp;<span class="num">88</span><span class="oth">),</span>&nbsp;<span class="quo">"HOW&nbsp;ARE&nbsp;ya&nbsp;DOIN&nbsp;Today?!&nbsp;&nbsp;YA&nbsp;DOIN&nbsp;FINE?!"</span><span class="oth">,</span>&nbsp;<span class="oth">,</span>&nbsp;<span class="wrd">myFont</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+Testez notre nouvelle police. Bien s&ucirc;r, c'est la m&ecirc;me que celle &agrave; laquelle nous sommes habitu&eacute;s. Vous pourriez avoir cr&eacute;&eacute; la v&ocirc;tre &agrave; partir du tampon de votre propre police personnalis&eacute;e.<br \>
+<br \>
+<div class="fb_header">Trucs & astuces</div><br \>
+<br \>
+<b>Colorisation de vos polices personnalis&eacute;es</b><br \>
+<br \>
+Bon, maintenant que vous avez r&eacute;alis&eacute; qu'une fois que vous colorisez une police personnalis&eacute;e, vous ne pouvez pas utiliser <tt><a href="KeyPgDrawString.html">Draw String</a></tt> pour changer cette couleur. Eh bien, aucune crainte, nous pouvons contourner cela (CustFontCol.bas). Cependant, cela pourrait &ecirc;tre un peu lent.<br \>
+<br \>
+Nous pouvons cr&eacute;er un objet police, contenant une fonction qui retourne un tampon police. Que fait ce code? il redessine le tampon de la police chaque fois que nous changeons de couleur et renvoie le tampon de la police stock&eacute;e dans l'objet. Cela *pourrait* th&eacute;oriquement &ecirc;tre acc&eacute;l&eacute;r&eacute; si l'on connaissait la gamme des caract&egrave;res &agrave; redessiner, alors nous pourrions redessiner que ceux-l&agrave; du plus bas au plus &eacute;lev&eacute;. Mais d&eacute;terminer cela, pourrait aussi &ecirc;tre tr&egrave;s lent.<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="def">#include&nbsp;"fbgfx.bi"<br />
+</span><br />
+<span class="key">Type</span>&nbsp;<span class="wrd">Font</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Our&nbsp;font&nbsp;buffer.</span><br />
+&nbsp;&nbsp;<span class="wrd">Buf</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">FB.Image</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Font&nbsp;header.</span><br />
+&nbsp;&nbsp;<span class="wrd">Hdr</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Current&nbsp;font&nbsp;color.</span><br />
+&nbsp;&nbsp;<span class="wrd">Col</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Make&nbsp;our&nbsp;font&nbsp;buffer.</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">Make</span><span class="oth">(</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Change&nbsp;the&nbsp;font&nbsp;color&nbsp;and&nbsp;edit&nbsp;the&nbsp;font&nbsp;buffer.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Return&nbsp;the&nbsp;new&nbsp;font.</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">myFont</span><span class="oth">(</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">)</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">FB.Image</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Create/Destroy&nbsp;our&nbsp;font.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Set&nbsp;a&nbsp;default&nbsp;color&nbsp;to&nbsp;it&nbsp;if&nbsp;you&nbsp;like.</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Constructor</span><span class="oth">(</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Declare</span>&nbsp;<span class="key">Destructor</span><span class="oth">()</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Create&nbsp;our&nbsp;font's&nbsp;buffer.</span><br />
+<span class="key">Constructor</span>&nbsp;<span class="wrd">Font</span><span class="oth">(</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">This.Make</span><span class="oth">(</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Constructor</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Destroy&nbsp;font&nbsp;buffer.</span><br />
+<span class="key">Destructor</span>&nbsp;<span class="wrd">Font</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="key">ImageDestroy</span><span class="oth">(</span>&nbsp;<span class="wrd">Buf</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Destructor</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Assign&nbsp;the&nbsp;FBgfx&nbsp;font&nbsp;into&nbsp;our&nbsp;font&nbsp;buffer.</span><br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">Font.Make</span><span class="oth">(</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;No&nbsp;image&nbsp;buffer&nbsp;data.&nbsp;&nbsp;Create&nbsp;it.</span><br />
+&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="wrd">This.Buf</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;No&nbsp;screen&nbsp;created&nbsp;yet.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">ScreenPtr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Exit</span>&nbsp;<span class="key">Sub</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Support&nbsp;256&nbsp;characters,&nbsp;8&nbsp;in&nbsp;width.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Add&nbsp;the&nbsp;extra&nbsp;row&nbsp;for&nbsp;the&nbsp;font&nbsp;header.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">This.Buf</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ImageCreate</span><span class="oth">(</span>&nbsp;<span class="num">256</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">8</span><span class="oth">,</span>&nbsp;<span class="num">9</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Get&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;font&nbsp;header,</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;which&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;getting&nbsp;our&nbsp;pixel&nbsp;address</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Except&nbsp;that&nbsp;we&nbsp;always&nbsp;will&nbsp;use&nbsp;a&nbsp;ubyte.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">This.Hdr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span><span class="key">UByte</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">This.Buf</span><span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(</span><span class="wrd">FB.Image</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Assign&nbsp;header&nbsp;information.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">This.Hdr</span><span class="oth">[</span><span class="num">0</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;First&nbsp;supported&nbsp;character</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">This.Hdr</span><span class="oth">[</span><span class="num">1</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Last&nbsp;supported&nbsp;character</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">This.Hdr</span><span class="oth">[</span><span class="num">2</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">255</span><br />
+&nbsp;&nbsp;<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="wrd">This.Col</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Exit</span>&nbsp;<span class="key">Sub</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Draw&nbsp;our&nbsp;font.</span><br />
+&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">DoVar</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">255</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Set&nbsp;font&nbsp;width&nbsp;information.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">This.Hdr</span><span class="oth">[</span><span class="num">3</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">DoVar</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">8</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Draw</span>&nbsp;<span class="key">String</span>&nbsp;<span class="wrd">This.Buf</span><span class="oth">,</span>&nbsp;<span class="oth">(</span><span class="wrd">DoVar</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">8</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">),</span>&nbsp;<span class="key">Chr</span><span class="oth">(</span><span class="wrd">DoVar</span><span class="oth">),</span>&nbsp;<span class="wrd">_Col_</span><br />
+&nbsp;&nbsp;<span class="key">Next</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Remember&nbsp;our&nbsp;font&nbsp;color.</span><br />
+&nbsp;&nbsp;<span class="wrd">This.Col</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">_Col_</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Get&nbsp;the&nbsp;buffer&nbsp;for&nbsp;our&nbsp;font.</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Remake&nbsp;the&nbsp;font&nbsp;if&nbsp;the&nbsp;color's&nbsp;different.</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">Font.myFont</span><span class="oth">(</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">)</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">FB.Image</span>&nbsp;<span class="key">Ptr</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;If&nbsp;our&nbsp;colors&nbsp;match,&nbsp;just&nbsp;return&nbsp;the&nbsp;current&nbsp;buffer.</span><br />
+&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">Col</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">Buf</span><br />
+&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Make&nbsp;the&nbsp;font&nbsp;with&nbsp;a&nbsp;new&nbsp;color.</span><br />
+&nbsp;&nbsp;<span class="wrd">This.Make</span><span class="oth">(</span>&nbsp;<span class="wrd">_Col_</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Return&nbsp;out&nbsp;buffer.</span><br />
+&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">This.Buf</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;MAIN&nbsp;CODE&nbsp;HERE!</span><br />
+<span class="key">ScreenRes</span>&nbsp;<span class="num">640</span><span class="oth">,</span>&nbsp;<span class="num">480</span><span class="oth">,</span>&nbsp;<span class="num">32</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Create&nbsp;our&nbsp;font.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">Font</span>&nbsp;<span class="wrd">myFont</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">)</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Draw&nbsp;a&nbsp;string&nbsp;using&nbsp;our&nbsp;custom&nbsp;font.</span><br />
+<span class="key">Draw</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">(</span><span class="num">0</span><span class="oth">,</span><span class="num">0</span><span class="oth">),</span>&nbsp;<span class="quo">"Hello.&nbsp;&nbsp;I&nbsp;am&nbsp;the&nbsp;custom&nbsp;font."</span><span class="oth">,,</span>&nbsp;<span class="wrd">myFont.myFont</span><span class="oth">()</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Gasp.&nbsp;&nbsp;A&nbsp;new&nbsp;color!</span><br />
+<span class="key">Draw</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">(</span><span class="num">0</span><span class="oth">,</span><span class="num">8</span><span class="oth">),</span>&nbsp;<span class="quo">"Hello.&nbsp;&nbsp;I&nbsp;am&nbsp;the&nbsp;custom&nbsp;font."</span><span class="oth">,,</span>&nbsp;<span class="wrd">myFont.myFont</span><span class="oth">(</span><span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">0</span><span class="oth">,</span>&nbsp;<span class="num">0</span><span class="oth">))</span><br />
+<span class="key">Sleep</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Speed&nbsp;test.&nbsp;&nbsp;Turns&nbsp;out&nbsp;it's&nbsp;quite&nbsp;slow.</span><br />
+<span class="key">Scope</span><br />
+&nbsp;&nbsp;<span class="key">Randomize</span>&nbsp;<span class="key">Timer</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Our&nbsp;timer.</span><br />
+&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="wrd">T</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Timer</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;Time&nbsp;how&nbsp;long&nbsp;it&nbsp;takes&nbsp;to&nbsp;make&nbsp;a&nbsp;new&nbsp;font&nbsp;this&nbsp;way.</span><br />
+&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">DoVar</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">499</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">myFont.Make</span><span class="oth">(</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Next</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;And&nbsp;we're&nbsp;all&nbsp;done.&nbsp;&nbsp;Print&nbsp;important&nbsp;data.</span><br />
+&nbsp;&nbsp;<span class="key">Locate</span>&nbsp;<span class="num">3</span><span class="oth">,</span>&nbsp;<span class="num">1</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Time&nbsp;to&nbsp;Re-Draw&nbsp;font&nbsp;499&nbsp;times:&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="key">Timer</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">T</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Time&nbsp;per&nbsp;Re-Draw:&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="key">Timer</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="wrd">T</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">/</span>&nbsp;<span class="num">500</span><br />
+&nbsp;&nbsp;<span class="key">Sleep</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Scope</span><br />
+</div></tt><br />
+<br \>
+<b>ScrPtr vs ImgBuf</b><br \>
+<br \>
+Comparaison sur comment dessiner des pixels dans le tampon d'image, par rapport &agrave; comment dessiner sur le tampon de l'&eacute;cran (ScrPtr vs ImgBuf.bas):<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="def">#include&nbsp;"fbgfx.bi"<br />
+</span><br />
+<br />
+<span class="key">ScreenRes</span>&nbsp;<span class="num">640</span><span class="oth">,</span>&nbsp;<span class="num">480</span><span class="oth">,</span>&nbsp;<span class="num">32</span><br />
+<br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Create&nbsp;a&nbsp;buffer&nbsp;the&nbsp;size&nbsp;of&nbsp;our&nbsp;screen.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">FB.IMAGE</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myBuf</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ImageCreate</span><span class="oth">(</span>&nbsp;<span class="num">640</span><span class="oth">,</span>&nbsp;<span class="num">480</span>&nbsp;<span class="oth">)</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Get&nbsp;the&nbsp;address&nbsp;of&nbsp;our&nbsp;screen's&nbsp;buffer.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myScrPix</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">ScreenPtr</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Get&nbsp;the&nbsp;address&nbsp;of&nbsp;our&nbsp;pixel's&nbsp;buffer.</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myBufPix</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">myBuf</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(</span><span class="wrd">FB.IMAGE</span><span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Lock&nbsp;our&nbsp;page.&nbsp;&nbsp;Fill&nbsp;the&nbsp;entire&nbsp;page&nbsp;with&nbsp;white.</span><br />
+<span class="key">ScreenLock</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Alternatively,&nbsp;if&nbsp;the&nbsp;screen&nbsp;resolution's&nbsp;unknown,&nbsp;use&nbsp;ScreenInfo&nbsp;to</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;make&nbsp;this&nbsp;more&nbsp;secure</span><br />
+&nbsp;&nbsp;<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Note:&nbsp;this&nbsp;code&nbsp;assumes&nbsp;no&nbsp;padding&nbsp;between&nbsp;rows.&nbsp;&nbsp;To&nbsp;prevent&nbsp;this,</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;you&nbsp;need&nbsp;to&nbsp;use&nbsp;ScreenInfo&nbsp;to&nbsp;get&nbsp;the&nbsp;screen's&nbsp;pitch,&nbsp;and&nbsp;calculate</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;row&nbsp;offsets&nbsp;using&nbsp;that&nbsp;instead.</span><br />
+&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">xVar</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">639</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">yVar</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">479</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">myScrPix</span><span class="oth">[</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">yVar</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">640</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">xVar</span>&nbsp;<span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">255</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span><br />
+&nbsp;&nbsp;<span class="key">Next</span><br />
+<br />
+<span class="key">ScreenUnlock</span><br />
+<span class="key">Sleep</span><br />
+<br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Draw&nbsp;onto&nbsp;our&nbsp;image&nbsp;buffer&nbsp;all&nbsp;red.</span><br />
+<span class="key">For</span>&nbsp;<span class="wrd">xVar</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="wrd">myBuf</span><span class="oth">-&gt;</span><span class="key">Width</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="num">1</span><br />
+&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">yVar</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="wrd">myBuf</span><span class="oth">-&gt;</span><span class="wrd">Height</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="num">1</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">myBufPix</span><span class="oth">[</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">yVar</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="oth">(</span><span class="wrd">myBuf</span><span class="oth">-&gt;</span><span class="wrd">Pitch</span>&nbsp;<span class="oth">\</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(*</span><span class="wrd">myBufPix</span><span class="oth">))</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">xVar</span>&nbsp;<span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="num">255</span><span class="oth">,</span>&nbsp;<span class="num">0</span><span class="oth">,</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Next</span><br />
+<span class="key">Next</span><br />
+<br />
+&nbsp;&nbsp;<span class="com">''&nbsp;Put&nbsp;the&nbsp;red&nbsp;buffer&nbsp;on&nbsp;the&nbsp;screen.</span><br />
+<span class="key">Put</span>&nbsp;<span class="oth">(</span><span class="num">0</span><span class="oth">,</span><span class="num">0</span><span class="oth">),</span>&nbsp;<span class="wrd">myBuf</span><span class="oth">,</span>&nbsp;<span class="key">PSet</span><br />
+<span class="key">Sleep</span><br />
+<br />
+<br />
+<span class="com">/'</span><br />
+<span class="com">&nbsp;&nbsp;ScreenPtr:</span><br />
+<span class="com">&nbsp;1)&nbsp;Get&nbsp;address&nbsp;of&nbsp;screen&nbsp;buffer</span><br />
+<span class="com">&nbsp;&nbsp;&nbsp;&nbsp;(remember&nbsp;that&nbsp;FBgfx&nbsp;uses&nbsp;a&nbsp;dummy&nbsp;buffer&nbsp;that&nbsp;it&nbsp;flips&nbsp;automatically)</span><br />
+<span class="com">&nbsp;2)&nbsp;Lock&nbsp;page</span><br />
+<span class="com">&nbsp;3)&nbsp;Draw&nbsp;onto&nbsp;screen&nbsp;address</span><br />
+<span class="com">&nbsp;4)&nbsp;Unlock&nbsp;page&nbsp;to&nbsp;show&nbsp;buffer</span><br />
+<span class="com">&nbsp;&nbsp;</span><br />
+<span class="com">&nbsp;&nbsp;Image&nbsp;Buffer:</span><br />
+<span class="com">&nbsp;1)&nbsp;Create&nbsp;an&nbsp;image&nbsp;buffer</span><br />
+<span class="com">&nbsp;2)&nbsp;Get&nbsp;the&nbsp;address&nbsp;of&nbsp;image&nbsp;pixels</span><br />
+<span class="com">&nbsp;3)&nbsp;Draw&nbsp;onto&nbsp;image&nbsp;pixels</span><br />
+<span class="com">&nbsp;&nbsp;&nbsp;&nbsp;(you&nbsp;can&nbsp;use&nbsp;neat&nbsp;stuff&nbsp;like&nbsp;the&nbsp;buffer&nbsp;information&nbsp;to&nbsp;help&nbsp;you&nbsp;here)</span><br />
+<span class="com">&nbsp;4)&nbsp;Put&nbsp;down&nbsp;Image&nbsp;where&nbsp;you&nbsp;please</span><br />
+<span class="com">&nbsp;&nbsp;&nbsp;&nbsp;(another&nbsp;big&nbsp;plus!)</span><br />
+<span class="com">&nbsp;&nbsp;&nbsp;&nbsp;</span><br />
+<span class="com">&nbsp;&nbsp;About&nbsp;Drawing:</span><br />
+<span class="com">&nbsp;cast(ubyte&nbsp;ptr,&nbsp;mybuff)&nbsp;+&nbsp;Y&nbsp;*&nbsp;Pitch&nbsp;+&nbsp;X&nbsp;*&nbsp;Bpp</span><br />
+<span class="com">&nbsp;</span><br />
+<span class="com">&nbsp;Every&nbsp;Y&nbsp;contains&nbsp;PITCH&nbsp;number&nbsp;of&nbsp;bytes.&nbsp;&nbsp;In&nbsp;order&nbsp;to&nbsp;reach&nbsp;your&nbsp;new&nbsp;Y,&nbsp;you&nbsp;</span><br />
+<span class="com">&nbsp;have&nbsp;to&nbsp;skip&nbsp;an&nbsp;entire&nbsp;row.</span><br />
+<span class="com">&nbsp;</span><br />
+<span class="com">&nbsp;It&nbsp;should&nbsp;be&nbsp;safe&nbsp;to&nbsp;do&nbsp;the&nbsp;pointer&nbsp;arithmetic&nbsp;in&nbsp;cases&nbsp;where&nbsp;the&nbsp;pointer's&nbsp;data</span><br />
+<span class="com">&nbsp;type&nbsp;is&nbsp;not&nbsp;one&nbsp;byte&nbsp;long,&nbsp;so&nbsp;you&nbsp;may&nbsp;find&nbsp;it&nbsp;easier&nbsp;to&nbsp;use&nbsp;a&nbsp;pointer&nbsp;type&nbsp;to</span><br />
+<span class="com">&nbsp;match&nbsp;your&nbsp;bit&nbsp;depth.</span><br />
+<span class="com">&nbsp;In&nbsp;these&nbsp;cases&nbsp;you&nbsp;should&nbsp;divide&nbsp;the&nbsp;Pitch&nbsp;and&nbsp;BPP&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;pointer&nbsp;type.</span><br />
+<span class="com">&nbsp;Conveniently,&nbsp;in&nbsp;this&nbsp;case&nbsp;the&nbsp;Pitch&nbsp;should&nbsp;always&nbsp;be&nbsp;divisible&nbsp;by&nbsp;the&nbsp;pixel's&nbsp;type&nbsp;</span><br />
+<span class="com">&nbsp;size.&nbsp;And,&nbsp;obviously,&nbsp;so&nbsp;will&nbsp;the&nbsp;BPP,&nbsp;which&nbsp;will&nbsp;just&nbsp;cancel&nbsp;to&nbsp;1&nbsp;:D</span><br />
+<span class="com">&nbsp;</span><br />
+<span class="com">'/</span><br />
+</div></tt>
+</div>
+</div> 
+</div> 
+</body>
+</html>

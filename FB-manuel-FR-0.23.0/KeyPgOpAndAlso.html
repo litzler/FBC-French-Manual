@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Operator Andalso (Short Circuit Conjunction)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Op&eacute;rateur Andalso (Circuit-court Conjonction)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Retourne le circuit-court (conjonction) de deux valeurs num&eacute;riques<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>AndAlso</b> ( <a href="KeyPgByref.html">ByRef</a> <i>lhs</i> <a href="KeyPgAs.html">As</a> <i>T1</i>, <a href="KeyPgByref.html">ByRef</a> <i>rhs</i> <a href="KeyPgAs.html">As</a> <i>T2</i> ) <a href="KeyPgAs.html">As</a> <i>Ret</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <i>lhs</i> <b>AndAlso</b> <i>rhs</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>lhs</i></tt><br \>
+<div class="fb_indent">Expression c&ocirc;t&eacute; gauche.<br \>
+</div><tt><i>T1</i></tt><br \>
+<div class="fb_indent">Tout type num&eacute;rique.<br \>
+</div><tt><i>rhs</i></tt><br \>
+<div class="fb_indent">Expression c&ocirc;t&eacute; droit.<br \>
+</div><tt><i>T2</i></tt><br \>
+<div class="fb_indent">Tout type num&eacute;rique.<br \>
+</div><tt><i>Ret</i></tt><br \>
+<div class="fb_indent">Un nombre entier.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne le circuit-court (conjonction) des deux op&eacute;randes.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Cet op&eacute;rateur &eacute;value l'expression &agrave; gauche.  Si le r&eacute;sultat est nul, z&eacute;ro est retourn&eacute; imm&eacute;diatement.  Si le r&eacute;sultat est non nul alors l'expression de droite est &eacute;valu&eacute;e et le r&eacute;sultat logique des deux expressions est retourn&eacute;. <br \>
+<br \>
+La table de v&eacute;rit&eacute; ci-dessous montre toutes les combinaisons d'un circuit-court, le signe '-' indique que l'op&eacute;rande n'est pas &eacute;valu&eacute;.<br \>
+<br \>
+<div class="fb_table"><table><tr><td>Valeur c&ocirc;t&eacute; gauche</td><td>Valeur c&ocirc;t&eacute; droit</td><td>R&eacute;sultat</td></tr><tr><td>0</td><td>-</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div><br \>
+<br \>
+Un court-circuit est ex&eacute;cut&eacute; - seules les expressions n&eacute;cessaires pour calculer le r&eacute;sultat sont &eacute;valu&eacute;es.<br \>
+<br \>
+Le type de retour est toujours un entier, de valeur 0 ou -1, indiquant faux et vrai, respectivement.<br \>
+<br \>
+Cet op&eacute;rateur ne peut pas &ecirc;tre surcharg&eacute; pour accepter les types d&eacute;finis par l'utilisateur.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;Using&nbsp;the&nbsp;ANDALSO&nbsp;operator&nbsp;on&nbsp;two&nbsp;numeric&nbsp;values</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">numeric_value1</span><span class="oth">,</span>&nbsp;<span class="wrd">numeric_value2</span><br />
+<span class="wrd">numeric_value1</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">15</span><br />
+<span class="wrd">numeric_value2</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">30</span><br />
+<br />
+<span class="com">'Result&nbsp;=&nbsp;&nbsp;-1</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">numeric_value1</span>&nbsp;<span class="key">AndAlso</span>&nbsp;<span class="wrd">numeric_value2</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Cet op&eacute;rateur n'est pas disponible sous QB.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOpOrElse.html">OrElse</a></tt><br \>
+<li> <a href="TblTruth.html">Tables de v&eacute;rit&eacute; des op&eacute;rateurs de manipulation de bits</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

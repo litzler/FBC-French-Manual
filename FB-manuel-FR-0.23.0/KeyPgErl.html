@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Erl</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Erl</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Fonction de gestion d'erreur retournant le num&eacute;ro de ligne o&ugrave; l'erreur s'est produite<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>Erl</b> ( ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>Erl</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Valeur retourn&eacute;</div><div class="fb_sect_cont"><br \>
+Une valeur retourn&eacute;e <a href="KeyPgInteger.html">Integer</a> contenant le num&eacute;ro de la ligne o&ugrave; la derni&egrave;re erreur s'est produite.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Erl</b></tt> retournera le num&eacute;ro de la ligne o&ugrave; la derni&egrave;re erreur s'est produite. Si aucune erreur ne s'est produite, <tt><b>Erl</b></tt> retournera 0.<br \>
+<br \>
+<tt><b>Erl</b></tt> ne peut pas toujours &ecirc;tre utilis&eacute; efficacement -- la gestion des erreurs QB-like doit &ecirc;tre activ&eacute;e.<br \>
+<br \>
+<tt><b>Erl</b></tt> est r&eacute;initialis&eacute; par RESUME et RESUME NEXT<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;compile&nbsp;with&nbsp;-lang&nbsp;fblite&nbsp;or&nbsp;qb</span><br />
+<br />
+<span class="def">#lang&nbsp;"fblite"<br />
+</span><br />
+<span class="com">'&nbsp;note:&nbsp;compilation&nbsp;with&nbsp;'-ex'&nbsp;option&nbsp;is&nbsp;required</span><br />
+<br />
+<span class="key">On</span>&nbsp;<span class="key">Error</span>&nbsp;<span class="key">Goto</span>&nbsp;<span class="wrd">ErrorHandler</span><br />
+<br />
+<span class="com">'&nbsp;Generate&nbsp;an&nbsp;explicit&nbsp;error</span><br />
+<span class="key">Error</span>&nbsp;<span class="num">100</span><br />
+<br />
+<span class="key">End</span><br />
+<br />
+<span class="wrd">ErrorHandler</span><span class="oth">:</span><br />
+&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">num</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Err</span><br />
+&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Error&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">num</span><span class="oth">;</span>&nbsp;<span class="quo">"&nbsp;on&nbsp;line&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="key">Erl</span><br />
+&nbsp;&nbsp;<span class="key">Resume</span>&nbsp;<span class="key">Next</span><br />
+<br />
+<span class="com">'&nbsp;Expected&nbsp;output&nbsp;is</span><br />
+<span class="com">'&nbsp;Error&nbsp;&nbsp;100&nbsp;on&nbsp;line&nbsp;&nbsp;6</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> FreeBasic retourne le num&eacute;ro de la ligne de code source et ignore les valeurs de tous les num&eacute;ros de ligne explicites, alors que QB retourne le dernier num&eacute;ro explicite de la ligne rencontr&eacute;e, et sera de retour &agrave; z&eacute;ro (0) lorsque les num&eacute;ros de ligne explicites ne sont pas utilis&eacute;s.
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="ProPgErrorHandling.html">Error Handling</a><br \>
+<li> <tt><a href="KeyPgErr.html">Err</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

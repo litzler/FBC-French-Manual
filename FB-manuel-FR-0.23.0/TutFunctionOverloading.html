@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Function Overloading</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Surcharge de fonction</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<i>Ecrit par <a href="LaananFisher.html">:stylin:</a></i><br \>
+<br \>
+<br \>
+<div class="fb_header">Qu'est-ce que c'est?</div><br \>
+<br \>
+<br \>
+La surcharge de fonction est aussi pr&egrave;s que vous pouvez venir &agrave; la programmation g&eacute;n&eacute;rique sans avoir de mod&egrave;les. En programmation fonctionnelle (ou modulaire), l'accent est mis sur la valeur, tandis que dans la programmation g&eacute;n&eacute;rique, l'accent est mis sur le <i>type</i>. Des fonctions similaires sont appel&eacute;es en fonction du type de l'argument pass&eacute;. La surcharge de fonction est un pas de côt&eacute; dans la programmation g&eacute;n&eacute;rique, permettant &agrave; un identifiant de fonction d'&ecirc;tre associ&eacute; &agrave; une vari&eacute;t&eacute; de fonctions qui fonctionnent avec une vari&eacute;t&eacute; de types diff&eacute;rents - et de le rendre totalement transparent pour le client (vous).<br \>
+<br \>
+Autrement dit, la surcharge de fonction consiste &agrave; d&eacute;finir des fonctions qui ont le m&ecirc;me nom, mais des <i>signatures</i> diff&eacute;rentes. La signature d'une fonction est une combinaison de toutes les informations n&eacute;cessaires pour r&eacute;f&eacute;rencer correctement la fonction et inclut la liste des param&egrave;tres de la fonction et le type de retour. Ceci est ce que nous red&eacute;finissons, ou de surchargeons. Commen&ccedil;ons avec un petit exemple. Supposons que nous avons besoin de fonctions affichant la cha&icirc;ne repr&eacute;sentatant un certain nombre. Nous &eacute;crivons tout simplement:<br \>
+<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Option</span>&nbsp;<span class="key">Explicit</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;force&nbsp;explicit&nbsp;declaration&nbsp;of&nbsp;variables</span><br />
+<span class="key">Option</span>&nbsp;<span class="key">ByVal</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;default&nbsp;passing&nbsp;convention&nbsp;as&nbsp;by&nbsp;value</span><br />
+<br />
+<span class="com">''&nbsp;to&nbsp;declare&nbsp;functions&nbsp;with&nbsp;similar&nbsp;functionality&nbsp;but&nbsp;that&nbsp;accept&nbsp;different&nbsp;argument&nbsp;types,</span><br />
+<span class="com">''&nbsp;we&nbsp;'simply'&nbsp;create&nbsp;new&nbsp;function&nbsp;names&nbsp;:(</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">print_byte</span><span class="oth">(</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="oth">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;outputs&nbsp;a&nbsp;stringified&nbsp;byte</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">print_short</span><span class="oth">(</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Short</span>&nbsp;<span class="oth">)</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;outputs&nbsp;a&nbsp;stringified&nbsp;short</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">102</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Short</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10240</span><br />
+<br />
+<span class="wrd">print_byte</span><span class="oth">(</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">)</span><br />
+<span class="wrd">print_short</span><span class="oth">(</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="key">Sleep</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">End</span>&nbsp;<span class="num">0</span><br />
+<br />
+<span class="com">''&nbsp;function&nbsp;definitions&nbsp;squished&nbsp;for&nbsp;brevity&nbsp;-&nbsp;don't&nbsp;do&nbsp;this&nbsp;outside&nbsp;a&nbsp;space-constrained&nbsp;&nbsp;tutorial&nbsp;;}</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">print_byte</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Str</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">print_short</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Short</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Str</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+<br \>
+<div class="fb_header">Que fait-elle pour moi?</div><br \>
+<br \>
+<br \>
+Le probl&egrave;me ici est que non seulement nous avons deux signatures de fonction diff&eacute;rentes, mais nous avons deux <i>identifiants</i> de fonction diff&eacute;rents, ainsi, nous - et non le compilateur - devons nous souvenir d'appeler la fonction convenable. Comme vous l'imaginez peut-&ecirc;tre, cela peut &ecirc;tre assez d&eacute;routant si vous d&eacute;cidez que vous voulez manipuler des INTEGER, SINGLE et DOUBLE. De plus, pour &ecirc;tre complet, vous pouvez avoir des fonctions qui acceptent &agrave; la fois les versions sign&eacute;es et non sign&eacute;es de chacun de ces cas. De toute &eacute;vidence, vous allez avoir une sorte de nommage de configuration syst&egrave;me &agrave; faire pour rendre ceci plus facile pour vous-m&ecirc;me. Et, bien s&ucirc;r, vous aurez envie de manipuler aussi vos propres types, et - oh, attendez, nous avons oubli&eacute; les pointeurs. OK, maintenant vous aurez besoin de doubler la liste des noms de fonction, vous devez non seulement trouver ces noms, mais aussi essayer de vous en souvenir quand vous &eacute;crirez le code qui utilisera ces fonctions. Et puis, apr&egrave;s tout, vous avez les conversions implicites disponibles / impos&eacute;es &agrave; vous, et le compilateur se fera un plaisir de vous laisser glisser un DOUBLE dans votre fonction "print_integer" - woops! Bug-ville, nous voil&agrave;! Il doit s&ucirc;rement y avoir une meilleure m&eacute;thode?<br \>
+<br \>
+Ceci &eacute;tant, ne m'appelez pas Shirley. J'ai d&eacute;j&agrave; mentionn&eacute; que le compilateur utilise deux composants principaux pour &eacute;tablir une signature de fonction: la liste des param&egrave;tres et le type de retour. J'ai aussi mentionn&eacute; que gr&acirc;ce &agrave; la surcharge, on peut d&eacute;finir des fonctions multiples avec des signatures diff&eacute;rentes, en gardant toujours le m&ecirc;me nom de fonction pour chacun d'elles. Vous pouvez penser que c'est notre moyen de sortir de notre dilemme, espace de nom alambiqu&eacute; et autres. Eh bien, vous avez raison - jetez un oeil sur ceci:<br \>
+<br \>
+<br \>
+<tt><tt><div class="freebasic">
+<span class="key">Option</span>&nbsp;<span class="key">Explicit</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;force&nbsp;explicit&nbsp;declaration&nbsp;of&nbsp;variables</span><br />
+<span class="key">Option</span>&nbsp;<span class="key">ByVal</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;default&nbsp;passing&nbsp;convention&nbsp;as&nbsp;by&nbsp;value</span><br />
+<br />
+<span class="com">''&nbsp;to&nbsp;overload&nbsp;function&nbsp;print_numeric&nbsp;that&nbsp;we&nbsp;can&nbsp;redefine&nbsp;to&nbsp;accept&nbsp;different&nbsp;argument</span><br />
+<span class="com">''&nbsp;types&nbsp;while&nbsp;keeping&nbsp;the&nbsp;name&nbsp;intact,&nbsp;we&nbsp;use&nbsp;the&nbsp;OVERLOAD&nbsp;keyword&nbsp;on&nbsp;our&nbsp;intial&nbsp;function:</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">print_numeric</span>&nbsp;<span class="key">Overload</span><span class="oth">(</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="oth">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;outputs&nbsp;a&nbsp;stringified&nbsp;byte</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Short</span>&nbsp;<span class="oth">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;outputs&nbsp;a&nbsp;stringified&nbsp;short</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;outputs&nbsp;a&nbsp;stringified&nbsp;integer</span><br />
+<span class="key">Declare</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">LongInt</span>&nbsp;<span class="oth">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;outputs&nbsp;a&nbsp;stringified&nbsp;longint</span><br />
+<br />
+<span class="com">''&nbsp;define&nbsp;some&nbsp;variables</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">102</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Short</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10240</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1024000000</span><br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">LongInt</span>&nbsp;<span class="wrd">li</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1024000000000000000</span><br />
+<br />
+<span class="com">''&nbsp;enter&nbsp;the&nbsp;wonderful&nbsp;world&nbsp;of&nbsp;function&nbsp;overloading&nbsp;:)</span><br />
+<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">)</span><br />
+<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="oth">)</span><br />
+<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">)</span><br />
+<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="wrd">li</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="key">Sleep</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">End</span>&nbsp;<span class="num">0</span><br />
+<br />
+<span class="com">''&nbsp;define&nbsp;our&nbsp;function&nbsp;overloads</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Str</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Short</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Str</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Str</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<span class="key">Function</span>&nbsp;<span class="wrd">print_numeric</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">LongInt</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Print</span>&nbsp;<span class="key">Str</span><span class="oth">(</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="oth">:</span>&nbsp;<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+</tt><br \>
+<br \>
+<br \>
+<div class="fb_header">Qu'est-ce que cela signifie?</div><br \>
+<br \>
+<br \>
+Une chose qui devrait se remarquer d'embl&eacute;e est de voir comment il est incroyablement facile de faire cela. Cela peut sembler &eacute;trange compte tenu de la libert&eacute;, la flexibilit&eacute; et la s&eacute;curit&eacute; de type, qui s'offre &agrave; vous, mais l&agrave; encore les constructions de niveau le plus &eacute;lev&eacute; sont comme &ccedil;a. En un mot, en utiliser des m&eacute;thodes comme celle-ci ne rendra pas seulement de votre vie beaucoup plus facile, mais vous passerez moins de temps dans le d&eacute;bogage et c'est une bonne chose, peu importe le type de code que vous &eacute;criviez.<br \>
+<br \>
+Cela signifie <i>flexibilit&eacute;</i>. La surcharge de fonction offre la possibilit&eacute; d'ajouter plus de fonctionnalit&eacute;s (print_numeric( f as fraction)) tout en gardant intact votre code actuel. Votre code ne casse pas parce que vous voulez soutenir l'impression de la repr&eacute;sentation num&eacute;rique d'un mouchoir, d'une armure ou de tout autre chose. Vous pourriez maintenant penser que le code ci-dessus n'est pas si trivial que &ccedil;a et que ce qui semble tr&egrave;s simple - parce que &ccedil;a l'est - est vraiment le fondement de l'&eacute;criture d'un meilleur code. Et vous auriez raison.<br \>
+<br \>
+Cela signifie <i>maintenabilit&eacute;</i>: Donc, vous avez vos 80 fonctions d'&eacute;criture_d'un_certain_nom_que_vous_devez_v&eacute;rifier_chaque_fois_que_vous_en_avez_besoin_pour_l'&eacute;criture_ou_le_d&eacute;bogage. Tout est grand dans votre petit monde tortueux et d'auto-d&eacute;go&ucirc;t. Qu'est-ce qui se passe quand quelque chose doit changer? Si seulement une de ces fonctions doit changer, BAM! Un cauchemar de maintenance. Vous allez avoir &agrave; rechercher dans l'ensemble code de base pour &ecirc;tre <i>compl&egrave;tement</i> s&ucirc;r que vous n'avez pas rat&eacute; une fonction ici ou l&agrave;; triste fa&ccedil;on de passer un samedi soir, mon ami.<br \>
+<br \>
+Cela signifie <i>s&eacute;curit&eacute;</i>: Vous pouvez remarquer que j'utilise deux options dans ces exemples: <a href="KeyPgOptionexplicit.html">Option Explicit</a> et <a href="KeyPgOptionbyval.html">Option ByVal</a>. Je suis fort sur la s&eacute;curit&eacute;, et je le suis encore plus en demandant au compilateur de surveiller mes arri&egrave;res. J'utilise ceci parce que c'est plus s&ucirc;r et je vais demander toute la s&eacute;curit&eacute; que je peux obtenir. La surcharge de fonction met &eacute;galement en s&eacute;curit&eacute; - s&eacute;curit&eacute; contre le mal (lire: accidentelle) les conversions implicites. Consid&eacute;rez que nous sommes r&eacute;ellement en mesure de retourner, &agrave; partir de ces fonctions, une valeur qui repose sur l'argument que nous lui passons. Comme pr&eacute;c&eacute;demment, si un double a &eacute;t&eacute; autoris&eacute; &agrave; &ecirc;tre tronquer &agrave; notre insu, cela signifie que de nombreux comprim&eacute;s d'Excedrin essaieront de faire dispara&icirc;tre les maux de t&ecirc;te d&eacute;bogage. C'est tout au sujet de la chose de s&eacute;curit&eacute; de type, quelque chose qui force certains &agrave; se moquer de C<i>pp</i>.<br \>
+<br \>
+<br \>
+<div class="fb_header">Conclusion</div><br \>
+<br \>
+<br \>
+J'esp&egrave;re que vous avez appris au moins les rudiments de la surcharge de fonction (puisque c'est tout ce que je couvert). Et j'esp&egrave;re que vous commencez &agrave; penser &agrave; des th&egrave;mes que j'ai soulev&eacute;, si ce n'&eacute;tait pas le cas auparavant. La prochaine fois je discuterai des fonctions surcharg&eacute;es avec diff&eacute;rents nombres de param&egrave;tres, diff&eacute;rents types de retour, ainsi que des joies et des pi&egrave;ges des deux. Restez &agrave; l'&eacute;coute.
+</div>
+</div> 
+</div> 
+</body>
+</html>

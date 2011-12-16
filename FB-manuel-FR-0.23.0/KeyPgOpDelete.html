@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Operator Delete</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Op&eacute;rateur Delete</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Op&eacute;rateur pour d&eacute;truire des donn&eacute;es allou&eacute;es avec l'op&eacute;rateur <tt><a href="KeyPgOpNew.html">New</a></tt><br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>Delete</b> ( <i>buf</i>  <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a> )<br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>delete[]</b> ( <i>buf</i>  <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<b>Delete</b> <i>expression</i><br \>
+<div class="fb_indent"><i>ou</i><br \>
+</div><b>Delete[]</b> <i>expression</i><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>buf</i></tt> <br \>
+<div class="fb_indent">Une adresse m&eacute;moire &agrave; lib&eacute;rer.<br \>
+</div><tt><i>expression</i></tt><br \>
+<div class="fb_indent">Une adresse m&eacute;moire &agrave; lib&eacute;rer.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Delete</b></tt> est utilis&eacute; pour d&eacute;truire et lib&eacute;rer la m&eacute;moire d'un objet cr&eacute;&eacute; avec <a href="KeyPgOpNew.html">New</a>. Quand on <tt><b>Delete</b></tt> un TYPE, son destructeur est appel&eacute;. <tt><b>Delete</b></tt> doit &ecirc;tre utilis&eacute; uniquement avec des adresses retourn&eacute;es par <tt><a href="KeyPgOpNew.html">New</a></tt>.<br \>
+<br \>
+La version <tt><b>Delete</b></tt> pour les tableaux, <tt><b>Delete[]</b></tt>, est utilis&eacute; pour d&eacute;truire un tableau d'objets cr&eacute;&eacute;s pr&eacute;c&eacute;demment avec <a href="KeyPgOpNew.html">New</a>[]. Les destructeurs seront l&agrave; aussi appel&eacute;s.<br \>
+<br \>
+<tt><b>Delete</b></tt> doit &ecirc;tre utilis&eacute; avec des adresses retourn&eacute;es par <a href="KeyPgOpNew.html">New</a>, et <tt><b>Delete[]</b></tt> par <a href="KeyPgOpNew.html">New</a>[]. Vous ne pouvez m&eacute;langer les diff&eacute;rentes versions de ces op&eacute;rateurs.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Type</span>&nbsp;<span class="wrd">Rational</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">numerator</span><span class="oth">,</span>&nbsp;<span class="wrd">denominator</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<span class="key">Scope</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Create&nbsp;and&nbsp;initialize&nbsp;a&nbsp;Rational,&nbsp;and&nbsp;store&nbsp;it's&nbsp;address.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">p</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">Rational</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">New</span>&nbsp;<span class="wrd">Rational</span><span class="oth">(</span><span class="num">3</span><span class="oth">,</span>&nbsp;<span class="num">4</span><span class="oth">)</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">p</span><span class="oth">-&gt;</span><span class="wrd">numerator</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"/"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">p</span><span class="oth">-&gt;</span><span class="wrd">denominator</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Destroy&nbsp;the&nbsp;rational&nbsp;and&nbsp;give&nbsp;its&nbsp;memory&nbsp;back&nbsp;to&nbsp;the&nbsp;system.&nbsp;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Delete</span>&nbsp;<span class="wrd">p</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Scope</span><br />
+<br />
+<span class="key">Scope</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Allocate&nbsp;memory&nbsp;for&nbsp;100&nbsp;integers,&nbsp;store&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;first&nbsp;one.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">p</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">New</span>&nbsp;<span class="key">Integer</span><span class="oth">[</span><span class="num">100</span><span class="oth">]</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Assign&nbsp;some&nbsp;values&nbsp;to&nbsp;the&nbsp;integers&nbsp;in&nbsp;the&nbsp;array.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">99</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">p</span><span class="oth">[</span><span class="wrd">i</span><span class="oth">]</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">i</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Free&nbsp;the&nbsp;entire&nbsp;integer&nbsp;array.</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Delete</span><span class="oth">[]</span>&nbsp;<span class="wrd">p</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Scope</span><br />
+</div></tt><br />
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Valable seulement dans le dialecte <i><a href="CompilerOptlang.html">-lang fb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOpNew.html">New</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>ScreenEvent</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">ScreenEvent</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Recherche et r&eacute;cup&egrave;re les &eacute;v&eacute;nements du syst&egrave;me.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>ScreenEvent</b> ( <a href="KeyPgByval.html">ByVal</a> event <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a> = 0 ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>ScreenEvent</b>( [ <i>event</i> ] )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>event</i></tt><br \>
+<div class="fb_indent">Sp&eacute;cifie le tampon o&ugrave; la fonction stockera les donn&eacute;es &eacute;v&eacute;nements.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne <tt>-1</tt> s'il existe des &eacute;v&eacute;nements en attente d'&ecirc;tre r&eacute;cup&eacute;r&eacute;s, <tt>0</tt> autrement.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Cette fonction retourne le dernier &eacute;v&eacute;nement syst&egrave;me disponible dans la file d'attente interne des &eacute;v&eacute;nements GfxLib. Par "&eacute;v&eacute;nement" on d&eacute;signe une activit&eacute; clavier ou souris quelconque.<br \>
+<br \>
+Les donn&eacute;es &eacute;v&eacute;nement (si disponibles) seront copi&eacute;es dans le tampon point&eacute; par le param&egrave;tre "event" pointed et seront d&eacute;clar&eacute;es comme un <tt><a href="KeyPgEvent.html">Ev&eacute;nement</a></tt><br \>
+<br \>
+<u>Interrogation des &eacute;v&eacute;nements</u><br \>
+<div class="fb_indent">La fonction retourne <tt>-1</tt> s'il y a des &eacute;v&eacute;nements en attente de r&eacute;cup&eacute;ration, <tt>0</tt> autrement. Si le param&egrave;tre <tt><i>event</i></tt> est mis &agrave; <tt>0</tt> (valeur par d&eacute;faut si omis) <tt><a href="KeyPgScreenevent.html">ScreenEvent</a></tt> ne sera pas en mesure de copier les donn&eacute;es d'&eacute;v&eacute;nement et ne va pas les sortir de la file d'attente interne des &eacute;v&eacute;nements. L'appel de la fonction de cette façon peut &ecirc;tre utile pour v&eacute;rifier s'il y a des &eacute;v&eacute;nements disponibles sans les aller chercher.<br \>
+<br \>
+</div><u>Note</u><br \>
+<div class="fb_indent">Si vous recevez un &eacute;v&eacute;nement KEY_PRESS, KEY_RELEASE ou KEY_REPEAT, il n'effacera pas le tampon clavier.  Si vous d&eacute;sirez effacer le tampon clavier apr&egrave;s r&eacute;ception d'un &eacute;v&eacute;nement, vous devrez le faire manuellement.  Voir <tt><a href="KeyPgInkey.html">Inkey</a></tt>.<br \>
+<br \>
+<br \>
+</div></div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;include&nbsp;fbgfx.bi&nbsp;pour&nbsp;des&nbsp;definitions&nbsp;utiles</span><br />
+<span class="def">#include&nbsp;"fbgfx.bi"<br />
+#if&nbsp;__FB_LANG__&nbsp;=&nbsp;"fb"<br />
+</span><span class="key">Using</span>&nbsp;<span class="wrd">fb</span>&nbsp;<span class="com">''&nbsp;constantes&nbsp;et&nbsp;structures&nbsp;sont&nbsp;charg&eacute;es&nbsp;dans&nbsp;l'espace&nbsp;de nom&nbsp;FB&nbsp;en&nbsp;langue&nbsp;fb</span><br />
+<span class="def">#endif<br />
+</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">e</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">EVENT</span><br />
+<br />
+<span class="key">ScreenRes</span>&nbsp;<span class="num">640</span><span class="oth">,</span>&nbsp;<span class="num">480</span><br />
+<span class="key">Do</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="key">ScreenEvent</span><span class="oth">(@</span><span class="wrd">e</span><span class="oth">))</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Select</span>&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">e.type</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_KEY_PRESS</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">e.scancode</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">SC_ESCAPE</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">e.ascii</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"'"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.ascii</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"'"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"unknown&nbsp;key"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"&nbsp;was&nbsp;pressed&nbsp;(scancode&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.scancode</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">")"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_KEY_RELEASE</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">e.ascii</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"'"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.ascii</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"'"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"unknown&nbsp;key"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"&nbsp;was&nbsp;released&nbsp;(scancode&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.scancode</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">")"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_KEY_REPEAT</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">e.ascii</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="num">0</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"'"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.ascii</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"'"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"unknown&nbsp;key"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"&nbsp;is&nbsp;being&nbsp;repeated&nbsp;(scancode&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.scancode</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">")"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_MOUSE_MOVE</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"mouse&nbsp;moved&nbsp;to&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.x</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">","</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.y</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">"&nbsp;(delta&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.dx</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">","</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.dy</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="quo">")"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_MOUSE_BUTTON_PRESS</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">e.button</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">BUTTON_LEFT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"left"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ElseIf</span>&nbsp;<span class="oth">(</span><span class="wrd">e.button</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">BUTTON_RIGHT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"right"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"middle"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"&nbsp;button&nbsp;pressed"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_MOUSE_BUTTON_RELEASE</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">e.button</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">BUTTON_LEFT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"left"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ElseIf</span>&nbsp;<span class="oth">(</span><span class="wrd">e.button</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">BUTTON_RIGHT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"right"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"middle"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"&nbsp;button&nbsp;released"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_MOUSE_DOUBLE_CLICK</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">e.button</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">BUTTON_LEFT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"left"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ElseIf</span>&nbsp;<span class="oth">(</span><span class="wrd">e.button</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">BUTTON_RIGHT</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"right"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Else</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"middle"</span><span class="oth">;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"&nbsp;button&nbsp;double&nbsp;clicked"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_MOUSE_WHEEL</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"mouse&nbsp;wheel&nbsp;moved&nbsp;to&nbsp;position&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">e.z</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_MOUSE_ENTER</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"mouse&nbsp;moved&nbsp;into&nbsp;program&nbsp;window"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_MOUSE_EXIT</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"mouse&nbsp;moved&nbsp;out&nbsp;of&nbsp;program&nbsp;window"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_WINDOW_GOT_FOCUS</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"program&nbsp;window&nbsp;got&nbsp;focus"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_WINDOW_LOST_FOCUS</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"program&nbsp;window&nbsp;lost&nbsp;focus"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Case</span>&nbsp;<span class="wrd">EVENT_WINDOW_CLOSE</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">Select</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Sleep</span>&nbsp;<span class="num">1</span><br />
+<span class="key">Loop</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de plates-formes</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><b>ScreenEvent</b></tt> ne retourne pas les &eacute;v&eacute;nements li&eacute;s &agrave; la fen&ecirc;tre dans la version DOS, mais retourne les &eacute;v&eacute;nements d'entr&eacute;e.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de dialectes</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">See also</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgEvent.html">Event</a></tt><br \>
+<li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt><br \>
+<li> <tt><a href="KeyPgInkey.html">Inkey</a></tt><br \>
+<li> <tt><a href="KeyPgMultikey.html">MultiKey</a></tt><br \>
+<li> <tt><a href="KeyPgGetmouse.html">GetMouse</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

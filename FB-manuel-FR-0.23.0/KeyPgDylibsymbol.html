@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>DyLibSymbol</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">DyLibSymbol</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Renvoie l'adresse d'une fonction ou d'une variable dans une dll<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>DyLibSymbol</b> ( <a href="KeyPgByval.html">ByVal</a> <i>library</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a>, <a href="KeyPgByref.html">ByRef</a> <i>symbol</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgString.html">String</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>DyLibSymbol</b> ( <a href="KeyPgByval.html">ByVal</a> <i>library</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a>, <a href="KeyPgByval.html">ByVal</a> <i>symbol</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgShort.html">Short</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>DyLibSymbol</b> ( <i>library</i>, <i>symbol</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>library</i></tt><br \>
+<div class="fb_indent">Le <a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a> de prise en charge de la DLL retourn&eacute; par <tt><a href="KeyPgDylibload.html">DyLibLoad</a></tt><br \>
+</div><tt><i>symbol</i></tt><br \>
+<div class="fb_indent">Une <a href="KeyPgString.html">String = Cha&icirc;ne</a> contenant le nom de la fonction, ou de la variable dans la librairie pour laquelle on retourne l'adresse.  Sous Windows seulement, peut aussi &ecirc;tre un <tt><a href="KeyPgShort.html">Short</a></tt> contenant l'ordinal de la fonction/variable.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Un <tt><a href="KeyPgPtr.html">Pointer</a></tt> vers la fonction ou la variable dans la librairie.<br \>
+<br \>
+Si la fonction &eacute;choue, la valeur retourn&eacute;e est 0.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>DyLibSymbol</b></tt> renvoie un pointeur sur la variable ou une fonction appel&eacute;e <tt><i>symbol</i></tt> , dans la dll point&eacute;e par <tt><i>libhandle</i></tt>. <tt><i>libhandle</i></tt> est obtenu en chargeant la dll avec <tt><a href="KeyPgDylibload.html">DyLibLoad</a></tt>. Le symbole doit avoir &eacute;t&eacute; <tt><a href="KeyPgExport.html">Export</a></tt>&eacute; dans la DLL.<br \>
+Si <tt><i>libhandle</i></tt> est 0, le symbole est recherch&eacute; dans l'ex&eacute;cutable ou la dll courant.<br \>
+<br \>
+Si on utilise les fonctions <tt><a href="KeyPgCdecl.html">cdecl</a></tt>, seule le nom de la proc&eacute;dure n&eacute;cessite d'&ecirc;tre sp&eacute;cifi&eacute;. Si lien dynamique &agrave; une fonction en utilisant STDCALL (par d&eacute;faut dans Windows), alors la fonction doit &ecirc;tre "decorated". Pour "decorate" une fonction, utilisez son nom, '@', puis le nombre d'octets pass&eacute; comme arguments. Par exemple, si la fonction <tt>FOO</tt> prend 3 arguments entiers, la fonction "decorated" serait 'FOO@12'. Rappelez-vous, sans un <tt><a href="KeyPgAlias.html">Alias</a></tt> explicite, le nom de la proc&eacute;dure sera en majuscules.<br \>
+<br \>
+Si lien vers une dll cr&eacute;&eacute;e dans Visual C++(tm), "decoration" ne doit pas &ecirc;tre utilis&eacute;. Pour GCC, "decoration" est n&eacute;cessaire.<br \>
+<br \>
+<b>Note:</b> Le dylibsymbol, si &eacute;chec, essaiera automatiquement de "decorate" la proc&eacute;dure, de @0 &agrave; @256, en incr&eacute;ments de 4 octets.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;mydll.dll</span><br />
+<br />
+<span class="com">''&nbsp;in&nbsp;the&nbsp;DLL&nbsp;the&nbsp;function&nbsp;must&nbsp;be&nbsp;declared&nbsp;as&nbsp;CDECL&nbsp;and&nbsp;export</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">AddNumbers</span>&nbsp;<span class="key">cdecl</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"AddNumbers"</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">operand1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">operand2</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">_</span><br />
+&nbsp;&nbsp;<span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Export</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;<span class="wrd">AddNumbers</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">operand1</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">operand2</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;create&nbsp;a&nbsp;function&nbsp;pointer,&nbsp;arguments&nbsp;must&nbsp;be&nbsp;the&nbsp;same</span><br />
+<span class="com">''&nbsp;as&nbsp;in&nbsp;the&nbsp;original&nbsp;function</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">AddNumbers</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">operand1</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">operand2</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">hndl</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+<br />
+<span class="wrd">hndl</span><span class="oth">=</span><span class="key">DyLibLoad</span><span class="oth">(</span><span class="quo">"mydll.dll"</span><span class="oth">)</span><br />
+<br />
+<span class="com">''&nbsp;find&nbsp;the&nbsp;procedure&nbsp;address&nbsp;(case&nbsp;matters!)</span><br />
+<span class="wrd">AddNumbers</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">DyLibSymbol</span><span class="oth">(</span>&nbsp;<span class="wrd">hndl</span><span class="oth">,</span>&nbsp;<span class="quo">"AddNumbers"</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="com">''&nbsp;then&nbsp;call&nbsp;it..</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"1&nbsp;+&nbsp;2&nbsp;="</span><span class="oth">;</span>&nbsp;<span class="wrd">AddNumbers</span><span class="oth">(</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">2</span>&nbsp;<span class="oth">)</span><br />
+<br />
+<span class="key">DyLibFree</span>&nbsp;<span class="wrd">hndl</span><br />
+<br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li> Les biblioth&egrave;ques de liens dynamiques ne sont pas disponibles sous DOS, car l'OS ne les supporte pas.<br \>
+<li> Ordinaux ne sont pas pris en charge sur Linux, 0 est toujours retourn&eacute;.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Dylibsymbol</b></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDylibload.html">DyLibLoad</a></tt><br \>
+<li> <tt><a href="KeyPgExport.html">Export</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

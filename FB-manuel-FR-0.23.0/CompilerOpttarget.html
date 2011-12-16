@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Compiler Option: -target</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Option du compilateur: -target</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;finit la plate-forme cible pour la compilation crois&eacute;e<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<div class="fb_indent"><b>-target</b> &lt; <i>platform</i> &gt;<br \>
+</div></tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent"><tt><i>platform</i></tt><br \>
+<div class="fb_indent">La plate-forme cible. (Voir ci-dessous)<br \>
+<br \>
+</div></div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent">L'option <tt>-target</tt> du compilateur est utilis&eacute;e pour cr&eacute;er un ex&eacute;cutable pour une plate-forme qui est diff&eacute;rente de l'h&ocirc;te sur lequel le code source est compil&eacute; et li&eacute;.  Les biblioth&egrave;ques appropri&eacute;es et les outils de compilation crois&eacute;e (assembleur, &eacute;diteur de liens) doivent &ecirc;tre install&eacute;s dans les r&eacute;pertoires /lib/ et /bin/ pour que la compilation crois&eacute;e fonctionne.<br \>
+<br \>
+Cette option n'est disponible que si le compilateur a &eacute;t&eacute; construit avec le support de la compilation crois&eacute;e.<br \>
+<br \>
+Cibles possibles:<br \>
+<div class="fb_indent"><tt>cygwin</tt><br \>
+<tt>darwin</tt><br \>
+<tt>dos</tt><br \>
+<tt>freebsd</tt><br \>
+<tt>linux</tt><br \>
+<tt>netbsd</tt><br \>
+<tt>openbsd</tt><br \>
+<tt>win32</tt><br \>
+<tt>xbox</tt><br \>
+<br \>
+</div></div></div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li> Disponible uniquement dans les versions fbc qui ont eu le support activ&eacute; pour la compilation crois&eacute;e lors de la configuration avant de construire le compilateur.  Toutes les distributions binaires n'ont pas les m&ecirc;mes cibles de compilation crois&eacute;e prises en charge.<br \>
+<li> Le paquet FreeBasic pour DOS peut &ecirc;tre utilis&eacute; comme un ensemble d'outils de compilation crois&eacute;e lors de la compilation &agrave; partir de Windows vers une cible DOS.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <a href="CompilerCmdLine.html">Utilisation de la ligne de commande</a><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>OOP In Non-OOP Languages</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">OOP dans les langages Non-OOP</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	<br \>
+Contrairement &agrave; la croyance populaire, la programmation orient&eacute;e objet ne n&eacute;cessite pas un langage orient&eacute; objet.<br \>
+<br \>
+Ce que vous obtenez avec un langage OO est un ensemble de constructions qui vous aident &agrave; &eacute;crire des programmes OO, mais dans de nombreux cas ils sont inutiles et parfois elles sont contreproductives.<br \>
+<br \>
+Quoi qu'il en soit, ce n'est pas une diatribe contre les langages OO, mais plut&ocirc;t une diatribe contre l'acceptation aveugle de l'id&eacute;e qu'un langage sp&eacute;cifiquement OO est n&eacute;cessaire pour &eacute;crire des programmes orient&eacute;s objets.<br \>
+<br \>
+Afin de d&eacute;montrer qu'il n'est pas n&eacute;cessaire d'avoir un langage OO cet exemple pr&eacute;sente une technique qui est g&eacute;n&eacute;ralement pr&eacute;sent&eacute;e comme un exemple de programmation bas&eacute;e classe; et c'est ainsi, mais vous ne trouverez pas le mot "class" dans cet exemple.<br \>
+<br \>
+Le code a &eacute;t&eacute; test&eacute; en utilisant FB 0.16 pour win32.<br \>
+<br \>
+Si vous avez &agrave; concat&eacute;ner un grand nombre de cha&icirc;nes dans la plupart des BASICs, vous trouverez g&eacute;n&eacute;ralement que c'est un processus co&ucirc;teux en temps. En fait, les op&eacute;rations de cha&icirc;ne FreeBASIC sont remarquablement rapides, mais vous pouvez faire encore mieux en utilisant un constructeur de cha&icirc;nes.<br \>
+<br \>
+Un constructeur cha&icirc;ne est tout simplement une classe qui g&egrave;re un tampon de cha&icirc;ne de telle mani&egrave;re &agrave; &eacute;viter les appels r&eacute;p&eacute;t&eacute;s &agrave; la fonction d'allocation m&eacute;moire, car cela est une op&eacute;ration relativement co&ucirc;teuse en temps. Les m&eacute;thodes de la classe fournissent des moyens de manipulation le tampon et de conversion entre elle et le type de cha&icirc;ne d'origine.<br \>
+<br \>
+Le truc qui le rend plus rapide que le type construit pour les grandes cha&icirc;nes et les grands nombres d'ajouts est que la cha&icirc;ne est stock&eacute;e dans un tampon&eacute;moire allou&eacute; qui est toujours plus grand que la longueur r&eacute;elle de la cha&icirc;ne. Cela signifie que l'ajout &agrave; la fin de la cha&icirc;ne signifie en g&eacute;n&eacute;ral de simplement copier le contenu de la nouvelle cha&icirc;ne &agrave; l'emplacement de la m&eacute;moire apr&egrave;s le dernier caract&egrave;re de la cha&icirc;ne actuelle. Dans cette impl&eacute;mentation, le tampon est une ZString ainsi il est donc facile de la convertir en une cha&icirc;ne ordinaire dynamique.<br \>
+<br \>
+Le module FreeBASIC encapsule une d&eacute;finition de type pour une structure. Les instances de cette structure organisent les attributs de l'objet. Les m&eacute;thodes sont tout simplement les fonctions publiques normales du FreeBASIC et les sous-programmes d&eacute;finis dans le m&ecirc;me module. Lorsque vous voulez appeler une m&eacute;thode vous utilisez la syntaxe normale FreeBASIC:<br \>
+<br \>
+<tt><div class="freebasic">
+&nbsp;<span class="wrd">s</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">StringB_ToString</span><span class="oth">(</span><span class="wrd">AStringBInstance</span><span class="oth">)</span></div></tt><br />
+<br \>
+Par convention tous les noms de m&eacute;thodes commencent par le nom de la classe et un trait de soulignement et le premier argument est toujours l'instance du type. Cet argument doit toujours &ecirc;tre pass&eacute; par r&eacute;f&eacute;rence pour assurer des changements d'&eacute;tat permanents et aussi pour &eacute;viter d'inutiles perte temps de copie.<br \>
+<br \>
+Pour ajouter une nouvelle m&eacute;thode il vous suffit d'ajouter une nouvelle fonction ou un sous-programme suivant ces r&egrave;gles.<br \>
+<br \>
+Vous pouvez facilement mettre en oeuvre la composition des objets, mais l'h&eacute;ritage ne peut &ecirc;tre obtenu de mani&egrave;re habituelle. Vous pouvez &eacute;tendre les classes simplement en d&eacute;finissant de nouvelles fonctions qui prennent d'ailleurs des arguments de type de classe. Si la classe originale d&eacute;finit l'ensemble de ses m&eacute;thodes comme surcharg&eacute;es, vous pouvez m&ecirc;me cr&eacute;er de nouvelles m&eacute;thodes de m&ecirc;me nom tant qu'elles ont des signatures diff&eacute;rentes.<br \>
+<br \>
+<br \>
+Voici un exemple de code:<br \>
+<br \>
+<tt><div class="freebasic">
+<span class="com">'-----------------------------------------------------------------------------</span><br />
+<span class="com">'&nbsp;Classes&nbsp;without&nbsp;built&nbsp;in&nbsp;oop.</span><br />
+<br />
+<span class="com">'&nbsp;Define&nbsp;a&nbsp;struct&nbsp;for&nbsp;the&nbsp;properties&nbsp;and&nbsp;a&nbsp;sub&nbsp;or&nbsp;function&nbsp;for&nbsp;each</span><br />
+<span class="com">'&nbsp;method.&nbsp;&nbsp;Pass&nbsp;the&nbsp;struct&nbsp;as&nbsp;the&nbsp;first&nbsp;argument&nbsp;in&nbsp;all&nbsp;calls.</span><br />
+<br />
+<span class="com">'&nbsp;By&nbsp;convention&nbsp;the&nbsp;argument&nbsp;will&nbsp;be&nbsp;Me&nbsp;as&nbsp;in&nbsp;VB&nbsp;Classic</span><br />
+<br />
+<span class="com">'&nbsp;Strings&nbsp;in&nbsp;FB&nbsp;are&nbsp;so&nbsp;fast&nbsp;that&nbsp;a&nbsp;string&nbsp;builder&nbsp;class&nbsp;is&nbsp;</span><br />
+<span class="com">'&nbsp;not&nbsp;needed&nbsp;most&nbsp;of&nbsp;the&nbsp;time&nbsp;but&nbsp;if&nbsp;you&nbsp;are&nbsp;concatenating&nbsp;</span><br />
+<span class="com">'&nbsp;thousands&nbsp;of&nbsp;strings&nbsp;to&nbsp;build&nbsp;web&nbsp;pages&nbsp;for&nbsp;instance&nbsp;this&nbsp;might&nbsp;be&nbsp;useful.</span><br />
+<br />
+<span class="com">'&nbsp;And&nbsp;please&nbsp;don't&nbsp;start&nbsp;complaining&nbsp;about&nbsp;the&nbsp;lack&nbsp;of&nbsp;inheritance;&nbsp;that</span><br />
+<span class="com">'&nbsp;is&nbsp;not&nbsp;a&nbsp;requirement&nbsp;for&nbsp;the&nbsp;use&nbsp;of&nbsp;objects.&nbsp;&nbsp;There&nbsp;is&nbsp;no&nbsp;legal&nbsp;definition&nbsp;of&nbsp;</span><br />
+<span class="com">'&nbsp;Object&nbsp;Oriented&nbsp;Programming&nbsp;but&nbsp;the&nbsp;most&nbsp;important&nbsp;part&nbsp;of&nbsp;any&nbsp;definition&nbsp;</span><br />
+<span class="com">'&nbsp;is&nbsp;the&nbsp;close&nbsp;association&nbsp;between&nbsp;the&nbsp;data&nbsp;and&nbsp;the&nbsp;code&nbsp;that&nbsp;manipulates&nbsp;it.</span><br />
+<br />
+<span class="com">'You&nbsp;can&nbsp;easily&nbsp;extend&nbsp;this&nbsp;class&nbsp;to&nbsp;provide&nbsp;more&nbsp;methods.</span><br />
+<span class="com">'-----------------------------------------------------------------------------</span><br />
+<br />
+<br />
+<span class="key">Type</span>&nbsp;<span class="wrd">StringB</span><br />
+&nbsp;&nbsp;<span class="key">Len</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="com">'&nbsp;used&nbsp;length</span><br />
+&nbsp;&nbsp;<span class="wrd">allocated</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;<span class="wrd">s</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">ZString</span>&nbsp;<span class="key">Ptr</span>&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;buffer&nbsp;of&nbsp;at&nbsp;least&nbsp;len&nbsp;characters</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Type</span><br />
+<br />
+<br />
+<span class="com">'-----------------------------------------------------------------------------</span><br />
+<span class="com">'&nbsp;Create&nbsp;a&nbsp;new&nbsp;StringB&nbsp;by&nbsp;calling&nbsp;one&nbsp;of&nbsp;these&nbsp;constructors.</span><br />
+<span class="com">'-----------------------------------------------------------------------------</span><br />
+<span class="key">Public</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">StringB_New</span>&nbsp;<span class="key">Overload</span>&nbsp;<span class="oth">(</span><span class="key">ByVal</span>&nbsp;<span class="wrd">InitialSize</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><br />
+&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">sb</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><br />
+&nbsp;&nbsp;<span class="wrd">sb.allocated</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">InitialSize</span><br />
+&nbsp;&nbsp;<span class="wrd">sb.s</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span><span class="wrd">InitialSize</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="oth">*</span><span class="wrd">sb.s</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">""</span><br />
+&nbsp;&nbsp;<span class="wrd">StringB_New</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">sb</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<br />
+<span class="key">Public</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">StringB_New</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">InitialValue</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><br />
+&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">sb</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><br />
+&nbsp;&nbsp;<span class="wrd">sb</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">StringB_New</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">InitialValue</span><span class="oth">))</span><br />
+&nbsp;&nbsp;<span class="oth">*</span><span class="wrd">sb.s</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">InitialValue</span><br />
+&nbsp;&nbsp;<span class="wrd">sb.len</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Len</span><span class="oth">(</span><span class="wrd">InitialValue</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">StringB_New</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">sb</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Public</span>&nbsp;<span class="key">Sub</span>&nbsp;<span class="wrd">StringB_Dispose</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">Me</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">Deallocate</span>&nbsp;<span class="wrd">Me.s</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+&nbsp;&nbsp;<br />
+<span class="key">Public</span>&nbsp;<span class="key">Function</span>&nbsp;<span class="wrd">StringB_ToString</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">Me</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<br />
+&nbsp;&nbsp;<span class="wrd">StringB_ToString</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">*</span><span class="wrd">Me.s</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">StringB_Append</span>&nbsp;<span class="key">Overload</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">Me</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><span class="oth">,</span>&nbsp;<span class="key">ByRef</span>&nbsp;<span class="wrd">s</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">)</span><br />
+<br />
+&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">Me.len</span><br />
+&nbsp;&nbsp;<span class="wrd">Me.len</span>&nbsp;<span class="oth">+=</span>&nbsp;<span class="key">Len</span><span class="oth">(</span><span class="wrd">s</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="wrd">Me.len</span>&nbsp;<span class="oth">&gt;=</span>&nbsp;<span class="wrd">Me.allocated</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">Me.allocated</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span><span class="oth">*</span><span class="wrd">Me.len</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">ZString</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">p</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Reallocate</span><span class="oth">(</span><span class="wrd">Me.s</span><span class="oth">,</span>&nbsp;<span class="wrd">Me.allocated</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="wrd">p</span><span class="oth">=</span><span class="num">0</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;failed&nbsp;to&nbsp;reallocate</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"StringB_Append&nbsp;failed&nbsp;to&nbsp;reallocate"</span><span class="oth">,</span>&nbsp;<span class="wrd">Me.allocated</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">Me.s</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">p</span><br />
+&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;<span class="oth">*(</span><span class="wrd">Me.s</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">i</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">s</span><br />
+&nbsp;&nbsp;<br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">StringB_Append</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">Me</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><span class="oth">,</span>&nbsp;<span class="key">ByRef</span>&nbsp;<span class="wrd">other</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">StringB</span><span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">StringB_Append</span>&nbsp;<span class="wrd">Me</span><span class="oth">,</span>&nbsp;<span class="wrd">StringB_ToString</span><span class="oth">(</span><span class="wrd">other</span><span class="oth">)</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+</div></tt>
+</div>
+</div> 
+</div> 
+</body>
+</html>

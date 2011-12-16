@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Open Err</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Open Err</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Ouvre le flux d'entr&eacute;e standard (<i>stdin</i>) et le flux d'erreur standard (<i>stderr</i>) pour des op&eacute;rations sur les fichiers.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b><a href="KeyPgOpen.html">Open</a> Err</b> [for <i>mode</i>] <a href="KeyPgAs.html">As</a> [#]<i>filenum</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<b>Open Err</b> [for <i>mode</i>] as [#]<i>filenum</i><br \>
+<div class="fb_indent"><i>ou</i><br \>
+</div><i>result</i> = <b>Open Err</b>( [for <i>mode</i>] as [#]<i>filenum</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>mode</i></tt><br \>
+<div class="fb_indent">Ignor&eacute;.<br \>
+</div><tt><i>filenum</i></tt><br \>
+<div class="fb_indent">Un num&eacute;ro de fichier inutilis&eacute;.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Z&eacute;ro est retourn&eacute; si <tt><b>Open Err</b></tt> a fonctionn&eacute; avec succ&egrave;s, sinon une valeur non nulle est renvoy&eacute;e pour indiquer un &eacute;chec.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Cette commande ouvre <tt><i>stdin</i></tt> pour une op&eacute;ration de lecture et <tt>stderr</tt> pour une op&eacute;ration d'&eacute;criture sur la console permettant des op&eacute;rations de lecture et d'&eacute;criture avec des commandes de fichiers normales.<br \>
+<br \>
+<tt><i>stderr</i></tt> est un flux de sortie diff&eacute;rent de <tt><i>stdout</i></tt> permettant la redirection s&eacute;par&eacute;e des messages d'erreur &agrave; partir de la sortie principale de la console.<br \>
+<br \>
+Les commandes de la console normales, comme <tt><a href="KeyPgColor.html">Color</a></tt> et <tt><a href="KeyPgLocate.html">Locate</a></tt>, ne fonctionnent pas dans ce mode, parce qu'ells n'acceptent pas un num&eacute;ro de fichier.<br \>
+<br \>
+Le <tt><i>mode</i></tt> <tt>[For Input|Output]</tt> n'existe que pour la compatibilit&eacute;, mais il est ignor&eacute;.<br \>
+<br \>
+<b>Erreurs de fonctionnement:</b><br \>
+    <tt><b>Open Err</b></tt> produit l'une des <a href="ProPgErrorHandling.html">erreurs de fonctionnement</a> suivantes:<br \>
+<br \>
+<i>(<tt>1</tt>) Illegal function call : Appel ill&eacute;gal de fonction</i><br \>
+<ul><li><i>filenumber</i> n'est pas libre actuellement. Utilisez <tt><a href="KeyPgFreefile.html">FreeFile</a></tt> pour vous assurer que <i>filenumber</i> est libre.<br \>
+<br \>
+</ul></ul></div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+<span class="key">Open</span>&nbsp;<span class="key">Err</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Input</span>&nbsp;&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="num">1</span><br />
+<span class="key">Print</span>&nbsp;<span class="oth">#</span><span class="num">1</span><span class="oth">,</span><span class="quo">"Please&nbsp;write&nbsp;something&nbsp;and&nbsp;press&nbsp;ENTER"</span><br />
+<span class="key">Line</span>&nbsp;<span class="key">Input</span>&nbsp;<span class="oth">#</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="wrd">a</span>&nbsp;<br />
+<span class="key">Print</span>&nbsp;<span class="oth">#</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="quo">"You&nbsp;wrote"</span><span class="oth">;</span>&nbsp;<span class="wrd">a</span><br />
+<span class="key">Close</span><br />
+<span class="key">Sleep</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOpen.html">Open</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

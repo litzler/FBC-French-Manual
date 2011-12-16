@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Sub</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Sub</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;finit une proc&eacute;dure<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+[<a href="KeyPgPublic.html">Public</a>|<a href="KeyPgPrivate.html">Private</a>] <b>Sub</b> <i>identifier</i> [<a href="KeyPgCdecl.html">cdecl</a>|<a href="KeyPgPascal.html">pascal</a>|<a href="KeyPgStdcall.html">stdcall</a>] [<a href="KeyPgOverload.html">Overload</a>] [<a href="KeyPgAlias.html">Alias</a> <i>external_identifier</i>] [( [<i>parameter_list</i>] )] [<a href="KeyPgStatic.html">Static</a>]<br \>
+<div class="fb_indent"><i>statements</i><br \>
+...<br \>
+[<a href="KeyPgReturn.html">Return</a>]<br \>
+...<br \>
+</div><a href="KeyPgEndblock.html">End</a> Sub<br \>
+<br \>
+[<a href="KeyPgPublic.html">Public</a>] <b>Sub</b> <i>identifier</i> [<a href="KeyPgCdecl.html">cdecl</a>|<a href="KeyPgPascal.html">pascal</a>|<a href="KeyPgStdcall.html">stdcall</a>] [<a href="KeyPgOverload.html">Overload</a>] [<a href="KeyPgAlias.html">Alias</a> <i>external_identifier</i>] [()] [<a href="KeyPgModuleConstructor.html">Constructor</a>|<a href="KeyPgModuleDestructor.html">Destructor</a>] [<a href="KeyPgStatic.html">Static</a>]<br \>
+<div class="fb_indent"><i>statements</i><br \>
+...<br \>
+[<a href="KeyPgReturn.html">Return</a>]<br \>
+...<br \>
+</div><a href="KeyPgEndblock.html">End</a> Sub<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent"><tt><i>identifier</i></tt>: le nom du sous-programme<br \>
+<tt><i>external_identifier</i></tt>: nom visible de l'ext&eacute;rieur (&agrave; l'&eacute;diteur de liens) entre guillemets<br \>
+<tt><i>parameter_list</i></tt>: parameter[, parameter[, ...]]<br \>
+<tt><i>parameter</i></tt>: <tt>[<a href="KeyPgByref.html">ByRef</a>|<a href="KeyPgByval.html">ByVal</a>] <i>identifier</i> [<a href="KeyPgAs.html">As</a> <i>type</i>] [= <i>default_value</i>]</tt><br \>
+<div class="fb_indent"><tt><i>identifier</i></tt>: le nom de la variable r&eacute;f&eacute;renc&eacute;e dans la sous-routine<br \>
+<tt><i>type</i></tt>: le type de la variable<br \>
+<tt><i>default_value</i></tt>: la valeur de l'argument si rien n'est sp&eacute;cifi&eacute; dans l'appel<br \>
+</div><tt><i>statements</i></tt>: une ou plusieurs d&eacute;clarations qui composent le corps du sous-programme<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Un sous-programme est un bloc de code qui peut &ecirc;tre appel&eacute; &agrave; tout moment &agrave; partir d'un programme.  Ce code peut &ecirc;tre ex&eacute;cut&eacute; plusieurs fois, et les sous-programmes fournissent un pr&eacute;cieux moyen de simplifier le code en rempla&ccedil;ant ces blocs de code par un unique sous-programme.  Un sous-programme permet aussi &agrave; un utilisateur d'&eacute;tendre le langage FreeBasic en lui fournissant des commandes personnalis&eacute;es.  Beaucoup de fonctions int&eacute;gr&eacute;es dans FreeBASIC sont simplement des sous-programmes faisant partie d'une "biblioth&egrave;que d'ex&eacute;cution" li&eacute;e par d&eacute;faut.<br \>
+<br \>
+Le mot-clef <tt><b>Sub</b></tt> marque le d&eacute;but d'un sous-programme et sa fin est marqu&eacute;e par <tt><b>End Sub</b></tt>.  Le param&egrave;tre "name = nom" est le nom sous lequel ce sous-programme est appel&eacute;.  Par exemple, si la d&eacute;claration est "<tt><b>Sub</b>...<b>End Sub</b></tt>", l'utilisateur peut ex&eacute;cuter le code entre "<tt><b>Sub</b> foo</tt>" et "<tt><b>End Sub</b></tt>" en utilisant "<tt>foo</tt>" comme une d&eacute;claration.  Ce code est ex&eacute;cut&eacute; est ind&eacute;pendamment du code qui appelle le sous-programme, de sorte que tous les noms de variables, sauf si elles sont partag&eacute;es (shared), ne sont pas disponibles pour le sous-programme.  Des valeurs peuvent, toutefois, &ecirc;tre pass&eacute;es en utilisant des param&egrave;tres.<br \>
+<br \>
+Les param&egrave;tres sont les arguments pass&eacute;s &agrave; une d&eacute;claration.  Par exemple, si un utilisateur ex&eacute;cute une instruction comme "<tt><a href="KeyPgPrint.html">Print</a> 4</tt>", la valeur "4" est pass&eacute;e &agrave; la fonction "<tt><a href="KeyPgPrint.html">Print</a></tt>".  Les param&egrave;tres qui doivent &ecirc;tre transmis &agrave; un sous-programme sont fournis par un ou plusieurs arguments param&egrave;tres dans le mot-cl&eacute; "<tt><b>Sub</b></tt>".  Cr&eacute;er un sous-programme avec "<tt><b>Sub</b> mysub(foo, bar)...<b>End Sub</b></tt>", permet au code entre "<tt><b>Sub</b></tt>" et "<tt><b>End Sub</b></tt>" de d&eacute;signer le premier argument pass&eacute; en tant que "foo" et le deuxi&egrave;me argument pass&eacute; en tant que "bar".  Si un param&egrave;tre est donn&eacute; avec une valeur par d&eacute;faut, ce param&egrave;tre est facultatif.<br \>
+<br \>
+Les param&egrave;tres doivent &eacute;galement avoir un type, de la forme "<tt><i>parameter</i> As <i>type</i></tt>".  S'il est omis, <tt><i>type</i></tt> sera <tt><a href="KeyPgInteger.html">Integer</a></tt>.  Une valeur pass&eacute;e DOIT &ecirc;tre du type sp&eacute;cifi&eacute;.<br \>
+<br \>
+Un sous-programme peut &eacute;galement sp&eacute;cifier la mani&egrave;re dont les param&egrave;tres sont pass&eacute;s, soit "<tt><a href="KeyPgByref.html">ByRef = par ref&eacute;rence</a></tt>", soit "<tt><a href="KeyPgByval.html">ByVal = par valeur</a></tt>", comme indiqu&eacute; dans la d&eacute;finition de syntaxe.  Si un param&egrave;tre est "<tt><a href="KeyPgByref.html">ByRef</a></tt>", le nom du param&egrave;tre devient litt&eacute;ralement une r&eacute;f&eacute;rence &agrave; la variable d'origine transmise au sous-programme.  Toutes les modifications apport&eacute;es &agrave; cette variable seront refl&eacute;t&eacute;es &agrave; l'ext&eacute;rieur du sous-programme.  Si un param&egrave;tre est pass&eacute; "<tt><a href="KeyPgByval.html">ByVal</a></tt>", toutefois, la valeur d'une variable pass&eacute;e est copi&eacute;e dans une nouvelle variable et toute modification apport&eacute;e &agrave; celle-ci n'affectera pas l'original.  (Note: cela ne s'applique pas actuellement aux <tt><a href="KeyPgString.html">String</a></tt>s et "<tt><a href="KeyPgByval.html">ByVal</a></tt>" doit &ecirc;tre &eacute;vit&eacute;e avec elles pour le moment.)<br \>
+<br \>
+Le sp&eacute;cificateur <tt><a href="KeyPgStatic.html">Static</a></tt> indique que les valeurs de toutes les variables locales d&eacute;finies dans le sous-programme doivent &ecirc;tre pr&eacute;serv&eacute;es entre les appels.  Pour sp&eacute;cifier des variables locales statiques voir le mot-cl&eacute; <tt><a href="KeyPgStatic.html">Static</a></tt>.<br \>
+<br \>
+Sub est identique &agrave; <tt><a href="KeyPgFunction.html">Function</a></tt>, sauf qu'il ne permet pas de retourner une valeur.<br \>
+<br \>
+La seconde syntaxe d&eacute;finit soit un constructeur, soit destructeur en utilisant les mots-clefs <tt><a href="KeyPgModuleConstructor.html">Constructor</a></tt> et <tt><a href="KeyPgModuleDestructor.html">Destructor</a></tt>, respectivement.  Les constructeurs de sous-programmes sont ex&eacute;cut&eacute;s avant la premi&egrave;re ligne de code du module, tandis que les destructeurs sont ex&eacute;cut&eacute;s &agrave; la sortie du module. Notez le sp&eacute;cificateur d'acc&egrave;s public et la liste des param&egrave;tres vide pour les constructeurs et destructeurs.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Example&nbsp;of&nbsp;writing&nbsp;colored&nbsp;text&nbsp;using&nbsp;a&nbsp;sub:</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">PrintColoredText</span><span class="oth">(</span>&nbsp;<span class="key">ByVal</span>&nbsp;<span class="wrd">colour</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="key">ByRef</span>&nbsp;<span class="wrd">text</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;<span class="key">Color</span>&nbsp;<span class="wrd">colour</span><br />
+&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">text</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;<span class="wrd">PrintColoredText</span><span class="oth">(</span>&nbsp;<span class="num">1</span><span class="oth">,</span>&nbsp;<span class="quo">"blue"</span>&nbsp;<span class="oth">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;a&nbsp;few&nbsp;colors</span><br />
+&nbsp;&nbsp;&nbsp;<span class="wrd">PrintColoredText</span><span class="oth">(</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="quo">"green"</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;<span class="wrd">PrintColoredText</span><span class="oth">(</span>&nbsp;<span class="num">4</span><span class="oth">,</span>&nbsp;<span class="quo">"red"</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;<span class="key">Print</span><br />
+&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">15</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;all&nbsp;16&nbsp;colors</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">PrintColoredText</span><span class="oth">(</span>&nbsp;<span class="wrd">i</span><span class="oth">,</span>&nbsp;<span class="oth">(</span><span class="quo">"color&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">i</span><span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;<span class="key">Next</span>&nbsp;<span class="wrd">i</span><br />
+</div></tt><br />
+<tt><div class="freebasic">
+<span class="com">'&nbsp;The&nbsp;following&nbsp;demonstrates&nbsp;optional&nbsp;parameters.</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">TestSub</span><span class="oth">(</span><span class="wrd">P</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Default"</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">P</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="wrd">TestSub</span>&nbsp;<span class="quo">"Testing:"</span><br />
+<span class="wrd">TestSub</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i> conservent &agrave; la Convention QB: les param&egrave;tres sont <tt><a href="KeyPgByref.html">ByRef</a></tt> par d&eacute;faut.<br \>
+<li> Dans le dialecte <i><a href="CompilerOptlang.html">-lang fb</a></i>, les param&egrave;tres num&eacute;riques sont pass&eacute;s <tt><a href="KeyPgByval.html">ByVal</a></tt> par d&eacute;faut.  Les <tt><a href="KeyPgString.html">String</a></tt>s et types d&eacute;finis par l'utilisateur sont pass&eacute;s <tt><a href="KeyPgByref.html">ByRef</a></tt> par d&eacute;faut.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Les sp&eacute;cificateurs d'acc&egrave;s "Public" et "Private" sont nouveaux pour FreeBASIC.<br \>
+<li> Les constructeurs de sous-programmes sont nouveaux pour FreeBASIC.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDeclare.html">Declare</a></tt><br \>
+<li> <tt><a href="KeyPgFunction.html">Function</a></tt><br \>
+<li> <tt><a href="KeyPgExit.html">Exit</a></tt><br \>
+<li> <tt><a href="KeyPgPublic.html">Public</a></tt><br \>
+<li> <tt><a href="KeyPgPrivate.html">Private</a></tt><br \>
+<li> <tt><a href="KeyPgStatic.html">Static</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>
