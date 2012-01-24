@@ -24,7 +24,7 @@
 <div class="fb_indent"><a href="CatPgVariables.html">D&eacute;clarations des variables</a><br \>
 <a href="CatPgUserDefTypes.html">Types d&eacute;finis par l'utilisateur</a><br \>
 <a href="CatPgStdDataTypes.html">Types de donn&eacute;es standard</a><br \>
-<a href="TblVarTypes.html">Type de donn&eacute;es standard et limites</a><br \>
+<a href="TblVarTypes.html">Type de donn&eacute;es standard et leurs limites</a><br \>
 <a href="CatPgCasting.html">Conversion entre types de donn&eacute;es</a><br \>
 </div><b>Op&eacute;rateurs</b><br \>
 <div class="fb_indent"><a href="CatPgOperators.html">Op&eacute;rateurs</a><br \>
@@ -37,7 +37,7 @@
 </div><b>Autres</b><br \>
 <div class="fb_indent"><a href="CatPgPreProcess.html">Pr&eacute;processeur</a><br \>
 <a href="TblEscapeSequences.html">S&eacute;quences d'&eacute;chappement dans les cha&icirc;nes litt&eacute;rales</a><br \>
-<a href="CatPgCompilerSwitches.html">Compilateur: Meta-commandes</a><br \>
+<a href="CatPgCompilerSwitches.html">Compilateur: M&eacute;ta-commandes</a><br \>
 <a href="CatPgDddefines.html">D&eacute;finitions intrins&egrave;ques</a><br \>
 <a href="ProPgErrorHandling.html">Gestion des erreurs</a><br \>
 <a href="KeyPgAsm.html">Assembleur: Inline Asm</a><br \>
@@ -45,21 +45,21 @@
 </div></div><b><u>R&eacute;f&eacute;rence des biblioth&egrave;ques de fonctionnement</u></b><br \>
 <div class="fb_indent">Proc&eacute;dures et macros qui font partie de la librairie de fonctionnement de FreeBASIC.<br \>
 <br \>
-<a href="CatPgArray.html">Fonctions tableaux (array)</a><br \>
+<a href="CatPgArray.html">Fonctions relatives aux tableaux</a><br \>
 <a href="CatPgBits.html">Manipulation de bits </a><br \>
 <a href="CatPgConsole.html">Fonctions console</a><br \>
 <a href="CatPgDate.html">Fonctions date et temps</a><br \>
 <a href="CatPgError.html">Fonctions de gestion des erreurs</a><br \>
-<a href="CatPgFile.html">Fonctions fichiers entr&eacute;e/sortie (E/S)</a><br \>
+<a href="CatPgFile.html">Fonctions d'entr&eacute;e/sortie (E/S) des fichiers</a><br \>
 <a href="CatPgMath.html">Fonctions math&eacute;matiques</a><br \>
 <a href="CatPgMemory.html">Fonctions m&eacute;moire</a><br \>
 <a href="CatPgOpsys.html">Fonctions du syst&egrave;me d'exploitation (OS)</a><br \>
 <a href="CatPgString.html">Fonctions cha&icirc;nes</a><br \>
-<a href="CatPgThreading.html">Fonctions "Support Threading"</a><br \>
-<a href="CatPgInput.html">Fonctions entr&eacute;e utilisateur</a><br \>
+<a href="CatPgThreading.html">Fonctions de gestion du "threading"</a><br \>
+<a href="CatPgInput.html">Fonctions de saisie (entr&eacute;e) utilisateur</a><br \>
 <br \>
 </div><b><u>R&eacute;f&eacute;rence de la librairie graphique</u></b><br \>
-<div class="fb_indent">Proc&eacute;dures et macros that qui font partie de la librairie graphique FreeBASIC.<br \>
+<div class="fb_indent">Proc&eacute;dures et macros qui font partie de la librairie graphique de FreeBASIC.<br \>
 <br \>
 <a href="CatPgGfx2D.html">Fonctions dessin 2D</a><br \>
 <a href="CatPgGfxInput.html">Fonctions entr&eacute;e utilisateur</a><br \>
@@ -76,7 +76,7 @@
 <a href="CodeLibrary.html">Librairies codes de la communaut&eacute;</a><br \>
 <br \>
 </div><b><u>Utilisation du compilateur FreeBASIC</u></b><br \>
-<div class="fb_indent">Le compilateur FreeBASIC est un outil en ligne de commande qui g&eacute;n&egrave;re les ex&eacute;cutables &agrave; partir du code source FreeBASIC. Il n'est pas fourni avec un &eacute;diteur de code source. Cependant, des IDE (Environnement de d&eacute;veloppement int&eacute;gr&eacute;) sp&eacute;cifiques pour FreeBASIC sont disponibles, ainsi que le support de FreeBASIC dans beaucoup d'autres IDE et &eacute;diteurs de code.<br \>
+<div class="fb_indent">Le compilateur FreeBASIC est un outil en ligne de commande qui g&eacute;n&egrave;re les ex&eacute;cutables &agrave; partir du code source FreeBASIC. Il n'est pas fourni avec un &eacute;diteur de code source. Cependant, des EDI = Environnement de D&eacute;veloppement Int&eacute;gr&eacute; (IDE = Integrated Development Environment) sp&eacute;cifiques pour FreeBASIC sont disponibles, ainsi que le support de FreeBASIC dans beaucoup d'autres IDE et &eacute;diteurs de code.<br \>
 <br \>
 <a href="CompilerInstalling.html">Installation de FreeBASIC</a> | <a href="CompilerRequirements.html">Ce qui est requis</a><br \>
 <a href="CompilerRunning.html">D&eacute;marrer FreeBASIC</a><br \>
@@ -104,10 +104,10 @@
 <div class="fb_indent"><a href="ObsoletedKwds.html">Mots-clefs obsol&egrave;tes</a><br \>
 <a href="GlossaryIndex.html">Glossaire</a><br \>
 <a href="CatPgMisc.html">Divers mots-clefs</a><br \>
-<a href="ProPgCruntime.html">C Standard Library Functions</a><br \>
-<a href="ExtLibTOC.html">Library Headers Index</a><br \>
-<a href="CptAscii.html">ASCII Character Codes</a><br \>
-<a href="TblRuntimeErrors.html">Runtime Error Codes</a><br \>
+<a href="ProPgCruntime.html">Fonctions biblioth&egrave;ques C standard</a><br \>
+<a href="ExtLibTOC.html">Index des en-t&ecirc;tes de biblioth&egrave;ques</a><br \>
+<a href="CptAscii.html">Table des codes des caract&egrave;res ASCII</a><br \>
+<a href="TblRuntimeErrors.html">Les codes d'erreurs de fonctionnement</a><br \>
 <br \>
 </div></td></tr></table><div style="clear:both">&nbsp;</div><br \>
 <br \>

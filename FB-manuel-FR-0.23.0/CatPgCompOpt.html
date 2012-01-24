@@ -11,10 +11,10 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Les options de commande en ligne du compilateur pour le compilateur fbc:<br \>
+	Les options de commande en ligne du compilateur, pour le compilateur fbc:<br \>
 <br \>
 <div class="fb_indent"><a href="CompilerOptoptfile.html">@&lt; file &gt;</a><br \>
-</div><ul><ul><li> Lire options de ligne de commande (suppl&eacute;mentaires) &agrave; partir du fichier<br \>
+</div><ul><ul><li> Lire les options de ligne de commande (suppl&eacute;mentaires) &agrave; partir du fichier<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOpta.html">-a &lt; name &gt;</a><br \>
 </div><ul><ul><li> Ajouter un fichier objet &agrave; la liste &eacute;diteur de liens<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptarch.html">-arch &lt; type &gt;</a><br \>
@@ -40,7 +40,7 @@
 </ul></ul><div class="fb_indent"><a href="CompilerOptexport.html">-export</a><br \>
 </div><ul><ul><li> Exporter les symboles pour la liaison dynamique<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptforcelang.html">-forcelang &lt;name&gt;</a><br \>
-</div><ul><ul><li> Compatibilit&eacute; de s&eacute;lection de langage, annule #lang/$lang dans le code<br \>
+</div><ul><ul><li> Compatibilit&eacute; de s&eacute;lection de langage, annule #lang / $lang dans le code<br \>
 </ul></ul><div class="fb_indent"><a href="compileroptfpmode.html">-fpmode &lt; type &gt;</a><br \>
 </div><ul><ul><li> Choix entre rapide et pr&eacute;cise pour les op&eacute;rations &agrave; virgule flottante (d&eacute;faut: PRECISE)<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptfpu.html">-fpu &lt; type &gt;</a><br \>
@@ -48,7 +48,7 @@
 </ul></ul><div class="fb_indent"><a href="CompilerOptg.html">-g</a><br \>
 </div><ul><ul><li> Ajouter les informations de d&eacute;bogage<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptgen.html">-gen &lt; backend &gt;</a><br \>
-</div><ul><ul><li> D&eacute;finit le compilateur "backend" (d&eacute;faut est 'gas')<br \>
+</div><ul><ul><li> D&eacute;finit le compilateur "backend" ('gas' par d&eacute;faut)<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOpti.html">-i &lt; name &gt;</a><br \>
 </div><ul><ul><li> Ajouter un chemin de recherche pour les fichiers include<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptinclude.html">-include &lt; name &gt;</a><br \>
@@ -56,11 +56,11 @@
 </ul></ul><div class="fb_indent"><a href="CompilerOptl.html">-l &lt; name &gt;</a><br \>
 </div><ul><ul><li> Ajouter un fichier de biblioth&egrave;que &agrave; la liste &eacute;diteur de liens<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptlang.html">-lang &lt; name &gt;</a><br \>
-</div><ul><ul><li> S&eacute;lectionne compatibilit&eacute; de langage: <tt>fb</tt>, <tt>fblite</tt>, <tt>qb</tt>, <tt>deprecated</tt><br \>
+</div><ul><ul><li> S&eacute;lectionne la compatibilit&eacute; de langage: <tt>fb</tt>, <tt>fblite</tt>, <tt>qb</tt>, <tt>deprecated</tt><br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptlib.html">-lib</a><br \>
 </div><ul><ul><li> Cr&eacute;er une biblioth&egrave;que statique<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptm.html">-m &lt; name &gt;</a><br \>
-</div><ul><ul><li> Fichier principal sans extension, le point d'entr&eacute;e (par d&eacute;faut est le premier fichier. bas sur la ligne de commande)<br \>
+</div><ul><ul><li> Fichier principal sans extension, le point d'entr&eacute;e (par d&eacute;faut c'est le premier fichier .bas sur la ligne de commande)<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptmap.html">-map &lt; name &gt;</a><br \>
 </div><ul><ul><li> Enregistrer la carte de l'&eacute;dition des liens sous un nom de fichier<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptmaxerr.html">-maxerr &lt; val &gt;</a><br \>
@@ -72,7 +72,7 @@
 </ul></ul><div class="fb_indent"><a href="CompilerOptnoerrline.html">-noerrline</a><br \>
 </div><ul><ul><li> Ne pas afficher la ligne du source o&ugrave; l'erreur s'est produite<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOpto.html">-o &lt; name &gt;</a><br \>
-</div><ul><ul><li> D&eacute;finir le chemin/nom du fichier objet (doit &ecirc;tre pass&eacute; apr&egrave;s le fichier. bas)<br \>
+</div><ul><ul><li> D&eacute;finir le chemin / nom du fichier objet (doit &ecirc;tre pass&eacute; apr&egrave;s le fichier. bas)<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptoptimization.html">-O &lt; level &gt;</a><br \>
 </div><ul><ul><li> D&eacute;finir le niveau d'optimisation (-gen gcc)<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptp.html">-p &lt; name &gt;</a><br \>
@@ -108,7 +108,7 @@
 </ul></ul><div class="fb_indent"><a href="CompilerOptWl.html">-Wl &lt; opt &gt;</a><br \>
 </div><ul><ul><li> Passe les options &agrave; LD (s&eacute;par&eacute;es par des virgules)<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptx.html">-x &lt; name &gt;</a><br \>
-</div><ul><ul><li> D&eacute;finir ex&eacute;cutable/biblioth&egrave;que chemin/nom<br \>
+</div><ul><ul><li> D&eacute;finir ex&eacute;cutable / biblioth&egrave;que chemin / nom<br \>
 </ul></ul><div class="fb_indent"><a href="CompilerOptz.html">-z &lt; value &gt;</a><br \>
 </div><ul><ul><li> D&eacute;finit des options diverses ou exp&eacute;rimentales<br \>
 <br \>
