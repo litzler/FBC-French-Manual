@@ -28,7 +28,7 @@ Les op&eacute;rateurs math&eacute;matiques effectueent des op&eacute;rations mat
 </div></td><td><b><a href="KeyPgOpExponentiate.html">Op&eacute;rateur ^ (Exposant)</a></b><br \>
 <div class="fb_indent">Retourne le r&eacute;sultat de l'&eacute;l&eacute;vation &agrave; la puissance de deux op&eacute;randes.<br \>
 </div><b><a href="KeyPgOpModulus.html">Op&eacute;rateur Mod (Modulo)</a></b><br \>
-<div class="fb_indent">Retourne le r&eacute;sultat du modulo de deux op&eacute;randes.<br \>
+<div class="fb_indent">Retourne le r&eacute;sultat de modulo de deux op&eacute;randes.<br \>
 </div><b><a href="KeyPgOpNegate.html">Op&eacute;rateur - (N&eacute;gation)</a></b><br \>
 <div class="fb_indent">Retourne le r&eacute;sultat de la n&eacute;gation d'un op&eacute;rande.<br \>
 </div><b><a href="KeyPgOpShiftLeft.html">Op&eacute;rateur Shl (D&eacute;calage vers la gauche)</a></b><br \>

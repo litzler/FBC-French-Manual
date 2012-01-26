@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Welcome to FreeBASIC</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Bienvenue dans FreeBASIC</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Bienvenue dans notre monde!  Cette page est un aper&ccedil;u de notre magasin en ligne de la connaissance.  Bonne navigation et nous esp&eacute;rons que ce sera la premi&egrave;re de nombreuses visites.<br \>
+<br \>
+<b><u>Introduction</u></b><br \>
+<div class="fb_indent">FreeBASIC est un compilateur libre 32-bit pour la langage BASIC.  Il est "open source" et <i><a href="GnuLicenses.html">sous licence GPL</a></i>. Il est con&ccedil;u pour &ecirc;tre compatible avec la syntaxe QuickBASIC, tout en d&eacute;veloppant le langage et ses capacit&eacute;s. Il peut cr&eacute;er des programmes pour MS-Windows, DOS et Linux, et est en cours de portage sur d'autres plates-formes. Voir <i><a href="CompilerAbout.html">A propos de FreeBASIC</a></i> et <i><a href="CompilerFeatures.html">Principales caract&eacute;ristiques</a></i>.<br \>
+<br \>
+</div><b><u>Derni&egrave;re version</u></b><br \>
+<div class="fb_indent">FreeBASIC est un compilateur version b&ecirc;ta et son d&eacute;veloppement est en cours.  A chaque mise &agrave; jour compl&egrave;te, de nombreuses fonctionnalit&eacute;s sont ajout&eacute;es, et les bugs des versions pr&eacute;c&eacute;dentes sont &eacute;limin&eacute;s.
+  Pour voir la derni&egrave;re version disponible, visitez <a href="http://sourceforge.net/projects/fbc">http://sourceforge.net/projects/fbc</a> sur <a href="http://sourceforge.net">SourceForge</a>, ou <a href="http://www.freebasic.net/index.php/download">http://www.freebasic.net/index.php/download</a> sur le <a href="http://www.freebasic.net">Site Web Officiel de FreeBASIC</a>.<br \>
+<br \>
+</div><b><u>Ce qui est requis pour l'installation</u></b><br \>
+<div class="fb_indent">La configuration mat&eacute;rielle minimale est indiqu&eacute;e sur la page <i><a href="CompilerRequirements.html">Ce qui est requis</a></i>.  Visitez notre page <i><a href="CompilerRequirements.html">Installation</a></i> pour intaller FreeBASIC sur votre ordinateur.<br \>
+<br \>
+</div><b><u>Fonctionnement</u></b><br \>
+<div class="fb_indent">FreeBASIC est un compilateur et en tant que tel n'est pas fourni avec un IDE (Integrated Development Editor = Editeur de d&eacute;veloppement int&eacute;gr&eacute;), cependant il y a quelques IDE disponibles.
+ Pour plus d'informations sur l'utilisation FreeBASIC sans IDE, voir <i><a href="CompilerRunning.html">Fonctionnement du compilateur</a></i>.<br \>
+<br \>
+</div><b><u>Compatibilit&eacute; avec QuickBASIC</u></b><br \>
+<div class="fb_indent">FreeBASIC est con&ccedil;u pour &ecirc;tre compatible avec la syntaxe QuickBASIC.  Pour la meilleure compatibilit&eacute; du code avec celui de QuickBASIC, le <i><a href="CompilerDialects.html">dialecte QB</a></i> peut &ecirc;tre utilis&eacute; lors de la compilation du code source. Voir <i><a href="CompilerDialects.html">Les dialectes du FreeBASIC</a></i> et <i><a href="LangQB.html">Diff&eacute;rences avec QB</a></i>.<br \>
+<br \>
+</div><b><u>Documentation</u></b><br \>
+<div class="fb_indent">Tous les documents officiels peuvent &ecirc;tre consult&eacute;s en ligne sur le <a href="http://www.freebasic.net/wiki">wiki</a>.  La documentation en ligne constitue la plus &agrave; jour des ressources disponibles.  Dans tous les cas, elle peut &ecirc;tre consid&eacute;r&eacute;e comme la version correcte.  Les versions t&eacute;l&eacute;chargeables de ce manuel sont des instantan&eacute;s de la documentation disponible &agrave; un moment donn&eacute; et devrait &ecirc;tre correctes pour une version sp&eacute;cifique du compilateur.  Cependant, nous ne maintenons pas plusieurs versions de la documentation donc il peut y avoir des &eacute;carts.<br \>
+<br \>
+</div><b><u>Les points de d&eacute;part dans le Manuel</u></b><br \>
+<ul><li> <a href="DocToc.html">Table des mati&egrave;res</a><br \>
+<li> <a href="CompilerHelp.html">Obtenir de l'aide avec FreeBASIC</a><br \>
+<li> <a href="CatPgProgrammer.html">Guide du programmeur</a><br \>
+<br \>
+</ul><b><u>Les points de d&eacute;part sur le Web</u></b><br \>
+<ul><li> Site Officiel &agrave; <a href="http://www.freebasic.net">http://www.freebasic.net</a><br \>
+<li> Forums officiels &agrave; <a href="http://www.freebasic.net/forum">http://www.freebasic.net/forum</a><br \>
+<li> Archives officielles &agrave; <a href="http://www.freebasic.net/arch">http://www.freebasic.net/arch</a><br \>
+<br \>
+</ul>Merci d'utiliser FreeBASIC. Bonne programmation!<br \>
+<br \>
+
+</div>
+</div> 
+</div> 
+</body>
+</html>

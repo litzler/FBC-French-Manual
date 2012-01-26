@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Control Flow Statements</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">D&eacute;clarations de contr&ocirc;le de flux</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Les d&eacute;clarations qui dirigent le flux d'ex&eacute;cution du programme.<br \>
+<br \>
+<b><a href="#TRANSFERRING">D&eacute;clarations de transfert</a></b><br \>
+<div class="fb_indent">D&eacute;clarations qui donnent le contr&ocirc;le &agrave; une autre partie du programme.<br \>
+</div><b><a href="#BRANCHING">D&eacute;clarations de branchement</a></b><br \>
+<div class="fb_indent">D&eacute;clarations qui ex&eacute;cutent une parmi plusieurs possibilit&eacute;s de branchement.<br \>
+</div><b><a href="#LOOPING">D&eacute;clarations de boucle</a></b><br \>
+<div class="fb_indent">D&eacute;clarations qui ex&eacute;cutent du code avec r&eacute;p&eacute;tition.<br \>
+<br \>
+</div><table class="fb_box"><tr><td><a name="TRANSFERRING"></a><b><u>D&eacute;clarations de transfert</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgGoto.html">Goto</a></b><br \>
+<div class="fb_indent">Transf&egrave;re l'ex&eacute;cution &agrave; un autre point dans le code, d&eacute;fini par une &eacute;tiquette de texte.<br \>
+</div><b><a href="KeyPgGosub.html">GoSub</a></b><br \>
+<div class="fb_indent">Transf&egrave;re temporairement l'ex&eacute;cution &agrave; un autre point dans le code, d&eacute;fini par une &eacute;tiquette de texte.<br \>
+</div><b><a href="KeyPgOngoto.html">On Goto</a></b><br \>
+<div class="fb_indent">Transfert de l'ex&eacute;cution, bas&eacute; sur la valeur d'un expression, &agrave; un parmi un certain nombre de points du code d&eacute;finis par des &eacute;tiquettes.<br \>
+</div><b><a href="KeyPgOngosub.html">On Gosub</a></b><br \>
+<div class="fb_indent">Transfert temporaire (bas&eacute; sur la valeur d'un expression) de l'ex&eacute;cution,  vers un parmi un certain nombre de points du code d&eacute;finis par des &eacute;tiquettes.<br \>
+</div><b><a href="KeyPgReturn.html">Return</a></b><br \>
+<div class="fb_indent">Retour &agrave; partir d'un appel &agrave; l'aide d'un <a href="KeyPgGosub.html">GoSub</a> ou d'une proc&eacute;dure retournant une valeur.<br \>
+<br \>
+</div></div><a name="BRANCHING"></a><b><u>D&eacute;clarations de branchement</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgIfthen.html">If..End If</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute un bloc d'instructions si une condition est remplie.<br \>
+</div><b><a href="KeyPgElseif.html">..Else If..</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute un bloc de code si une condition est remplie et que toutes les conditions pr&eacute;c&eacute;dentes ne sont pas remplies..<br \>
+</div><b><a href="KeyPgElse.html">..Else..</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute un bloc de code si toutes les conditions pr&eacute;c&eacute;dentes ne sont pas remplies.<br \>
+</div><b><a href="KeyPgSelectcase.html">Select..End Select</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute une parmi un certain nombre d'instructions en utilisant un ensemble de conditions.<br \>
+</div><b><a href="KeyPgCase.html">..Case..</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute un bloc de code si une condition est remplie.<br \>
+</div><b><a href="KeyPgCase.html">..Case Else..</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute un bloc de code si toutes les conditions pr&eacute;c&eacute;dentes ne sont pas remplies.<br \>
+<br \>
+</div><b>Contr&ocirc;le intra-branche</b><br \>
+<div class="fb_indent"><b><a href="KeyPgExit.html">Exit...</a></b><br \>
+<div class="fb_indent">Sort pr&eacute;matur&eacute;ment d'une d&eacute;claration <tt><a href="KeyPgSub.html">Sub</a></tt>, <tt><a href="KeyPgFunction.html">Function</a></tt>, <tt><a href="KeyPgDoloop.html">Do...Loop</a></tt>, <tt><a href="KeyPgFornext.html">For...Next</a></tt>, <tt><a href="KeyPgWhilewend.html">While...Wend</a></tt>, ou  <tt><a href="KeyPgSelectcase.html">Select Case</a></tt>.<br \>
+</div></div></div></td><td><a name="LOOPING"></a><b><u>D&eacute;clarations de boucle</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgWhilewend.html">While..Wend</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute un bloc d'instructions tant qu'une condition est remplie.<br \>
+</div><b><a href="KeyPgFornext.html">For..Next</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute un bloc d'instructions tant qu'un it&eacute;rateur est inf&eacute;rieur ou sup&eacute;rieur &agrave; une expression.<br \>
+</div><b><a href="KeyPgDoloop.html">Do..Loop</a></b><br \>
+<div class="fb_indent">Ex&eacute;cute un bloc d'instructions tant que / jusqu'&agrave; ce qu'une condition est / soit remplie.<br \>
+<br \>
+</div><b>Contr&ocirc;le intra-boucle</b><br \>
+<div class="fb_indent"><b><a href="KeyPgContinue.html">Continue While</a>, <a href="KeyPgContinue.html">Continue For</a> et <a href="KeyPgContinue.html">Continue Do</a></b><br \>
+<div class="fb_indent">Re-rentre pr&eacute;matur&eacute;ment dans une boucle.<br \>
+</div><b><a href="KeyPgExit.html">Exit While</a>, <a href="KeyPgExit.html">Exit For</a> et <a href="KeyPgExit.html">Exit Do</a></b><br \>
+<div class="fb_indent">Sort pr&eacute;matur&eacute;ment d'une boucle.<br \>
+</div></div></div></td></tr></table><div style="clear:both">&nbsp;</div><br \>
+
+</div>
+</div> 
+</div> 
+</body>
+</html>

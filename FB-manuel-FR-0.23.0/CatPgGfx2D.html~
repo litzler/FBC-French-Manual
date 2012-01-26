@@ -67,7 +67,7 @@
 </div><b><a href="KeyPgBsave.html">BSave</a></b><br \>
 <div class="fb_indent">Enregistre un tampon image dans un fichier.<br \>
 <br \>
-</div></div></td><td><a name="BLITTING"></a><b><u>Manipulation / transformation de tampons images</u></b><br \>
+</div></div></td><td><a name="BLITTING"></a><b><u>Manipulation/transformation de tampons images</u></b><br \>
 <div class="fb_indent"><b><a href="KeyPgPutgraphics.html">Put (Graphique)</a></b><br \>
 <div class="fb_indent">Affiche un tampon image sur un autre tampon image ou &agrave; l'&eacute;cran.<br \>
 <br \>

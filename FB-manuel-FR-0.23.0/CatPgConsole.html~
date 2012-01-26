@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Console Functions</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Console Functions</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Proc&eacute;dures relatives &agrave; la console.<br \>
+<br \>
+<div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<div class="fb_indent">Ces proc&eacute;dures procure des moyens pour sortir du texte sur la console, ainsi que le contr&ocirc;le de l'emplacement et de la mani&egrave;re dont le texte est sorti.<br \>
+<br \>
+</div><b><a href="#CONFIG">Configuration de la console</a></b><br \>
+<div class="fb_indent">Les d&eacute;clarations qui affectent la fa&ccedil;on dont le texte est affich&eacute;.<br \>
+</div><b><a href="#CURPOS">Positionnement et couleur du curseur</a></b><br \>
+<div class="fb_indent">Les proc&eacute;dures qui d&eacute;placent le curseur et modifient sa couleur.<br \>
+</div><b><a href="#WRITING">Ecrire du texte sur la console</a></b><br \>
+<div class="fb_indent">Les proc&eacute;dures qui sortent du texte sur la console.<br \>
+<br \>
+</div><table class="fb_box"><tr><td><a name="CONFIG"></a><b><u>Configuration de la console</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgCls.html">Cls</a></b><br \>
+<div class="fb_indent">Initialise l'&eacute;cran entier ou la fen&ecirc;tre texte.<br \>
+</div><b><a href="KeyPgWidth.html">Width</a></b><br \>
+<div class="fb_indent">Valide ou retourne le nombre de lignes et colonnes d'affichage de la console.<br \>
+</div><b><a href="KeyPgViewtext.html">View Print</a></b><br \>
+<div class="fb_indent">Valide la zone utilisable pour l'affichage de la console.<br \>
+<br \>
+</div></div><a name="CURPOS"></a><b><u>Positionnement et couleur du curseur</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgColor.html">Color</a></b><br \>
+<div class="fb_indent">Change les couleurs de premier-plan et d'arri&egrave;re-plan du texte &agrave; &eacute;crire.<br \>
+</div><b><a href="KeyPgCsrlin.html">CsrLin</a></b><br \>
+<div class="fb_indent">Retourne la position-ligne du curseur.<br \>
+</div><b><a href="KeyPgPos.html">Pos</a></b><br \>
+<div class="fb_indent">Retourne la position-colonne du curseur.<br \>
+</div><b><a href="KeyPgLocate.html">Locate</a></b><br \>
+<div class="fb_indent">Valide la position ligne et colonne du cuseur ainsi que sa visibilit&eacute;.<br \>
+</div><b><a href="KeyPgScreenCons.html">Screen (Console)</a></b><br \>
+<div class="fb_indent">R&eacute;cup&egrave;re le caract&egrave;re ou les attributs de couleur &agrave; la position donn&eacute;e.<br \>
+</div></div></td><td><a name="WRITING"></a><b><u>Ecrire du texte sur la console</u></b><br \>
+<div class="fb_indent"><b><a href="KeyPgPrint.html">Print</a></b><br \>
+<div class="fb_indent">Ecrire du texte sur la console.<br \>
+</div><b><a href="KeyPgPrintusing.html">Print Using</a></b><br \>
+<div class="fb_indent">Ecrire du texte format&eacute; sur la console.<br \>
+</div><b><a href="KeyPgWrite.html">Write</a></b><br \>
+<div class="fb_indent">Ecrire une liste d'items sur la console.<br \>
+</div><b><a href="KeyPgSpc.html">Spc</a></b><br \>
+<div class="fb_indent">Intercale un certain nombre d'espaces lors de l'&eacute;criture d'un texte.<br \>
+</div><b><a href="KeyPgTab.html">Tab</a></b><br \>
+<div class="fb_indent">Intercale un certain nombre de colonnes lors de l'&eacute;criture d'un texte.<br \>
+</div></div></td></tr></table><div style="clear:both">&nbsp;</div><br \>
+<br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

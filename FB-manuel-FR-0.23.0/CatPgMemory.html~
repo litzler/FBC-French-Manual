@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Les proc&eacute;dures qui travaillent avec la m&eacute;moire statique ou dynamique.<br \>
+	Les proc&eacute;dures de travail avec la m&eacute;moire statique ou dynamique.<br \>
 <br \>
 <div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 <div class="fb_indent">Ces proc&eacute;dures permettent d'acc&eacute;der &agrave; la m&eacute;moire libre ou au "tas". La m&eacute;moire libre peut &ecirc;tre r&eacute;serv&eacute;e et lib&eacute;r&eacute;e et des proc&eacute;dures sont pr&eacute;vues pour lire et &eacute;crire directement dans cette m&eacute;moire.<br \>
