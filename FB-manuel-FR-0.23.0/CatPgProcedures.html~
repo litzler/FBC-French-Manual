@@ -95,7 +95,7 @@
 <div class="fb_indent"><b><a href="KeyPgCall.html">Call</a></b><br \>
 <div class="fb_indent">Appelle une proc&eacute;dure.<br \>
 </div><b><a href="KeyPgNaked.html">Naked</a></b><br \>
-<div class="fb_indent">Sp&eacute;cifie qu'un corps de la fonction ne doit avoir aucun code prologue / &eacute;pilogue<br \>
+<div class="fb_indent">Sp&eacute;cifie qu'un corps de la fonction ne doit avoir aucun code prologue/&eacute;pilogue<br \>
 </div></div></td></tr></table><div style="clear:both">&nbsp;</div><br \>
 </div>
 </div>

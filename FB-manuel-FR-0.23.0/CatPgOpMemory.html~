@@ -13,7 +13,7 @@
 <div id="fb_pg_body">
 	Op&eacute;rateurs qui travaillent avec la m&eacute;moire<br \>
 <br \>
-Les op&eacute;rateurs m&eacute;moire procurent des moyens pour allouer / d&eacute;sallouer dynamiquement variables et objets.<br \>
+Les op&eacute;rateurs m&eacute;moire procurent des moyens pour allouer/d&eacute;-allouer dynamiquement variables et objets.<br \>
 <br \>
 <table class="fb_box"><tr><td><b><a href="KeyPgOpNew.html">Op&eacute;rateur New</a></b><br \>
 <div class="fb_indent">Alloue de la m&eacute;moire et construit des objets.<br \>

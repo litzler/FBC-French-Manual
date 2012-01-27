@@ -13,7 +13,7 @@
 <div id="fb_pg_body">
 	Op&eacute;rateurs qui fonctionnent avec les pointeurs<br \>
 <br \>
-Les Op&eacute;rateurs pointeurs permettent de retrouver l'adresse de leurs op&eacute;randes en m&eacute;moire, et de les utiliser, ou de <i>d&eacute;r&eacute;f&eacute;rencer</i>, cette m&eacute;moire.<br \>
+Les Op&eacute;rateur pointeurs permettent de retrouver l'adresse de leurs op&eacute;randes en m&eacute;moire, et de les utiliser, ou de <i>d&eacute;r&eacute;f&eacute;rencer</i>, cette m&eacute;moire.<br \>
 <br \>
 <table class="fb_box"><tr><td><b><a href="KeyPgOpVarptr.html">Operator Varptr (Pointeur de variable)</a></b><br \>
 <div class="fb_indent">Retourne l'adresse m&eacute;moire d'une variable.<br \>
