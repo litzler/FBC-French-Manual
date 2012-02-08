@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>About</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">A propos de FreeBasic</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	A propos du projet FreeBASIC.<br \>
+<br \>
+<div class="fb_indent">Le projet FreeBasic est un ensemble d'outils de d&eacute;veloppement multi-plate-forme initialement cr&eacute;&eacute; par Andr&eacute; Victor, compos&eacute; d'un compilateur, d'un assembleur bas&eacute; GNU, d'un lieur et d'un archiveur, et le soutien des biblioth&egrave;ques d'ex&eacute;cution, y compris un logiciel bas&eacute; sur la biblioth&egrave;que graphique. Le compilateur, <i><tt>fbc</tt></i>, actuellement supporte la construction pour des architectures bas&eacute;es i386 sous des plates-formes DOS, Linux, Windows et Xbox. Le projet contient &eacute;galement des liaisons (fichiers d'en-t&ecirc;te) pour certaines biblioth&egrave;ques connues, comme <a href="en.wikipedia.org/wiki/C_standard_library.html">la biblioth&egrave;que d'ex&eacute;cution C</a>, <a href="http://www.talula.demon.co.uk/allegro/">Allegro</a>, <a href="libsdl.org.html">SDL</a>, <a href="opengl.org.html">OpenGL</a>, <a href="gtk.org.html">GTK</a>, <a href="msdn2.microsoft.com/en-us/library/aa383750.aspx.html">l'API Windows</a> et beaucoup d'autres, comme le montrent  les nombreux exemples de programmes pour ces biblioth&egrave;ques.<br \>
+<br \>
+
+FreeBASIC est un langage de programmation de haut niveau supportant les paradigmes proc&eacute;dural, orient&eacute; objet et la m&eacute;ta-programmation, avec une syntaxe compatible avec <a href="en.wikipedia.org/wiki/QuickBASIC.html">Microsoft QuickBasic</a>. En fait, le projet FreeBASIC a d&eacute;but&eacute; comme une tentative de cr&eacute;er un code compatible, alternative libre &agrave; <a href="en.wikipedia.org/wiki/QuickBASIC.html">Microsoft QuickBasic</a>, mais il est  devenu depuis un outil de d&eacute;veloppement puissant. FreeBASIC peut &ecirc;tre vu comme une extension des capacit&eacute;s de <a href="en.wikipedia.org/wiki/Quickasic.html">Microsoft QuickBasic</a> dans un certain nombre de cas, supportant plus de types de donn&eacute;es, de constructions de langage, de styles de programmation et des plates-formes modernes et API.<br \>
+<br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

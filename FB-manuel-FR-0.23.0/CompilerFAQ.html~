@@ -254,7 +254,7 @@ Depuis la version 0.20.0b, non. Il y a quelques mots-cl&eacute;s, tels que <tt><
 <br \>
 Par exemple, si  <tt><i>mystring</i></tt> est de type <tt><a href="KeyPgString.html">String</a></tt> de longueur non nulle, alors <tt><i>mystring[0]</i></tt> correspond &agrave; une r&eacute;f&eacute;rence au premier caract&egrave;re (un <tt><a href="KeyPgUbyte.html">UByte</a></tt>), qui peut &ecirc;tre assign&eacute;e et modifi&eacute;e, transmise &agrave; des proc&eacute;dures, etc.<br \>
 <br \>
-<tt><a href="KeyPgPeek.html">Peek</a></tt> et les <a href="CatPgOpIndexing.html">op&eacute;rateurs d'indexation</a> sont document&eacute;s comme des proc&eacute;dures <tt><a href="KeyPgFunction.html">Function</a></tt> ou des op&eacute;rateurs qui retournent une valeur, puisque FreeBASIC ne supporte pas encore le retour de r&eacute;f&eacute;rences. Lorsque le retour de r&eacute;f&eacute;rences sera pris en charge, la documentation sera chang&eacute;e pour refl&eacute;ter cela.<br \>
+<tt><a href="KeyPgPeek.html">Peek</a></tt> et les <a href="CatPgOpIndexing.html">op&eacute;rateurs d'indexation</a> sont document&eacute;s comme des proc&eacute;dures <tt><a href="KeyPgFunction.html">Function</a></tt> ou des op&eacute;rateurs qui retourne une valeur, puisque FreeBASIC ne supporte pas encore le retour de r&eacute;f&eacute;rences. Lorsque le retour de r&eacute;f&eacute;rences sera pris en charge, la documentation sera chang&eacute;e pour refl&eacute;ter cela.<br \>
 <br \>
 <a href="#item0">Retour en haut de la page</a><br \>
 <br \>
