@@ -1,30 +1,30 @@
 <html>
 <head>
-<title>Compiler Option: -Wl</title>
+<title>Compiler Option: -a</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div id="fb_body_wrapper">
 <div id="fb_tab">
-<div id="fb_tab_l">Option du compilateur: -Wl</div>
+<div id="fb_tab_l">Option du compilateur: -a</div>
 <div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Passe des options &agrave; l'&eacute;diteur de liens<br \>
+	Ajouter un fichier objet &agrave; la liste de l'&eacute;diteur de liens<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
-<div class="fb_indent"><b>-Wl</b> &lt; <i>options</i> &gt;<br \>
-</div></tt><br \>
+<div class="fb_indent"><div class="fb_indent">[ <b>-a</b> ] &lt; <i>object file</i> &gt;<br \>
+</div></div></tt><br \>
 </div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
-<div class="fb_indent"><tt><i>options</i></tt><br \>
-<div class="fb_indent">Options suppl&eacute;mentaires &agrave; passer &agrave; l'&eacute;diteur de liens.<br \>
+<div class="fb_indent"><tt><i>object file</i></tt><br \>
+<div class="fb_indent">Nom du fichier objet avec l'extension.<br \>
 <br \>
 </div></div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-<div class="fb_indent">L'option du compilateur <tt>-Wl</tt> passe des options suppl&eacute;mentaires &agrave; LD, l'&eacute;diteur de liens. Les options doivent seulement &ecirc;tre s&eacute;par&eacute;es par des virgules.<br \>
+<div class="fb_indent">L'option <tt>-a</tt> du compilateur ajoute un fichier objet compil&eacute; &agrave; la liste de l'&eacute;diteur de liens. Le "-a" est facultative si le nom du fichier objet a une extension de fichier ".o".<br \>
 <br \>
 </div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
-<ul><li> <a href="CompilerOptWa.html">Option du compilateur: -Wa</a><br \>
+<ul><li> <a href="CompilerOptb.html">Option du compilateur: -b</a><br \>
 <li> <a href="CompilerCmdLine.html">Utilisation de la ligne de commande</a><br \>
 <br \>
 </ul></div>

@@ -41,7 +41,7 @@ Pour en savoir plus sur les diff&eacute;rences entre chacun de ces dialectes du 
 <br \>
 </div><b>deprecated</b><br \>
 <br \>
-<div class="fb_indent">Ce dialecte existe pour la compatibilit&eacute; descendante avec les versions pr&eacute;c&eacute;dentes de FreeBASIC, cependant, ce dialecte pourrait dispara&icirc;tre dans les versions futures.  Les programmeurs doivent envisager d'utiliser plut&ocirc;t le dialecte "fblite".<br \>
+<div class="fb_indent">Ce dialecte existe pour la compatibilit&eacute; descendante avec les versions pr&eacute;c&eacute;dentes de FreeBasic, cependant, ce dialecte pourrait dispara&icirc;tre dans les versions futures.  Les programmeurs doivent envisager d'utiliser plut&ocirc;t le dialecte "fblite".<br \>
 <br \>
 </div>Note: cette option de ligne de commande peut &ecirc;tre annul&eacute;e par les d&eacute;clarations de <tt><a href="KeyPgPplang.html">#lang</a></tt> utilis&eacute;es dans le code.<br \>
 <br \>

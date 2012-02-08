@@ -35,7 +35,7 @@
 <br \>
 Notez que les arguments <tt><b>param</b></tt>, <tt><b>Escape</b></tt>, <tt><b>pedantic</b></tt> et <tt><b>Next</b></tt> fournissent des avertissements suppl&eacute;mentaires habituellement pas affich&eacute;s, m&ecirc;me par d&eacute;faut.<br \>
 <br \>
-Si l'option <tt><b>-w</b></tt> n'est pas sp&eacute;cifi&eacute;e, c'est comme si <tt><b>-w 0</b></tt> &eacute;tait utilis&eacute;. L'option <tt><b>-w</b></tt> peut &ecirc;tre sp&eacute;cifi&eacute;e plusieurs fois.<br \>
+Si l'option <tt><b>-w</b></tt> n'est pas sp&eacute;cifi&eacute;e, c'est comme si <tt><b>-w 0</b></tt> &eacute;tait utilis&eacute;. L'option <tt><b>-w</b></tt> peut &ecirc;tre sp&eacute;cifi&eacute;e pludieurs fois.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <a href="CompilerCmdLine.html">Utilisation de le ligne de commande</a><br \>

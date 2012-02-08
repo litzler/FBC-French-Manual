@@ -34,7 +34,7 @@ Note: Vous pouvez en effet lancer le compilateur &agrave; partir de n'importe qu
 </div>L'ex&eacute;cutable r&eacute;sultant sera encore mis dans le m&ecirc;me r&eacute;pertoire que le programme.<br \>
 <br \>
 </div><b><u>Linux</u></b><br \>
-<div class="fb_indent">Si le script install.sh a &eacute;t&eacute; ex&eacute;cut&eacute; avec succ&egrave;s avec suffisamment de privil&egrave;ges, le binaire du compilateur doit &ecirc;tre situ&eacute; dans <tt>/usr/local/bin/fbc</tt>, permettant &agrave; tout utilisateur l'acc&egrave;s au compilateur de n'importe quel r&eacute;pertoire.<br \>
+<div class="fb_indent">Si le script install.sh a &eacute;t&eacute; ex&eacute;cut&eacute; avec succ&egrave;s avec suffisamment de privil&egrave;ges, le binaire du compilateur doit &ecirc;tre copi&eacute; dans <tt>/usr/local/bin/fbc</tt>, permettant &agrave; tout utilisateur l'acc&egrave;s au compilateur de n'importe quel r&eacute;pertoire.<br \>
 <br \>
 Depuis l'invite, tapez:<br \>
 <br \>

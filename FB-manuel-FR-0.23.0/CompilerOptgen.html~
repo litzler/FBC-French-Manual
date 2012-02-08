@@ -24,7 +24,7 @@
 <div class="fb_indent">L'option de compilateur <tt>-gen</tt> d&eacute;finit l'&eacute;metteur de code "backend" et assembleur.<br \>
 <br \>
 <b>-gen gas</b><br \>
-<div class="fb_indent">Le compilateur enverra le code de l'assembleur GAS &agrave; un fichier <tt>.asm</tt> qui sera ensuite compil&eacute; dans un fichier objet &agrave; l'aide de '<tt>as</tt>'.<br \>
+<div class="fb_indent">Le compilateur enverra le code de l'assembleur GAS assembler &agrave; un fichier <tt>.asm</tt> qui sera ensuite compil&eacute; dans un fichier objet &agrave; l'aide de '<tt>as</tt>'.<br \>
 <br \>
 </div><b>-gen gcc</b><br \>
 <div class="fb_indent">Le compilateur enverra le code &agrave; un fichier <tt>.c</tt> qui sera ensuite compil&eacute; dans un fichier objet &agrave; l'aide de '<tt>gcc</tt>' en tant qu' assembleur de haut niveau.  <b>Note:</b> l'&eacute;metteur C est un travail en cours, incomplet, et certainement pas exempt de bugs.  Cependant, l'objectif de l'&eacute;metteur C (une fois termin&eacute;) sera de permettre de porter des programmes compil&eacute;s FreeBASIC (et <tt>fbc</tt> lui-m&ecirc;me) sur d'autres plates-formes.<br \>

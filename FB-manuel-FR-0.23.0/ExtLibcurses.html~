@@ -17,7 +17,7 @@ Site Web: http://pdcurses.sourceforge.net/ and http://www.gnu.org/software/ncurs
 Plates-formes support&eacute;es: Win32, Linux<br \>
 En-t&ecirc;tes &agrave; inclure: curses.bi<br \>
 Exemple d'utilisation: oui, dans examples/libraries/curses/<br \>
-Note: Sur les syst&egrave;mes Win32 pdcurses est utilis&eacute;, sur Linux, utilisation de la biblioth&egrave;que ncurses standard.<br \>
+Note: Sur les syst&egrave;mes Win32 pdcurses est utilis&eacute;, sur Linux, il utilise la biblioth&egrave;que standard ncurses.<br \>
 <br \>
 <br \>
 <br \>

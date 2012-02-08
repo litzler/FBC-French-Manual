@@ -28,7 +28,7 @@
 <li> Utilisez "print ABC" pour voir le contenu de la variable appel&eacute;e "abc". GDB supporte pointeur / d&eacute;r&eacute;f&eacute;rencement de pointeur, l'indexation et l'arithm&eacute;tique aussi, donc "print *MYPOINTER" fonctionnera &eacute;galement. (note: les variables non d&eacute;clar&eacute;es ou celles avec les suffixes % & ! # $ ne peuvent pas &ecirc;tre PRINT&eacute;es).<br \>
 <li> Utilisez "disp ABC" pour afficher le contenu d'une variable appel&eacute;e "abc".<br \>
 <li> Utilisez "watch ABC" pour arr&ecirc;ter &agrave; chaque fois que la variable appel&eacute;e "abc" est modifi&eacute;e.<br \>
-<li> Utilisez &agrave; nouveau "r" pour red&eacute;marrer l'application quand elle est termin&eacute;e.<br \>
+<li> Utilisez "r" again to restart the application when finished.<br \>
 <li> Tapez "q" pour quitter.<br \>
 <li> Tapez "help" pour voir une liste de commandes, il y en a beaucoup d'autres.<br \>
 <br \>

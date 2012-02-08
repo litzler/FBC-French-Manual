@@ -17,7 +17,7 @@
 <div class="fb_indent"><b>-version</b><br \>
 </div></tt><br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-<div class="fb_indent">L'option de compilateur <tt>-version</tt> affiche la version du compilateur FBC et abandonne.  Toutes les autres options de ligne de commande sont ignor&eacute;es et aucune compilation ne sera effectu&eacute;e.<br \>
+<div class="fb_indent">L'option de compilateur <tt>-version</tt> affiche la version du compilateur FBC show the compiler et abandonne.  Toutes les autres options de ligne de commande sont ignor&eacute;es et aucune compilation ne sera effectu&eacute;e.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <a href="CompilerCmdLine.html">Utilisation de le ligne de commande</a><br \>

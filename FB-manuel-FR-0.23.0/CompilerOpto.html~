@@ -18,7 +18,7 @@
 </div></tt><br \>
 </div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
 <div class="fb_indent"><tt><i>output file</i></tt><br \>
-<div class="fb_indent">Le nom, avec le chemin en option, du fichier objet &agrave; cr&eacute;er.<br \>
+<div class="fb_indent">Le nom, avec le chemin en option, du fichier d'objet &agrave; cr&eacute;er.<br \>
 <br \>
 </div></div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 <div class="fb_indent">Lorsqu'elle est utilis&eacute;e avec l'option <tt><b><a href="CompilerOptc.html">-c</a></b></tt>, l'option <tt><b>-o</b></tt> sp&eacute;cifie le nom &agrave; donner au fichier objet r&eacute;sultant de la compilation du fichier source qui le pr&eacute;c&egrave;de imm&eacute;diatement. Par d&eacute;faut, le fichier objet porte le m&ecirc;me nom que le fichier source, mais avec l'extension <i>.o</i>. Cette option est utile pour enregistrer les fichiers objets dans d'autres r&eacute;pertoires.<br \>

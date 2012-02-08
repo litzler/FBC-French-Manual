@@ -23,7 +23,7 @@
 </div></div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 <div class="fb_indent">L'option du compilateur <tt>-m</tt> sp&eacute;cifie un point d'entr&eacute;e principal pour un fichier source; l'argument est le nom d'un fichier source moins son extension. Si "-m" ou "-entry" n'est pas sp&eacute;cifi&eacute;, le premier fichier source de la liste est donn&eacute; comme point d'entr&eacute;e principal. Lorsque vous utilisez l'option "-c", "-m" ou "-entry" doivent &ecirc;tre sp&eacute;cifi&eacute;s lors de la compilation d'un fichier source principal.  M&ecirc;me chose que pour l'option "-entry" du compilateur.<br \>
 <br \>
-La macro intrins&egrave;que <tt><a href="KeyPgDdFBMain.html">__FB_MAIN__</a></tt> est d&eacute;finie dans le module principal et ne l'est pas dans les autres modules.<br \>
+La macro intrins&egrave;que <tt><a href="KeyPgDdFBMain.html">__FB_MAIN__</a></tt> est d&eacute;finie dans le module principal et pas d&eacute;finie dans les autres modules.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgDdFBMain.html">__FB_MAIN__</a></tt><br \>

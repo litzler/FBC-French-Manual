@@ -21,7 +21,7 @@
 <div class="fb_indent">Options suppl&eacute;mentaires &agrave; passer &agrave; l'&eacute;diteur de liens.<br \>
 <br \>
 </div></div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-<div class="fb_indent">L'option du compilateur <tt>-Wl</tt> passe des options suppl&eacute;mentaires &agrave; LD, l'&eacute;diteur de liens. Les options doivent seulement &ecirc;tre s&eacute;par&eacute;es par des virgules.<br \>
+<div class="fb_indent">L'option du compilateur <tt>-Wl</tt> passe des options suppl&eacute;mentaires &agrave; LD, l'&eacute;diteur de liens. Les options doivent seulement &ecirc;tre s&eacute;par&eacute;es par des virgules seulement.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <a href="CompilerOptWa.html">Option du compilateur: -Wa</a><br \>

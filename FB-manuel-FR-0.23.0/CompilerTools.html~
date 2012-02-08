@@ -78,7 +78,7 @@ S'il n'y a pas de compilation crois&eacute;e, <tt>fbc</tt> cherche dans ces empl
 <li> Si le fichier (ou un lien symbolique) existe dans <tt>prefix/bin/freebasic/&lt;target&gt;</tt> ou <tt>./bin/&lt;target&gt;</tt> pour la version autonome, alors il l'utilise.<br \>
 <li> Sous Linux, si l'outil n'a pas pu &ecirc;tre trouv&eacute; dans <tt>prefix/bin/freebasic/&lt;target&gt;</tt> ou <tt>./bin/&lt;target&gt;</tt> pour la version autonome, <tt>fbc</tt> essaie de l'appeler de toute fa&ccedil;on car il peut &ecirc;tre install&eacute; sur le syst&egrave;me et situ&eacute; sur le chemin PATH.<br \>
 <br \>
-</ul></ul><div class="fb_indent">"<tt>&lt;target&gt;</tt>" correspond &agrave; la plate-forme cible ayant le m&ecirc;me nom que sp&eacute;cifi&eacute; dans l'option <i><a href="CompilerOpttarget.html">-target</a></i>.<br \>
+</ul></ul><div class="fb_indent">"<tt>&lt;target&gt;</tt>" refers to the target platform having the same name as specified by the <i><a href="CompilerOpttarget.html">-target</a></i> option.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <a href="CompilerRunning.html">Utilisation du compilateur FreeBASIC</a><br \>

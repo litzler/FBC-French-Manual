@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	S&eacute;lection des math&eacute;matiques &agrave; virgule flottante plus rapides, moins pr&eacute;cises ou plus lentes, plus pr&eacute;cises.<br \>
+	S&eacute;lectionne des math&eacute;matiques &agrave; virgule flottante plus rapides, moins pr&eacute;cises ou plus lentes, plus pr&eacute;cises.<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <div class="fb_indent"><b>-fpmode</b> &lt; <i>mode</i> &gt;<br \>

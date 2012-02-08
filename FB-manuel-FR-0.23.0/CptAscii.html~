@@ -315,7 +315,7 @@
 <br \>
 </div>De nombreux caract&egrave;res ASCII standards ne peuvent pas &ecirc;tre affich&eacute;s en FreeBASIC parce que la console interpr&egrave;te certains caract&egrave;res comme des contr&ocirc;les: 7 = sonnette, 8 = retour en arri&egrave;re, 9 = tabulation, 10 = saut de ligne, 13 = retour chariot et d'autres.  Il y a aussi des symboles associ&eacute;s à ces caract&egrave;res, mais il n'existe aucun moyen en FreeBASIC de les afficher à l'&eacute;cran. L'acronyme ASCII signifie "American Standard Code for Information Interchange". Pour plus d'informations, voir <a href="http://en.wikipedia.org/wiki/Ascii">Code ASCII</a>.  Les symboles pour les codes 32 à 127 sont les m&ecirc;mes que ceux de la norme <a href="http://en.wikipedia.org/wiki/ISO_8859-1">Latin ISO-8859-1</a>, jeu de caract&egrave;res utilis&eacute; par la plupart des polices qu'utilise Windows. Les autres sont souvent tr&egrave;s diff&eacute;rents.<br \>
 <br \>
-UNICODE est une nouvelle norme de jeux de caract&egrave;res comportant deux octets, ou plus, par caract&egrave;re, et qui peut &ecirc;tre utilis&eacute;e pour afficher d'autres caract&egrave;res sur une console compatible Unicode.<br \>
+UNICODE est une nouvelle norme de jeux de caract&egrave;res comportant deux octets, ou plus, par caract&egrave;re, et peut &ecirc;tre utilis&eacute;e pour imprimer d'autres caract&egrave;res à une console compatible Unicode.<br \>
 <br \>
 Dans les modes graphiques, <tt><a href="KeyPgDrawString.html">Draw String</a></tt> ne donne pas un sens particulier pour les caract&egrave;res de contr&ocirc;le permettant une alternative pour afficher tous les caract&egrave;res dans le jeu. <br \>
 <br \>
