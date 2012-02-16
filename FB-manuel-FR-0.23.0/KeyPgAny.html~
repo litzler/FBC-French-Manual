@@ -38,7 +38,7 @@ Vous ne pouvez pas cr&eacute;er des variables de type <tt><b>Any</b></tt>. Il es
 <br \>
 Cela ne doit pas &ecirc;tre confondu avec <tt><b>Variant</b></tt>, un type de donn&eacute;es Visual Basic qui peut contenir tout type de variable. FreeBASIC ne supporte pas nativement le type <tt><b>Variant</b></tt>.<br \>
 <br \>
-<tt><b>2) </b></tt> <tt><b>Any</b></tt> peut &ecirc;tre utilis&eacute; comme un faux initialiseur pour d&eacute;sactiver l'initialisation par d&eacute;faut &agrave; <tt>0</tt> des variables. Cela peut faire gagner du temps dans les sections critiques des programmes. Il appartient au programme de remplir les variables avec des donn&eacute;es significatives. C'est le comportement par d&eacute;faut du langage C.<br \>
+<tt><b>2) </b></tt> <tt><b>Any</b></tt> peut &ecirc;tre utilis&eacute; comme un faux initialiseur pour d&eacute;sactiver l'initialisation par d&eacute;faut &agrave; <tt>0</tt> des variables. Cela peut faire gagner du temps dans les sections critiques des programmes. Il appartient au programme de remplir les variables avec des donn&eacute;es significatives. Vous pouvez reconna&icirc;tre que c'est le comportement par d&eacute;faut du langage C.<br \>
 <br \>
 <tt><b>3) </b></tt> <b><tt>Any</tt></b> peut &ecirc;tre utilis&eacute; dans les prototypes de fonctions (dans une d&eacute;claration <tt><a href="KeyPgDeclare.html">Declare</a></tt>) avec des arguments <tt><a href="KeyPgByref.html">ByRef</a></tt> pour d&eacute;sactiver la v&eacute;rification du compilateur du bon type de variable pass&eacute;e. Cette utilisation de <tt><b>Any</b></tt> est obsol&egrave;te et n'est l&agrave; que pour la compatibilit&eacute; avec QB, o&ugrave; c'&eacute;tait le seul moyen de passer des tableaux comme arguments.<br \>
 <br \>

@@ -34,7 +34,7 @@ Les fichiers texte ne peuvent pas &ecirc;tre lus et &eacute;crits simultan&eacut
 <br \>
 <tt><i>filename</i></tt> doit &ecirc;tre une expression cha&icirc;ne correspondant &agrave; un nom de fichier l&eacute;gal dans le syst&egrave;me d'exploitation cible, sans joker de remplacement. Le fichier sera recherch&eacute; dans le r&eacute;pertoire courant, sauf si <tt><i>filename</i></tt> contient un chemin. Si le fichier n'existe pas, il est cr&eacute;&eacute;. Le pointeur est positionn&eacute; apr&egrave;s le dernier caract&egrave;re du fichier.<br \>
 <br \>
-<tt><i>Encoding_type</i></tt> indique l'<tt><a href="KeyPgEncoding.html">Encoding (codage)</a></tt> Unicode du fichier, ainsi les caract&egrave;res seront lus correctement. S'il est omis, ce sera l'encodage "ascii" par d&eacute;faut. Seul, les codages de caract&egrave;res <tt><i>little endian</i></tt> sont pris en charge pour le moment. <br \>
+<tt><i>Encoding_type</i></tt> indique le <tt><a href="KeyPgEncoding.html">Encoding (codage)</a></tt> Unicode du fichier, ainsi les caract&egrave;res seront lus correctement. S'il est omis, ce sera l'encodage "ascii" par d&eacute;faut. Seul, les codages de caract&egrave;res <tt><i>little endian</i></tt> sont pris en charge pour le moment. <br \>
 <ul><li><tt>"utf8"</tt><br \>
 <li><tt>"utf16"</tt><br \>
 <li><tt>"utf32"</tt><br \>

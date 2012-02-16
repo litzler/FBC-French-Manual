@@ -21,7 +21,7 @@ Convertit <tt><i>expression</i></tt> dans un type de donn&eacute;es (<tt><a href
 <br \>
 Note: Il s'agit d'une forme g&eacute;n&eacute;rale des op&eacute;rateurs de conversion tels que <tt><a href="KeyPgCint.html">CInt</a></tt> ou <tt><a href="KeyPgCdbl.html">CDbl</a></tt>.  Ils sont plus souples, car ils peuvent &ecirc;tre utilis&eacute;s sur des types qui ont un op&eacute;rateur <tt><a href="KeyPgOpCast.html">Cast</a></tt>, mais n'ont pas de mot-cl&eacute; int&eacute;gr&eacute;. Par exemple, <tt><b>Cast</b>( <i>my_type</i>, <i>expr</i>)</tt>.  Ils sont &eacute;galement appropri&eacute;s pour une utilisation dans les cas o&ugrave; le type d'une variable n'est pas fix&eacute; dans le code - par exemple, il pourrait &ecirc;tre <tt><a href="KeyPgPpdefine.html">Define</a></tt> plus t&ocirc;t, ou &ecirc;tre le <tt><a href="KeyPgTypeof.html">Type Of</a></tt> d'une variable ou expression diff&eacute;rente.<br \>
 <br \>
-Note: Si vous voulez utiliser un op&eacute;rateur en particulier pour la conversion vers diff&eacute;rents types de <tt><a href="KeyPgPointer.html">Pointer</a></tt>s, pensez plut&ocirc;t &agrave; utiliser <tt><a href="KeyPgCptr.html">CPtr</a></tt>.<br \>
+Note: Si vous voulez utiliser un op&eacute;rateur en particulier pour la conversion &agrave; diff&eacute;rents types de <tt><a href="KeyPgPointer.html">Pointer</a></tt>s, pensez plut&ocirc;t &agrave; utiliser <tt><a href="KeyPgCptr.html">CPtr</a></tt>.<br \>
   <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

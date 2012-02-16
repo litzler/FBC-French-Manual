@@ -27,7 +27,7 @@
 <div class="fb_indent">num&eacute;ro de fichier &agrave; associer au fichier ouvert<br \>
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Ouvre un fichier ou un p&eacute;rph&eacute;rique en lecture et / ou &eacute;criture de donn&eacute;es binaires dans <tt><i>filenum</i></tt>, avec un format libre.<br \>
+Ouvre un fichier ou un p&eacute;rph&eacute;rique en lecture et/ou &eacute;criture de donn&eacute;es binaires dans <tt><i>filenum</i></tt>, avec un format libre.<br \>
 Si le fichier n'existe pas, un nouveau fichier sera cr&eacute;&eacute;. Le pointeur de fichier est initialis&eacute; par <tt><a href="KeyPgOpen.html">Open</a></tt> &agrave; l'octet num&eacute;ro 1. <br \>
 Les op&eacute;rations sur les fichiers <tt><a href="KeyPgGetfileio.html">Get #</a></tt> et <tt><a href="KeyPgPutfileio.html">Put #</a></tt> d&eacute;placent le pointeur de fichier en fonction de la taille des donn&eacute;es, le pointeur peut &ecirc;tre d&eacute;plac&eacute; sur n'importe quel octet du fichier.<br \>
 Les donn&eacute;es existantes dans le fichier sont conserv&eacute;es par <tt><a href="KeyPgOpen.html">Open</a></tt>. <br \>

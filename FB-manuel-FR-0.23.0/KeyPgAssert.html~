@@ -21,7 +21,7 @@
 </tt><br \>
 </div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
 <tt><i>expression</i></tt><br \>
-<div class="fb_indent">Toute expression conditionnelle / num&eacute;rique valide.  Si <tt><i>expression</i></tt> est &eacute;valu&eacute;e &agrave; <tt>0</tt> (par exemple "false" = faux), l'ex&eacute;cution est interrompue.<br \>
+<div class="fb_indent">Toute expression conditionnelle / num&eacute;rique valide.  Si <tt><i>expression</i></tt> est &eacute;valu&eacute;e &agrave; <tt>0</tt> (par exemple "false"), l'ex&eacute;cution est interrompue.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 La macro <tt><b>Assert</b></tt> est pr&eacute;vue pour &ecirc;tre utilis&eacute;e lors du d&eacute;bogage et ne fonctionne que si l'option <tt>-g</tt> est s&eacute;lectionn&eacute;e dans la ligne de commande de FBC. Dans ce cas, elle affiche un message d'erreur et arr&ecirc;te l'ex&eacute;cution du programme si <tt><i>expression</i></tt> est &eacute;valu&eacute;e &agrave; <tt>0</tt>.<br \>

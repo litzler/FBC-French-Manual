@@ -39,7 +39,7 @@ Retourne z&eacute;ro (<tt>0</tt>) si r&eacute;ussite ou un code d'erreur non-z&e
 Un fichier image BMP est cr&eacute;&eacute; si <tt><i>filename</i></tt> a l&apos;extension "BMP". <tt><i>source</i></tt> est suppos&eacute; pointer vers un tampon image valide dont toutes les donn&eacute;es pixel seront charg&eacute;es dans le fichier BMP. Si <tt><i>source</i></tt> est nul (<tt>0</tt>), la page courante valide sera enti&egrave;rement charg&eacute;e dans le fichier. L&apos;information palette est obtenue &agrave; partir de <tt><i>pal</i></tt> si non-nul, ou si nul (<tt>0</tt>), &agrave; partir de la palette courante de l&apos;&eacute;cran. Le param&egrave;tre <tt><i>size</i></tt> est ignor&eacute; quand on sauvegarde des fichiers BMP.<br \>
 <br \>
 <b>Erreurs de foncionnement:</b><br \>
-<tt><b>BSave</b></tt> produit une les <a href="ProPgErrorHandling.html">erreurs de foncionnement</a> suivantes :<br \>
+<tt><b>BSave</b></tt> produit une des <a href="ProPgErrorHandling.html">erreurs de foncionnement</a> suivantes :<br \>
 <br \>
 <i>(<tt>2</tt>) File not found</i><br \>
 <ul><ul><li> Le fichier ne peut &ecirc;tre cr&eacute;&eacute;.<br \>

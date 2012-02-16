@@ -57,7 +57,7 @@ Lors du chargement d&apos;un fichier BMP en utilisant <tt><b>BLoad</b></tt>,  l&
 <ul><ul><li> Le fichier n&apos;est pas d&apos;un type support&eacute; <br \>
 <li> Une erreur g&eacute;n&eacute;rale de lecture est survenue.<br \>
 <br \>
-</ul></ul><i>Note: Quand vous utilisez <tt><b>BLoad</b></tt> pour charger un fichier BMP dans un tampon image, les dimensions originales de cette image ne sont pas chang&eacute;es.  Si vous voulez que le tampon image ait les m&ecirc;mes dimensions que le fichier BMP, vous devez d&eacute;couvrir celles-ci avant et cr&eacute;er vous-m&ecirc;me une image de la bonne taille.  Voir ci-dessous un exemple expliquant comment proc&eacute;der.</i><br \>
+</ul></ul><i>Note: Quand vous utilisez <tt><b>BLoad</b></tt> pour charger un fichier BMP dans un tampon image, les dimensions originales de cette image ne sont pas chang&eacute;es.  Si vous voulez que le tampon image ait les m&ecirc;mes dimensions que le fichier BMP, vous devez d&eacute;couvrir celles-ci avant, et cr&eacute;er vous-m&ecirc;me une image de la bonne taille.  Voir ci-dessous un exemple expliquant comment proc&eacute;der.</i><br \>
 <br \>
 </ul></ul></div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

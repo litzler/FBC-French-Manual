@@ -23,7 +23,7 @@
 <tt><i>value</i></tt><br \>
 <div class="fb_indent">La valeur enti&egrave;re.<br \>
 </div><tt><i>bit_number</i></tt><br \>
-<div class="fb_indent">L'indice du bit &agrave; mettre &agrave; un (1).<br \>
+<div class="fb_indent">L'indice du bit &agrave; mettre &agrave; un.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
 Retourne la valeur enti&egrave;re avec le bit sp&eacute;cifi&eacute; mis &agrave; 1.<br \>

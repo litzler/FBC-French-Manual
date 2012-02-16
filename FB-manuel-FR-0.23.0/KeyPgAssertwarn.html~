@@ -28,7 +28,7 @@ La macro <tt><b>AssertWarn</b></tt> est pr&eacute;vue pour &ecirc;tre utilis&eac
 <br \>
 Son utilisation normale est de v&eacute;rifier la valeur correcte des variables pendant le d&eacute;bogage.<br \>
 <br \>
-Si <tt><i>-g</i></tt> n'est pas pass&eacute; &agrave; FBC, la macro ne g&eacute;n&egrave;re pas de code et n'a aucun effet.<br \>
+Si <tt><i>-g</i></tt> n'est pas pass&eacute; &agrave; fbc, la macro ne g&eacute;n&egrave;re pas de code et n'a aucun effet.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

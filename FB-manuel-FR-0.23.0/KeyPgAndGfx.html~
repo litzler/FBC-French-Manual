@@ -20,7 +20,7 @@
 <div class="fb_indent">Obligatoire.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-La methode <tt><b>And</b></tt> combine chaque pixel source avec le pixel destination correspondant, en utilisant la fonction <tt><a href="KeyPgOpAnd.html">And</a></tt>. Le pixel de destination recevra le r&eacute;sultat de cette manipulation.<br \>
+La methode <tt><b>And</b></tt> combine chaque pixel source avec le pixel destination correspondant, en utilisant la fonction <tt><a href="KeyPgOpAnd.html">And</a></tt>. Le r&eacute;sultat de cette manipulation est le pixel de destination.<br \>
 Cette m&eacute;thode fonctionne dans tous les modes graphiques.  Il n&apos;y a pas de masque de couleur, bien que les valeurs de couleur avec tous leurs bits valid&eacute;s (<tt>255</tt> pour les modes palette 8-bit, ou <tt><a href="KeyPgRgba.html">RGBA</a>(255, 255, 255, 255)</tt> pour les modes pleine-couleur) n&apos;auront aucun effet,  en raison du fonctionnement de <tt><a href="KeyPgOpAnd.html">And</a></tt>.<br \>
 <br \>Dans les modes pleine-couleur, chaque composant (rouge, vert, bleu et alpha) est conserv&eacute; dans un ensemble discret de bits, aussi l&apos;op&eacute;ration peut &ecirc;tre effectu&eacute;e pour n&apos;affecter que certains canaux, en s&apos;assurant que les valeurs de tous les autres canaux sont fix&eacute;es &agrave; <tt>255</tt>.<br \>
 <br \>
