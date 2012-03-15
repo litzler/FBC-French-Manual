@@ -105,7 +105,7 @@ courante (de 0 &agrave; 255).</td>
 </div>
 <br \="">
 <br \="">
-Si vous utilisez une profondeur de couleur sup&eacute;rieure &agrave; 8bpp (8 bits par
+Si vous utilisez une profondeur de couleur sup&eacute;rieure &agrave; 8bpp (bit par
 pixel), premier-plan et arri&egrave;re-plan ont directement des valeurs de
 couleur <tt><a href="KeyPgRgb.html">RGB</a></tt> de la forme <tt>&amp;hAARRVVBB</tt>,
 o&ugrave; <tt>AA</tt>, <tt>RR</tt>, <tt>VV</tt> et <tt>BB</tt> sont les

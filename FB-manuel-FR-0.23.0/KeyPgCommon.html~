@@ -19,7 +19,7 @@
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 D&eacute;clare une variable qui est partag&eacute;e entre les modules de code. Une d&eacute;claration correspondante <tt><b>Common</b></tt> doit appara&icirc;tre dans tous les modules de code utilisant la variable. <br \>
 <br \>
-Le param&egrave;tre facultatif <tt><b>Shared</b></tt> rend la varable globale, ainsi elle est utilisable dans les <tt><a href="KeyPgSub.html">Sub</a></tt>s et les <tt><a href="KeyPgFunction.html">Function</a></tt>s, comme au niveau module. Les tableaux <tt><b>Common</b></tt> sont toujours de longueur variable, et doivent &ecirc;tre d&eacute;finis avec un param&egrave;tre de liste vide <tt>()</tt>, et leurs dimensions fix&eacute;es plus tard avec les d&eacute;clarations <tt><a href="KeyPgDim.html">Dim</a></tt> ou <tt><a href="KeyPgRedim.html">ReDim</a></tt>.<br \>
+Le param&egrave;tre facultatif <tt><b>Shared</b></tt> rend la varable globale, ainsi elle est utilisable dans les <tt><a href="KeyPgSub.html">Sub</a></tt>s et les <tt><a href="KeyPgFunction.html">Function</a></tt>s, aussi bien qu'au niveau module. Les tableaux <tt><b>Common</b></tt> sont toujours de longueur variable, et doivent &ecirc;tre d&eacute;finis avec un param&egrave;tre de liste vide <tt>()</tt>, et leurs dimensions fix&eacute;es plus tard avec les d&eacute;clarations <tt><a href="KeyPgDim.html">Dim</a></tt> ou <tt><a href="KeyPgRedim.html">ReDim</a></tt>.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

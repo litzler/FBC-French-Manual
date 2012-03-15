@@ -40,7 +40,7 @@ Par défaut, le nom de fichier avec "globbing" (expansion des jokers pour les nom
 <i><b>AVERTISSEMENT</b>: Par la nature de la priorité de constructeur sous FreeBASIC et initialisation de main(), appeler <tt><b>Command</b></tt> dans un constructeur global n'est pas s&ucirc;r. Sur le moment, votre application ne plantera pas, mais vous ne recevrez que la chaîne nulle (<tt>"</tt><tt>"</tt>). Ceci sera *peut &ecirc;tre* corrigé &agrave; l'avenir, mais il serait sage de ne pas trop y croire.</i><br \>
 <br \>
 <u>Désactivation de "globbing" de nom de fichier sous Win32</u><br \>
-<div class="fb_indent">Pour les constructions mingw32 et cygwin, lier le programme FreeBASIC avec CRT_noglob.o ou définir ce qui suit quelque part dans le source:<br \>
+<div class="fb_indent">Pour les constructions mingw32 et cygwin, lier le programme FreeBASIC avec CRT_noglob.o ou définir ce qui suit quelque part dans la source:<br \>
 <tt><div class="freebasic">
 <span class="key">Extern</span>&nbsp;<span class="wrd">_CRT_glob</span>&nbsp;<span class="key">Alias</span>&nbsp;<span class="quo">"_CRT_glob"</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
 <span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">_CRT_glob</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span><br />

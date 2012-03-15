@@ -114,7 +114,7 @@ Une fois que le conditionnel est <tt><a href="KeyPgCondCreate.html">CondCreate</
 </div></tt><br />
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
-<ul><li> <b>Condcreate</b> n'est pas utilisable avec la version / cible DOS de FreeBASIC, parce que le "multithreading" n'est pas support&eacute; par le noyau DOS, ni l'extension utilis&eacute;e.<br \>
+<ul><li> <b>Condcreate</b> n'est pas utilisable avec la version/cible DOStarget de FreeBASIC, parce que le "multithreading" n'est pas support&eacute; par le noyau DOS, ni l'extension utilis&eacute;e.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
 <ul><li> "Threading" n'est pas utilisable dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i><br \>

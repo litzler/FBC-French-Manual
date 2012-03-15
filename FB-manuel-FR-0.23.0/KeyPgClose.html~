@@ -25,7 +25,7 @@
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Ferme les fichiers dont les num&eacute;ros sont pass&eacute;s en arguments. Si un num&eacute;ro inutilis&eacute; est pass&eacute;, <tt><b>Close</b></tt> renvoie une erreur.<br \>
 <br \>
-<tt><b>Close</b></tt> sans argument ferme tous les fichiers ouverts.<br \>
+<tt><b>Close</b></tt> sans arguments ferme tous les fichiers ouverts.<br \>
 <br \>
 Terminer un programme en utilisant <tt><a href="KeyPgEnd.html">End</a></tt> fermera automatiquement tous les fichiers.<br \>
 <br \>

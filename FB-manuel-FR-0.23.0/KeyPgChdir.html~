@@ -39,7 +39,7 @@ Change le lecteur et le r&eacute;pertoire courant pour celui qui est indiqu&eacu
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
 <ul><li> Linux n&eacute;cessite que la casse de <i>filename</i> corresponde &agrave; celle du nom r&eacute;el du fichier. Windows et DOS ne sont pas  sensibles &agrave; la casse. <br \>
-<li> Les s&eacute;parateurs de chemin sous Linux sont des barres obliques / . Windows utilise des barres obliques arri&egrave;re  \ mais il permet les barres obliques.  DOS utilise des barres obliques arri&egrave;re  \ .<br \>
+<li> Les s&eacute;parateurs de chemin sous Linux sont des barres obliques / . Windows utilise des barres obliques arri&egrave;re  \ mais il permet les barres obliques .  DOS utilise des barres obliques arri&egrave;re  \ .<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> Dans QB, le lecteur peut ne pas &ecirc;tre sp&eacute;cifi&eacute;.<br \>

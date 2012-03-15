@@ -33,7 +33,7 @@ Voir <tt><a href="KeyPgCondCreate.html">CondCreate</a></tt><br \>
 <ul><li> "Threading" n'est pas utilisable dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i><br \>
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
-<ul><li> <b>Condsignal</b> n'est pas utilisable avec la version / cible DOS de FreeBASIC, parce que le "multithreading" n'est pas support&eacute; par le noyau DOS, ni l'extension utilis&eacute;e.<br \>
+<ul><li> <b>Condsignal</b> n'est pas utilisable avec la version/cible DOS de FreeBASIC, parce que le "multithreading" n'est pas support&eacute; par le noyau DOS, ni l'extension utilis&eacute;e.<br \>
 <li> Sous Linux les "threads" sont toujours démarrés dans l'ordre de leur création, ceci n'est pas vrai sous Win32. C'est un OS, pas une question FreeBasic. <br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
