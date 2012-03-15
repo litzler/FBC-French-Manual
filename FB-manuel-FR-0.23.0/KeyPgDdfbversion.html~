@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>__FB_VERSION__</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">__FB_VERSION__</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;finition intrins&egrave;que (valeur de la macro) fix&eacute;e par le compilateur<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+ __FB_VERSION__<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Remplac&eacute; par le num&eacute;ro de version du compilateur utilis&eacute;.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="def">#if&nbsp;__FB_VERSION__&nbsp;&lt;&nbsp;"0.18"&nbsp;<br />
+#error&nbsp;&nbsp;Please&nbsp;compile&nbsp;With&nbsp;FB&nbsp;version&nbsp;0.18&nbsp;Or&nbsp;above&nbsp;<br />
+#endif<br />
+</span></div></tt><br />
+Cela arr&ecirc;tera la compilation si la version du compilateur est inf&eacute;rieure &agrave; 0,18<br \>
+<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> N'&eacute;xistait pas dans QB<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDdfbsignature.html">__FB_SIGNATURE__</a></tt><br \>
+<li> <tt><a href="KeyPgDdfbwin32.html">__FB_WIN32__</a></tt><br \>
+<li> <tt><a href="KeyPgDdfblinux.html">__FB_LINUX__</a></tt><br \>
+<li> <tt><a href="KeyPgDdfbdos.html">__FB_DOS__</a></tt><br \>
+<br \>
+</ul><br \>
+<br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

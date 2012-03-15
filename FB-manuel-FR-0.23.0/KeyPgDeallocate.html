@@ -26,10 +26,10 @@
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Cette proc&eacute;dure lib&egrave;re de la m&eacute;moire qui a &eacute;t&eacute; pr&eacute;c&eacute;demment allou&eacute;e avec <tt><a href="KeyPgAllocate.html">Allocate</a></tt>. <tt><i>pointer</i></tt> doit &ecirc;tre un pointeur valide. Apr&egrave;s le retour de proc&eacute;dure, <tt><i>pointer</i></tt> sera consid&eacute;r&eacute; comme invalide  (pointant vers une adresse m&eacute;moire invalide) et son utilisation se traduira par un comportement non d&eacute;fini.<br \>
 <br \>
-<b><tt>Deallocate</tt></b> est un alias pour la biblioth&egrave;que d'ex&eacute;cution C <b><tt>libre</tt></b>, elle n'est donc pas garantie d'&ecirc;tre "thread-safe" sur toutes les plates-formes.<br \>
+<b><tt>Deallocate</tt></b> est un alias pour la biblioth&egrave;que d'ex&eacute;cution C "<b><tt>free</tt></b>", elle n'est donc pas garantie d'&ecirc;tre "thread-safe" sur toutes les plates-formes.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
-L'exemple suivant montre comment lib&eacute;rer de la m&eacute;moire pr&eacute;c&eacute;demment allou&eacute;e. Notez que le pointeur a la valeur nulle apr&egrave;s la d&eacute;sallocation:<br \>
+L'exemple suivant montre comment lib&eacute;rer de la m&eacute;moire pr&eacute;c&eacute;demment allou&eacute;e. Notez que le pointeur re&ccedil;oit une valeur nulle apr&egrave;s sa d&eacute;sallocation:<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Sub</span>&nbsp;<span class="wrd">DeallocateExample1</span><span class="oth">()</span><br />
@@ -101,7 +101,7 @@ Notez qu'apr&egrave;s la d&eacute;sallocation, <i>les deux</i> pointeurs sont in
 &nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="num">0</span><br />
 </div></tt><br />
 <br \>
-Dans le programme ci-dessus, un pointeur de r&eacute;f&eacute;rence dans une fonction est fix&eacute; &agrave; null apr&egrave;s lib&eacute;ration de la m&eacute;moire sur laquelle il il pointe. Une macro <tt><a href="KeyPgAssert.html">Assert</a></tt> est utilis&eacute;e pour tester si le pointeur original est en fait nul apr&egrave;s l'appel de la fonction. Cet exemple implique que la bonne fa&ccedil;on de passer des pointeurs de fonctions qui d&eacute;sallouent la m&eacute;moire qu'ils pointent, est par r&eacute;f&eacute;rence.<br \>
+Dans le programme ci-dessus, un pointeur de r&eacute;f&eacute;rence dans une fonction est fix&eacute; &agrave; NULL apr&egrave;s lib&eacute;ration de la m&eacute;moire sur laquelle il pointe. Une macro <tt><a href="KeyPgAssert.html">Assert</a></tt> est utilis&eacute;e pour tester si le pointeur original est en fait nul apr&egrave;s l'appel de la fonction. Cet exemple implique que la bonne fa&ccedil;on de passer des pointeurs de fonctions qui d&eacute;sallouent la m&eacute;moire qu'ils pointent, est par r&eacute;f&eacute;rence.<br \>
 <br \>           
 </ul></div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
 <ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Deallocate</b></tt>.<br \>

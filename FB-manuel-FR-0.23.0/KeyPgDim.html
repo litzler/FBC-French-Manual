@@ -79,7 +79,7 @@ Dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a h
 </div></tt><br />
 <br \>
 </div><div class="fb_sect_title">Tableaux</div><div class="fb_sect_cont"><br \>
-Comme avec la plupart des dialectes BASIC, FreeBasic supporte les tableaux avec des indices allant d'une limite inf&eacute;rieure &agrave; une limite sup&eacute;rieure.  Dans les diff&eacute;rentes syntaxes ci-dessus, <tt><i>lbound</i></tt> se r&eacute;f&egrave;re &agrave; la limite inf&eacute;rieure, ou au plus petit indice.  Et <tt><i>Ubound</i></tt> se r&eacute;f&egrave;re &agrave; la limite sup&eacute;rieure, ou au plus grand indice.  Si la limite inf&eacute;rieure n'est pas sp&eacute;cifi&eacute;e, elle sera z&eacute;ro par d&eacute;faut, &agrave; moins que <tt><a href="KeyPgOptionbase.html">Option Base</a></tt> ne soit utilis&eacute;e.<br \>
+Comme avec la plupart des dialectes BASIC, FreeBASIC supporte les tableaux avec des indices allant d'une limite inf&eacute;rieure &agrave; une limite sup&eacute;rieure.  Dans les diff&eacute;rentes syntaxes ci-dessus, <tt><i>lbound</i></tt> se r&eacute;f&egrave;re &agrave; la limite inf&eacute;rieure, ou au plus petit indice.  Et <tt><i>Ubound</i></tt> se r&eacute;f&egrave;re &agrave; la limite sup&eacute;rieure, ou au plus grand indice.  Si la limite inf&eacute;rieure n'est pas sp&eacute;cifi&eacute;e, elle sera z&eacute;ro par d&eacute;faut, &agrave; moins que <tt><a href="KeyPgOptionbase.html">Option Base</a></tt> ne soit utilis&eacute;e.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Const</span>&nbsp;<span class="wrd">upperbound</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10</span><br />
@@ -89,7 +89,7 @@ Comme avec la plupart des dialectes BASIC, FreeBasic supporte les tableaux avec 
 <span class="key">Dim</span>&nbsp;<span class="wrd">array</span><span class="oth">(</span><span class="wrd">upperbound</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
 </div></tt><br />
 <br \>
-Les tableaux multi-dimensionnels peuvent &ecirc;tre d&eacute;clar&eacute;s ainsi et sont stock&eacute;s dans l'ordre des lignes: les valeurs avec le m&ecirc;me dernier indice sont contigu&euml;s. (Ceci est diff&eacute;rent de QB par d&eacute;faut.  Le nombre maximum de dimensions d'un tableau multi-dimensionnel est de 8. <br \>
+Les tableaux multi-dimensionnels peuvent &ecirc;tre d&eacute;clar&eacute;s ainsi et sont stock&eacute;s dans l'ordre des lignes: les valeurs avec le m&ecirc;me dernier indice sont contigu&euml;s. (Ceci est diff&eacute;rent de QB par d&eacute;faut).  Le nombre maximum de dimensions d'un tableau multi-dimensionnel est de 8. <br \>
 <br \>
 <tt><div class="freebasic">
 <span class="com">''&nbsp;declare&nbsp;a&nbsp;three-dimensional&nbsp;array&nbsp;of&nbsp;single&nbsp;</span><br />
@@ -106,7 +106,7 @@ Pour plus d'informations sur les tableaux voir <a href="ProPgArrays.html">Vue d'
 <br \>
 Si les valeurs utilis&eacute;es avec <tt><b>Dim</b></tt> pour d&eacute;clarer les dimensions d'un tableau sont toutes des constantes, le tableau sera cr&eacute;&eacute; <tt><a href="KeyPgOptionstatic.html">Static</a></tt> (sauf si l'<tt><a href="KeyPgOptiondynamic.html">Option Dynamic</a></tt> est sp&eacute;cifi&eacute;e), bien qu'en utilisant une ou plusieurs variables pour d&eacute;clarer les dimensions d'un tableau cela le rende de longueur variable, m&ecirc;me si l'<tt><a href="KeyPgOptionstatic.html">Option Static</a></tt> est effective.<br \>
 <br \>
-Les tableaux peuvent &ecirc;tre d&eacute;clar&eacute;s de longueur variable de plusieurs fa&ccedil;ons: en utilisant <tt><b>Dim</b></tt> avec un ensemble vide d'indices (<tt><b>Dim</b> x()</tt>), en utilisant <tt><b>Dim</b></tt> avec des indices qui sont des variables ou en utilisant le mot-clef <tt><a href="KeyPgRedim.html">ReDim</a></tt>, ou le en d&eacute;clarant par la m&eacute;ta-commande <tt><a href="KeyPgMetaDynamic.html">$Dynamic</a></tt>. les tableaux de longueur variable ne peuvent pas utiliser des initialiseurs.<br \>
+Les tableaux peuvent &ecirc;tre d&eacute;clar&eacute;s de longueur variable de plusieurs fa&ccedil;ons: en utilisant <tt><b>Dim</b></tt> avec un ensemble vide d'indices (<tt><b>Dim</b> x()</tt>), en utilisant <tt><b>Dim</b></tt> avec des indices qui sont des variables ou en utilisant le mot-clef <tt><a href="KeyPgRedim.html">ReDim</a></tt>, ou le en d&eacute;clarant par la m&eacute;ta-commande <tt><a href="KeyPgMetaDynamic.html">$Dynamic</a></tt>. Les tableaux de longueur variable ne peuvent pas utiliser des initialiseurs.<br \>
 <br \>
 Les tableaux d&eacute;clar&eacute;s avec <tt><b>Dim</b></tt> ayant des indices constants et non pr&eacute;c&eacute;d&eacute;s par <tt><a href="KeyPgOptiondynamic.html">Option Dynamic</a></tt> sont de longueur fixe (non redimensionnables pendant l'ex&eacute;cution) et peuvent utiliser des initialiseurs.<br \>
 <br \>
@@ -119,7 +119,7 @@ Tableaux, variables, cha&icirc;nes et types d&eacute;finis par l'utilisateur son
 <br \>
 Pour &eacute;viter la surcharge des variables &agrave; l'initialisation, l'initialiseur <tt><b>Any</b></tt> peut &ecirc;tre utilis&eacute; avec <tt><b>Dim</b></tt> pour dire au compilateur de seulement r&eacute;server de la place en m&eacute;moire pour la variable, mais qu'elle ne doit pas &ecirc;tre initialis&eacute;e, de sorte que la variable contiendra n'importe quoi. Dans ce cas, le programmeur ne doit pas tenir compte des valeurs initiales.<br \>
 <br \>
-Les tableaux &agrave; longueur fixe, les variables, les zstrings et les types d&eacute;finis par l'utilisateur peuvent recevoir une valeur au moment de leur d&eacute;claration, en faisantsuivre la d&eacute;claration de la variable par un initialiseur.  Notez la diff&eacute;rence entre les diff&eacute;rents types d'initialisation. Les tableaux, les variables et les types d&eacute;finis par l'utilisateur sont initialis&eacute;s comme dans une affectation normale, en utilisant un signe d'&eacute;galit&eacute; ( <tt>=</tt> ).  Le signe <tt>=&gt;</tt> peut &ecirc;tre utilis&eacute; avec des cha&icirc;nes de longueur fixe, pour &eacute;viter que la d&eacute;claration ne ressemble &agrave; une expression.<br \>
+Les tableaux &agrave; longueur fixe, les variables, les zstrings et les types d&eacute;finis par l'utilisateur peuvent recevoir une valeur au moment de leur d&eacute;claration, en faisant suivre la d&eacute;claration de la variable par un initialiseur.  Notez la diff&eacute;rence entre les diff&eacute;rents types d'initialisation. Les tableaux, les variables et les types d&eacute;finis par l'utilisateur sont initialis&eacute;s comme dans une affectation normale, en utilisant un signe d'&eacute;galit&eacute; ( <tt>=</tt> ).  Le signe <tt>=&gt;</tt> peut &ecirc;tre utilis&eacute; avec des cha&icirc;nes de longueur fixe, pour &eacute;viter que la d&eacute;claration ne ressemble &agrave; une expression.<br \>
 <br \>
 Les valeurs d'un tableau sont donn&eacute;es par des valeurs s&eacute;par&eacute;es par des virgules, l'ensemble d&eacute;limit&eacute; par des accolades, et les valeurs des types utilisateur sont donn&eacute;es par des valeurs s&eacute;par&eacute;es par des virgules, le tout d&eacute;limit&eacute; par des parenth&egrave;ses.  Ces m&eacute;thodes d'initialisation des variables peuvent &ecirc;tre imbriqu&eacute;es les unes dans les autres pour des t&acirc;ches complexes. L'imbrication permet l'initialisation de tableaux de n'importe quelle dimension.<br \>
 <br \>
@@ -142,12 +142,12 @@ Les valeurs d'un tableau sont donn&eacute;es par des valeurs s&eacute;par&eacute
 <span class="key">Dim</span>&nbsp;<span class="wrd">myvar</span><span class="oth">(</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">mytype</span>&nbsp;<span class="oth">=&gt;</span>&nbsp;<span class="oth">{(</span><span class="num">1.0</span><span class="oth">,</span>&nbsp;<span class="num">1</span><span class="oth">),</span>&nbsp;<span class="oth">(</span><span class="num">2.0</span><span class="oth">,</span>&nbsp;<span class="num">2</span><span class="oth">)}</span><br />
 </div></tt><br />
 <br \>
-Au niveau module, de longueur fixe ou variables globales, les valeurs d'initialisation doivent &ecirc;tre des expressions constantes.  FreeBasic signalera autrement une erreur de compilation.<br \>
+Au niveau module, de longueur fixe ou variables globales, les valeurs d'initialisation doivent &ecirc;tre des expressions constantes.  FreeBASIC signalera autrement une erreur de compilation.<br \>
 <br \>
 Note: L'initialisation de types de donn&eacute;es utilisateur avec des cha&icirc;nes n'est pas support&eacute;e pour le moment.<br \>
 <br \>
 </div><div class="fb_sect_title">Variables explicites avec type suffixes</div><div class="fb_sect_cont"><br \>
-Dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, le type de donn&eacute;es d'une variable peut &ecirc;tre indiqu&eacute;e par un suffixe de type ( <tt>$</tt> <tt>%</tt> <tt>#</tt> <tt>!</tt> <tt>&</tt> ).<br \>
+Dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, le type de donn&eacute;es d'une variable peut &ecirc;tre indiqu&eacute; par un suffixe de type ( <tt>$</tt> <tt>%</tt> <tt>#</tt> <tt>!</tt> <tt>&</tt> ).<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="com">''&nbsp;Compile&nbsp;with&nbsp;-lang&nbsp;qb&nbsp;or&nbsp;fblite</span><br />
@@ -189,7 +189,7 @@ Dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a h
 <span class="key">Dim</span>&nbsp;<span class="wrd">s3</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">ZString</span>&nbsp;<span class="key">Ptr</span>&nbsp;&nbsp;&nbsp;<span class="com">''&nbsp;zstring</span><br />
 <br />
 <span class="wrd">s1</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Hello&nbsp;World!"</span><br />
-<span class="wrd">s2</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Hello&nbsp;World&nbsp;from&nbsp;FreeBasic!"</span><br />
+<span class="wrd">s2</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Hello&nbsp;World&nbsp;from&nbsp;FreeBASIC!"</span><br />
 <span class="wrd">s3</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span>&nbsp;<span class="key">Len</span><span class="oth">(</span>&nbsp;<span class="wrd">s2</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">1</span>&nbsp;<span class="oth">)</span><br />
 <span class="oth">*</span><span class="wrd">s3</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">s2</span><br />
 <br />
