@@ -75,7 +75,7 @@ Par opposition &agrave;:<br \>
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
 <ul><li> Sous Windows, un num&eacute;ro de fichier utilis&eacute; dans une biblioth&egrave;que de liens dynamiques n'est pas identique &agrave; celui utilis&eacute; dans le programme principal.  Les num&eacute;ros de fichier ne peuvent &ecirc;tre pass&eacute;s ou renvoy&eacute;s, puis utilis&eacute;s entre une DLL et un fichier ex&eacute;cutable.<br \>
-<li> Outre la limite FreeBASIC de 255 fichiers ouverts en m&ecirc;me temps par le programme, il y a une limite OS du nombre total de fichiers ouverts, mais g&eacute;n&eacute;ralement vous n'aurez pas &agrave; le modifier, sauf dans le DOS, o&ugrave; la limite peut &ecirc;tre tr&egrave;s basse (15 fichiers au total).<br \>
+<li> Outre la limite FreeBASIC de 255 fichiers ouverts en m&ecirc;me temps par le programme, il y a une limite OS du nombre total de fichiers ouverts, mais g&eacute;n&eacute;ralement vous n'aurez pas le modifier, sauf dans le DOS, o&ugrave; la limite peut &ecirc;tre tr&egrave;s basse (15 fichiers au total).<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> Aucune<br \>

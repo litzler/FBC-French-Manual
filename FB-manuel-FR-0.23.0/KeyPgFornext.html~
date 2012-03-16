@@ -45,7 +45,7 @@ Si un <tt><a href="KeyPgExit.html">Exit</a></tt> <tt><b>For</b></tt> est rencont
 <br \>
 Comme toutes les d&eacute;clarations de contr&ocirc;le de flux, <tt><b>For</b></tt> peut &ecirc;tre imbriqu&eacute;, ce qui signifie qu'il peut &ecirc;tre utilis&eacute; dans un bloc d'instructions d'une autre d&eacute;claration <tt><b>For</b></tt>.<br \>
 <br \>
-<b>Note</b>: Quand <tt><i>stepvalue</i></tt> est n&eacute;gatif, <tt><b>For</b></tt> boucle tant qu'est effectu&eacute;e la comparaison <tt><i>iterator</i></tt> <i>plus grand que</i> <tt><i>end_value</i></tt>.<br \>
+<b>Note</b>: Quand <tt><i>stepvalue</i></tt> est n&eacute;gatif, <tt><b>For</b></tt> boucle tant qu'est effectu&eacute;e la comparaison <tt><i>iterator</i></tt> <i>plus petit que</i> <tt><i>end_value</i></tt>.<br \>
 <br \>
 <tt><i>For</i></tt>, <tt><i>Next</i></tt> et <tt><i>Step</i></tt> sont des op&eacute;rateurs qui peuvent &ecirc;tre surcharg&eacute;s dans des types d&eacute;finis par l'utilisateur. Voir <a href="KeyPgOpFor.html">Op&eacute;rateur For</a>, <a href="KeyPgOpNext.html">Op&eacute;rateur Next</a>, <a href="KeyPgOpStep.html">Op&eacute;rateur</a><br \>
 <br \>
