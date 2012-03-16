@@ -28,7 +28,7 @@ G&eacute;n&egrave;re une erreur de fonctionnement en utilisant le <tt><i>errno</
 <br \>
 Aucune gamme de code d'erreur utilisateur n'est d&eacute;finie, ainsi si <tt><a href="KeyPgError.html">Error</a></tt> est utilis&eacute; pour d&eacute;finir un code d'erreur utilisateur, il est sage d'utiliser des valeurs &eacute;lev&eacute;es, pour &eacute;viter des collisions dans le cas o&ugrave; vous compl&eacute;tez la liste d'origine des erreurs. <br \>
 <br \>
-Voir <a href="TblRuntimeErrors.html">Codes des erreurs de fonctionnement</a> pour une liste des erreurs de fonctionnement, leurs num&eacute;ros, ainsi que leur signification.<br \>
+Voir <a href="TblRuntimeErrors.html">Codes des erreurs de fonctionnement</a> pour une liste des erreurs de fonctionnement et de leurs num&eacute;ros, ainsi que de leur signification.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 Pour envoyer une alerte d'erreur 150 (juste un code d'erreur arbitraire) on ferait ce qui suit:<br \>

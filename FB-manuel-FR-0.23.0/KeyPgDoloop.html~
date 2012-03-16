@@ -64,7 +64,7 @@ Ici, une boucle DO infinie est utilis&eacute;e pour compter le nombre total de n
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
 <ul><li> Dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, les variables d&eacute;clar&eacute;es dans le bloc de la boucle DO..LOOP ont une <a href="ProPgVariableScope.html">port&eacute;e</a> &agrave; l'&eacute;chelle de la fonction comme dans QB.<br \>
-<li> Dans les dialectes <i><a href="CompilerOptlang.html">-lang fb</a></i> et <i><a href="CompilerOptlang.html">-lang deprecated</a></i>, les variables d&eacute;clar&eacute;es dans un bloc FOR..NEXT ne sont visibles que dans ce bloc et ne peuvent &ecirc;tre consult&eacute;es &agrave; l'ext&eacute;rieur.<br \>
+<li> Dans les dialectes <i><a href="CompilerOptlang.html">-lang fb</a></i> et <i><a href="CompilerOptlang.html">-lang deprecated</a></i>, les variables d&eacute;clar&eacute;es dans un bloc FOR..NEXT ne sont visibles que dans ce bloc et ne peut &ecirc;tre consult&eacute;es &agrave; l'ext&eacute;rieur.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> Aucune<br \>

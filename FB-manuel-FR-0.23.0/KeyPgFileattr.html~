@@ -35,7 +35,7 @@
 Une valeur associ&eacute;e au type retourn&eacute;, sinon 0 en cas d'erreur.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Information sur le num&eacute;ro de fichier retourn&eacute;, sur la base du <tt><i>returntype</i></tt> fourni<br \>
+Information sur le num&eacute;ro de fichier est retourn&eacute; sur la base du <tt><i>returntype</i></tt> fourni<br \>
 <div class="fb_indent"><div class="fb_table"><table><tr><td>Valeur</td><td>Description</td><td>constante</td></tr><tr><td>1</td><td>File Mode</td><td>fbFileAttrMode</td></tr><tr><td>2</td><td>File Handle</td><td>fbFileAttrHandle</td></tr><tr><td>3</td><td>Encoding</td><td>fbFileAttrEncoding</td></tr></table></div><br \>
 <br \>
 </div>Pour "File Mode", <tt><i>returntype</i></tt> = 1 (<tt>fbFileAttrMode</tt>) la valeur retourn&eacute;e est la somme d'une ou plusieurs des valeurs suivantes: <br \>

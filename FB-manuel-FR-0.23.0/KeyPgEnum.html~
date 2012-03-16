@@ -30,7 +30,7 @@
 <div class="fb_indent">Exige que les symboles doivent explicitement &ecirc;tre r&eacute;f&eacute;renc&eacute;s par <tt><i>typename</i>.<i>symbolname</i></tt><br \>
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-<tt><b>Enum</b></tt>, abr&eacute;viation du mot &eacute;num&eacute;ration, d&eacute;clare une liste de noms de symboles qui correspondent &agrave; des valeurs distinctes. Si aucune valeur initiale n'est donn&eacute;e, le premier item sera mis &agrave; <tt>0</tt>.  Chaque symbole suivant a une valeur correspondant &agrave; celle du pr&eacute;c&eacute;dent augment&eacute;e de un sauf si <tt><i>expression</i></tt> existe.<br \>
+<tt><b>Enum</b></tt>, abr&eacute;viation du mot &eacute;num&eacute;ration, d&eacute;clare une liste de noms de symboles qui correspondent &agrave; des valeurs distinctes. Si aucune valeur initiale n'est donn&eacute;e, le premier item sera mis &agrave; <tt>0</tt>.  Chaque symbole suivant a une valeur de un de plus que le pr&eacute;c&eacute;dent sauf si <tt><i>expression</i></tt> existe.<br \>
 <br \>
 Ces symboles peuvent &ecirc;tre chacun sur leur propre ligne ou sur une seule ligne s&eacute;par&eacute;s par des virgules.<br \>
 <br \>

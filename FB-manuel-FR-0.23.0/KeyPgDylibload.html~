@@ -24,7 +24,7 @@
 <div class="fb_indent">Une <tt><a href="KeyPgString.html">String = Cha&icirc;ne</a></tt> contenant le nom de fichier de la librairie &agrave; charger.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
-Le <tt><a href="KeyPgPointer.html">Pointeur</a></tt> de prise en charge de la librairie charg&eacute;e. Z&eacute;ro si erreur.<br \>
+Le <tt><a href="KeyPgPointer.html">Pointer</a></tt> de prise en charge de la librairie charg&eacute;e. Z&eacute;ro si erreur.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 <tt><a href="KeyPgDylibload.html">DyLibLoad</a></tt> est utilis&eacute; pour lier au d&eacute;marrage des librairies &agrave; votre programme. Cette fonction r&eacute;alise le lien et retourne un pointeur qui doit &ecirc;tre utilis&eacute; avec <tt><a href="KeyPgDylibsymbol.html">DyLibSymbol</a></tt> lorsque vous appelez une fonction dans la biblioth&egrave;que et avec <tt><a href="KeyPgDylibfree.html">DyLibFree</a></tt> lors de la lib&eacute;ation de la biblioth&egrave;que.<br \>

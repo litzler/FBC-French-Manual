@@ -19,7 +19,7 @@
 </div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
 <i>result</i> = <b>Erl</b><br \>
 </tt><br \>
-</div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+</div><div class="fb_sect_title">Valeur retourn&eacute;</div><div class="fb_sect_cont"><br \>
 Retourne une valeur <a href="KeyPgInteger.html">Integer</a> correspondant au num&eacute;ro de la ligne o&ugrave; la derni&egrave;re erreur s'est produite.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>

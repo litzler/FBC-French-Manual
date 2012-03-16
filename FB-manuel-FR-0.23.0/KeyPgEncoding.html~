@@ -18,7 +18,7 @@
 </tt><br \>
 </div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
 <tt><i>filename</i></tt> for {Input|Output|Append}<br \>
-<div class="fb_indent">nom du fichier &agrave; ouvrir pour <tt><a href="KeyPgInputfilemode.html">Input</a></tt>, <tt><a href="KeyPgOutput.html">Output</a></tt> ou <tt><a href="KeyPgAppend.html">Append</a></tt><br \>
+<div class="fb_indent">nom du fichier &agrave; ouvrir pour <tt><a href="KeyPgInputfilemode.html">Input</a></tt>, <tt><a href="KeyPgOutput.html">Output</a></tt>, ou <tt><a href="KeyPgAppend.html">Append</a></tt><br \>
 </div><tt><b>Encoding</b> "<i>utf-8</i>"|"<i>utf-16</i>"|"<i>utf-32</i>"|"<i>ascii</i>"</tt><br \>
 <div class="fb_indent">indique le type d'encodage du fichier<br \>
 </div><tt><i>filenum</i></tt><br \>

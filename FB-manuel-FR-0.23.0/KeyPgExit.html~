@@ -24,7 +24,7 @@
 <br \>
 </div></div></tt><br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Quitte un bloc de code comme <tt><a href="KeyPgSub.html">Sub</a></tt>, <tt><a href="KeyPgFunction.html">Function</a></tt>, <tt><a href="KeyPgDoloop.html">Do...Loop</a></tt>, <tt><a href="KeyPgFornext.html">For...Next</a></tt>, <tt><a href="KeyPgWhilewend.html">While...Wend</a></tt> ou  <tt><a href="KeyPgSelectcase.html">Select Case</a></tt>. L'ex&eacute;cution ignore le reste du bloc et continue sur la ligne apr&egrave;s sa fin.<br \>
+Quitte un bloc de code comme <tt><a href="KeyPgSub.html">Sub</a></tt>, <tt><a href="KeyPgFunction.html">Function</a></tt>, <tt><a href="KeyPgDoloop.html">Do...Loop</a></tt>, <tt><a href="KeyPgFornext.html">For...Next</a></tt>, <tt><a href="KeyPgWhilewend.html">While...Wend</a></tt>, ou  <tt><a href="KeyPgSelectcase.html">Select Case</a></tt>. L'ex&eacute;cution ignore le reste du bloc et continue sur la ligne apr&egrave;s sa fin.<br \>
 <br \>
 L&agrave; o&ugrave; il y a plusieurs blocs <tt><a href="KeyPgDoloop.html">Do</a></tt> / <tt><a href="KeyPgFornext.html">For</a></tt> / <tt><a href="KeyPgWhilewend.html">While</a></tt> / <tt><a href="KeyPgSelectcase.html">Select</a></tt> imbriqu&eacute;s, <b>exit</b> fera passer &agrave; la fin du bloc de ce type, le plus int&eacute;rieur.  Vous pouvez aller directement &agrave; la fin de plusieurs blocs du m&ecirc;me type en donnant en m&ecirc;me temps plusieurs mots, s&eacute;par&eacute;s par des virgules.<br \>
 Par exemple: <tt><b>Exit While, While</b></tt><br \>

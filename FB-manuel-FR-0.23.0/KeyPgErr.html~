@@ -19,7 +19,7 @@
 </div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
 <i>result</i> = <b>Err</b><br \>
 </tt><br \>
-</div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+</div><div class="fb_sect_title">Return Value</div><div class="fb_sect_cont"><br \>
 Apr&egrave;s une erreur, retourne le code de l'erreur qui s'est produite. <br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
