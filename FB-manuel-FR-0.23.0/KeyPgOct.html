@@ -45,7 +45,7 @@ Si vous sp&eacute;cifiez <tt><i>digits</i></tt> &gt; 0, la cha&icirc;ne r&eacute
 <br \>
 La longueur de la cha&icirc;ne ne d&eacute;passera pas le nombre de bits maximum requis pour le type de <tt><i>number</i></tt> (3 caract&egrave;res pour <tt><a href="KeyPgByte.html">Byte (octet)</a></tt>, 6 pour <tt><a href="KeyPgShort.html">Short (entier court)</a></tt>, 11 pour <tt><a href="KeyPgInteger.html">Integer (entier)</a></tt>, et 22 pour <tt><a href="KeyPgLongint.html">LongInt (entier long)</a></tt>)<br \>
 <br \>
-Si vous d&eacute;sirez l'oppos&eacute;, par exemple convertir une cha&icirc;ne octale vers un nombre, la meilleure fa&ccedil;on de le faire est d'ajouter <tt>"&O"</tt>, au d&eacute;but de la cha&icirc;ne, et la convertir en utilisant <tt><a href="KeyPgValint.html">ValInt</a></tt> ou <tt><a href="KeyPgVallng.html">ValLng</a></tt>, de fa&ccedil;on similaire &agrave; une cha&icirc;ne num&eacute;rique normale. Par exemple <tt><a href="KeyPgValint.html">ValInt</a>("&O77")</tt><br \>
+Si vous d&eacute;sirez l'oppos&eacute;, par exemple convertir une cha&icirc;ne octale vers un nombre, la meilleure m&eacute;thode est d'ajouter <tt>"&O"</tt>, au d&eacute;but de la cha&icirc;ne, et de la convertir en utilisant <tt><a href="KeyPgValint.html">ValInt</a></tt> ou <tt><a href="KeyPgVallng.html">ValLng</a></tt>, de fa&ccedil;on similaire &agrave; une cha&icirc;ne num&eacute;rique normale. Par exemple <tt><a href="KeyPgValint.html">ValInt</a>("&O77")</tt><br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">
@@ -65,7 +65,7 @@ produira la sortie:<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> Dans QBASIC, il n'y avait aucun moyen de sp&eacute;cifier le nombre de chiffres retourn&eacute;s.<br \>
-<li> La taille de la cha&icirc;ne retourn&eacute;e &eacute;tait limit&eacute;e &agrave; 32 bits, ou 11 chiffres octals.<br \>
+<li> La taille de la cha&icirc;ne retourn&eacute;e &eacute;tait limit&eacute;e &agrave; 32 bits ou 11 chiffres octals.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgBin.html">Bin</a></tt><br \>

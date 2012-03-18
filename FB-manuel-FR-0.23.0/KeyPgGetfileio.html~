@@ -1,0 +1,170 @@
+<html>
+<head>
+<title>Get (File I/O)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Get (Entr&eacute;e/Sortie fichiers)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Lit les donn&eacute;es d'un fichier vers un tampon<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Get</b> #<i>filenum</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, [<i>position</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgLongint.html">LongInt</a>], <a href="KeyPgByref.html">ByRef</a> <i>data</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> [, [<i>amount</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>] [, <a href="KeyPgByref.html">ByRef</a> <i>bytesread</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgUinteger.html">UInteger</a>] ]<br \>
+<b>Get</b> #<i>filenum</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, [<i>position</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgLongint.html">LongInt</a>], <i>data</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgString.html">String</a> [, , <a href="KeyPgByref.html">ByRef</a> <i>bytesread</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgUinteger.html">UInteger</a> ]<br \>
+<b>Get</b> #<i>filenum</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a>, [<i>position</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgLongint.html">LongInt</a>], <i>data()</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgAny.html">Any</a> [, , <a href="KeyPgByref.html">ByRef</a> <i>bytesread</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgUinteger.html">UInteger</a> ]<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<b>Get</b> #<i>filenum</i>, <i>position</i>, <i>data</i> [, [<i>amount</i>] [, <i>bytesread</i> ] ]<br \>
+varres = <b>Get</b> (#<i>filenum</i>, <i>position</i>, <i>data</i> [, [<i>amount</i>] [, <i>bytesread</i> ] ] )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>filenum</i></tt><br \>
+<div class="fb_indent"> La valeur pass&eacute;e &agrave; <tt><a href="KeyPgOpen.html">Open</a></tt> quand le fichier a &eacute;t&eacute; ouvert.<br \>
+</div><tt><i>position</i></tt><br \>
+<div class="fb_indent">La position o&ugrave; la lecture doit commencer. Si le fichier a &eacute;t&eacute; ouvert <tt><a href="KeyPgRandom.html">For Random</a></tt>, la position est en enregistrements; autrement, elle est en octets. Si omise, la lecture commence &agrave; la position actuelle du pointeur.  La position est bas&eacute;e sur 1: c'est &agrave; dire que le premier enregistrement ou octet est &agrave; la position <tt>1</tt>.<br \>
+Si <tt><i>position</i></tt> est omise ou z&eacute;ro (<tt>0</tt>), la lecture du fichier commencera &agrave; la position courante dans le fichier.<br \>
+</div><tt><i>data</i></tt><br \>
+<div class="fb_indent">Le tampon o&ugrave; les donn&eacute;es sont &eacute;crites. Il peut &ecirc;tre une variable num&eacute;rique, une cha&icirc;ne, un tableau, un type d&eacute;fini par l'utilisateur ou un pointeur d&eacute;r&eacute;f&eacute;renc&eacute;. L'op&eacute;ration de lecture va essayer de remplir compl&egrave;tement la variable, &agrave; moins que <tt><a href="KeyPgEof.html">EOF</a></tt> ne soit atteint.<br \>
+Lors de l'utilisation de tableaux, <tt><i>data</i></tt> doit &ecirc;tre suivi par une paire de parenth&egrave;ses vides: "<tt>()</tt>".  <tt><b>Get</b></tt> lira les donn&eacute;es pour toutes les valeurs dans le tableau.  <tt><i>amount</i></tt> (quantit&eacute;) n'est pas autoris&eacute;.<br \>
+Lors de l'utilisation de <tt><a href="KeyPgString.html">String</a></tt>s, le nombre d'octets lus est le m&ecirc;me que le nombre d'octets dans les donn&eacute;es de cha&icirc;ne. <tt><i>amount</i></tt> (quantit&eacute;) n'est pas autoris&eacute;.<br \>
+Note: Si vous voulez lire des valeurs dans une m&eacute;moire tampon, vous NE devez PAS passer un pointeur vers la m&eacute;moire tampon; au lieu de cela vous devez passer la premi&egrave;re variable dans la m&eacute;moire tampon.  (Cela peut &ecirc;tre fait par le d&eacute;r&eacute;f&eacute;rencement du pointeur avec <tt><a href="KeyPgOpValueOf.html">Operator * (Value Of)</a></tt>.)  <tt><b>Get</b></tt>  comprendra automatiquement que le reste de la m&eacute;moire tampon se poursuit apr&egrave;s la premi&egrave;re variable.  Si vous passez un pointeur directement, alors <tt><b>Get</b></tt> &eacute;crira sur la variable et non &agrave; l'emplacement m&eacute;moire vers lequel elle pointe.<br \>
+</div><tt><i>amount</i></tt><br \>
+<div class="fb_indent"><tt><b>Get</b></tt> lit <tt><i>amount</i></tt> variables cons&eacute;cutives du fichier vers la m&eacute;moire, c'est &agrave; dire qu'il lit <tt>(<i>amount</i> * <a href="KeyPgSizeof.html">SizeOf</a>(<i>data</i>) )</tt> octets ou donn&eacute;es depuis le fichier vers la m&eacute;moire commen&ccedil;ant &agrave; la position <tt><i>data</i></tt>.  Si <tt><i>amount</i></tt> est omis il sera de <tt>1</tt> par d&eacute;faut, ce qui signifie que <tt><b>Get</b></tt> ne lira qu'une seule variable.<br \>
+</div><tt><i>bytesread</i></tt><br \>
+<div class="fb_indent">Une variable enti&egrave;re non sign&eacute;e qui contiendra le nombre d'octets lus avec succ&egrave;s &agrave; partir du fichier.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Z&eacute;ro (<tt>0</tt>) si succ&egrave;s; non-z&eacute;ro si erreur. Note: Si <tt><a href="KeyPgEof.html">EOF</a></tt> (End Of File) est atteint pendant la lecture, <tt><b>Get</b></tt> retournera "succ&egrave;s".  La quantit&eacute; d'octets r&eacute;ellement lus peut &ecirc;tre v&eacute;rifi&eacute;e en passant une variable <tt><i>bytesread</i></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Lit les donn&eacute;es binaires &agrave; partir d'un fichier vers une variable tampon<br \>
+<br \>
+<tt><b>Get</b></tt> peut &ecirc;tre utilis&eacute; comme une fonction, et retournera <tt>0</tt> si succ&egrave;s ou un code d'erreur si &eacute;chec.<br \>
+<br \>
+Pour les fichiers ouverts en mode <tt><a href="KeyPgRandom.html">Random</a></tt>, la taille en octets des donn&eacute;es &agrave; lire doit correspondre &agrave; la taille d'enregistrement sp&eacute;cifi&eacute;e.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="key">Shared</span>&nbsp;<span class="wrd">f</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">get_integer</span><span class="oth">()</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">buffer</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="com">'&nbsp;Integer&nbsp;variable</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Read&nbsp;an&nbsp;Integer&nbsp;(4&nbsp;bytes)&nbsp;from&nbsp;the&nbsp;file&nbsp;into&nbsp;buffer,&nbsp;using&nbsp;file&nbsp;number&nbsp;"f".</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Get</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><span class="oth">,</span>&nbsp;<span class="oth">,</span>&nbsp;<span class="wrd">buffer</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;print&nbsp;out&nbsp;result</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">buffer</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">get_array</span><span class="oth">()</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">an_array</span><span class="oth">(</span><span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><span class="oth">-</span><span class="num">1</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="com">'&nbsp;array&nbsp;of&nbsp;Integers</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Read&nbsp;10&nbsp;Integers&nbsp;(10&nbsp;*&nbsp;4&nbsp;=&nbsp;40&nbsp;bytes)&nbsp;from&nbsp;the&nbsp;file&nbsp;into&nbsp;an_array,&nbsp;using&nbsp;file&nbsp;number&nbsp;"f".</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Get</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><span class="oth">,</span>&nbsp;<span class="oth">,</span>&nbsp;<span class="wrd">an_array</span><span class="oth">()</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;print&nbsp;out&nbsp;result</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><span class="oth">-</span><span class="num">1</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">an_array</span><span class="oth">(</span><span class="wrd">i</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">get_mem</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">pmem</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;allocate&nbsp;memory&nbsp;for&nbsp;5&nbsp;Integers</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">pmem</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span><span class="num">5</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(</span><span class="key">Integer</span><span class="oth">))</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;Read&nbsp;5&nbsp;integers&nbsp;(5&nbsp;*&nbsp;4&nbsp;=&nbsp;20&nbsp;bytes)&nbsp;from&nbsp;the&nbsp;file&nbsp;into&nbsp;allocated&nbsp;memory</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Get</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><span class="oth">,</span>&nbsp;<span class="oth">,</span>&nbsp;<span class="oth">*</span><span class="wrd">pmem</span><span class="oth">,</span>&nbsp;<span class="num">5</span>&nbsp;<span class="com">'&nbsp;Note&nbsp;pmem&nbsp;must&nbsp;be&nbsp;dereferenced&nbsp;(*pmem,&nbsp;or&nbsp;pmem[0])</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;print&nbsp;out&nbsp;result&nbsp;using&nbsp;[]&nbsp;Pointer&nbsp;Indexing</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">For</span>&nbsp;<span class="wrd">i</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">5</span><span class="oth">-</span><span class="num">1</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="wrd">pmem</span><span class="oth">[</span><span class="wrd">i</span><span class="oth">]</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Next</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="com">'&nbsp;free&nbsp;pointer&nbsp;memory&nbsp;to&nbsp;prevent&nbsp;memory&nbsp;leak</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Deallocate</span>&nbsp;<span class="wrd">pmem</span><br />
+<br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="com">'&nbsp;Find&nbsp;the&nbsp;first&nbsp;free&nbsp;file&nbsp;file&nbsp;number.</span><br />
+<span class="wrd">f</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">FreeFile</span><br />
+<br />
+<span class="com">'&nbsp;Open&nbsp;the&nbsp;file&nbsp;"file.ext"&nbsp;for&nbsp;binary&nbsp;usage,&nbsp;using&nbsp;the&nbsp;file&nbsp;number&nbsp;"f".</span><br />
+<span class="key">Open</span>&nbsp;<span class="quo">"file.ext"</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Binary</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+<br />
+&nbsp;&nbsp;<span class="wrd">get_integer</span><span class="oth">()</span><br />
+<br />
+&nbsp;&nbsp;<span class="wrd">get_array</span><span class="oth">()</span><br />
+<br />
+&nbsp;&nbsp;<span class="wrd">get_mem</span><span class="oth">()</span><br />
+<br />
+<span class="com">'&nbsp;Close&nbsp;the&nbsp;file.&nbsp;&nbsp;</span><br />
+<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="wrd">f</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;Load&nbsp;a&nbsp;small&nbsp;text&nbsp;file&nbsp;to&nbsp;a&nbsp;string</span><br />
+<br />
+<span class="key">Function</span>&nbsp;<span class="wrd">LoadFile</span><span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">filename</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">h</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">txt</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">h</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">FreeFile</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">Open</span><span class="oth">(</span>&nbsp;<span class="wrd">filename</span>&nbsp;<span class="key">For</span>&nbsp;<span class="key">Binary</span>&nbsp;<span class="key">Access</span>&nbsp;<span class="key">Read</span>&nbsp;<span class="key">As</span>&nbsp;<span class="oth">#</span><span class="wrd">h</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Return</span>&nbsp;<span class="quo">""</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">LOF</span><span class="oth">(</span><span class="wrd">h</span><span class="oth">)</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">Then</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">txt</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">String</span><span class="oth">(</span><span class="key">LOF</span><span class="oth">(</span><span class="wrd">h</span><span class="oth">),</span>&nbsp;<span class="num">0</span><span class="oth">)</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="key">Get</span><span class="oth">(</span>&nbsp;<span class="oth">#</span><span class="wrd">h</span><span class="oth">,</span>&nbsp;<span class="oth">,</span><span class="wrd">txt</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">&lt;&gt;</span>&nbsp;<span class="num">0</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="wrd">txt</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">""</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Close</span>&nbsp;<span class="oth">#</span><span class="wrd">h</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Return</span>&nbsp;<span class="wrd">txt</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<span class="key">End</span>&nbsp;<span class="key">Function</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">ExampleStr</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+<span class="wrd">ExampleStr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">LoadFile</span><span class="oth">(</span><span class="quo">"smallfile.txt"</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">ExampleStr</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li>Dans FB, <tt><b>Get</b></tt> peut lire des tableaux pleins comme dans VB ou, alternativement, lire un multiple de la taille des donn&eacute;es dans la m&eacute;moire.<br \>
+<li> <tt><b>Get</b></tt> peut &ecirc;tre utilis&eacute; comme une fonction dans FB, pour obtenir le code succ&egrave;s/erreur renvoy&eacute; sans avoir &agrave; utiliser les proc&eacute;dures de gestion des erreurs.<br \>
+<li> FB permet le param&egrave;tre <tt><i>bytesread</i></tt>, pour v&eacute;rifier combien d'octets ont &eacute;t&eacute; lus avec succ&egrave;s.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgGetgraphics.html">Get (Graphiques)</a></tt> utilisation diff&eacute;rente du m&ecirc;me mot-cl&eacute; <br \>
+<li> <tt><a href="KeyPgPutfileio.html">Put (Entr&eacute;e/sortie fichiers)</a></tt><br \>
+<li> <tt><a href="KeyPgOpen.html">Open</a></tt><br \>
+<li> <tt><a href="KeyPgClose.html">Close</a></tt><br \>
+<li> <tt><a href="KeyPgBinary.html">Binary</a></tt><br \>
+<li> <tt><a href="KeyPgRandom.html">Random</a></tt><br \>
+<li> <tt><a href="KeyPgFreefile.html">FreeFile</a></tt><br \>
+<li> <tt><a href="ProPgFileIO.html">Comparaison des m&eacute;thodes d'entr&eacute;e/sortie des fichiers</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

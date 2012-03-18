@@ -27,7 +27,7 @@ V&eacute;rifie rapidement dans la m&eacute;moire tampon du clavier et retourne u
 <br \>
 Si la valeur est dans le jeu de caract&egrave;res ASCII, une <tt><a href="KeyPgString.html">String</a></tt> d'un seul caract&egrave;re correspondant &agrave; cette valeur est retourn&eacute;e. Si la touche est une touche "&eacute;tendue" (pav&eacute; num&eacute;rique, curseur, fonctions) une <tt><a href="KeyPgString.html">String</a></tt> de deux caract&egrave;res est retourn&eacute;e, dans laquelle le premier repr&eacute;sente le caract&egrave;re &eacute;tendu (<i>Voir ci-dessous diff&eacute;rences de dialecte</i>)<br \>
 <br \>
-Les touches Shift, Ctrl, Alt et AltGr ne peut pas &ecirc;tre lues ind&eacute;pendamment par cette fonction car elles n'entrent jamais dans la m&eacute;moire tampon du clavier (bien que, de toute &eacute;vidence, Shift-A sera signal&eacute; par <tt><b>Inkey</b></tt> diff&eacute;remment de Control-A et ainsi de suite; Alt-A est une touche &eacute;tendue comme ci-dessus).<br \>
+Les touches Shift, Ctrl, Alt et AltGr ne peuvent pas &ecirc;tre lues par cette fonction car elles n'entrent jamais dans la m&eacute;moire tampon du clavier (bien que, de toute &eacute;vidence, Shift-A sera signal&eacute; par <tt><b>Inkey</b></tt> diff&eacute;remment de Control-A et ainsi de suite; Alt-A est une touche &eacute;tendue comme ci-dessus).<br \>
 <br \>
 Voir aussi <tt><a href="KeyPgInputnum.html">Input()</a></tt> ou <tt><a href="KeyPgGetkey.html">GetKey</a></tt>, ou <tt><a href="KeyPgSleep.html">Sleep</a></tt> pour attendre une touche si la m&eacute;moire tampon du clavier est vide.<br \>
 <br \>
@@ -100,7 +100,7 @@ Voir aussi <tt><a href="KeyPgInputnum.html">Input()</a></tt> ou <tt><a href="Key
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences de dialectes</div><div class="fb_sect_cont"><br \>
 <ul><li> Le caract&egrave;re &eacute;tendu est <tt><a href="KeyPgChr.html">Chr</a>(255)</tt> dans les dialectes <i><a href="CompilerOptlang.html">-lang fb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>.<br \>
-<ul><li> Dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, le caract&egrave;re &eacute;tendu d&eacute;pend de la façon dont le mot-cl&eacute; est &eacute;crit. Si la forme <tt><b>Inkey$</b></tt> est utilis&eacute;e, le caract&egrave;re &eacute;tendu est <tt><a href="KeyPgChr.html">Chr</a>(0)</tt>.  Si elle est r&eacute;f&eacute;renc&eacute;e comme <tt><b>__Inkey</b></tt>, le char est &eacute;tendu <tt><a href="KeyPgChr.html">Chr</a>(255)</tt>.<br \>
+<ul><li> Dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, le caract&egrave;re &eacute;tendu d&eacute;pend de la fa&ccedil;on dont le mot-cl&eacute; est &eacute;crit. Si la forme <tt><b>Inkey$</b></tt> est utilis&eacute;e, le caract&egrave;re &eacute;tendu est <tt><a href="KeyPgChr.html">Chr</a>(0)</tt>.  Si elle est r&eacute;f&eacute;renc&eacute;e comme <tt><b>__Inkey</b></tt>, le char est &eacute;tendu <tt><a href="KeyPgChr.html">Chr</a>(255)</tt>.<br \>
 <li> Dans tous les autres dialectes, le caract&egrave;re &eacute;tendu est toujours <tt><a href="KeyPgChr.html">Chr</a>(255)</tt>.<br \>
 </ul><li> Le suffixe de type cha&icirc;ne <tt>$</tt> est facultatif dans les dialectes <i><a href="CompilerOptlang.html">-lang fblite</a></i> et <i><a href="CompilerOptlang.html">-lang fb</a></i>, mais n&eacute;cessaire en dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
 <br \>

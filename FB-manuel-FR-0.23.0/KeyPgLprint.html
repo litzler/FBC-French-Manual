@@ -27,9 +27,9 @@ Imprime <tt><i>expressionlist</i></tt> sur l'imprimante connect&eacute;e au port
 <br \>
 La clause <tt><a href="KeyPgPrintusing.html">Using</a></tt> formate <tt><i>expressionlist</i></tt> en accord avec <tt><i>formatstring</i></tt>.  Tout type de donn&eacute;es sauf un type d&eacute;fini par l'utilisateur peut &ecirc;tre pass&eacute; &agrave; <b><tt>LPrint</tt></b> <tt><i>expressionlist</tt></i>, les expressions n'ont pas &agrave; &ecirc;tre converties en cha&icirc;nes avant.<br \>
 <br \>
-L'utilisation d'une virgule (<tt>,</tt>) comme s&eacute;parateur ou &agrave; la fin de <tt><i>expressionlist</i></tt> placera le curseur au d&eacute;but de la colonne suivante (tous les 14 caract&egrave;res), l'utilisation d'un point-virgule (<tt>;</tt>) ne d&eacute;placera pas le curseur. Si ni l'un ni l'autre n'est plac&eacute; &agrave; la fin de <tt><i>expressionlist</i></tt>, alors une sp&eacute;cification de nouvelle ligne sera envoy&eacute;e.<br \>
+L'utilisation d'une virgule (<tt>,</tt>) comme s&eacute;parateur ou &agrave; la fin de <tt><i>expressionlist</i></tt> placera le curseur au d&eacute;but de la colonne suivante (tous les 14 caract&egrave;res), l'utilisation d'un point-virgule (<tt>;</tt>) ne d&eacute;placera pas le curseur. Si, ni l'un, ni l'autre, n'est plac&eacute; &agrave; la fin de <tt><i>expressionlist</i></tt>, alors une sp&eacute;cification de nouvelle ligne sera envoy&eacute;e.<br \>
 <br \>
-Certaines imprimantes n'impriment rien tant qu'un caract&egrave;re <tt><a href="KeyPgChr.html">Chr</a>(12)</tt> (Fin de Page) n'est pas envoy&eacute;.<br \>
+Certaines imprimantes n'impriment rien tant que n'est pas envoy&eacute; un caract&egrave;re <tt><a href="KeyPgChr.html">Chr</a>(12)</tt> (Fin de Page).<br \>
 <br \>
 En interne, FreeBASIC utilise le num&eacute;ro de fichier sp&eacute;cial <tt>-1</tt> pour l'impression en utilisant <b><tt>LPrint</tt></b>.  Ce num&eacute;ro de fichier peut &ecirc;tre ferm&eacute; en toute s&eacute;curit&eacute; avec <tt><a href="KeyPgClose.html">Close</a> -1</tt>.  L'utilisation suivante de <b><tt>LPrint</tt></b> le r&eacute;ouvrira automatiquement si n&eacute;cessaire.<br \>
 <br \>

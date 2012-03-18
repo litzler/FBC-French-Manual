@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>InStrRev</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">InStrRev</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Rep&egrave;re la position de la derni&egrave;re occurrence d'une sous-cha&icirc;ne ou d'un caract&egrave;re dans une cha&icirc;ne de caract&egrave;res<br \>
+<br \>
+<i><b>Note importante</b>: Dans les versions jusqu'&agrave; et y compris v0.20.0b, <tt><b>InStrRev</b></tt> contient un bug qui fait que certaines occurences sont omises.  Ceci est corrig&eacute; &agrave; partir de v0.21.0b.</i><br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>InStrRev</b> ( <a href="KeyPgByref.html">ByRef</a> <i>str</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgString.html">String</a>, [ <b>Any</b> ] <a href="KeyPgByref.html">ByRef</a> <i>substring</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgString.html">String</a>, <a href="KeyPgByval.html">ByVal</a> <i>start</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = -1 ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgFunction.html">Function</a> <b>InStrRev</b> ( <a href="KeyPgByref.html">ByRef</a> <i>str</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgWstring.html">WString</a>, [ <b>Any</b> ] <a href="KeyPgByref.html">ByRef</a> <i>substring</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgConstQualifier.html">Const</a> <a href="KeyPgWstring.html">WString</a>, <a href="KeyPgByval.html">ByVal</a> <i>start</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a> = -1 ) <a href="KeyPgAs.html">As</a> <a href="KeyPgInteger.html">Integer</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>last</i> = <b>InStrRev</b>( <i>str</i>, [ <b>Any</b> ] <i>substring</i> [, <i>start</i> ]  )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>str</i></tt><br \>
+<div class="fb_indent">La cha&icirc;ne o&ugrave; chercher.<br \>
+</div><tt><i>substring</i></tt><br \>
+<div class="fb_indent">La sous-cha&icirc;ne &agrave; trouver.<br \>
+</div><tt><i>start</i></tt><br \>
+<div class="fb_indent">La position dans <tt><i>str</i></tt> o&ugrave; la recherche va commencer.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+La position de la derni&egrave;re occurrence de <tt><i>substring</i></tt> dans <tt><i>str</i></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Rep&egrave;re la position de la derni&egrave;re occurence d'une sous-cha&icirc;ne ou d'un caract&egrave;re dans une cha&icirc;ne de caract&egrave;res.  Si le param&egrave;tre <tt><i>start</i></tt> est omis ou -1, la recherche commence au dernier caract&egrave;re.<br \>
+<br \>
+Z&eacute;ro (0) est retourn&eacute; si <tt><i>substring</i></tt> n'est pas trouv&eacute;e, ou si <tt><i>str</i></tt> ou <tt><i>substring</i></tt> sont des cha&icirc;nes vides, ou <tt><i>start</i></tt> est inf&eacute;rieur &agrave; 1 (sauf pour -1), ou <tt><i>start</i></tt> est plus grand que la longueur de <tt><i>str</i></tt>.<br \>
+<br \>
+Si le mot-clef <tt><b>Any</b></tt> est specifi&eacute;, <tt><b>InStrRev</b></tt> retourne la derni&egrave;re occurence de n'importe quel caract&egrave;re de <tt><i>substring</i></tt>.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">'&nbsp;Retournera&nbsp;4</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">InStrRev</span><span class="oth">(</span><span class="quo">"abcdefg"</span><span class="oth">,</span>&nbsp;<span class="quo">"de"</span><span class="oth">)</span><br />
+<br />
+<span class="com">'&nbsp;Retournera&nbsp;0</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">InStrRev</span><span class="oth">(</span><span class="quo">"abcdefg"</span><span class="oth">,</span>&nbsp;<span class="quo">"h"</span><span class="oth">)</span><br />
+</div></tt><br />
+<tt><div class="freebasic">
+<span class="key">Dim</span>&nbsp;<span class="wrd">test</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">idx</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
+<br />
+<span class="wrd">test</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"abababab"</span><br />
+<span class="wrd">idx</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">InStrRev</span><span class="oth">(</span><span class="wrd">test</span><span class="oth">,</span>&nbsp;<span class="quo">"b"</span><span class="oth">)</span><br />
+<br />
+<span class="key">Do</span>&nbsp;<span class="key">While</span>&nbsp;<span class="wrd">idx</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="num">0</span>&nbsp;<span class="com">'if&nbsp;not&nbsp;found&nbsp;loop&nbsp;will&nbsp;be&nbsp;skipped</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"""b""&nbsp;at&nbsp;"</span>&nbsp;<span class="oth">&amp;</span>&nbsp;<span class="wrd">idx</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">idx</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">InStrRev</span><span class="oth">(</span><span class="wrd">Test</span><span class="oth">,</span>&nbsp;<span class="quo">"b"</span><span class="oth">,</span>&nbsp;<span class="wrd">idx</span>&nbsp;<span class="oth">-</span>&nbsp;<span class="num">1</span><span class="oth">)</span><br />
+<span class="key">Loop</span><br />
+</div></tt><br />
+<br \>
+<tt><div class="fb_box"><tr><td>'Un exemple Unicode:<br \>
+dim text as wstring*20<br \>
+text = "&#1055;&#1088;&#1080;&#1074;&#1077;&#1090;, &#1084;&#1080;&#1088;!"<br \>
+print instrrev(text,"&#1077;&#1090;") ' affiche 5<br \>
+</div></tt><br />
+</td><div style="clear:both">&nbsp;</div></div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
+<ul><li> La version <tt><b>WString</b></tt> (cha&icirc;ne large) de <tt><b>InStrRev</b></tt> n'est pas support&eacute;e par la cible DOS.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de dialectes</div><div class="fb_sect_cont"><br \>
+<ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Instrrev</b></tt>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgInstr.html">InStr</a></tt><br \>
+<li> <tt><a href="KeyPgMidfunction.html">Mid (Fonction)</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

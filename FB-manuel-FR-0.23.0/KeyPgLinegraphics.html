@@ -33,14 +33,14 @@ or<br \>
 </div><tt><i>color</i></tt><br \>
 <div class="fb_indent">l'attribut de couleur.<br \>
 </div><tt>B|BF</tt><br \>
-<div class="fb_indent">sp&eacute;cifie bo&icirc;te ou bo&icirc;te remplie<br \>
+<div class="fb_indent">sp&eacute;cifie bo&icirc;te vide ou bo&icirc;te pleine<br \>
 </div><tt><i>style</i></tt><br \>
 <div class="fb_indent">style de la ligne<br \>
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-D&eacute;claration graphique qui dessine une ligne droite ou une bo&icirc;te entre deux points. Cela se passera sur la page de travail courante via <a href="KeyPgScreenset.html">ScreenSet</a> ou sur un tampon <a href="KeyPgGetgraphics.html">Get</a>/<a href="KeyPgPutgraphics.html">Put</a> si c'est sp&eacute;cifi&eacute;.<br \>
+D&eacute;claration graphique qui dessine une ligne droite ou une bo&icirc;te entre deux points. Cela se passera sur la page de travail courante via <a href="KeyPgScreenset.html">ScreenSet</a> ou sur un tampon <a href="KeyPgGetgraphics.html">Get</a> / <a href="KeyPgPutgraphics.html">Put</a> si c'est sp&eacute;cifi&eacute;.<br \>
 <br \>
-Les coordonn&eacute;es de <b>Line</b> sont affect&eacute;es par le syst&egrave;me de coordonn&eacute;es personnel &eacute;tabli via <a href="KeyPgWindow.html">Window</a> et <a href="KeyPgViewgraphics.html">View (Graphique)</a> et respecte le rectangle de d&eacute;coupage (clipping rectangle) &eacute;tabli par <a href="KeyPgViewgraphics.html">View (Graphics)</a>. Si une paire de coordonn&eacute;es est pr&eacute;c&eacute;d&eacute;e par le mot-clef <tt>STEP</tt>, les coordonn&eacute;es sont consid&eacute;r&eacute;es comme relatives &agrave; la derni&egrave;re position du curseur graphique. Si l'indicateur <tt>B</tt> est sp&eacute;cifi&eacute;, un rectangle sera trac&eacute; au lieu d'une ligne, avec <tt>(<i>x1</i>,<i>y1</i>)-(<i>x2</i>,<i>y2</i>)</tt> comme coordonn&eacute;es des coins oppos&eacute;s du rectangle. Si <tt>BF</tt> est sp&eacute;cifi&eacute;, un rectangle plein sera trac&eacute;.<br \>
+Les coordonn&eacute;es de <b>Line</b> sont affect&eacute;es par le syst&egrave;me de coordonn&eacute;es personnel &eacute;tabli via <a href="KeyPgWindow.html">Window</a> et <a href="KeyPgViewgraphics.html">View (Graphique)</a> et respecte le rectangle de d&eacute;coupage (clipping rectangle) &eacute;tabli par <a href="KeyPgViewgraphics.html">View (Graphique)</a>. Si une paire de coordonn&eacute;es est pr&eacute;c&eacute;d&eacute;e par le mot-clef <tt>STEP</tt>, les coordonn&eacute;es sont consid&eacute;r&eacute;es comme relatives &agrave; la derni&egrave;re position du curseur graphique. Si l'indicateur <tt>B</tt> est sp&eacute;cifi&eacute;, un rectangle sera trac&eacute; au lieu d'une ligne, avec <tt>(<i>x1</i>,<i>y1</i>)-(<i>x2</i>,<i>y2</i>)</tt> comme coordonn&eacute;es des coins oppos&eacute;s du rectangle. Si <tt>BF</tt> est sp&eacute;cifi&eacute;, un rectangle plein sera trac&eacute;.<br \>
 <br \>
 <tt><i>Color</i></tt> correspond &agrave; l'attribut de couleur, qui est sp&eacute;cifique au mode (voir <a href="KeyPgColor.html">Color</a> et <a href="KeyPgScreengraphics.html">Screen (Graphique)</a> pour plus de d&eacute;tails). Si omis, la couleur courante d'avant-plan valid&eacute;e par <a href="KeyPgColor.html">Color</a> sera utilis&eacute;e.<br \>
 <br \>

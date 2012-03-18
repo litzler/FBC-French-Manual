@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>LPrint</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">LPrint</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	&Eacute;crit du texte vers l'imprimante par d&eacute;faut.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>LPrint</b>  [ <a href="KeyPgPrintusing.html">Using</a> <i>formatstring</i>,] [<i>expressionlist</i>] [(, | ;)] ...<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>formatstring</i></tt><br \>
+<div class="fb_indent">Cha&icirc;ne sp&eacute;cifiant le format de sortie.<br \>
+</div><tt><i>expressionlist</i></tt><br \>
+<div class="fb_indent">Liste des variables pour une sortie selon le format sp&eacute;cifi&eacute;.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Imprime <tt><i>expressionlist</i></tt> sur l'imprimante connect&eacute;e au port parall&egrave;le LPT1, ou si elle n'existe pas, &agrave; l'imprimante par d&eacute;faut.  Pour imprimer sur une imprimante diff&eacute;rente de celle par d&eacute;faut, utilisez <tt><a href="KeyPgOpenLpt.html">Open Lpt</a></tt>.<br \>
+<br \>
+La clause <tt><a href="KeyPgPrintusing.html">Using</a></tt> formate <tt><i>expressionlist</i></tt> en accord avec <tt><i>formatstring</i></tt>.  Tout type de donn&eacute;es sauf un type d&eacute;fini par l'utilisateur peut &ecirc;tre pass&eacute; &agrave; <b><tt>LPrint</tt></b> <tt><i>expressionlist</tt></i>, les expressions n'ont pas &agrave; &ecirc;tre converties en cha&icirc;nes avant.<br \>
+<br \>
+L'utilisation d'une virgule (<tt>,</tt>) comme s&eacute;parateur ou &agrave; la fin de <tt><i>expressionlist</i></tt> placera le curseur au d&eacute;but de la colonne suivante (tous les 14 caract&egrave;res), l'utilisation d'un point-virgule (<tt>;</tt>) ne d&eacute;placera pas le curseur. Si, ni l'un, ni l'autre, n'est plac&eacute; &agrave; la fin de <tt><i>expressionlist</i></tt>, alors une sp&eacute;cification de nouvelle ligne sera envoy&eacute;e.<br \>
+<br \>
+Certaines imprimantes n'impriment rien tant qu'un caract&egrave;re <tt><a href="KeyPgChr.html">Chr</a>(12)</tt> (Fin de Page) n'est pas envoy&eacute;.<br \>
+<br \>
+En interne, FreeBASIC utilise le num&eacute;ro de fichier sp&eacute;cial <tt>-1</tt> pour l'impression en utilisant <b><tt>LPrint</tt></b>.  Ce num&eacute;ro de fichier peut &ecirc;tre ferm&eacute; en toute s&eacute;curit&eacute; avec <tt><a href="KeyPgClose.html">Close</a> -1</tt>.  L'utilisation suivante de <b><tt>LPrint</tt></b> le r&eacute;ouvrira automatiquement si n&eacute;cessaire.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Compile&nbsp;with&nbsp;-lang&nbsp;fblite&nbsp;or&nbsp;qb</span><br />
+<br />
+<span class="def">#lang&nbsp;"fblite"<br />
+</span><br />
+<span class="com">''&nbsp;new-line</span><br />
+<span class="key">LPrint</span>&nbsp;<span class="quo">"Hello&nbsp;World!"</span><br />
+<br />
+<span class="com">''&nbsp;no&nbsp;new-line</span><br />
+<span class="key">LPrint</span>&nbsp;<span class="quo">"Hello"</span><span class="oth">;</span>&nbsp;<span class="quo">"World"</span><span class="oth">;</span>&nbsp;<span class="quo">"!"</span><span class="oth">;</span><br />
+<br />
+<span class="key">LPrint</span><br />
+<br />
+<span class="com">''&nbsp;column&nbsp;separator</span><br />
+<span class="key">LPrint</span>&nbsp;<span class="quo">"Hello!"</span><span class="oth">,</span>&nbsp;<span class="quo">"World!"</span><br />
+<br />
+<span class="com">''&nbsp;end&nbsp;of&nbsp;page</span><br />
+<span class="key">LPrint</span>&nbsp;<span class="key">Chr$</span><span class="oth">(</span><span class="num">12</span><span class="oth">)</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Aucune<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><b>LPrint</b></tt> n'est pas support&eacute; par le dialecte <i><a href="CompilerOptlang.html">-lang fb</a></i>. Dans ce dialecte, l'imprimante doit &ecirc;tre ouverte correctement avec <tt><a href="KeyPgOpenLpt.html">Open Lpt</a></tt> et <tt><a href="KeyPgPrintPp.html">Print #</a></tt> doit &ecirc;tre utilis&eacute; pour imprimer.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgOpenLpt.html">Open Lpt</a></tt><br \>
+<li> <tt><a href="KeyPgPrint.html">Print</a></tt><br \>
+<li> <tt><a href="KeyPgPrintPp.html">Print #</a></tt><br \>
+<li> <tt><a href="KeyPgWrite.html">Write</a></tt><br \>
+<br \>
+</ul><br \>
+   <br \>
+</div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

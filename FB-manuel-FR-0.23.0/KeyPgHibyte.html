@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Obtient la valeur de l'octet le plus significatif (MSB = Most-Significant Byte, ou <i>hi-byte</i>) du mot le moins significatif (LSW = Least-Significant Word, ou <i>lo-word</i>) d'une valeur <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
+	Obtient la valeur de l'octet le plus significatif (MSB = Most-Significant Byte, ou <i>hi-byte</i>) du mot (2 octets) le moins significatif (LSW = Least-Significant Word, ou <i>lo-word</i>) d'une valeur <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <a href="KeyPgPpdefine.html">#define</a> <b>HiByte</b>( <i>expr</i> ) ( ( <a href="KeyPgCast.html">Cast</a>(<a href="KeyPgUinteger.html">UInteger</a>, <i>expr</i>) <a href="KeyPgOpAnd.html">And</a> &h0000FF00 ) <a href="KeyPgOpShiftRight.html">Shr</a> 8 )<br \>
@@ -21,7 +21,7 @@
 </tt><br \>
 </div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
 <tt><i>expr</i></tt><br \>
-<div class="fb_indent">A numeric expression, convertie en une valeur <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
+<div class="fb_indent">Une expression num&eacute;rique, convertie en une valeur <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
 Retourne la valeur de l'octet le plus significatif du mot le moins significatif de `<tt><a href="KeyPgCast.html">Cast</a>(<a href="KeyPgUinteger.html">UInteger</a>, <i>expr</i>)</tt>`.<br \>

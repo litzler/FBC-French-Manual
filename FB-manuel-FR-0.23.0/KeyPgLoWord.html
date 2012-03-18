@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Obtient la valeur du mot le moins significatif (LSW = Least-Significant Word, ou <i>lo-word</i>) d'une valeur <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
+	Obtient la valeur du mot (2 octets) le moins significatif (LSW = Least-Significant Word, ou <i>lo-word</i>) d'une valeur <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <a href="KeyPgPpdefine.html">#define</a> <b>LoWord</b>( <i>expr</i> ) ( <a href="KeyPgCast.html">Cast</a>(<a href="KeyPgUinteger.html">UInteger</a>, <i>expr</i>) <a href="KeyPgOpAnd.html">And</a> &h0000FFFF )<br \>
@@ -24,7 +24,7 @@
 <div class="fb_indent">Une expression num&eacute;rique, convertie en une valeur <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
-Retourne la valeur du mot le moins significatif (LSW) de `<tt><a href="KeyPgCast.html">Cast</a>(<a href="KeyPgUinteger.html">UInteger</a>, <i>expr</i>)</tt>`.<br \>
+Retourne la valeur du mot (2 octets) le moins significatif (LSW) de `<tt><a href="KeyPgCast.html">Cast</a>(<a href="KeyPgUinteger.html">UInteger</a>, <i>expr</i>)</tt>`.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Cette macro convertit l'expression num&eacute;rique <tt><i>expr</i></tt> en une valeur <tt><a href="KeyPgUinteger.html">UInteger</a></tt>, qu'elle d&eacute;veloppe ensuite en un <a href="KeyPgUinteger.html">UInteger</a> repr&eacute;sentant la valeur de son LSW.<br \>

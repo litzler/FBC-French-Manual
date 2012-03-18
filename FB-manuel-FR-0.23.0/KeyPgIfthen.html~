@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>If...Then</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">If...Then</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	D&eacute;claration de contr&ocirc;le de flux pour le branchement conditionnel<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>If</b> <i>expression</i> <b>Then</b> [<i>statement(s)</i>] [<b>Else</b> [<i>statement(s)</i>]] [<b>End If</b>]<br \>
+<i>ou</i><br \>
+<b>If</b> <i>expression</i> <b>Then</b> : [<i>statement(s)</i>] [<b>Else</b> [<i>statement(s)</i>]] : <b>End If</b><br \>
+<i>ou</i><br \>
+<b>If</b> <i>expression</i> <b>Then</b><br \>
+<div class="fb_indent">[<i>statement(s)</i>]<br \>
+</div>[ <b>ElseIf</b> <i>expression</i> <b>Then</b> ]<br \>
+<div class="fb_indent">[<i>statement(s)</i>]<br \>
+</div>[ <b>Else</b> ]<br \>
+<div class="fb_indent">[<i>statement(s)</i>]<br \>
+</div><b>End If</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>If...Then</b></tt> est une m&eacute;thode pour prendre des d&eacute;cisions. C'est un m&eacute;canisme qui permet d'ex&eacute;cuter du code que si une condition est vraie, et peut fournir une alternative de programmation de code &agrave; ex&eacute;cuter sur la base de plusieurs conditions.<br \>
+<br \>
+<tt><i>expression</i></tt> peut avoir une ces formes:<br \>
+<ul><li> une expression conditionnelle, par exemple:<br \>
+</ul><div class="fb_indent"><div class="fb_indent"><tt>x = 5</tt><br \>
+</div></div><ul><li> conditions multiples s&eacute;par&eacute;es par des op&eacute;rateurs logiques bit &agrave; bit, par exemple:<br \>
+</ul><div class="fb_indent"><div class="fb_indent"><tt>x &gt;= 5 <a href="KeyPgOpAnd.html">And</a> x &lt;= 10</tt><br \>
+</div></div><ul><li> conditions multiples s&eacute;par&eacute;es par des op&eacute;rateurs de court-circuit logique, par exemple:<br \>
+</ul><div class="fb_indent"><div class="fb_indent"><tt>y &lt;&gt; 0 <a href="KeyPgOpAndAlso.html">AndAlso</a> x \ y = 1</tt><br \>
+(dans ce cas, "<tt>x \ y = 1</tt>" sera &eacute;valu&eacute; seulement si "<tt>y &lt;&gt; 0</tt>" est Vrai (True))<br \>
+</div></div><ul><li> toute expression num&eacute;rique, dans ce cas une valeur de z&eacute;ro (<tt>0</tt>) repr&eacute;sente False (Faux) et une valeur non-nulle repr&eacute;sente True (Vrai)<br \>
+<br \>
+</ul> Les <tt><b>If</b></tt> multi/simple ligne peuvent &ecirc;tre imbriqu&eacute;s.  Dans ce dernier cas, les <tt><b>End If</b></tt> facultatifs peuvent &ecirc;tre utiles pour contr&ocirc;ler o&ugrave; les <tt><b>If</b></tt> imbriqu&eacute;s commencent et finissent.<br \>
+<br \>
+Dans les dialectes <i><a href="CompilerOptlang.html">-lang fb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, deux-points (<tt>:</tt>) peuvent remplacer des lignes nouvelles pour construire des blocs <tt><b>If</b></tt> multi-lignes sur une seule ligne.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;Here&nbsp;is&nbsp;a&nbsp;simple&nbsp;"guess&nbsp;the&nbsp;number"&nbsp;game&nbsp;using&nbsp;if...then&nbsp;for&nbsp;a&nbsp;decision.</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="wrd">num</span><span class="oth">,</span>&nbsp;<span class="wrd">guess</span><br />
+<br />
+<span class="key">Randomize</span><br />
+<span class="wrd">num</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Int</span><span class="oth">(</span><span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">10</span><span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">1</span>&nbsp;<span class="com">'Create&nbsp;a&nbsp;random&nbsp;number&nbsp;between&nbsp;1&nbsp;and&nbsp;10...</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"guess&nbsp;the&nbsp;number&nbsp;between&nbsp;1&nbsp;and&nbsp;10"</span><br />
+<br />
+<span class="key">Do</span>&nbsp;<span class="com">'Start&nbsp;a&nbsp;loop</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Input</span>&nbsp;<span class="quo">"Guess"</span><span class="oth">;</span>&nbsp;<span class="wrd">guess</span>&nbsp;<span class="com">'Input&nbsp;a&nbsp;number&nbsp;from&nbsp;the&nbsp;user</span><br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">If</span>&nbsp;<span class="wrd">guess</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="num">10</span>&nbsp;<span class="key">OrElse</span>&nbsp;<span class="wrd">guess</span>&nbsp;<span class="oth">&lt;</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">Then</span>&nbsp;&nbsp;<span class="com">'The&nbsp;user's&nbsp;guess&nbsp;is&nbsp;out&nbsp;of&nbsp;range</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"The&nbsp;number&nbsp;can't&nbsp;be&nbsp;greater&nbsp;then&nbsp;10&nbsp;or&nbsp;less&nbsp;than&nbsp;1!"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ElseIf</span>&nbsp;<span class="wrd">guess</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="wrd">num</span>&nbsp;<span class="key">Then</span>&nbsp;&nbsp;<span class="com">'The&nbsp;user's&nbsp;guess&nbsp;is&nbsp;too&nbsp;low</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Too&nbsp;low"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ElseIf</span>&nbsp;<span class="wrd">guess</span>&nbsp;<span class="oth">&lt;</span>&nbsp;<span class="wrd">num</span>&nbsp;<span class="key">Then</span>&nbsp;&nbsp;<span class="com">'The&nbsp;user's&nbsp;guess&nbsp;is&nbsp;too&nbsp;high</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Too&nbsp;high"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">ElseIf</span>&nbsp;<span class="wrd">guess</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">num</span>&nbsp;<span class="key">Then</span>&nbsp;&nbsp;<span class="com">'The&nbsp;user&nbsp;guessed&nbsp;the&nbsp;right&nbsp;number!</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Print</span>&nbsp;<span class="quo">"Correct!"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Exit</span>&nbsp;<span class="key">Do</span>&nbsp;&nbsp;&nbsp;<span class="com">'Exit&nbsp;the&nbsp;loop</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">End</span>&nbsp;<span class="key">If</span><br />
+<br />
+<span class="key">Loop</span>&nbsp;<span class="com">'Go&nbsp;back&nbsp;to&nbsp;the&nbsp;start&nbsp;of&nbsp;the&nbsp;loop</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+Dans les dialectes <i><a href="CompilerOptlang.html">-lang fb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, s'il y a une nouvelle ligne, un commentaire sur une seule ligne (<tt>'</tt>), deux-points (<tt>:</tt>), ou une d&eacute;claration <tt><a href="KeyPgRem.html">Rem</a></tt> directement apr&egrave;s THEN, le IF sera multi-ligne.  Toute autre d&eacute;claration donnera lieu &agrave; une seule ligne IF.<br \>
+Dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, s'il y a une nouvelle ligne ou un commentaire sur une seule ligne (<tt>'</tt>) directement apr&egrave;s THEN, le IF sera multi-lignes.  Deux-points (<tt>:</tt>), un <tt><a href="KeyPgRem.html">Rem</a></tt> ou toute autre d&eacute;claration donnera lieu &agrave; une seule ligne IF.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> END IF n'&eacute;tait pas support&eacute; dans les IF sur une seule ligne dans QBASIC.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDoloop.html">Do...Loop</a></tt><br \>
+<li> <tt><a href="KeyPgPpif.html">#if</a></tt><br \>
+<li> <tt><a href="KeyPgSelectcase.html">Select Case</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>
