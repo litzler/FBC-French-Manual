@@ -26,7 +26,7 @@
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 <tt><a href="KeyPgOnerror.html">On Error</a></tt> d&eacute;clenche un saut vers un gestionnaire d'erreur lorsqu'une erreur se produit. <br \>
 <br \>
-Si <tt><a href="KeyPgLocal.html">Local</a></tt> n'est pas utilis&eacute; le gestionnaire doit &ecirc;tre dans la partie principale du module. L'utilisation de <tt><a href="KeyPgLocal.html">Local</a></tt> permet d'avoir un gestionnaire d'erreur dans <tt><a href="KeyPgSub.html">Sub</a></tt> / <tt><a href="KeyPgFunction.html">Function</a></tt> o&ugrave; <tt><b>On Error</b></tt> est situ&eacute;.<br \>
+Si <tt><a href="KeyPgLocal.html">Local</a></tt> n'est pas utilis&eacute; le gestionnaire doit &ecirc;tre dans la partie principale du module. L'utilisation de <tt><a href="KeyPgLocal.html">Local</a></tt> permet d'avoir un gestionnaire d'erreur dans <tt><a href="KeyPgSub.html">Sub</a></tt>/<tt><a href="KeyPgFunction.html">Function</a></tt> o&ugrave; <tt><b>On Error</b></tt> est situ&eacute;.<br \>
 <br \>
 <tt><b>On Error GOTO 0</b></tt> d&eacute;sactive le gestionnaire d'erreur courant.<br \>
 <br \>

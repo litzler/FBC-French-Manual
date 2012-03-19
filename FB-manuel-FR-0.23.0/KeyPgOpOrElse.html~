@@ -35,7 +35,7 @@
 Retourne le circuit-court (disjonction inclusive) des deux op&eacute;randes.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Cet op&eacute;rateur &eacute;value l'expression &agrave; gauche.  Si le r&eacute;sultat est non-z&eacute;ro, alors -1 (vrai) est retourn&eacute; imm&eacute;diatement.  Si le r&eacute;sultat est z&eacute;ro alors l'expression de droite est &eacute;valu&eacute;e et le r&eacute;sultat logique des deux expressions est retourn&eacute;.<br \>
+Cet op&eacute;rateur &eacute;value l'expression &agrave; gauche.  Si le r&eacute;sultat non-z&eacute;ro, alors -1 (vrai) est retourn&eacute; imm&eacute;diatement.  Si le r&eacute;sultat est z&eacute;ro alors l'expression de droite est &eacute;valu&eacute;e et le r&eacute;sultat logique des deux expressions est retourn&eacute;.<br \>
 <br \>
 La table de v&eacute;rit&eacute; ci-dessous montre toutes les combinaisons d'un circuit-court, le signe '-' indique que l'op&eacute;rande n'est pas &eacute;valu&eacute;.<br \>
 <br \>

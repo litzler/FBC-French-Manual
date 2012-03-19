@@ -33,7 +33,7 @@ Retourne z&eacute;ro si <tt><b>Open Err</b></tt> s'ach&egrave;ve avec succ&egrav
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Cette commande ouvre la console en entr&eacute;e ou sortie comme pour un fichier, permettant de lire / &eacute;crire &agrave; partir de / vers celle-ci &agrave; l'aide des commandes normales d'acc&egrave;s fichier.<br \>
 <br \>
-Cette commande peut utiliser l'acc&egrave;s direct &agrave; la console pour plus de vitesse dans certaines impl&eacute;mentations, elle ne doit pas &ecirc;tre utilis&eacute;e lorsque l'entr&eacute;e / sortie doit &ecirc;tre redirig&eacute;e ou <i>pipe</i> par des commandes OS.    <br \>
+Cette commande peut utiliser l'acc&egrave;s direct &agrave; la console pour plus de vitesse dans certaines impl&eacute;mentations, elle ne doit pas &ecirc;tre utilis&eacute;e lorsque l'entr&eacute;e/sortie doit &ecirc;tre redirig&eacute;e ou <i>pipe</i> par des commandes OS.    <br \>
 <br \>
 Les commandes normales de la console, comme <tt><a href="KeyPgColor.html">Color</a></tt> et <tt><a href="KeyPgLocate.html">Locate</a></tt>, ne fonctionnent pas dans ce mode, parce qu'elles n'acceptent pas un num&eacute;ro de fichier.<br \>
 <br \>

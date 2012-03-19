@@ -20,7 +20,7 @@
 <tt><i>variable1</i> [, <i>variable2</i> [, ... ]]</tt><br \>
 <div class="fb_indent">Liste de variables s&eacute;par&eacute;es par des virgules pour recevoir les valeurs des champs de la variable de type d&eacute;fini par l'utilisateur.<br \>
 </div><tt><i>UDT_var</i></tt><br \>
-<div class="fb_indent">Une variable de type d&eacute;fini par l'utilisateur.<br \>
+<div class="fb_indent">une variable de type d&eacute;fini par l'utilisateur.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Affecte les valeurs des champs de la variable <tt><i>UDT_var</i></tt> &agrave; la liste des variables.<br \>

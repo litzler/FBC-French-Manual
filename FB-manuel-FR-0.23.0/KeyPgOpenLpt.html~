@@ -23,7 +23,7 @@
 </tt><br \>
 </div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
 <tt><i>x</i></tt><br \>
-<div class="fb_indent">Sp&eacute;cifie un num&eacute;ro de port. S'il est omis, la sortie est envoy&eacute;e au spooleur d'impression du syst&egrave;me.<br \>
+<div class="fb_indent">Sp&eacute;cifie un num&eacute;ro de port. S'il est omis, la sortie est envoy&eacute;e de spooleur d'impression du syst&egrave;me.<br \>
 </div><tt><i>Printer_Name</i></tt><br \>
 <div class="fb_indent">Nom de l'imprimante &agrave; ouvrir. Ce param&egrave;tre est ignor&eacute; sous DOS.<br \>
 </div><tt><i>TITLE=Doc_Title</i></tt><br \>

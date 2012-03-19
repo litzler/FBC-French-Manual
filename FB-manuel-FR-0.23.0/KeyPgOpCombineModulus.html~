@@ -30,7 +30,7 @@ Cet op&eacute;rateur divise deux valeurs de type <tt><a href="KeyPgInteger.html"
 <tt><br \>
 <div class="fb_indent"><i>lhs</i> = <i>lhs</i> <a href="KeyPgOpModulus.html">Mod</a> <i>rhs</i><br \>
 </div></tt><br \>
-Cet op&eacute;rateur peut &ecirc;tre surcharg&eacute; pour des types d&eacute;finis par l'utilisateur.<br \>
+Cet op&eacute;rateur peut &ecirc;tre surcharg&eacute; pour les types d&eacute;finis par l'utilisateur.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

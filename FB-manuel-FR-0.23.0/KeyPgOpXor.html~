@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Retourne la manipulation de bits XOR (disjonction exclusive) de deux valeurs num&eacute;riques<br \>
+	Retourne la manipulation de bits Xor (disjonction exclusive) de deux valeurs num&eacute;riques<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>Xor</b> ( <a href="KeyPgByref.html">ByRef</a> <i>lhs</i> <a href="KeyPgAs.html">As</a> <i>T1</i>, <a href="KeyPgByref.html">ByRef</a> <i>rhs</i> <a href="KeyPgAs.html">As</a> <i>T2</i> ) <a href="KeyPgAs.html">As</a> <i>Ret</i><br \>
@@ -32,12 +32,12 @@
 <div class="fb_indent">Un type num&eacute;rique (varie avec <tt><i>T1</i></tt> et <tt><i>T2</i></tt>).<br \>
 <br \>
 </div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
-Retourne la manipulation de bits XOR des deux op&eacute;randes.<br \>
+Retourne la manipulation de bits Xor des deux op&eacute;randes.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Cet op&eacute;rateur retourne la manipulation de bits disjonction-exclusive de ses op&eacute;randes, une op&eacute;ration logique dont le r&eacute;sultat est une valeur avec ses bits positionn&eacute;s en fonction des bits de ses op&eacute;randes.<br \>
 <br \>
-La table de v&eacute;rit&eacute; ci-dessous montre toutes les combinaisons de l'op&eacute;ration bool&eacute;enne XOR (disjonction exclusive):<br \>
+La table de v&eacute;rit&eacute; ci-dessous montre toutes les combinaisons de l'op&eacute;ration bool&eacute;enne de disjonction exclusive:<br \>
 <br \>
 <div class="fb_table"><table><tr><td>Bit c&ocirc;t&eacute; gauche</td><td>Bit c&ocirc;t&eacute; droit</td><td>R&eacute;sultat</td></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></table></div><br \>
 <br \>

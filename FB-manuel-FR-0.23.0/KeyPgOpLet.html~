@@ -72,7 +72,7 @@ b.y =  7
 </pre><br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
 <ul><li> Dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, cet op&eacute;rateur ne peut &ecirc;tre surcharg&eacute;<br \>
-<li> Dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, une expression d'affectation peut &ecirc;tre pr&eacute;c&eacute;d&eacute;e par le mot-clef <tt><a href="KeyPgLet.html">Let</a></tt>.<br \>
+<li> Dans les dialectes <i><a href="CompilerOptlang.html">-lang qb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, une expression d'affectation peut &ecirc;tre pr&eacute;c&eacute;d&eacute;e par le mot-clef <tt><a href="KeyPgLet.html">Let</a></tt> keyword.<br \>
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> Aucune<br \>

@@ -34,7 +34,7 @@
 Retourne la manipulation de bits-compl&eacute;ment de son op&eacute;rande.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Cet op&eacute;rateur retourne la manipulation de bits-compl&eacute;ment de son op&eacute;rande, une op&eacute;ation logique dont le r&eacute;sultat est une valeur dont les bits mis &agrave; 1 d&eacute;pendent des bits de son op&eacute;rande.<br \>
+Cet op&eacute;rateur retourne la manipulation de bits-compl&eacute;ment de son op&eacute;rande, une op&eacute;ation logique dont le r&eacute;sultat est une valeur dont les bits mis &agrave d&eacute;pendent des bits de son op&eacute;rande.<br \>
 <br \>
 La table de v&eacute;rit&eacute; ci-dessous montre toutes les combinaisons d'une op&eacute;ration bool&eacute;enne de compl&eacute;ment:<br \>
 <br \>

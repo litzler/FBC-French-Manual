@@ -28,7 +28,7 @@
 Retourne le r&eacute;sultat de l'&eacute;l&eacute;vation &agrave; la puissance exposant <tt><i>rhs</i></tt> d'une valeur de base <tt><i>lhs</i></tt>.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-L'<b><tt>Op&eacute;rateur ^</tt> (Puissance)</b> retourne l'&eacute;l&eacute;vation &agrave; la puissance exposant <tt><i>rhs</i></tt> d'une valeur de base <tt><i>lhs</i></tt>. <tt><b>^</b></tt> travaille seulement avec des nombres double &agrave; virgule, les op&eacute;randes d'autres types seront convertis en double avant d'effectuer l'&eacute;l&eacute;vation &agrave; la puissance. Un exposant de valeur fractionaire (<tt>1/<i>n</i></tt>) est le m&ecirc;me que la racine <tt><i>n</i></tt>-i&egrave;me de la base, par exemple, <tt>2 <b>^</b> (1/3)</tt> est la racine cubique de 2.<br \>
+L'<b><tt>Op&eacute;rateur ^</tt> (Puissance)</b> retourne l'&eacute;l&eacute;vation &agrave; la puissance exposant <tt><i>rhs</i></tt> d'une valeur de base <tt><i>lhs</i></tt>.. <tt><b>^</b></tt> travaille seulement avec des nombres double &agrave; virgule, les op&eacute;randes d'autres types seront convertis en double avant d'effectuer l'&eacute;l&eacute;vation &agrave; la puissance. Un exposant de valeur fractionaire (<tt>1/<i>n</i></tt>) est le m&ecirc;me que la racine <tt><i>n</i></tt>-i&egrave;me de la base, par exemple, <tt>2 <b>^</b> (1/3)</tt> est la racine cubique de 2.<br \>
 <br \>
 Dans tous les cas, aucun op&eacute;rande n'est modifi&eacute;.<br \>
 <br \>

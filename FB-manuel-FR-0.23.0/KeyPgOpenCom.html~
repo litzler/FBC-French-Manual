@@ -80,7 +80,7 @@ COM2 - &h2f8 - IRQ3 <br \>
 COM3 - &h3e8 - IRQ4 <br \>
 COM4 - &h2e8 - IRQ3 <br \>
 Depuis fbc-0.18.4, une alternative IRQ peut &ecirc;tre sp&eacute;cifi&eacute;e en utilisant l'option du "IRn" protocole o&ugrave; "n" va de 3 &agrave; 7.<br \>
-&Aacute; l'heure actuelle pas pris en charge: IRQ sur le PIC esclave, base alternative adresses I / O, d&eacute;lais d'attente et la plupart des erreurs d&eacute;tect&eacute;es dans QB, contr&ocirc;le de flux mat&eacute;riel, FIFO.<br \>
+&Aacute; l'heure actuelle pas pris en charge: IRQ sur le PIC esclave, base alternative adresses I / O, D&eacute;lais d'attente et la plupart des erreurs d&eacute;tect&eacute;es dans QB, contr&ocirc;le de flux mat&eacute;riel, FIFO.<br \>
 <tt>"COM:"</tt> est <tt>"COM1:"</tt><br \>
 </div></div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
 <li> dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> l'ancienne syntaxe <tt>OPEN "COMx:...</tt> est admise. <br \>

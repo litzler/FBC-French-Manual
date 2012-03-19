@@ -21,7 +21,7 @@ Branchement vers diff&eacute;rents labels d&eacute;pendant de la valeur de <i>ex
 <br \>
 Il est recommand&eacute; d'utiliser l'instruction conditionnelle et structur&eacute;e <tt><a href="KeyPgSelectcase.html">Select Case</a></tt> &agrave; la place de <tt><b>On...Goto</b></tt>.<br \>
 <br \>
-</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+</div><div class="fb_sect_title">Example</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">choice</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
 <br />

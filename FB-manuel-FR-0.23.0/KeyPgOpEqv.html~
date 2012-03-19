@@ -41,7 +41,7 @@ La table de v&eacute;rit&eacute; ci-dessous montre toutes les combinaisons de l'
 <br \>
 <div class="fb_table"><table><tr><td>Bit c&ocirc;t&eacute; gauche</td><td>Bit c&ocirc;t&eacute; droit</td><td>R&eacute;sultat</td></tr><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div><br \>
 <br \>
-Pas de possibilit&eacute; de circuit-court - les deux expressions sont toujours &eacute;valu&eacute;es.<br \>
+Pas de possibilit&eacute; de court-circuit - les deux expressions sont toujours &eacute;valu&eacute;es.<br \>
 <br \>
 Le type de la valeur retourn&eacute;e d&eacute;pend des types des deux valeurs pass&eacute;es. Les valeurs de type <tt><a href="KeyPgByte.html">Byte</a></tt>, <tt><a href="KeyPgUbyte.html">UByte</a></tt> et &agrave; virgule flottante sont en premier converties en <tt><a href="KeyPgInteger.html">Integer</a></tt>. Si les types des c&ocirc;t&eacute;s gauche et droit diff&egrave;rent seulement par le manque de signe, le type de retour sera celui du c&ocirc;t&eacute; gauche (<tt><i>T1</i></tt>), autrement, le plus grand des deux est retourn&eacute;.<br \>
 <br \>

@@ -19,7 +19,7 @@
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Branchement vers diff&eacute;rents labels d&eacute;pendant de la valeur de <i>expression</i>. Une valeur de l'expression de 1 effectuera un branchement vers la premi&egrave;re &eacute;tiquette, une valeur de 2 vers la seconde, etc.  Si la valeur de <i>expression</i> est z&eacute;ro (0) ou plus grande que le nombre d'&eacute;l&eacute;ments dans la liste, l'ex&eacute;cution se poursuit sur la d&eacute;claration qui suit imm&eacute;diatement <tt><b>On...Gosub</b></tt>.<br \>
 <br \>
-Cette d&eacute;claration se comporte exactement comme <tt><a href="KeyPgGosub.html">GoSub</a></tt> et l'ex&eacute;cution peut revenir &agrave; l'instruction qui suit <tt><b>On...Gosub</b></tt> en utilisant  <tt><a href="KeyPgReturn.html">Return</a></tt>.<br \>
+Cette d&eacute;claration comporte exactement comme <tt><a href="KeyPgGosub.html">GoSub</a></tt> et l'ex&eacute;cution peut revenir &agrave; l'instruction qui suit <tt><b>On...Gosub</b></tt> en utilisant  <tt><a href="KeyPgReturn.html">Return</a></tt>.<br \>
 <br \>
 Il est recommand&eacute; d'utiliser l'instruction conditionnelle et structur&eacute;e <tt><a href="KeyPgSelectcase.html">Select Case</a></tt> &agrave; la place de <tt><b>On...Gosub</b></tt>.<br \>
 <br \>

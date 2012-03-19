@@ -41,7 +41,7 @@ La table de v&eacute;rit&eacute; ci-dessous montre les diff&eacute;rentes combin
 <br \>
 <div class="fb_table"><table><tr><td>Bit c&ocirc;t&eacute; gauche</td><td>Bit c&ocirc;t&eacute; droit</td><td>R&eacute;sultat</td></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div><br \>
 <br \>
-Aucun circuit-court n'est ex&eacute;cut&eacute; - les deux expressions sont toujours &eacute;valu&eacute;es.<br \>
+Aucun court-circuit n'est ex&eacute;cut&eacute; - les deux expressions sont toujours &eacute;valu&eacute;es.<br \>
 <br \>
 Le type de la valeur retourn&eacute;e d&eacute;pend des types des valeurs pass&eacute;es. Les valeurs de types <tt><a href="KeyPgByte.html">Byte</a></tt>, <tt><a href="KeyPgUbyte.html">UByte</a></tt> et &agrave; virgule flottante sont en premier converties en <tt><a href="KeyPgInteger.html">Integer</a></tt>. Si les types des deux c&ocirc;t&eacute;s diff&egrave;rent seulement par le fait d'&ecirc;tre sign&eacute; ou non, alors le type de la valeur retourn&eacute;e sera le m&ecirc;me que le type le l'op&eacute;rande c&ocirc;t&eacute; gauche (<tt><i>T1</i></tt>), autrement, le plus large des deux types sera utilis&eacute;.<br \>
 <br \>

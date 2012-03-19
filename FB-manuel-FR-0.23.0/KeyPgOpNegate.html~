@@ -29,7 +29,7 @@
 Renvoie la n&eacute;gation de l'expression.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-<b><tt>Operator -</tt> (Negation)</b> est un op&eacute;rateur unaire qui change le signe de son op&eacute;rande.<br \>
+<b><tt>Operator -</tt> (Negation)</b> est un op&eacute;rateur unaire qui nie la valeur de son op&eacute;rande.<br \>
 <br \>
 Dans tous les cas, aucun op&eacute;rande n'est modifi&eacute;.<br \>
 <br \>

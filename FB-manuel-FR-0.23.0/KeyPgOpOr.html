@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Retourne la manipulation de bits (disjonction inclusive) de deux valeurs num&eacute;riques<br \>
+	Retourne la manipulation de bits OU (disjonction inclusive) de deux valeurs num&eacute;riques<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>Or</b> ( <a href="KeyPgByref.html">ByRef</a> <i>lhs</i> <a href="KeyPgAs.html">As</a> <i>T1</i>, <a href="KeyPgByref.html">ByRef</a> <i>rhs</i> <a href="KeyPgAs.html">As</a> <i>T2</i> ) <a href="KeyPgAs.html">As</a> <i>Ret</i><br \>
@@ -32,16 +32,16 @@
 <div class="fb_indent">Un type num&eacute;rique (varie avec <tt><i>T1</i></tt> et <tt><i>T2</i></tt>).<br \>
 <br \>
 </div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
-Retourne la manipulation de bits (disjonction inclusive) des deux op&eacute;randes.<br \>
+Retourne la manipulation de bits OU (disjonction inclusive) des deux op&eacute;randes.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Cet op&eacute;rateur retourne la manipulation de bits disjonction-inclusive de ses op&eacute;randes, une op&eacute;ration logique dont le r&eacute;sultat est une valeur avec ses bits positionn&eacute;s en fonction des bits de ses op&eacute;randes.<br \>
+Cet op&eacute;rateur retourne la manipulation de bits OU (disjonction-inclusive) de ses op&eacute;randes, une op&eacute;ration logique dont le r&eacute;sultat est une valeur avec ses bits positionn&eacute;s en fonction des bits de ses op&eacute;randes.<br \>
 <br \>
-La table de v&eacute;rit&eacute; ci-dessous montre toutes les combinaisons de l'op&eacute;ration bool&eacute;enne de disjonction inclusive:<br \>
+La table de v&eacute;rit&eacute; ci-dessous montre toutes les combinaisons de l'op&eacute;ration bool&eacute;enne OU (disjonction inclusive):<br \>
 <br \>
 <div class="fb_table"><table><tr><td>Bit c&ocirc;t&eacute; gauche</td><td>Bit c&ocirc;t&eacute; droit</td><td>R&eacute;sultat</td></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div><br \>
 <br \>
-Aucun court-circuit n'est possible - les deux expressions sont toujours &eacute;valu&eacute;es.<br \>
+Aucun circuit-court n'est possible - les deux expressions sont toujours &eacute;valu&eacute;es.<br \>
 <br \>
 Le type de retour d&eacute;pend des types des valeurs pass&eacute;es. Les valeurs de type <tt><a href="KeyPgByte.html">Byte</a></tt>, <tt><a href="KeyPgUbyte.html">UByte</a></tt> et &agrave; virgule flottante sont en premier converties en <tt><a href="KeyPgInteger.html">Integer</a></tt>. Si les types des deux c&ocirc;t&eacute;s diff&egrave;rent seulement par leur signe, alors le type de retour est le m&ecirc;me que celui du c&ocirc;t&eacute; gauche (<tt><i>T1</i></tt>), autrement, le plus large des deux types est retourn&eacute;.<br \>
 <br \>

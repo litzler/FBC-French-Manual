@@ -44,7 +44,7 @@
 Retourne une valeur n&eacute;gative (-1) si l'expression c&ocirc;t&eacute; gauche est inf&eacute;rieure ou &eacute;gale &agrave; celle de droite ou z&eacute;ro (0) si elle est sup&eacute;rieure.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-L'<b><tt>Op&eacute;rateur &lt;=</tt> (Inf&eacute;rieur ou &eacute;gal &agrave;)</b> est un op&eacute;rateur binaire qui compare une expression &agrave; une autre pour savoir si elle lui est inf&eacute;rieure ou &eacute;gale et retourne un r&eacute;sultat - une valeur bol&eacute;enne sous la forme d'un <tt><a href="KeyPgInteger.html">Entier (Integer)</a></tt>: n&eacute;gatif (-1) si c'est vrai et z&eacute;ro (0) si c'est faux. Les arguments ne sont en aucun cas modifi&eacute;s.<br \>
+L'<b><tt>Op&eacute;rateur &lt;=</tt> (Inf&eacute;rieur ou &eacute;gal &agrave;)</b> est un op&eacute;rateur binaire qui compare une expression &agrave; une autre pour savoir si elle lui est inf&eacute;rieure ou &eacute;gale et retourne un r&eacute;sultat - une valeur bol&eacute;enne sous la forme d'un <tt><a href="KeyPgInteger.html">Entier (Integer)</a></tt>: negatif (-1) si c'est vrai et z&eacute;ro (0) si c'est faux. Les arguments ne sont en aucun cas modifi&eacute;s.<br \>
 <br \>
 Cet op&eacute;rateur peut &ecirc;tre surcharg&eacute; pour accepter aussi bien des types d&eacute;finis par l'utilisateur.<br \>
 <br \>

@@ -23,7 +23,7 @@
 <tt><i>rhs</i></tt><br \>
 <div class="fb_indent">La cha&icirc;ne de caract&egrave;res, variable, objet ou proc&eacute;dure dont on veut r&eacute;cup&eacute;rer l'adresse.<br \>
 </div><tt><i>T</i></tt><br \>
-<div class="fb_indent">N'importe quel <a href="CatPgStdDataTypes.html">type standard</a>, <a href="CatPgUserDefTypes.html">type d&eacute;fini par l'utilisateur</a> ou proc&eacute;dure.<br \>
+<div class="fb_indent">N'importe quel type <a href="CatPgStdDataTypes.html">standard</a> ou <a href="CatPgUserDefTypes.html">type d&eacute;fini par l'utilisateur</a> ou proc&eacute;dure.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
 Retourne l'adresse de l'op&eacute;rande c&ocirc;t&eacute; droit (<tt><i>rhs</i></tt>).<br \>
