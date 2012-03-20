@@ -32,9 +32,9 @@ une valeur num&eacute;rique indique une couleur, alors qu'une cha&icirc;ne indiq
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Commande graphique pour remplir une zone d&eacute;limit&eacute;e par une bordure d'une certaine couleur. Aussi appel&eacute;e 'flood-fill' (seau de peinture) ou 'paint bucket' (inondation-remplissage).<br \>
 <br \>
-<tt><b>Paint</b></tt> op&egrave;re sur la page de travail courante valid&eacute;e par <tt><a href="KeyPgScreenset.html">ScreenSet</a></tt> ou sur le tampon cible de <tt><a href="KeyPgGetgraphics.html">Get</a></tt>/<tt><a href="KeyPgPutgraphics.html">Put</a></tt>, si sp&eacute;cifi&eacute;.<br \>
+<tt><b>Paint</b></tt> op&egrave;re sur la page de travail courante valid&eacute;e par <tt><a href="KeyPgScreenset.html">ScreenSet</a></tt> ou sur le tampon cible de <tt><a href="KeyPgGetgraphics.html">Get</a></tt> / <tt><a href="KeyPgPutgraphics.html">Put</a></tt>, si sp&eacute;cifi&eacute;.<br \>
 <br \>
-Le remplissage commence aux coordonn&eacute;es <tt>(<i>x</i>,<i>y</i>)</tt>; si <tt>STEP</tt> est pr&eacute;cis&eacute;, elles sont relatives &agrave; la derni&egrave;re position du curseur graphique. Les coordonn&eacute;es sont affect&eacute;es sont affect&eacute;es par le syst&egrave;me de coordonn&eacute;es personnel &eacute;tabli avec <tt><a href="KeyPgWindow.html">Window</a></tt> et/ou <tt><a href="KeyPgViewgraphics.html">View (Graphics)</a></tt>; le cadrage &eacute;tabli par <tt><a href="KeyPgViewgraphics.html">View</a></tt> s'applique aussi.<br \>
+Le remplissage commence aux coordonn&eacute;es <tt>(<i>x</i>,<i>y</i>)</tt>; si <tt>STEP</tt> est pr&eacute;cis&eacute;, elles sont relatives &agrave; la derni&egrave;re position du curseur graphique. Les coordonn&eacute;es sont affect&eacute;es par le syst&egrave;me de coordonn&eacute;es personnel &eacute;tabli avec <tt><a href="KeyPgWindow.html">Window</a></tt> et/ou <tt><a href="KeyPgViewgraphics.html">View (Graphics)</a></tt>; le cadrage &eacute;tabli par <tt><a href="KeyPgViewgraphics.html">View</a></tt> s'applique aussi.<br \>
 <br \>
 Si l'argument <tt><i>paint</i></tt> est un nombre, il est utilis&eacute; comme une couleur du m&ecirc;me format que celui utilis&eacute; par <tt><a href="KeyPgColor.html">Color</a></tt> et la r&eacute;gion est remplie en utilisant cette couleur. Si <tt><i>paint</i></tt> est une <tt><a href="KeyPgString.html">String (cha&icirc;ne)</a></tt>, la r&eacute;gion est remplie avec un motif; le motif a toujours  8 * 8 pixels, et la cha&icirc;ne pass&eacute;e doit contenir des donn&eacute;es dans un format correspondant &agrave; la profondeur de couleur courante. La cha&icirc;ne du motif contient les pixels ligne par ligne, et sa taille doit &ecirc;tre comme ci-dessous:<br \>
 <br \>
@@ -138,7 +138,7 @@ Si la cha&icirc;ne pass&eacute;e est plus petite, les pixels manquants seront &a
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><i>target</i></tt> est nouveau pour FreeBASIC<br \>
-<li> Dans QB, le motif de remplissage est toujours de 8 bits de largeur et la hauteur est la longueur de la cha&icirc;ne (jusqu'&agrave; 64). Dans FreeBASIC, le motif de remplissage a 8 pixels de large, est ind&eacute;pendent de la profondeur de couleur et la hauteur est toujours de 8.<br \>
+<li> Dans QB, le motif de remplissage est toujours de 8 bits de largeur et la hauteur est la longueur de la cha&icirc;ne (jusqu'&agrave; 64). Dans FreeBASIC, le motif de remplissage a 8 pixels de large, est ind&eacute;pendant de la profondeur de couleur et sa hauteur est toujours de 8.<br \>
 <li> Le param&egrave;tre de couleur d'arri&egrave;re-plan support&eacute; par QB ne l'est pas par la version FreeBASIC.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>

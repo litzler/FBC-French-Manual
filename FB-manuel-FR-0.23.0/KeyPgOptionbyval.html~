@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Option ByVal</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Option ByVal</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Sp&eacute;cifie que les param&egrave;tres doivent &ecirc;tre pass&eacute;s par valeur, par d&eacute;faut, dans les d&eacute;clarations de proc&eacute;dures<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<b>Option ByVal</b><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+<tt><b>Option ByVal</b></tt> est une instruction qui fixe &agrave; <i>by value (par valeur)</i>, la valeur par d&eacute;faut de la convention de passage pour les param&egrave;tres des proc&eacute;dures, comme s'ils avaient &eacute;t&eacute; d&eacute;clar&eacute;s avec  <tt><a href="KeyPgByval.html">ByVal</a></tt>. Ceci reste en vigueur pour tout le reste du module dans lequel <tt><b>Option ByVal</b></tt> est utilis&eacute;, et peut &ecirc;tre annul&eacute; en sp&eacute;cifiant <tt><a href="KeyPgByref.html">ByRef</a></tt> dans les liste de param&egrave;tres.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;compile&nbsp;with&nbsp;the&nbsp;"-lang&nbsp;fblite"&nbsp;compiler&nbsp;switch</span><br />
+<br />
+<span class="def">#lang&nbsp;"fblite"<br />
+</span><br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">TestDefaultByref</span><span class="oth">(</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="com">''&nbsp;change&nbsp;the&nbsp;value</span><br />
+&nbsp;&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">2</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Option</span>&nbsp;<span class="key">ByVal</span><br />
+<br />
+<span class="key">Sub</span>&nbsp;<span class="wrd">TestDefaultByval</span><span class="oth">(</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">)</span><br />
+&nbsp;&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">2</span><br />
+<span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
+<br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"a&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">a</span><br />
+<span class="wrd">TestDefaultByref</span><span class="oth">(</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"After&nbsp;TestDefaultByref&nbsp;:&nbsp;a&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">a</span><br />
+<span class="key">Print</span><br />
+<br />
+<span class="key">Print</span>&nbsp;<span class="quo">"a&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">a</span><br />
+<span class="wrd">TestDefaultByval</span><span class="oth">(</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="quo">"After&nbsp;TestDefaultByval&nbsp;:&nbsp;a&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">a</span><br />
+<span class="key">Print</span><br />
+</div></tt><br />
+<br \>
+</div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
+<ul><li> Disponible seulement dans les dialectes <i><a href="CompilerOptlang.html">-lang fblite</a></i> et <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgDdfboptionbyval.html">__FB_OPTION_BYVAL__</a></tt><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Renvoie une r&eacute;f&eacute;rence &agrave; un membre d'un pointeur vers un objet<br \>
+	Renvoie une r&eacute;f&eacute;rence &agrave; un membre &agrave; d'un objet partir d'un pointeur vers cet objet<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>-&gt;</b> ( <a href="KeyPgByref.html">ByRef</a> <i>lhs</i> <a href="KeyPgAs.html">As</a> <i>T</i> <a href="KeyPgPointer.html">Pointer</a> ) <a href="KeyPgAs.html">As</a> <i>U</i><br \>
@@ -35,7 +35,7 @@
 Renvoie une r&eacute;f&eacute;rence au membre sp&eacute;cifi&eacute; par <tt><i>rhs</i></tt>.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-L'<b><tt>Op&eacute;rateur -&gt;</tt> (Acc&egrave;s membre par pointeur)</b> renvoie une r&eacute;f&eacute;rence &agrave; un membre d'un objet gr&acirc;ce &agrave; un pointeur vers cet objet. Elle a pour effet de d&eacute;r&eacute;f&eacute;rencer un pointeur vers un objet, alors utilisez <tt><a href="KeyPgOpMemberAccess.html">Op&eacute;rateur . (Acc&egrave;s membre)</a></tt>. Par exemple, <tt>"<i>p</i><b>-&gt;</b><i>member</i>"</tt> est &eacute;quivalent &agrave; <tt>"<i>x</i>.<i>member</i>"</tt>, si <i>x</i> est un objet de type d&eacute;fini par l'utilisateur et <i>p</i> est un pointeur vers un objet du m&ecirc;me type.<br \>
+L'<b><tt>Op&eacute;rateur -&gt;</tt> (Acc&egrave;s membre par pointeur)</b> renvoie une r&eacute;f&eacute;rence &agrave; un membre d'un objet gr&acirc;ce &agrave; un pointeur vers cet objet. Cela a pour effet de d&eacute;r&eacute;f&eacute;rencer le pointeur vers l'objet, puis d'utiliser <tt><a href="KeyPgOpMemberAccess.html">Op&eacute;rateur . (Acc&egrave;s membre)</a></tt>. Par exemple, <tt>"<i>p</i><b>-&gt;</b><i>member</i>"</tt> est &eacute;quivalent &agrave; <tt>"<i>x</i>.<i>member</i>"</tt>, si <i>x</i> est un objet de type d&eacute;fini par l'utilisateur et <i>p</i> est un pointeur vers un objet du m&ecirc;me type.<br \>
 <br \>
 Cet op&eacute;rateur peut &ecirc;tre surcharg&eacute; pour les types d&eacute;finis par l'utilisateur.<br \>
 <br \>

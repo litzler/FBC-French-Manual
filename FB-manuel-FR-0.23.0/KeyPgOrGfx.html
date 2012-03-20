@@ -24,7 +24,7 @@
 La m&eacute;thode <tt><b>Or</b></tt> combine chaque pixel source avec chaque pixel correspondant de la destination, en utilisant la fonction de manipulation de bits <tt><a href="KeyPgOpOr.html">Or</a></tt>.  Le r&eacute;sultat est renvoy&eacute; comme pixel destination.<br \>
 Cette m&eacute;thode fonctionne dans tous les modes graphiques.  Il n'y a pas de masque de couleur, donc les valeurs de couleur de <tt>0</tt> (<tt><a href="KeyPgRgba.html">RGBA</a>(0, 0, 0, 0)</tt> en modes pleine couleur) n'auront aucun effet, en raison du comportement de <tt><a href="KeyPgOpOr.html">Or</a></tt>.<br \>
 <br \>
-En mode pleine couleur, chaque composante (rouge, vert, bleu et alpha) est conserv&eacute;e dans un ensemble discret de bits, ainsi l'op&eacute;ration peut affecter seulement certains canaux, en s'assurant que toutes les valeurs des autres canaux sont mises &agrave; <tt>0</tt>.<br \>
+En mode pleine couleur, chaque composante (rouge, vert, bleu et alpha) est conserv&eacute;e dans un ensemble discret de bits, ainsi l'op&eacute;ration peut n'affecter seulement que certains canaux, en s'assurant que toutes les valeurs des autres canaux sont mises &agrave; <tt>0</tt>.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

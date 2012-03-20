@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Operator Strptr (String Pointer)</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="fb_body_wrapper">
+<div id="fb_tab">
+<div id="fb_tab_l">Op&eacute;rateur Strptr (Pointeur de cha&icirc;ne)</div>
+<div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
+</div> 
+<div id="fb_pg_wrapper">
+<div id="fb_pg_body">
+	Renvoie l'adresse des donn&eacute;es caract&egrave;res d'une cha&icirc;ne.<br \>
+<br \>
+<div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>StrPtr</b> ( <a href="KeyPgByref.html">ByRef</a> <i>lhs</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgString.html">String</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgZstring.html">ZString</a> <a href="KeyPgPtr.html">Ptr</a><br \>
+<a href="KeyPgDeclare.html">Declare</a> <a href="KeyPgOperator.html">Operator</a> <b>StrPtr</b> ( <a href="KeyPgByref.html">ByRef</a> <i>lhs</i> <a href="KeyPgAs.html">As</a> <a href="KeyPgWstring.html">WString</a> ) <a href="KeyPgAs.html">As</a> <a href="KeyPgZstring.html">ZString</a> <a href="KeyPgPtr.html">Ptr</a><br \>
+</tt><br \>
+</div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
+<i>result</i> = <b>StrPtr</b> ( <i>lhs</i> )<br \>
+</tt><br \>
+</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+<tt><i>lhs</i></tt><br \>
+<div class="fb_indent">Une cha&icirc;ne.<br \>
+<br \>
+</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+Retourne un <tt><a href="KeyPgZstring.html">ZString</a> <a href="KeyPgPtr.html">Ptr</a></tt> vers les donn&eacute;es caract&egrave;res d'une cha&icirc;ne.<br \>
+<br \>
+</div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
+Cet op&eacute;rateur retourne un <tt><a href="KeyPgZstring.html">ZString</a> <a href="KeyPgPtr.html">Ptr</a></tt> qui pointe vers le d&eacute;but des donn&eacute;es caract&egrave;res d'une cha&icirc;ne. <tt><b>Operator Strptr</b></tt> est la m&eacute;thode appropri&eacute;e pour l'acquisition de l'adresse de donn&eacute;es caract&egrave;res d'une cha&icirc;ne.<br \>
+<br \>
+Notez que lorsqu'on a pass&eacute; une <tt><a href="KeyPgWstring.html">WString</a></tt>, <tt><b>Operator Strptr</b></tt> renvoie toujours un <tt><a href="KeyPgZstring.html">ZString</a> <a href="KeyPgPtr.html">Ptr</a></tt>, qui peut ne pas &ecirc;tre le r&eacute;sultat d&eacute;sir&eacute;.<br \>
+<br \>
+Les op&eacute;rateurs li&eacute;s <tt><a href="KeyPgOpVarptr.html">Operator Varptr (Variable pointeur)</a></tt> et <tt><a href="KeyPgOpAt.html">Operator @ (Address Of)</a></tt>, lorsqu'ils sont utilis&eacute;s avec une <tt><a href="KeyPgString.html">String</a></tt>, renvoient l'adresse du descripteur de cha&icirc;ne interne.<br \>
+<br \>
+</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+<tt><div class="freebasic">
+<span class="com">''&nbsp;This&nbsp;example&nbsp;uses&nbsp;Strptr&nbsp;to&nbsp;demonstrate&nbsp;using&nbsp;pointers&nbsp;with&nbsp;strings</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">myString</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">toMyStringDesc</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Any</span>&nbsp;<span class="key">Ptr</span><br />
+<span class="key">Dim</span>&nbsp;<span class="wrd">toMyString</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">ZString</span>&nbsp;<span class="key">Ptr</span><br />
+<br />
+<span class="com">''&nbsp;Note&nbsp;that&nbsp;using&nbsp;standard&nbsp;VARPTR&nbsp;notation&nbsp;will&nbsp;return&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the</span><br />
+<span class="com">''&nbsp;descriptor,&nbsp;not&nbsp;the&nbsp;string&nbsp;data&nbsp;itself</span><br />
+<span class="wrd">myString</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Improper&nbsp;method&nbsp;for&nbsp;Strings"</span><br />
+<span class="wrd">toMyStringDesc</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">@</span><span class="wrd">myString</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">myString</span><br />
+<span class="key">Print</span>&nbsp;<span class="key">Hex</span><span class="oth">(</span>&nbsp;<span class="wrd">toMyStringDesc</span>&nbsp;<span class="oth">)</span><br />
+<span class="key">Print</span><br />
+<br />
+<span class="com">''&nbsp;However,&nbsp;using&nbsp;Strptr&nbsp;returns&nbsp;the&nbsp;proper&nbsp;pointer</span><br />
+<span class="wrd">myString</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Hello&nbsp;World&nbsp;Examples&nbsp;Are&nbsp;Silly"</span><br />
+<span class="wrd">toMyString</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">StrPtr</span><span class="oth">(</span><span class="wrd">myString</span><span class="oth">)</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">myString</span><br />
+<span class="key">Print</span>&nbsp;<span class="oth">*</span><span class="wrd">toMyString</span><br />
+<span class="key">Print</span><br />
+<br />
+<span class="com">''&nbsp;And&nbsp;the&nbsp;pointer&nbsp;acts&nbsp;like&nbsp;pointers&nbsp;to&nbsp;other&nbsp;types</span><br />
+<span class="wrd">myString</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"MyString&nbsp;has&nbsp;now&nbsp;changed"</span><br />
+<span class="key">Print</span>&nbsp;<span class="wrd">myString</span><br />
+<span class="key">Print</span>&nbsp;<span class="oth">*</span><span class="wrd">toMyString</span><br />
+<span class="key">Print</span><br />
+</div></tt><br />
+<br \>
+</ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
+<ul><li> Nouveau pour FreeBASIC, mais fait exactement la m&ecirc;me chose que <tt><a href="KeyPgSadd.html">SAdd</a></tt><br \>
+<br \>
+</ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
+<ul><li> <tt><a href="KeyPgSadd.html">SAdd</a></tt><br \>
+<li> <tt><a href="KeyPgOpVarptr.html">VarPtr</a></tt><br \>
+<li> <tt><a href="KeyPgOpProcptr.html">ProcPtr</a></tt><br \>
+<li> <a href="ProPgPointers.html">Pointers</a><br \>
+<br \>
+</ul></div>
+</div>
+</div> 
+</div> 
+</body>
+</html>

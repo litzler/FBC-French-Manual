@@ -18,12 +18,12 @@
 </tt><br \>
 </div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
 <tt>"<i>lang</i>"</tt><br \>
-<div class="fb_indent">Le dialecte &agrave; fixer, entre guillemets doubles, qui doit &ecirc;tre l'un de ceux-ci: <tt>"fb"</tt>, <tt>"fblite"</tt>, <tt>"qb"</tt>, ou <tt>"deprecated"</tt>.<br \>
+<div class="fb_indent">Le dialecte &agrave; fixer, entre guillemets doubles, qui doit &ecirc;tre l'un de ceux-ci: <tt>"fb"</tt>, <tt>"fblite"</tt>, <tt>"qb"</tt> ou <tt>"deprecated"</tt>.<br \>
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Si l'option <i><a href="CompilerOptforcelang.html">-forcelang</a></i> n'a pas &eacute;t&eacute; donn&eacute;e par la ligne de commande, <tt><b>#lang</b></tt> peut &ecirc;tre utilis&eacute; pour indiquer le dialecte dans lequel le module source appara&icirc;t.  Tout au plus deux passes seront effectu&eacute;es sur le module source.  Lors de la premi&egrave;re passe, si le dialecte sp&eacute;cifi&eacute; est diff&eacute;rent du dialecte par d&eacute;faut (choisi avec <i><a href="CompilerOptlang.html">-lang</a></i>, ou <tt>"fb"</tt> par d&eacute;faut), le compilateur r&eacute;initialisera l'analyseur pour un nouveau passage et red&eacute;marrera la compilation au d&eacute;but du module source.  Si cette directive est rencontr&eacute;e &agrave; nouveau lors de la seconde passe et que le dialecte sp&eacute;cifi&eacute; ne correspond pas au nouveau dialecte courant, un avertissement est &eacute;mis et la compilation continue.  Si des erreurs ont &eacute;t&eacute; rencontr&eacute;es lors du premier passe, le compilateur ne tentera pas une seconde passe.<br \>
+Si l'option <i><a href="CompilerOptforcelang.html">-forcelang</a></i> n'a pas &eacute;t&eacute; donn&eacute;e par la ligne de commande, <tt><b>#lang</b></tt> peut &ecirc;tre utilis&eacute; pour indiquer le dialecte dans lequel le module source appara&icirc;t.  Tout au plus deux passes seront effectu&eacute;es sur le module source.  Lors de la premi&egrave;re passe, si le dialecte sp&eacute;cifi&eacute; est diff&eacute;rent du dialecte par d&eacute;faut (choisi avec <i><a href="CompilerOptlang.html">-lang</a></i> ou <tt>"fb"</tt> par d&eacute;faut), le compilateur r&eacute;initialisera l'analyseur pour un nouveau passage et red&eacute;marrera la compilation au d&eacute;but du module source.  Si cette directive est rencontr&eacute;e &agrave; nouveau lors de la seconde passe et que le dialecte sp&eacute;cifi&eacute; ne correspond pas au nouveau dialecte courant, un avertissement est &eacute;mis et la compilation continue.  Si des erreurs ont &eacute;t&eacute; rencontr&eacute;es lors de la premi&egrave;re passe, le compilateur ne tentera pas une seconde passe.<br \>
 <br \>
-<tt><b>#lang</b></tt> ne peut pas &ecirc;tre utilis&eacute; dans toute instruction compos&eacute;e, port&eacute;e ou sous-programme.  Cependant, il peut &ecirc;tre imbriqu&eacute; dans des d&eacute;clarations au niveau module du pr&eacute;processeur ou utilis&eacute; dans un "fichier include".<br \>
+<tt><b>#lang</b></tt> est interdit dans toute instruction compos&eacute;e, port&eacute;e ou sous-programme.  Cependant, il peut &ecirc;tre imbriqu&eacute; dans des d&eacute;clarations au niveau module du pr&eacute;processeur ou utilis&eacute; dans un "fichier include".<br \>
 <br \>
 Il n'existe actuellement aucune restriction sur l'endroit o&ugrave; cette directive peut &ecirc;tre plac&eacute;e dans un module source.  A l'avenir, cela pourrait changer; cependant, la meilleure pratique est d'utiliser cette directive avant la premi&egrave;re d&eacute;claration, d&eacute;finition ou d&eacute;claration ex&eacute;cutable dans le source.<br \>
 <br \>
@@ -35,7 +35,7 @@ Cette directive annule l'option <i><a href="CompilerOptlang.html">-lang</a></i> 
 </span></div></tt><br />
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
-<ul><li> Nouveau pour Freebasic<br \>
+<ul><li> Nouveau pour FreeBASIC<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgMetaLang.html">$Lang</a></tt><br \>
