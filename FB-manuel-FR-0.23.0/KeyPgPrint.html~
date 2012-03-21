@@ -29,7 +29,7 @@ Les valeurs cons&eacute;cutives dans la liste d'expressions sont s&eacute;par&ea
 <br \>
 Un caract&egrave;re "nouvelle ligne" est affich&eacute; apr&egrave;s les valeurs de la liste des expressions &agrave; moins que la liste des expressions ne soit termin&eacute;e par une virgule ou un point-virgule.  Un <tt><b>Print</b></tt> sans aucune expression ou s&eacute;parateur, affichera seulement un caract&egrave;re "nouvelle ligne".<br \>
 <br \>
-    NOTE: <tt><b>Print</b></tt> r&eacute;-initialise la valeur <tt><a href="KeyPgErr.html">Err</a></tt> d&egrave;s que chaque expression est affich&eacute;e.<br \>
+    NOTE: <tt><b>Print</b></tt> r&eacute;-initialise la valeur <tt><a href="KeyPgErr.html">Err</a></tt> d&egrave;s chaque expression est imprim&eacute;e.<br \>
     <br \>
 Pour plus de contr&ocirc;le sur le style des caract&egrave;res et la position du texte dans les modes graphiques, pensez &agrave; utiliser <tt><a href="KeyPgDrawString.html">Draw String</a></tt>.<br \>
 <br \>

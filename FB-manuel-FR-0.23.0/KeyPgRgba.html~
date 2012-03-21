@@ -35,7 +35,7 @@ La couleur correspondant &agrave; la combinaison.<br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 <tt><i>red</i></tt>, <tt><i>green</i></tt>, <tt><i>blue</i></tt> et <tt><i>alpha</i></tt> sont les composantes - valeurs de <tt>0</tt> &agrave; <tt>255</tt>.<br \>
 <br \>
-La fonction <tt><b>RGBA</b></tt> est utilis&eacute;e pour calculer une valeur de couleur valide incluant la transparence (canal alpha) pour une utilisation avec les modes "hi / truecolor". Elle renvoie un entier non sign&eacute; du format <tt>&hAARRVVBB</tt>, o&ugrave; <tt>RR</tt>, <tt>VV</tt>, <tt>BB</tt>, <tt>AA</tt>  correspondent aux valeurs pass&eacute;es &agrave; la fonction, dans le format hexad&eacute;cimal.<br \>
+La fonction <tt><b>RGBA</b></tt> est utilis&eacute;e pour calculer une valeur de couleur valide incluant la transparence (canal alpha) pour une utilisation avec les modes "hi/truecolor". Elle renvoie un entier non sign&eacute; du format <tt>&hAARRVVBB</tt>, o&ugrave; <tt>RR</tt>, <tt>VV</tt>, <tt>BB</tt>, <tt>AA</tt>  correspondent aux valeurs pass&eacute;es &agrave; la fonction, dans le format hexad&eacute;cimal.<br \>
 Il est possible de retrouver les valeurs rouge, vert, bleu et alpha &agrave; partir d'un valeur de couleur, en utilisant une combinaison de <tt><a href="KeyPgOpAnd.html">And</a></tt> et <tt><a href="KeyPgOpShiftRight.html">Shr</a></tt>.  Le second exemple ci-dessous comment utiliser <tt><a href="KeyPgPpdefine.html">#define</a></tt> et des macros pour ce faire.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>

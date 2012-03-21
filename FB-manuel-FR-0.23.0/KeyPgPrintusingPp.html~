@@ -41,7 +41,7 @@ La cha&icirc;ne de format d&eacute;termine la fa&ccedil;on dont les expressions 
 <br \>
 </div>Tous les caract&egrave;res sp&eacute;ciaux de marqueurs peuvent &ecirc;tre pr&eacute;c&eacute;d&eacute;s d'un caract&egrave;re d'&eacute;chappement, ou pr&eacute;c&eacute;d&eacute;s, avec le caract&egrave;re de soulignement <tt>"_"</tt>, leur permettant d'&ecirc;tre affich&eacute;s directement.  Par exemple, <tt>"_!"</tt> est affich&eacute; <tt>"!"</tt>.<br \>
 <br \>
-Si une valeur num&eacute;rique ne correspond pas &agrave; la forme indiqu&eacute;e par la cha&icirc;ne de format, la mise en forme est ignor&eacute;e et le nombre est &eacute;crit pr&eacute;c&eacute;d&eacute; par le caract&egrave;re pour cent <tt>"%"</tt>. Par exemple, le nombre <tt>1234</tt> avec une <tt><i>formatstring</i></tt> de <tt>"##.##"</tt> sera affich&eacute; <tt>"%1234.00"</tt>.<br \>
+Si une valeur num&eacute;rique ne correspond pas &agrave; la forme indiqu&eacute;e par la cha&icirc;ne de format, la mise en forme est ignor&eacute;e et le nombre est imprim&eacute; pr&eacute;c&eacute;d&eacute; par le caract&egrave;re pour cent <tt>"%"</tt>. Par exemple, le nombre <tt>1234</tt> avec une <tt><i>formatstring</i></tt> de <tt>"##.##"</tt> sera affich&eacute; <tt>"%1234.00"</tt>.<br \>
 <br \>
 Tous les autres caract&egrave;res de la cha&icirc;ne de format sont &eacute;crits tels qu'ils apparaissent.<br \>
 <br \>

@@ -23,7 +23,7 @@
 </div><a href="KeyPgEnd.html">End</a> <a href="KeyPgFunction.html">Function</a><br \>
 </tt><br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Dans les d&eacute;finitions de proc&eacute;dure, <tt><b>Private</b></tt> pr&eacute;cise que la proc&eacute;dure a une liaison interne, ce qui signifie que son nom n'est pas visible pour des modules externes.<br \>
+Dans les d&eacute;finitions de proc&eacute;dure, <tt><b>Private</b></tt> pr&eacute;cise que la proc&eacute;dure a une liaison interne, ce qui signifie que son nom n'est pas visible &agrave; des modules externes.<br \>
 <br \>
 L'instruction <tt><a href="KeyPgOptionprivate.html">Option Private</a></tt> permet aux proc&eacute;dures d'&ecirc;tre d&eacute;finies avec une liaison interne par d&eacute;faut.<br \>
 <br \>

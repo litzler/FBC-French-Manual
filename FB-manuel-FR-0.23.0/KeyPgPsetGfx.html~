@@ -23,7 +23,7 @@
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 La m&eacute;thode <tt><b>PSet</b></tt> copie les valeurs des pixels source sur les pixels destination.<br \>
 <br \>
-C'est la plus simple m&eacute;thode <tt><a href="KeyPgPutgraphics.html">Put</a></tt>. Les pixels du tampon destination sont directement remplac&eacute;s par les pixels du tampon source.  Aucune op&eacute;ration suppl&eacute;mentaire n'est effectu&eacute;e, et il n'y a aucune valeur de couleur trait&eacute;e comme transparente.  Cela a le m&ecirc;me effet qu'un <tt><a href="KeyPgPset.html">PSet</a></tt> individuel de chaque pixel.<br \>
+C'est la plus simple m&eacute;thode <tt><a href="KeyPgPutgraphics.html">Put</a></tt>. Les pixels du tampon destination sont directement remplac&eacute;s par les pixels du tampon source.  Aucune op&eacute;ration suppl&eacute;mentaire n'est effectu&eacute;e, et il n'y a aucune valeur de couleur tra&icirc;t&eacute;e comme transparente.  Cela a le m&ecirc;me effet qu'un <tt><a href="KeyPgPset.html">PSet</a></tt> individuel de chaque pixel.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

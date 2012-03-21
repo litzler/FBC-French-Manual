@@ -29,7 +29,7 @@
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 <tt><b>Reset</b></tt>, appel&eacute; sans arguments, ferme tous les fichiers sur le disque.<br \>
 <br \>
-<tt><b>Reset</b></tt>, appel&eacute; avec l'argument <tt><i>streamno</i></tt>, r&eacute;initialisera les flux redirig&eacute;s ou "pip&eacute;s" associ&eacute;s &agrave; stdin (0) ou stdout (1).  Passer une valeur autre que 0 ou 1 pour <tt><i>streamno</i></tt> est sans effet.<br \>
+<tt><b>Reset</b></tt>, appel&eacute; avec l'argument <tt><i>streamno</i></tt>, r&eacute;initialisera les flux redirig&eacute;s ou "pip&eacute;s" associ&eacute;s &agrave; (0) ou stdout (1).  Passer une valeur autre que 0 ou 1 pour <tt><i>streamno</i></tt> est sans effet.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

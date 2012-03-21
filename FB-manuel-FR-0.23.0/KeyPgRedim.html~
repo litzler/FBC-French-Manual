@@ -151,7 +151,7 @@ Ce programme produira la sortie suivante:<br \>
 
 </pre></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgPreserve.html">Preserve</a></tt> existe dans Visual Basic, mais pas dans QBASIC.<br \>
-<li> Les tableaux multi-dimensionnels de FreeBASIC sont d'ordre ligne-majeur, plut&ocirc;t que d'ordre colonne-majeur.<br \>
+<li> Les tableaux multi-dimensionnels de FreeBasic sont d'ordre ligne-majeur, plut&ocirc;t que d'ordre colonne-majeur.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgCommon.html">Common</a></tt><br \>

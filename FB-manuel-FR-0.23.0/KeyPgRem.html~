@@ -24,7 +24,7 @@
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Une ligne de code source commençant par <tt><b>Rem</b></tt> indique que celle-ci est un commentaire et ne sera pas compil&eacute;e.  <br \>
 <br \>
-Le caract&egrave;re apostrophe simple (') peut &eacute;galement &ecirc;tre utilis&eacute; pour indiquer un commentaire et peut apparaître apr&egrave;s d'autres mots cl&eacute;s sur une ligne de code source.<br \>
+Le caract&egrave;re apostrophe simple (') peut &eacute;galement &ecirc;tre utilis&eacute; pour indiquer un commentaire et peut apparaître apr&egrave;s d'autres mots cl&eacute;s sur une ligne de source.<br \>
 <br \>
 Les commentaires sur plusieurs lignes sont d&eacute;limit&eacute;s par <tt><b>/'</b></tt> et <tt><b>'/</b></tt>.  Tout le texte entre les deux marqueurs est consid&eacute;r&eacute; comme le texte du commentaire et n'est pas compil&eacute;.<br \>
 <br \>

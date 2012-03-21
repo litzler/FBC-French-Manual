@@ -17,7 +17,7 @@
 <a href="KeyPgRedim.html">ReDim</a> <b>Preserve</b> <i>array</i>(...) <a href="KeyPgAs.html">As</a> <a href="DataType.html">datatype</a><br \>
 </tt><br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Utilis&eacute; avec <tt><a href="KeyPgRedim.html">ReDim</a></tt> de sorte que quand un tableau est redimensionn&eacute;, les donn&eacute;es ne sont pas remises &agrave; z&eacute;ro, mais conserv&eacute;es. Cela signifie que lorsque le tableau est agrandi, seules les donn&eacute;es nouvelles sont remises &agrave; z&eacute;ro, tandis que les anciennes donn&eacute;es restent les m&ecirc;mes.<br \>
+Utilis&eacute; avec <tt><a href="KeyPgRedim.html">ReDim</a></tt> de sorte que quand un tableau est redimensionn&eacute;, les donn&eacute;es sont pas remises &agrave; z&eacute;ro, mais conserv&eacute;es. Cela signifie que lorsque le tableau est agrandi, seules les donn&eacute;es nouvelles sont remises &agrave; z&eacute;ro, tandis que les anciennes donn&eacute;es restent les m&ecirc;mes.<br \>
 <br \>
 <b>NOTE</b>: <tt><b>ReDim</b> <a href="KeyPgPreserve.html">Preserve</a></tt> peut ne pas fonctionner comme esp&eacute;r&eacute; dans certains cas:<br \>
 <div class="fb_indent">Le comportement normal de <tt><a href="KeyPgPreserve.html">Preserve</a></tt> est de conserver les donn&eacute;es originales contigu&euml;s dans la m&eacute;moire et seulement augmenter ou diminuer la taille de la m&eacute;moire.<br \>

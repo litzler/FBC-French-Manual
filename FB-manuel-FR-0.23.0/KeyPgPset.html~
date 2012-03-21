@@ -34,7 +34,7 @@
 <br \>
 <tt><i>color</i></tt> sp&eacute;cifie l'attribut de couleur.  Si omis, <tt><i>color</i></tt> prend par d&eacute;faut la couleur courante d'avant-plan.  Voir <tt><a href="KeyPgColor.html">Color</a></tt>.  <tt><i>color</i></tt> d&eacute;pend du mode graphique, voir <tt><a href="KeyPgColor.html">Color</a></tt> et <tt><a href="KeyPgScreengraphics.html">Screen (Graphique)</a></tt> pour plus de d&eacute;tails.<br \>
 <br \>
-Note d'optimisation: bien que <b>Pset</b> et son oppos&eacute; <tt><a href="KeyPgPoint.html">Point</a></tt> donnent des r&eacute;sultats valides, ils sont tr&egrave;s lents. De meilleures performances sont obtenues en utilisant <tt><a href="KeyPgPoke.html">Poke</a></tt> apr&egrave;s avoir calcul&eacute; l'adresse &agrave; partir des valeurs obtenues par <tt><a href="KeyPgImageinfo.html">ImageInfo</a></tt> et <tt><a href="KeyPgScreeninfo.html">ScreenInfo</a></tt>, ou m&ecirc;me en utilisant le langage machine avec "inline ASM".<br \>
+Note d'optimisation: bien que <b>Pset</b> et son oppos&eacute; <tt><a href="KeyPgPoint.html">Point</a></tt> donnent des r&eacute;sultats valides, ils sont tr&egrave;s lents. De meilleures performances sont obtenues en utilisant <tt><a href="KeyPgPoke.html">Poke</a></tt> apr&egrave;s avoir calcul&eacute; vous-m&ecirc;me l'adresse &agrave; partir des valeurs obtenues par <tt><a href="KeyPgImageinfo.html">ImageInfo</a></tt> et <tt><a href="KeyPgScreeninfo.html">ScreenInfo</a></tt>, ou m&ecirc;me en utilisant le langage machine avec "inline ASM".<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

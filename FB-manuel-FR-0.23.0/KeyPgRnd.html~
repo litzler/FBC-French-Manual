@@ -65,7 +65,7 @@ L'algorithme utilis&eacute; par d&eacute;faut d&eacute;pend du dialecte en usage
 <li> Avec les dialectes <i><a href="CompilerOptlang.html">-lang deprecated</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, la fonction C disponible dans le syst&egrave;me est utilis&eacute;e. La fonction a une granularit&eacute; de 15 bits dans Win32 et 32 bits sous Linux et DOS.<br \>
 <br \>
 </ul></ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
-<ul><li> Aucune, si compil&eacute; avec le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.  Les autres dialectes peuvent &eacute;galement utiliser la m&ecirc;me g&eacute;n&eacute;ration et les m&ecirc;mes algorithmes de g&eacute;n&eacute;ration en appelant <tt><a href="KeyPgRandomize.html">Randomize</a></tt> avec le param&egrave;tre appropri&eacute;.<br \>
+<ul><li> Aucune, si compil&eacute; avec le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.  Les autres dialectes peuvent &eacute;galement utiliser la m&ecirc;me g&eacute;n&eacute;ration et algorithmes de g&eacute;n&eacute;ration en appelant <tt><a href="KeyPgRandomize.html">Randomize</a></tt> avec le param&egrave;tre appropri&eacute;.<br \>
 <li> Pour les algorithmes non-QB-compatibles, si l'argument optionnel est inf&eacute;rieur &agrave; 0, il est &eacute;quivalent &agrave; passer 1 en argument.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>

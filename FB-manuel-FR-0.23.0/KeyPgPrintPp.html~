@@ -29,7 +29,7 @@ Les valeurs cons&eacute;cutives dans la liste d'expressions sont s&eacute;par&ea
 <br \>
 Un caract&egrave;re de nouvelle ligne est imprim&eacute; apr&egrave;s les valeurs de la liste des expressions &agrave; moins que la liste des expressions ne soit suivie par une virgule ou un point-virgule.<br \>
 <br \>
-Notez que la virgule (<tt>,</tt>) imm&eacute;diatement apr&egrave;s le num&eacute;ro de fichier est obligatoire, m&ecirc;me si la liste d'expressions est vide. Dans ce cas une nouvelle ligne est &eacute;crite, tout comme une liste d'expressions normale qui n'a pas une virgule ou un point-virgule &agrave; la fin.<br \>
+Notez que la virgule (<tt>,</tt>) imm&eacute;diatement apr&egrave;s le num&eacute;ro de fichier est obligatoire, m&ecirc;me la liste d'expressions est vide. Dans ce cas une nouvelle ligne est &eacute;crite, tout comme une liste d'expressions normale qui n'a pas une virgule ou un point-virgule &agrave; la fin.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">
