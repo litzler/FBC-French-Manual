@@ -185,11 +185,11 @@ Voici une liste des constantes <tt><i>what</i></tt> support&eacute;es - et leurs
 <ul><li> Nouveau pour FreeBASIC<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
-<ul><li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphique)</a></tt><br \>
+<ul><li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt><br \>
 <li> <tt><a href="KeyPgScreenevent.html">ScreenEvent</a></tt><br \>
 <li> <tt><a href="KeyPgScreeninfo.html">ScreenInfo</a></tt><br \>
 <li> <tt><a href="KeyPgWindowtitle.html">WindowTitle</a></tt><br \>
-<li> <tt><a href="KeyPgViewgraphics.html">View (Graphique)</a></tt><br \>
+<li> <tt><a href="KeyPgViewgraphics.html">View (Graphics)</a></tt><br \>
 <br \>
 </ul></div>
 </div>

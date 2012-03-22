@@ -135,7 +135,7 @@ Les donn&eacute;es &eacute;v&eacute;nement (si disponibles) seront copi&eacute;e
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgEvent.html">Event</a></tt><br \>
-<li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphique)</a></tt><br \>
+<li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt><br \>
 <li> <tt><a href="KeyPgInkey.html">Inkey</a></tt><br \>
 <li> <tt><a href="KeyPgMultikey.html">MultiKey</a></tt><br \>
 <li> <tt><a href="KeyPgGetmouse.html">GetMouse</a></tt><br \>
