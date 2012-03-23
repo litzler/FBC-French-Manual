@@ -20,7 +20,7 @@
 <tt><i>filenum</i></tt><br \>
 <div class="fb_indent">num&eacute;ro de fichier d'un fichier ouvert<br \>
 </div><tt><i>position</i></tt><br \>
-<div class="fb_indent">la nouvelle position pour les op&eacute;rations d'entr&eacute;e / sortie<br \>
+<div class="fb_indent">la nouvelle position pour les op&eacute;rations d'entr&eacute;e/sortie<br \>
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 D&eacute;finit la position &agrave; laquelle la prochaine lecture ou &eacute;criture sur un fichier va se produire.<br \>

@@ -47,7 +47,7 @@ Dans les modes OpenGL, une simple fen&ecirc;tre ou un &eacute;cran haute r&eacut
 <br \>
 Voir les d&eacute;tails dans <tt><a href="KeyPgScreengraphics.html">Screen (Graphique)</a></tt>.<br \>
 <br \>
-</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+</div><div class="fb_sect_title">Example</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
 <br />
