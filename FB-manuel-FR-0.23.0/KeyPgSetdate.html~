@@ -27,7 +27,7 @@
 Retourne z&eacute;ro si succ&egrave;s ou non-z&eacute;ro si &eacute;chec sur tous les portages sauf DOS.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Pour valider la nouvelle date, formatez seulement <tt><i>newdate</i></tt> et envoyez-la &agrave; <tt><b>SetDate</b></tt> dans l'un des formats valides qui suivent: <tt>"mm-dd-yy"</tt>, <tt>"mm-dd-yyyy"</tt>, <tt>"mm/dd/yy"</tt> ou <tt>"mm/dd/yyyy"</tt> (<tt>mm</tt> est le mois, <tt>dd</tt> est le jour, <tt>yy</tt> ou <tt>yyyy</tt> est l'ann&eacute;e).<br \>
+Pour valider la nouvelle date, formatez seulement <tt><i>newdate</i></tt> et envoyez-la &agrave; <tt><b>SetDate</b></tt> dans l'un des formats valides qui suivent: <tt>"mm-dd-yy"</tt>, <tt>"mm-dd-yyyy"</tt>, <tt>"mm/dd/yy"</tt> ou <tt>"mm/dd/yyyy"</tt> (<tt>mm</tt> est le mois, <tt>dd</tt> est le jour, <tt>yy</tt> ou <tt>yyyy</tt> est l'ann&eacute;e.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

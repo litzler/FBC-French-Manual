@@ -47,7 +47,7 @@ Appeler <tt><b>Sleep</b></tt> avec 25ms ou moins pour r&eacute;aliser un d&eacut
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences de dialecte</div><div class="fb_sect_cont"><br \>
 <ul><li> Dans les dialectes <i><a href="CompilerOptlang.html">-lang fb</a></i> et <i><a href="CompilerOptlang.html">-lang fblite</a></i>, la valeur de <tt><i>amount</i></tt> est en <b>millisecondes</b>.<br \>
-<li> Dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, la valeur de <tt><i>amount</i></tt> est en <b>secondes</b> comme dans QB. Si le deuxi&egrave;me param&egrave;tre <tt><i>keyflag</i></tt> est donn&eacute; ou le mot-cl&eacute; <tt><b>__Sleep</b></tt> est donn&eacute;, la valeur est attendue en <b>millisecondes</b>.<br \>
+<li> Dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, la valeur de <tt><i>amount</i></tt> est en <b>secondes</b> comme dans QB. Si le deuxi&egrave;me param&egrave;tre <tt><i>keyflag</i></tt> est donn&eacute;, ou le mot-cl&eacute; <tt><b>__Sleep</b></tt> est donn&eacute;, la valeur est attendue en <b>millisecondes</b>.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> Aucune dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>.<br \>

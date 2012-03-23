@@ -27,7 +27,7 @@
 Retourne z&eacute;ro si succ&egrave;s ou non-z&eacute;ro si &eacute;chec sur tous les portages sauf DOS.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Pour fixer la nouvelle heure, formatez seulement <tt><i>newtime</i></tt> et envoyez-le &agrave; <tt><b>SetDate</b></tt> dans l'un des formats valides qui suivent: <tt>"hh:mm:ss"</tt>, <tt>"hh:mm"</tt> ou <tt>"hh"</tt> (<tt>hh</tt> est l'heure, <tt>mm</tt> les minutes et <tt>ss</tt> les secondes).<br \>
+Pour fixer la nouvelle heure, formatez seulement <tt><i>newtime</i></tt> et envoyez-le &agrave; <tt><b>SetDate</b></tt> dans l'un des formats valides qui suivent: <tt>"hh:mm:ss"</tt>, <tt>"hh:mm"</tt> ou <tt>"hh"</tt> (<tt>hh</tt> est l'heure, <tt>mm</tt> les minutes, and <tt>ss</tt> les secondes).<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

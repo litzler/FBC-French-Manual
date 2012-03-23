@@ -45,7 +45,7 @@ Note: Une variable "shared"(partag&eacute;e) peut &ecirc;tre initialis&eacute;e 
 </div></tt><br />
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
-<ul><li> La d&eacute;claration <tt><i>Shared</i></tt> &agrave; l'int&eacute;rieur de blocs de visibilit&eacute; -- fonctions, sub, if / then et boucles -- n'est pas support&eacute;. Utilisez plut&ocirc;t <tt><i>Dim</i></tt> | <tt><i>Redim</i></tt> | <tt><i>Common Shared</i></tt> dans le programme principal.  Si vous &ecirc;tes dans un bloc de visibilit&eacute; et que vous <tt><i>Redim</i></tt>ensionnez une variable ou un tableau pr&eacute;c&eacute;demment mis en place avec <tt><i>Shared</i></tt>, ex&eacute;cutez seulement un <tt><i>Redim</i></tt> sans <tt><i>Shared</i></tt>; cela fonctionnera tr&egrave;s bien et ne d&eacute;truira rien.<br \>
+<ul><li> La d&eacute;claration <tt><i>Shared</i></tt> &agrave; l'int&eacute;rieur de blocs de visibilit&eacute; -- fonctions, sub, if / then et boucles -- n'est pas support&eacute;. Utilisez plut&ocirc;t <tt><i>Dim</i></tt>|<tt><i>Redim</i></tt>|<tt><i>Common Shared</i></tt> dans le programme principal.  Si vous &ecirc;tes dans un bloc de visibilit&eacute; et que vous <tt><i>Redim</i></tt>ensionnez une variable ou un tableau pr&eacute;c&eacute;demment mis en place avec <tt><i>Shared</i></tt>, ex&eacute;cutez seulement un <tt><i>Redim</i></tt> sans <tt><i>Shared</i></tt>; cela fonctionnera tr&egrave;s bien et ne d&eacute;truira rien.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgCommon.html">Common</a></tt><br \>

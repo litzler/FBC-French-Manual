@@ -34,7 +34,7 @@
 Z&eacute;ro (<tt>0</tt>) si succ&egrave;s, non-z&eacute;ro pour indiquer un &eacute;chec.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-<tt><b>SetMouse</b></tt> validera les coordonn&eacute;es (<tt><i>x</i></tt>, <tt><i>y</i></tt>) du pointeur de la souris, ainsi que la visibilit&eacute; de celui-ci.  La position de la souris est valid&eacute;e en utilisant les param&egrave;tres <tt><i>x</i></tt> et <tt><i>y</i></tt>.  La souris sera visible si <tt><i>visibility</i></tt> est mise &agrave; <tt>1</tt>, et invisible si mise &agrave; <tt>0</tt>.  <tt><b>SetMouse</b></tt> est destin&eacute; aux modes graphiques initialis&eacute;s seulement avec <tt><a href="KeyPgScreengraphics.html">Screen (Graphique)</a></tt>.<br \>
+<tt><b>SetMouse</b></tt> validera les coordonn&eacute;es (<tt><i>x</i></tt>, <tt><i>y</i></tt>) du pointeur de la souris, ainsi que la visibilit&eacute; de celui-ci.  La position de la souris est valid&eacute;e en utilisant les param&egrave;tres <tt><i>x</i></tt> et <tt><i>y</i></tt>.  La souris sera visible si <tt><i>visibility</i></tt> est mise &agrave; <tt>1</tt>, et invisible si mise &agrave; <tt>0</tt>.  <tt><b>SetMouse</b></tt> est destin&eacute; aux modes graphiques initialis&eacute;s seulement avec <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt>.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

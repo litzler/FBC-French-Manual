@@ -57,7 +57,7 @@ Bob                                Smith
 </pre></tt><br \>
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
-<ul><li> En QBASIC, des espaces sont affich&eacute;s dans l'intervalle, tandis que dans FreeBASIC, les caract&egrave;res sont simplement saut&eacute;s et laiss&eacute;s intacts.  La fonction <tt><a href="KeyPgSpace.html">Space</a></tt> peut &ecirc;tre utilis&eacute;e dans le m&ecirc;me but.<br \>
+<ul><li> En QBASIC, des espaces sont imprim&eacute;s dans l'intervalle, tandis que dans FreeBasic, les caract&egrave;res sont simplement saut&eacute;s et laiss&eacute;s intacts.  La fonction <tt><a href="KeyPgSpace.html">Space</a></tt> peut &ecirc;tre utilis&eacute;e dans le m&ecirc;me but.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgTab.html">Tab</a></tt><br \>

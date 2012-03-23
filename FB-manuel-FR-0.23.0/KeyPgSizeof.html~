@@ -17,7 +17,7 @@
 <b>SizeOf</b> ( <i>variable</i> | <a href="DataType.html">DataType</a> )<br \>
 </tt><br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-L'op&eacute;rateur <tt><b>SizeOf</b></tt> retourne le nombre d'octets occup&eacute;s par une <tt><i>variable</i></tt> ou un <tt><a href="DataType.html">DataType</a></tt>.<br \>
+L'op&eacute;rateur <tt><b>SizeOf</b></tt> retourne le nombre d'octets prises par une <tt><i>variable</i></tt> ou un <tt><a href="DataType.html">DataType</a></tt>.<br \>
 <br \>
 Diff&eacute;rent de <tt><a href="KeyPgLen.html">Len</a></tt>, lorsqu'il est utilis&eacute; avec des cha&icirc;nes de longueur fixe (inclus les cha&icirc;nes &agrave; longueur fixe <tt><a href="KeyPgZstring.html">ZString</a></tt> et <tt><a href="KeyPgWstring.html">WString</a></tt>) il retournera le nombre d'octets qu'elles utilisent, et quand il est utilis&eacute; avec des cha&icirc;nes de longueur variable, il retournera la longueur de descripteur de cha&icirc;ne.<br \>
 <br \>

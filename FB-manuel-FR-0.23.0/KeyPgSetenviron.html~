@@ -27,7 +27,7 @@
 Retourne z&eacute;ro (0) si succ&egrave;s et non-z&eacute;ro en cas d'&eacute;chec.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Modifie les variables d'environnement syst&egrave;me.  Il y a plusieurs variables disponibles pour l'&eacute;dition autres que celles par d&eacute;faut sur votre syst&egrave;me.  Un exemple de ceci serait "fbgfx", o&ugrave; vous pouvez choisir la forme de pilote graphique de la biblioth&egrave;que graphiques FreeBASIC &agrave; utiliser.<br \>
+Modifie les variables d'environnement syst&egrave;me.  Il y a plusieurs variables disponibles pour l'&eacute;dition autres que celles par d&eacute;faut sur votre syst&egrave;me.  Un exemple de ceci serait "fbgfx", o&ugrave; vous pouvez choisir la forme de pilote graphique de la biblioth&egrave;que graphiques FreeBasic &agrave; utiliser.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">
