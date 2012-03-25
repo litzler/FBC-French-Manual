@@ -34,7 +34,7 @@
 La cha&icirc;ne cr&eacute;&eacute;e. Une cha&icirc;ne vide sera retourn&eacute;e si <tt><i>ch</i></tt> est une cha&icirc;ne vide, ou si <tt><i>count</i></tt> &lt;= 0.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Une liste des <a href="CptAscii.html">codes ASCII des caract&egrave;res</a>.<br \>
+Une liste de <a href="CptAscii.html">codes ASCII de caract&egrave;res</a>.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

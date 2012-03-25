@@ -53,7 +53,7 @@ Lorsqu'il est utilis&eacute; au niveau module et de d&eacute;clarations de proc&
 <span class="wrd">f</span><span class="oth">()</span><br />
 <span class="wrd">f</span><span class="oth">()</span><br />
 </div></tt><br />
-affichera:<br \>
+Will output:<br \>
 <br \>
 <pre class="fb_pre">
 Number of times called: 1

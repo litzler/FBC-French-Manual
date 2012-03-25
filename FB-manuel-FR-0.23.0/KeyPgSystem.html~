@@ -26,7 +26,7 @@
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Ferme tous les fichiers ouverts et retourne au syst&egrave;me. Une valeur de retour facultative (un nombre entier) peut &ecirc;tre sp&eacute;cifi&eacute;e pour retourner un code d'erreur au syst&egrave;me. Si aucune valeur de retour n'est donn&eacute;e, une valeur de 0 est automatiquement retourn&eacute;e. Ceci est identique &agrave; <tt><a href="KeyPgEnd.html">End</a></tt> et existe pour compatibilit&eacute; avec les anciens dialectes BASIC. Il est recommand&eacute; d'utiliser <tt><a href="KeyPgEnd.html">End</a></tt> &agrave; la place.<br \>
 <br \>
-L'utilisation de cette d&eacute;claration ne fermera pas proprement la port&eacute;e. Les variables et la m&eacute;moire ne sont pas d&eacute;truits automatiquement et les destructeurs d'objets ne sont pas appel&eacute;s. L'appel des destructeurs (et autres) n&eacute;cessaires au nettoyage doit &ecirc;tre explicitement effectu&eacute; avant l'ex&eacute;cution de <tt><b>System</b></tt>.<br \>
+L'utilisation de cette d&eacute;claration ne fermera pas proprement la port&eacute;e. Les variables et la m&eacute;moire ne sont pas d&eacute;truits automatiquement et destructeurs d'objets ne sont pas appel&eacute;s. L'appel des destructeurs (et autres) n&eacute;cessaires au nettoyage doit &ecirc;tre explicitement effectu&eacute; avant l'ex&eacute;cution de <tt><b>System</b></tt>.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

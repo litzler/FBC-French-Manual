@@ -31,7 +31,7 @@ Dans une d&eacute;claration de proc&eacute;dure, <tt><b>stdcall</b></tt> pr&eacu
 <br \>
 <tt><b>stdcall</b></tt> n'est pas autoris&eacute; &agrave; &ecirc;tre utilis&eacute; avec les d&eacute;clarations de proc&eacute;dures "&agrave; variations" (variadic) (celles qui ont le dernier param&egrave;tre r&eacute;pertori&eacute; par "<tt><a href="KeyPgDots.html">...</a></tt>").<br \>
 <br \>
-<i>stdcall</i> est la convention d'appel par d&eacute;faut sous Windows, &agrave; moins qu'une autre convention d'appel ne soit explicitement sp&eacute;cifi&eacute;e ou implicitement par l'un des <a href="KeyPgExternBlock.html">Blocs Extern</a>. <i>stdcall</i> est aussi la convention standard (ou la plus commune) utilis&eacute;e par les langages BASIC et l'API Windows.<br \>
+<i>stdcall</i> est la convention d'appel par d&eacute;faut sous Windows, &agrave; moins qu'une autre convention d'appel ne soit explicitement sp&eacute;cifi&eacute;e ou implicitement par l'un des <a href="KeyPgExternBlock.html">Blocs Extern</a>. <i>stdcall</i> est aussi la convention standard (ou la plus commune) utilis&eacute;e par les langages BASIC et de l'API Windows.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

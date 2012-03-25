@@ -58,7 +58,7 @@
 <li> Le suffixe de type cha&icirc;ne <tt>"$"</tt> est facultatif dans les dialectes <i><a href="CompilerOptlang.html">-lang fblite</a></i> et <i><a href="CompilerOptlang.html">-lang fb</a></i>.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
-<ul><li>La version / cible DOS de FreeBASIC ne supporte pas la version larges caract&egrave;res de <tt><b>Str</b></tt>.<br \>
+<ul><li> DOS version / cible de FreeBASIC ne supporte pas la version larges caract&egrave;res de <tt><b>Str</b></tt>.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> QB ne supporte pas la version larges caract&egrave;res de <tt><b>Str</b></tt>.<br \>

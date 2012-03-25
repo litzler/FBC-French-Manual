@@ -26,7 +26,7 @@
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 <tt><b>Typeof</b></tt> est un compilateur intrins&egrave;que qui se remplace par le type de la variable qui lui est pass&eacute;e. Il peut &ecirc;tre utilis&eacute; dans une d&eacute;claration de variable (Exemple 1) ou il peut &ecirc;tre utilis&eacute; dans le pr&eacute;processeur pour comparaison, impression (Example 2).<br \>
 <br \>
-<tt><b>Typeof</b></tt> peut &eacute;galement supporter le passage de n'importe quel type de donn&eacute;es intrins&egrave;ques, ou de type d&eacute;fini par l'utilisateur, et non pas uniquement des variables d&eacute;finies dans ces types. Les expressions sont aussi prises en charge, le type est d&eacute;termin&eacute; &agrave; partir de l'expression (un peu comme <a href="KeyPgVar.html">Var</a>)<br \>
+<tt><b>Typeof</b></tt> peut &eacute;galement passer n'importe quel type de donn&eacute;es intrins&egrave;ques, ou de type d&eacute;fini par l'utilisateur, et non pas uniquement des variables d&eacute;finies comme &eacute;tant les types. Les expressions sont aussi prises en charge, le type est d&eacute;termin&eacute; &agrave; partir de l'expression (un peu comme <a href="KeyPgVar.html">Var</a>)<br \>
 <br \>                                                                                    
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>

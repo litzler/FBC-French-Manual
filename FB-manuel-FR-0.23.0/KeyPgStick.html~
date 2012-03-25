@@ -27,7 +27,7 @@
 Renvoie un nombre entre 1 et 200 pour l'<tt><i>axis</i></tt> sp&eacute;cifi&eacute;, sinon z&eacute;ro (0), si le p&eacute;riph&eacute;rique n'est pas li&eacute;.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-<tt><b>Stick</b></tt> permettra de r&eacute;cup&eacute;rer la position de l'axe pour les premier et second axes des premier et deuxi&egrave;me p&eacute;riph&eacute;riques de jeu.  <tt><i>axis</i></tt> doit &ecirc;tre un nombre entre 0 et 3 et ont la signification suivante:<br \>
+<tt><b>Stick</b></tt> permettra de r&eacute;cup&eacute;rer la position de l'axe pour les premier et second axes des premier et deuxi&egrave;me p&eacute;riph&eacute;riques de jeu.  <tt><i>axis</i></tt> doit &ecirc;tre un nombre entre 0 et 3 ont la signification suivante:<br \>
 <br \>
 <div class="fb_table"><table><tr><td>Axes</td><td>Retourne</td></tr><tr><td>0</td><td>Position X du dispositif de jeu A</td></tr><tr><td>1</td><td>Position Y du dispositif de jeu A quand STICK(0) a &eacute;t&eacute; appel&eacute;</td></tr><tr><td>2</td><td>Position X du dispositif de jeu B lorsque STICK (0) a &eacute;t&eacute; appel&eacute;</td></tr><tr><td>3</td><td>Position Y du dispositif de jeu B lorsque STICK (0) a &eacute;t&eacute; appel&eacute;</td></tr></table></div><br \>
 <br \>

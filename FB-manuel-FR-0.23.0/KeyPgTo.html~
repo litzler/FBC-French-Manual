@@ -30,9 +30,9 @@ Le mot-clef TO est utilis&eacute; pour d&eacute;finir une certaine plage num&eac
 <br \>
 Dans la premi&egrave;re syntaxe, le mot-clef TO d&eacute;finit les valeurs initiales et finales de l'it&eacute;rateur dans une d&eacute;claration FOR.<br \>
 <br \>
-Dans la deuxi&egrave;me syntaxe, le mot-clef TO d&eacute;finit les bornes inf&eacute;rieure et sup&eacute;rieure de comparaisons CASE.<br \>
+Dans la deuxi&egrave;me syntaxe, le mot-clef TO d&eacute;finit les bornes inf&eacute;rieures et sup&eacute;rieures de comparaisons CASE.<br \>
 <br \>
-Dans la troisi&egrave;me syntaxe, le mot-clef TO d&eacute;finit les bornes inf&eacute;rieure et sup&eacute;rieure d'une d&eacute;claration DIM<br \>
+Dans la troisi&egrave;me syntaxe, le mot-clef TO d&eacute;finit les bornes inf&eacute;rieures et sup&eacute;rieures d'une d&eacute;claration DIM<br \>
 <br \>
 Pour plus d'informations, voir <a href="KeyPgFornext.html">For...Next</a>, <a href="KeyPgDim.html">Dim</a> et <a href="KeyPgSelectcase.html">Select Case</a>.<br \>
 <br \>

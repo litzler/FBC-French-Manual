@@ -30,7 +30,7 @@ Une copie temporaire du type.<br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Utilis&eacute; pour cr&eacute;er un type anonyme et temporaire.  Si <tt><i>typename</i></tt> n'est pas explicitement donn&eacute;,  il sera d&eacute;duit d'apr&egrave;s son utilisation.  L'utilisation de la copie temporaire peut &ecirc;tre de l'assigner &agrave; une variable, de la passer comme un param&egrave;tre &agrave; une proc&eacute;dure ou comme valeur retourn&eacute;e par une proc&eacute;dure.<br \>
 <br \>
-Le <tt><a href="KeyPgConstructor.html">Constructor</a></tt> du type, s'il existe, sera appel&eacute; quand la copie temporaire est cr&eacute;&eacute;e.  Et le <tt><a href="KeyPgDestructor.html">Destructor</a></tt> du type, s'il existe, sera appel&eacute; imm&eacute;diatement apr&egrave;s son utilisation.<br \>
+Le <tt><a href="KeyPgConstructor.html">Constructor</a></tt> du type, s'il existe, devrait &ecirc;tre appel&eacute; quand la copie temporaire est cr&eacute;&eacute;e.  Et le <tt><a href="KeyPgDestructor.html">Destructor</a></tt> du type, s'il existe, devrait &ecirc;tre appel&eacute; imm&eacute;diatement apr&egrave;s son utilisation.<br \>
 <br \>
 Il peut &eacute;galement &ecirc;tre utilis&eacute; comme un raccourci encore plus court que <tt><a href="KeyPgWith.html">With</a></tt> (voir plus loin) si vous changez tous les enregistrements.<br \>
 <br \>

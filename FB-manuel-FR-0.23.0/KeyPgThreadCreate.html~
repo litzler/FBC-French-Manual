@@ -35,7 +35,7 @@ La fonction utilisateur est lancée comme un "thread" exécuté en parall&egrave;le
 <br \>
 Avant fermeture, un programme doit attendre l'ach&egrave;vement de tous les "threads" qu'il a lancés; voir <tt><a href="KeyPgThreadWait.html">ThreadWait</a></tt>.<br \>
 <br \>
-Pour éviter l'acc&egrave;s simultané aux ressources partagées à partir de "threads" différents, FreeBASIC met en œuvre les "mutex", les verrous d'exclusion mutuelle qui peuvent &ecirc;tre "poss&eacute;d&eacute;s" par un seul "thread" lors d'un travail critique. Voir <tt><a href="KeyPgMutexCreate.html">MutexCreate</a></tt>, <tt><a href="KeyPgMutexLock.html">MutexLock</a></tt>, <tt><a href="KeyPgMutexUnlock.html">MutexUnlock</a></tt>, <tt><a href="KeyPgMutexDestroy.html">MutexDestroy</a></tt>.<br \>
+Pour éviter l'acc&egrave;s simultané aux ressources partagées à partir de "threads" différents, FreeBasic met en œuvre les "mutex", les verrous d'exclusion mutuelle qui peuvent &ecirc;tre "poss&eacute;d&eacute;s" par un seul "thread" lors d'un travail critique. Voir <tt><a href="KeyPgMutexCreate.html">MutexCreate</a></tt>, <tt><a href="KeyPgMutexLock.html">MutexLock</a></tt>, <tt><a href="KeyPgMutexUnlock.html">MutexUnlock</a></tt>, <tt><a href="KeyPgMutexDestroy.html">MutexDestroy</a></tt>.<br \>
 <br \>
 Sur certains syst&egrave;mes, la pile augmente automatiquement au-del&agrave; de <tt><i>stack_size</i></tt> si plus d'espace est n&eacute;cessaire; sur les autres, c'est le maximum permis. Le comportement est impr&eacute;visible en cas de d&eacute;passement de pile, par rapport &agrave; ce qui &eacute;tait r&eacute;serv&eacute;, dans les cas o&ugrave; la pile n'est pas capable de s'agrandir.<br \>
 <br \>
@@ -96,7 +96,7 @@ Sur certains syst&egrave;mes, la pile augmente automatiquement au-del&agrave; de
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
 <ul><li> La version DOS de FreeBASIC ne permet pas les "threads", car l'OS ne les supporte pas.<br \>
-<li> Dans Linux les "threads" sont toujours d&eacute;marr&eacute;s dans l'ordre de leur cr&eacute;ation, ceci n'est pas possible sous Win32. Probl&egrave;me de l'OS, pas de FreeBASIC.<br \>
+<li> Dans Linux les "threads" sont toujours d&eacute;marr&eacute;s dans l'ordre de leur cr&eacute;ation, ceci n'est pas possible sous Win32. Probl&egrave;me de l'OS, pas de FreeBasic.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> Nouveau pour FreeBASIC<br \>
