@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Sp&eacute;cifie le contr&ocirc;le d'acc&egrave;s <tt><b>Protected</b></tt> (= prot&eacute;g&eacute;) &agrave; un membre d'un <tt><a href="KeyPgType.html">Type</a></tt> ou d'une <tt><a href="KeyPgClass.html">Class</a></tt><br \>
+	Sp&eacute;cifie le contr&ocirc;le d'acc&egrave;s <tt><b>Protected:</b></tt> (= prot&eacute;g&eacute;) &agrave; un membre d'un <tt><a href="KeyPgType.html">Type</a></tt> ou d'une <tt><a href="KeyPgClass.html">Class</a></tt><br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <a href="KeyPgType.html">Type</a> <i>typename</i><br \>

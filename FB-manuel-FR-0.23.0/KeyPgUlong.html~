@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Type de donn&eacute;es standard: nombre entier non-sign&eacute; qui a la m&ecirc;me taille que <tt><a href="KeyPgSizeof.html">SizeOf</a>(<a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a>)</tt><br \>
+	Type de donn&eacute;es standard: nombre entier non-signe qui a la m&ecirc;me taille que <tt><a href="KeyPgSizeof.html">SizeOf</a>(<a href="KeyPgAny.html">Any</a> <a href="KeyPgPtr.html">Ptr</a>)</tt><br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <a href="KeyPgDim.html">Dim</a> <i>variable</i> <a href="KeyPgAs.html">As</a> <b>Ulong</b><br \>

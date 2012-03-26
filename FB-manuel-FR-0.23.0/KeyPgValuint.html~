@@ -20,7 +20,7 @@
 </div><div class="fb_sect_title">Usage</div><div class="fb_sect_cont"><tt><br \>
 <i>result</i> = <b>ValUInt</b> ( <i>strnum</i> )<br \>
 </tt><br \>
-</div><div class="fb_sect_title">Param&egrave;tres</div><div class="fb_sect_cont"><br \>
+</div><div class="fb_sect_title">Paramètres</div><div class="fb_sect_cont"><br \>
 <tt><i>strnum</i></tt><br \>
 <div class="fb_indent">la cha&icirc;ne &agrave; convertir<br \>
 <br \>
@@ -36,7 +36,7 @@ Par exemple, <tt><b>ValUInt</b>("10")</tt> retournera <tt>10</tt>, et <tt><b>Val
 <br \>
 Si vous voulez convertir un nombre en une cha&icirc;ne, utilisez la fonction <tt><a href="KeyPgStr.html">Str</a></tt>.<br \>
 <br \>
-</div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
+</div><div class="fb_sect_title">Example</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span><br />
 <span class="wrd">a</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"20xa211"</span><br />

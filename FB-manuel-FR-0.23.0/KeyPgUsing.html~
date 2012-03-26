@@ -20,7 +20,7 @@
 <tt><i>identifier</i></tt>: Le nom de l' <tt><a href="KeyPgNamespace.html">Namespace = Espace de noms</a></tt> que vous voulez utiliser.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-La commande <tt><b>Using</b></tt> rend tous les symboles - d'un espace de noms donn&eacute; - accessibles sans le pr&eacute;fixe nom de l'espace de noms. Contrairement &agrave; C++, mais comme C#, le mot-clef <tt><a href="KeyPgNamespace.html">Namespace</a></tt> n'est pas n&eacute;cessaire apr&egrave;s <tt><b>Using</b></tt>, car les symboles individuels ne peuvent pas &ecirc;tre h&eacute;rit&eacute;s d'un espace de noms. H&eacute;riter un espace de noms entier permet de sauver le typage, mais cependant un certain sens du code peut &ecirc;tre perdu et des conflits avec d'autres symboles peuvent &ecirc;tre cr&eacute;&eacute;s.<br \>
+La commande <tt><b>Using</b></tt> rend tous les symboles - d'un espace de noms donn&eacute; - accessibles sans le pr&eacute;fixe nom de l'espace de noms. Contrairement &agrave; C++, mais comme C#, le mot-clef <tt><a href="KeyPgNamespace.html">Namespace</a></tt> n'est pas n&eacute;cessaire apr&egrave;s <tt><b>Using</b></tt>, car les symboles individuels ne peuvent pas &ecirc;tre h&eacute;rit&eacute;s d'un espace de noms. H&eacute;riter un espace de noms entier permet de sauver le typage, mais cependant un certain sens du code peut &ecirc;tre perdu et des conflits avec d'autres symboles pourraient &ecirc;tre cr&eacute;&eacute;s.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

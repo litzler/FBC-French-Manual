@@ -24,7 +24,7 @@
 <br \>
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 D&eacute;finit les limites de la zone de texte de l'&eacute;cran console de la ligne de d&eacute;part en premier jusqu'&agrave; la derni&egrave;re comprise.  Les lignes sont num&eacute;rot&eacute;es en commen&ccedil;ant &agrave; <tt>1</tt>.  Le curseur texte est d&eacute;plac&eacute; au d&eacute;but de la premi&egrave;re ligne sp&eacute;cifi&eacute;e.<br \>
-Si les num&eacute;ros de ligne sont omis, la totalit&eacute; de l'&eacute;cran est utilis&eacute;e comme zone de texte.<br \>
+Si les num&eacute;ros de ligne sont omis, la totalit&eacute; de l'&eacute;cran est utilis&eacute;e comme la zone de texte.<br \>
 <br \>
 </div><div class="fb_sect_title">Exemple</div><div class="fb_sect_cont"><br \>
 <tt><div class="freebasic">

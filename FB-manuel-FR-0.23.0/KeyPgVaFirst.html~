@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Retourne le premier argument dans une liste variable d'arguments<br \>
+	Retourne le premier argument dans une liste d'arguments variable<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <i>pointer_variable</i> = <b>va_first</b>()<br \>

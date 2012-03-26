@@ -31,7 +31,7 @@
 </div></div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Une <tt><b>Union</b></tt> est similaire &agrave; une structure <tt><a href="KeyPgType.html">Type</a></tt>, sauf que les &eacute;l&eacute;ments d'une <tt><b>Union</b></tt> occupent le m&ecirc;me espace dans la m&eacute;moire. La taille de l'<tt><b>Union</b></tt> est celle du plus grand &eacute;l&eacute;ment de donn&eacute;es. Un &eacute;l&eacute;ment de donn&eacute;es peut &ecirc;tre d'un <tt><a href="KeyPgType.html">Type</a></tt> sans nom. Comme ils occupent le m&ecirc;me espace, un seul &eacute;l&eacute;ment peut &ecirc;tre utilis&eacute;. <br \>
 <br \>
-Des <tt><b>Union</b></tt> sans nom peuvent &ecirc;tre imbriqu&eacute;es dans une structure <tt><a href="KeyPgType.html">Type</a></tt> et des <tt><a href="KeyPgType.html">Type</a></tt>s sans nom peuvent &ecirc;tre imbriqu&eacute;s &agrave; l'int&eacute;rieur d'une <tt><b>Union</b></tt>. Voir Exemple.<br \>
+Des <tt><b>Union</b></tt> sans nom peuvent &ecirc;tre imbriqu&eacute;es dans une structure type et des types sans nom peuvent &ecirc;tre imbriqu&eacute;s &agrave; l'int&eacute;rieur d'une <tt><b>Union</b></tt>. Voir Exemple.<br \>
 <br \>
 Les <tt><b>Union</b></tt> supportent des fonctions membres inclus <tt><a href="KeyPgConstructor.html">Constructor</a></tt>, <tt><a href="KeyPgDestructor.html">Destructor</a></tt>, <tt><a href="KeyPgMemberFunction.html">Function</a></tt>, <tt><a href="KeyPgOperator.html">Operator</a></tt>, <tt><a href="KeyPgProperty.html">Property</a></tt> et <tt><a href="KeyPgMemberSub.html">Sub</a></tt>.  Tous les membres d'une <tt><b>Union</b></tt> sont publics et le contr&ocirc;le d'acc&egrave;s n'est pas support&eacute;.<br \>
 <br \>

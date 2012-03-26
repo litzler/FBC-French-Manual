@@ -24,7 +24,7 @@ Puisque le type de la variable est d&eacute;duit de ce que vous lui attribuez, i
 <br \>
 Toutes les expressions <tt><a href="KeyPgZstring.html">ZString</a></tt>, y compris les cha&icirc;nes litt&eacute;rales et les pointeurs <tt><a href="KeyPgPtr.html">Ptr</a></tt> <tt><a href="KeyPgZstring.html">ZString</a></tt> d&eacute;r&eacute;f&eacute;renc&eacute;s, auront le type de variable <tt><a href="KeyPgString.html">String</a></tt>.<br \>
 <br \>
-Des suffixes explicites peuvent &ecirc;tre utilis&eacute;s sur des variables litt&eacute;rales, pour changer / clarifier leur type. Voir <a href="ProPgLiterals.html">les litt&eacute;raux</a> et <a href="TblVarTypes.html">les types de variables</a> pour plus d'information sur les suffixes utilisables sur les litt&eacute;raux.<br \>
+Des suffixes explicites peuvent &ecirc;tre utilis&eacute;s sur des variables litt&eacute;rales, pour changer / clarifier leur type. Voir <a href="ProPgLiterals.html">Les litt&eacute;raux</a> et <a href="TblVarTypes.html">Les types de variables</a> pour plus d'information sur les suffixes utilisables sur les litt&eacute;raux.<br \>
 <br \>
 Note: Les suffixes doivent figurer sur l'initialisation, et non sur la variable. Essayer d'utiliser <tt><b>Var</b></tt> avec une variable qui a un suffixe produira une erreur de compilation.<br \>
 <br \>
