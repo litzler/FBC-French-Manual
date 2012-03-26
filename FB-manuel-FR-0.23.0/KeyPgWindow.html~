@@ -78,8 +78,8 @@ Quand il n'y a pas de <tt><b>Window</b></tt> en cours, il n'y a pas de cartograp
 <li> Actuellement FreeBASIC pr&eacute;serve les coordonn&eacute;es WINDOW apr&egrave;s des appels successifs &agrave; VIEW, ou lors d'un travail sur des images, ce qui signifie que les coordonn&eacute;es de cartographie peuvent faire l'objet de mise &agrave; &eacute;chelle / translations. (Si un WINDOW n'a pas &eacute;t&eacute; valid&eacute;, il n'existe pas de cartographie des coordonn&eacute;es, et ainsi elle ne peut changer apr&egrave;s des appels &agrave; VIEW.)  Ce comportement peut changer &agrave; l'avenir, mais un comportement coh&eacute;rent peut &ecirc;tre assur&eacute; au cours de la visualisation de coordonn&eacute;es inconsistantes de la zone de visualisation graphique par un rappel de <tt>WINDOW</tt> lorsque vous changez <tt>VIEW</tt>.<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
-<ul><li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphique)</a></tt><br \>
-<li> <tt><a href="KeyPgViewgraphics.html">View (Graphique)</a></tt><br \>
+<ul><li> <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt><br \>
+<li> <tt><a href="KeyPgViewgraphics.html">View (Graphics)</a></tt><br \>
 <li> <tt><a href="KeyPgPmap.html">PMap</a></tt><br \>
 <br \>
 </ul><br \>

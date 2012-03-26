@@ -39,7 +39,7 @@ Si le p&eacute;riph&eacute;rique est la console, un second argument sp&eacute;ci
 <br \>
 L'utilisation de <tt><b>Width</b></tt> comme une fonction retourne la largeur courante de la console dans le mot de poids faible et la hauteur courante dans le mot de poids fort.<br \>
 <br \>
-Dans les modes graphiques, <tt><b>Width</b></tt> est utilis&eacute; pour s&eacute;lectionner indirectement la taille de la police de caract&egrave;res en validant une des paires hauteur * largeur possibles (Voir <tt><a href="KeyPgScreengraphics.html">Screen (Graphique)</a></tt>). Si  <tt><i>rows (lignes)</i></tt> * <tt><i>cols (colonnes)</i></tt> est une combinaison invalide, il n'y aura aucun changement de l'affichage &eacute;cran.<br \>
+Dans les modes graphiques, <tt><b>Width</b></tt> est utilis&eacute; pour s&eacute;lectionner indirectement la taille de la police de caract&egrave;res en validant une des paires hauteur * largeur possibles (Voir <tt><a href="KeyPgScreengraphics.html">Screen (Graphics)</a></tt>). Si  <tt><i>rows (lignes)</i></tt> * <tt><i>cols (colonnes)</i></tt> est une combinaison invalide, il n'y aura aucun changement de l'affichage &eacute;cran.<br \>
 <br \>
 Les hauteurs valides de polices de caract&egrave;res sont 8 pixels, 14 pixels et 16 pixels.  Toutes les polices de caract&egrave;res ayant une largeur fixe de 8 pixels.<br \>
 <br \>

@@ -39,7 +39,7 @@
 Retourne une <a href="KeyPgString.html">String</a> hexad&eacute;cimale correspondant &agrave; <i>number</i>.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Chiffres hexad&eacute;cimaux de 0 &agrave; 9 et A &agrave; F.<br \>
+Chiffres hexad&eacute;cimaux de 0 &agrave; 9, ou A &agrave; F.<br \>
 <br \>
 Si vous sp&eacute;cifiez <tt><i>digits</i></tt> &gt; 0, la <tt><a href="KeyPgWstring.html">WString</a></tt> r&eacute;sultat aura exactement cette longueur.  Elle sera tronqu&eacute;e ou compl&eacute;t&eacute;e avec des z&eacute;ros sur la gauche, si n&eacute;cessaire.<br \>
 <br \>

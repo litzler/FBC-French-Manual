@@ -28,7 +28,7 @@
 </div><tt><i>firstdayofweek</i></tt><br \>
 <div class="fb_indent">1er jour de la semaine<br \>
 <br \>
-</div></div><div class="fb_sect_title">Valeur retourn&eacute;e</div><div class="fb_sect_cont"><br \>
+</div></div><div class="fb_sect_title">Return Value</div><div class="fb_sect_cont"><br \>
 Retourne le nom du jour dans le langage du syst&egrave;me d'exploitation local &agrave; partir de <tt><i>weekday</i></tt> valeur de 1 &agrave; 7.<br \>
 <br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
