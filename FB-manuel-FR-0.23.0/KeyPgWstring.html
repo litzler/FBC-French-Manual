@@ -18,15 +18,15 @@
 <a href="KeyPgDim.html">Dim</a> <i>variable</i> <a href="KeyPgAs.html">As</a> <b>WString</b> <a href="KeyPgPtr.html">Ptr</a><br \>
 </tt><br \>
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
-Une <tt><b>WString</b></tt> est un tableau &agrave; taille fixe de caract&egrave;res larges qui ne d&eacute;borde jamais si la taille est connue au moment de la compilation. Il n'y a pas de descripteur, et ne peut être redimensionn&eacute; sauf si c'est un pointeur et que <tt><a href="KeyPgAllocate.html">Allocate</a></tt>/<tt><a href="KeyPgReallocate.html">Reallocate</a></tt>/<tt><a href="KeyPgDeallocate.html">Deallocate</a></tt> sont utilis&eacute;s directement.<br \>
+Une <tt><b>WString</b></tt> est un tableau &agrave; taille fixe de caract&egrave;res larges qui ne d&eacute;borde jamais si la taille est connue au moment de la compilation. Elle n'a pas de descripteur et ne peut &ecirc;tre redimensionn&eacute;e sauf si c'est un pointeur et que <tt><a href="KeyPgAllocate.html">Allocate</a></tt>/<tt><a href="KeyPgReallocate.html">Reallocate</a></tt>/<tt><a href="KeyPgDeallocate.html">Deallocate</a></tt> sont utilis&eacute;s directement.<br \>
 <br \>
 La fin de la cha&icirc;ne est marqu&eacute;e avec le caract&egrave;re 0, donc ce caract&egrave;re ne doit jamais faire partie du contenu de <tt><b>WString</b></tt> ou ce contenu sera tronqu&eacute;.<br \>
 <br \>
 Ce type existe pour supporter les alphabets avec une base non-Latin. Toutes les fonctions intrins&egrave;ques de cha&icirc;nes comme <tt><a href="KeyPgLeft.html">Left</a></tt> , ainsi que tout op&eacute;rateur de cha&icirc;ne, fontionnent aussi avec <tt><b>WString</b></tt>.<br \>
 <br \>
-En plus des fichiers ASCII avec des s&eacute;quences d'&eacute;chappement Unicode (\u), FreeBasic peut analyser les fichiers source UTF-8, UTF-16LE, UTF-16BE, UTF-32LE et UTF-32BE.<br \>
+En plus des fichiers ASCII avec des s&eacute;quences d'&eacute;chappement Unicode (\u), FreeBASIC peut analyser les fichiers source UTF-8, UTF-16LE, UTF-16BE, UTF-32LE et UTF-32BE.<br \>
 <br \>
-Les fonctions de fichier texte de FreeBasic peuvent lire et &eacute;crire des fichiers Unicode dans des codages diff&eacute;rents, &agrave; condition que le codage = <tt><a href="KeyPgEncoding.html">Encoding</a></tt> soit sp&eacute;cifi&eacute; lorsque le fichier est ouvert. Le texte est automatiquement converti dans le codage interne &agrave; la lecture et reconverti dans le codage du fichier lors de l'&eacute;criture. <br \>
+Les fonctions de fichier texte de FreeBASIC peuvent lire et &eacute;crire des fichiers Unicode dans des codages diff&eacute;rents, &agrave; condition que <tt><a href="KeyPgEncoding.html">Encoding</a></tt> (= codage) soit sp&eacute;cifi&eacute; lorsque le fichier est ouvert. Le texte est automatiquement converti dans le codage interne &agrave; la lecture et reconverti dans le codage du fichier lors de l'&eacute;criture. <br \>
 <br \>
 <tt><a href="KeyPgSizeof.html">SizeOf</a></tt>( <tt><b>WString</b></tt> ) retourne le nombre d'octets utilis&eacute;s par <tt><b>WString</b></tt> dans la plate-forme courante.<br \>
 <br \>
@@ -47,10 +47,10 @@ Les fonctions de fichier texte de FreeBasic peuvent lire et &eacute;crire des fi
 </div></tt><br />
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences de plate-forme</div><div class="fb_sect_cont"><br \>
-Support for wstrings relies in the C runtime library available in the platform and the internal format may vary.<br \>
-<ul><li> Unicode n'est pas support&eacute; dans le portage DOS de FreeBASIC. Dans ce portage un caract&egrave;re vaut toujours 1 octet et <tt><a href="KeyPgWstring.html">Wstrings</a></tt> va se comporter en tant que norme ASCII <tt><a href="KeyPgZstring.html">Zstrings</a></tt><br \>
-<li> Sous Win32 wstrings sont encod&eacute;es en UCS-2 (UTF-16 LE) et un caract&egrave;re vaut 2 octets.<br \>
-<li> Sous Linux wstrings sont encod&eacute;es en UCS-4 et un caract&egrave;re vaut 4 octets.<br \>
+La prise en charge des <tt><b>WString</b></tt>s d&eacute;pend de la biblioth&egrave;que "C runtime" disponible sur la plate-forme et le format interne peut varier.<br \>
+<ul><li> Unicode n'est pas support&eacute; dans le portage DOS de FreeBASIC. Dans ce portage un caract&egrave;re vaut toujours 1 octet et les <tt><b>WString</b></tt>s se comporteront en tant que norme ASCII des <tt><a href="KeyPgZstring.html">Zstring</a></tt>s.<br \>
+<li> Sous Win32 les <tt><b>WString</b></tt>s sont encod&eacute;es en UCS-2 (UTF-16 LE) et un caract&egrave;re vaut 2 octets.<br \>
+<li> Sous Linux les <tt><b>WString</b></tt>s sont encod&eacute;es en UCS-4 et un caract&egrave;re vaut 4 octets.<br \>
 <br \>
 </ul></ul></div><div class="fb_sect_title">Diff&eacute;rences de dialectes</div><div class="fb_sect_cont"><br \>
 <ul><li> Non disponible dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i> sauf si r&eacute;f&eacute;renc&eacute; avec l'alias <tt><b>__Wstring</b></tt>.<br \>
@@ -59,11 +59,11 @@ Support for wstrings relies in the C runtime library available in the platform a
 <ul><li> Nouveau pour FreeBASIC<br \>
 <br \>
 </ul></div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
-<ul><li> <tt><a href="KeyPgString.html">String</a></tt> (data type)<br \>
-<li> <tt><a href="KeyPgZstring.html">ZString</a></tt> (data type)<br \>
-<li> <tt><a href="KeyPgWstring.html">WString</a></tt> (data type)<br \>
-<li> <tt><a href="KeyPgStringFunction.html">String</a></tt> (function)<br \>
-<li> <tt><a href="KeyPgWstringFunction.html">WString</a></tt> (function)<br \>
+<ul><li> <tt><a href="KeyPgString.html">String</a></tt> (type de donn&eacute;e)<br \>
+<li> <tt><a href="KeyPgZstring.html">ZString</a></tt> (type de donn&eacute;e)<br \>
+<li> <tt><a href="KeyPgWstring.html">WString</a></tt> (type de donn&eacute;e)<br \>
+<li> <tt><a href="KeyPgStringFunction.html">String</a></tt> (fonction)<br \>
+<li> <tt><a href="KeyPgWstringFunction.html">WString</a></tt> (fonction)<br \>
 <li> <tt><a href="KeyPgWspace.html">WSpace</a></tt><br \>
 <li> <tt><a href="KeyPgWstr.html">WStr</a></tt><br \>
 <li> <tt><a href="KeyPgWchr.html">WChr</a></tt><br \>
