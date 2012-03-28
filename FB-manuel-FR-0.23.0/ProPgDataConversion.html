@@ -6,36 +6,36 @@
 <body>
 <div id="fb_body_wrapper">
 <div id="fb_tab">
-<div id="fb_tab_l">Promotion et Conversion</div>
+<div id="fb_tab_l">Contrainte et conversion</div>
 <div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Promotion de types de donn&eacute;es num&eacute;riques dans des expressions.<br \>
+	Contrainte de types de donn&eacute;es num&eacute;riques dans des expressions.<br \>
 <br \>
 Lorsque deux types de donn&eacute;es diff&eacute;rents sont utilis&eacute;s dans une op&eacute;ration binaire, comme <tt><i>+</i></tt> (Addition) ou <tt><i>=</i></tt> (Affectation), le type de donn&eacute;es le plus faible est automatiquement promu vers le type de donn&eacute;es le plus fort quel que soit l'ordre dans lequel arguments sont donn&eacute;s.  <br \>
 <br \>
 Les promotions sont comme suit:<br \>
-<ul><li> si les deux arguments sont de type byte, ubyte, short, ushort ou integer: plus petit argument (en type de taille) est promu pour avoir la m&ecirc;me taille (en type de taille) que le plus grand argument (en type de taille).<br \>
-<li> si un des arguments est de type longint ou ulongint, et l'autre argument est d'un type entier (integer), plus petit argument (en type de taille) est promu pour avoir la m&ecirc;me taille (en type de taille) que le plus grand argument (en type de taille).<br \>
-<li> si un des arguments est de type single ou double, les deux arguments sont convertis et/ou promus vers double<br \>
+<ul><li> si les deux arguments sont de type byte, ubyte, short, ushort ou integer: l'argument le plus petit en taille est promu pour avoir la m&ecirc;me taille que l'argument ayant la plus grande taille.<br \>
+<li> si un des arguments est de type longint ou ulongint, et l'autre argument est d'un type entier (integer), l'argument le plus petit en taille est promu pour avoir la m&ecirc;me taille que l'argument ayant la plus grande taille.<br \>
+<li> si un des arguments est de type single ou double, les deux arguments sont convertis et / ou promus vers double<br \>
 <br \>
-</ul>Tous les types entiers non sign&eacute;s sont manipul&eacute;s comme des types entiers sign&eacute;s aux fins de promotion et bit le plus significatif est &eacute;tendu (extension de signe).<br \>
+</ul>Tous les types entiers non sign&eacute;s sont manipul&eacute;s comme des types entiers sign&eacute;s aux fins de promotion et le bit le plus significatif est &eacute;tendu (extension de signe).<br \>
 <br \>
 <b>Conversion de types de donn&eacute;es num&eacute;riques</b><br \>
 <br \>
-Une conversion de type se produit implicitement lorsqu'une expression ou une variable est affect&eacute;e, pass&eacute;e comme param&egrave;tre d'une proc&eacute;dure ou return&eacute;e comme r&eacute;sultat d'une proc&eacute;dure. Les conversions peuvent aussi &ecirc;tre explicites lorsque vous utilisez CAST ou l'une des fonctions int&eacute;gr&eacute;es de conversion.<br \>
+Une conversion de type se produit implicitement lorsqu'une expression ou une variable est affect&eacute;e, pass&eacute;e comme param&egrave;tre d'une proc&eacute;dure ou retourn&eacute;e comme r&eacute;sultat d'une proc&eacute;dure. Les conversions peuvent aussi &ecirc;tre explicites lorsque vous utilisez CAST ou l'une des fonctions int&eacute;gr&eacute;es de conversion.<br \>
 <br \>
 <u>Integer (entier) vers Integer (entier), n'importe quelle combinaison de nombres sign&eacute;s et non-sign&eacute;s</u><br \>
 <ul><li> Tout type d'entier vers un type d'entier plus faible: les bits les moins significatifs sont conserv&eacute;s<br \>
-<li> Tout type d'entier vers un type d'entier plus fort: extension de signe pour remplir bits les plus significatifs<br \>
+<li> Tout type d'entier vers un type d'entier plus fort: extension de signe pour remplir les bits les plus significatifs<br \>
 <br \>
 </ul><u>Integer vers Single ou Double</u><br \>
 <ul><li> Perte possible de pr&eacute;cision<br \>
 <br \>
 </ul><u>Double vers Single</u><br \>
 <ul><li> Perte possible de pr&eacute;cision<br \>
-<li> Si la valeur du Double d&eacute;passe le champ d'un Single le r&eacute;sultat est +/- INF<br \>
+<li> Si la valeur du Double d&eacute;passe le champ d'un Single le r&eacute;sultat est + / - INF<br \>
 <br \>
 </ul><u>Double ou Single vers Integer</u><br \>
 <ul><li> Perte possible de pr&eacute;cision<br \>

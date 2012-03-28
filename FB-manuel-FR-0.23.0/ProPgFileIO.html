@@ -6,19 +6,19 @@
 <body>
 <div id="fb_body_wrapper">
 <div id="fb_tab">
-<div id="fb_tab_l">E/S fichiers avec FreeBASIC</div>
+<div id="fb_tab_l">E / S fichiers avec FreeBASIC</div>
 <div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
 	<br \>
-Sous FreeBASIC, il y a 4 fa&ccedil;ons possibles d'ex&eacute;cuter une Entr&eacute;e/Sortie fichier:<br \>
+Sous FreeBASIC, il y a 4 fa&ccedil;ons possibles d'ex&eacute;cuter une Entr&eacute;e / Sortie fichier:<br \>
 <br \>
 1. En utilisant les commandes BASIC int&eacute;gr&eacute;es comme <tt><a href="KeyPgOpen.html">Open</a></tt> , <tt><a href="KeyPgGetfileio.html">Get</a></tt>, <tt><a href="KeyPgPutfileio.html">Put</a></tt> et <tt><a href="KeyPgClose.html">Close</a></tt>. Cette voie est la plupart du temps portable sur toutes les plates-formes support&eacute;es par FreeBASIC. Les fichiers ouverts sont identifi&eacute;s par des "file numbers" (num&eacute;ros de fichier), qui sont sp&eacute;cifiques &agrave; FreeBASIC et ne peuvent &ecirc;tre transmis aux fonctions ci-dessous.<br \>
 <br \>
-2. En utilisant les fonctions C d'E/S de flux comme fopen, fread, ftell, fclose (voir Flux E/S dans <a href="ProPgCruntime.html">Fonctions biblioth&egrave;que C standard</a>) de la biblioth&egrave;que C sur lesquelles FreeBASIC s'appuie. Ce qui est l&eacute;g&egrave;rement plus rapide et ajoute quelques fonctionnalit&eacute;s &agrave; la m&eacute;thode ci-dessus et reste bien portable. Les fichiers ouverts sont identifi&eacute;s par des pointeurs de fichiers, comme dans le langage C, ce qui est &agrave; nouveau propre &agrave; cette m&eacute;thode d'acc&egrave;s.  La fonction <tt><a href="KeyPgFileattr.html">FileAttr</a></tt> peut &ecirc;tre utilis&eacute;e pour retourner un pointeur flux E/S &agrave; partir d'un num&eacute;ro de fichier comme dans le 1. ci-dessus.<br \>
+2. En utilisant les fonctions C d'E / S de flux comme fopen, fread, ftell, fclose (voir Flux E / S dans <a href="ProPgCruntime.html">Fonctions biblioth&egrave;que C standard</a>) de la biblioth&egrave;que C sur lesquelles FreeBASIC s'appuie. Ce qui est l&eacute;g&egrave;rement plus rapide et ajoute quelques fonctionnalit&eacute;s &agrave; la m&eacute;thode ci-dessus et reste bien portable. Les fichiers ouverts sont identifi&eacute;s par des pointeurs de fichiers, comme dans le langage C, ce qui est &agrave; nouveau propre &agrave; cette m&eacute;thode d'acc&egrave;s.  La fonction <tt><a href="KeyPgFileattr.html">FileAttr</a></tt> peut &ecirc;tre utilis&eacute;e pour retourner un pointeur flux E / S &agrave; partir d'un num&eacute;ro de fichier comme dans le 1. ci-dessus.<br \>
 <br \>
-3. En utilisant les fonctions E/S, de bas niveau,  du langage C comme _open, _read, _write, _close (voir E/S bas niveau dans <a href="ProPgCruntime.html">Fonctions biblioth&egrave;que C standard</a>). Ces fonctions doivent &ecirc;tre portables, mais jusqu'&agrave; pr&eacute;sent, les en-t&ecirc;tes ne sont disponibles que pour Win32 seulement, donc le code qu'elles utilisent ne sera pas compil&eacute; sur d'autres plates-formes, pour le moment.<br \>
+3. En utilisant les fonctions E / S, de bas niveau,  du langage C comme _open, _read, _write, _close (voir E / S bas niveau dans <a href="ProPgCruntime.html">Fonctions biblioth&egrave;que C standard</a>). Ces fonctions doivent &ecirc;tre portables, mais jusqu'&agrave; pr&eacute;sent, les en-t&ecirc;tes ne sont disponibles que pour Win32 seulement, donc le code qu'elles utilisent ne sera pas compil&eacute; sur d'autres plates-formes, pour le moment.<br \>
 <br \>
 4. En parlant directement au noyau OS (DOS: utilisez DOS et DPMI INT's , Win32: utilisez les appels API comme CreateFile, WriteFile). Ce n'est pas portable. Les fichiers sont identifi&eacute;s par des "handles" (identificateurs) g&eacute;n&eacute;r&eacute;s en propre par le noyau de l'OS.<br \>
 <br \>
@@ -114,9 +114,9 @@ Cet exemple montre et compare les m&eacute;thodes 1. et 2. d&eacute;crites ci-de
  <br \>
 <br \>
 </div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
-<ul><li> <a href="CatPgFile.html">Fonctions d'E/S fichiers</a><br \>
+<ul><li> <a href="CatPgFile.html">Fonctions d'E / S fichiers</a><br \>
 <li> <a href="ProPgCruntime.html">Fonctions de la biblioth&egrave;que C standard</a><br \>
-<li> <a href="KeyPgGetfileio.html">Get (Commande E/S fichiers)</a><br \>
+<li> <a href="KeyPgGetfileio.html">Get (Commande E / S fichiers)</a><br \>
 <br \>
 </ul></div>
 </div>
