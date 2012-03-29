@@ -14,9 +14,9 @@
 	Transmettre des informations &agrave; des proc&eacute;dures.<br \>
 <br \>
 <div class="fb_sect_title">D&eacute;clarer des param&egrave;tres</div><div class="fb_sect_cont"><br \>
-On peut passer des informations sous forme de variables et d'objets, aux proc&eacute;dures lorsqu'elles sont appel&eacute;es. Dans le cadre d'un appel de proc&eacute;dure, ces variables et d'objets sont appel&eacute;es arguments. Ces arguments sont alors repr&eacute;sent&eacute;s en tant que param&egrave;tres &agrave; l'int&eacute;rieur du corps de proc&eacute;dure. Les param&egrave;tres peuvent &ecirc;tre utilis&eacute;e comme n'importe quelle autre variable ou objet.<br \>
+On peut passer aux proc&eacute;dures, lorsqu'elles sont appel&eacute;es, des informations sous forme de variables et d'objets. Dans le cadre d'un appel de proc&eacute;dure, ces variables et objets sont appel&eacute;s arguments. Ces arguments sont alors repr&eacute;sent&eacute;s en tant que param&egrave;tres &agrave; l'int&eacute;rieur du corps de la proc&eacute;dure. Ces param&egrave;tres peuvent &ecirc;tre utilis&eacute;s comme n'importe quelle autre variable ou objet.<br \>
 <br \>
-Pour sp&eacute;cifier qu'une proc&eacute;dure devrait passer des arguments lorsqu'on l'appelle, il faut d&eacute;clarer la proc&eacute;dure avec une liste de param&egrave;tres. Une liste de param&egrave;tres est une liste d'un ou plusieurs noms et types que la proc&eacute;dure utilisera lorsqu'elle se r&eacute;f&egrave;rera aux arguments qui lui sont pass&eacute;s. Les listes de param&egrave;tres sont entour&eacute;es de parenth&egrave;ses.<br \>
+Pour sp&eacute;cifier qu'une proc&eacute;dure doit passer des arguments lorsqu'on l'appelle, il faut la d&eacute;clarer avec une liste de param&egrave;tres. Cette liste de param&egrave;tres est une liste d'un ou plusieurs noms et types que la proc&eacute;dure utilisera lorsqu'elle se r&eacute;f&egrave;rera aux arguments qui lui sont pass&eacute;s. Les listes de param&egrave;tres sont entour&eacute;es de parenth&egrave;ses.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Sub</span>&nbsp;<span class="wrd">Procedure</span>&nbsp;<span class="oth">(</span><span class="wrd">s</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">,</span>&nbsp;<span class="wrd">n</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />
@@ -57,11 +57,11 @@ The variable 'arg' after the call = 10
 </pre>Remarquez comment les parenth&egrave;ses entourent les arguments - dans ce cas, un seul, <tt><i>arg</i></tt> - dans l'appel de proc&eacute;dure. Ces parenth&egrave;ses sont facultatives, mais sont une convention commune pour signifier un appel de proc&eacute;dure.<br \>
 <br \>
 </div><div class="fb_sect_title">Passage d'arguments par r&eacute;f&eacute;rence</div><div class="fb_sect_cont"><br \>
-Contrairement aux arguments qui sont pass&eacute;s par valeur, les arguments qui sont pass&eacute;s aux proc&eacute;dures par r&eacute;f&eacute;rence sont vraiment pass&eacute;s; aucune copie n'est faite. Cela permet &agrave; la proc&eacute;dure de modifier la variable ou objet d'origine qui lui a &eacute;t&eacute; pass&eacute;.<br \>
+Contrairement aux arguments qui sont pass&eacute;s par valeur, les arguments qui sont pass&eacute;s aux proc&eacute;dures par r&eacute;f&eacute;rence sont vraiment pass&eacute;s; aucune copie n'est faite. Cela permet &agrave; la proc&eacute;dure de modifier la variable ou objet d'origine qui lui a &eacute;t&eacute; pass&eacute;(e).<br \>
 <br \>
 Une r&eacute;f&eacute;rence est comme un alias pour une variable ou un objet. Chaque fois que vous faites appel &agrave; une r&eacute;f&eacute;rence, vous faites allusion &agrave; la variable ou &agrave; l'objet r&eacute;el(le) dont elle est l'alias. En d'autres termes, vous pouvez imaginer une r&eacute;f&eacute;rence &agrave; un param&egrave;tre d'une proc&eacute;dure comme &eacute;tant l'argument qui lui est pass&eacute;; les modifications apport&eacute;es &agrave; la r&eacute;f&eacute;rence du param&egrave;tre sont en fait des changements &agrave; l'argument qu'il repr&eacute;sente.<br \>
 <br \>
-Pour sp&eacute;cifier qu'un argument doit &ecirc;tre pass&eacute; par r&eacute;f&eacute;rence, faire pr&eacute;c&eacute;der le nom du param&egrave;tre dans la d&eacute;claration de proc&eacute;dure avec le mot-cl&eacute; <tt><a href="KeyPgByref.html">ByRef</a></tt>:<br \>
+Pour sp&eacute;cifier qu'un argument doit &ecirc;tre pass&eacute; par r&eacute;f&eacute;rence, faire pr&eacute;c&eacute;der le nom du param&egrave;tre, avec le mot-cl&eacute; <tt><a href="KeyPgByref.html">ByRef</a></tt>, dans la d&eacute;claration de la proc&eacute;dure:<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Sub</span>&nbsp;<span class="wrd">Procedure</span>&nbsp;<span class="oth">(</span><span class="key">ByRef</span>&nbsp;<span class="wrd">param</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">)</span><br />

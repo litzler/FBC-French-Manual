@@ -11,10 +11,10 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Ce livre &eacute;l&eacute;mentaire est destin&eacute; aux "d&eacute;butants d&eacute;butants", pour ceux qui commencent tout juste &agrave; apprendre &agrave; programmer et &agrave; utiliser FreeBASIC dans ce but.<br \>
+	Ce livre &eacute;l&eacute;mentaire est destin&eacute; aux "d&eacute;butants qui  d&eacute;butent", pour ceux qui commencent tout juste &agrave; apprendre &agrave; programmer et utilisent FreeBASIC dans ce but.<br \>
 <br \>
 <div class="fb_sect_title">L'apprentissage du langage</div><div class="fb_sect_cont"><br \>
-Apprendre un langage de programmation, c'est apprendre &agrave; &eacute;crire des mots et savoir ce qu'ils veulent dire quand ils sont &eacute;crits.  Nous n'avons pas besoin de les apprendre tous &agrave; la fois.  Mais apprendre quelques mots importants qui font quelque chose va nous aider &agrave; d&eacute;marrer.  Ici nous allons nous contenter de se concentrer sur ces mots cl&eacute;s:<br \>
+Apprendre un langage de programmation, c'est apprendre &agrave; &eacute;crire des mots et savoir ce qu'ils veulent dire quand ils sont &eacute;crits.  Nous n'avons pas besoin de les apprendre tous &agrave; la fois.  Mais apprendre quelques mots importants qui font quelque chose va nous aider &agrave; d&eacute;marrer.  Ici nous allons nous contenter de nous concentrer sur ces mots-cl&eacute;s:<br \>
 <br \>
 <ul><li> <tt><a href="KeyPgDim.html">Dim</a></tt><br \>
 <li> <tt><a href="KeyPgPrint.html">Print</a></tt><br \>
@@ -25,7 +25,7 @@ Apprendre un langage de programmation, c'est apprendre &agrave; &eacute;crire de
 <br \>
 <br \>
 </ul></div><div class="fb_sect_title">Bonjour le monde! (Hello World!)</div><div class="fb_sect_cont"><br \>
-Aucune r&eacute;f&eacute;rence d&eacute;butants n'est complet sans cet exemple.<br \>
+Aucune r&eacute;f&eacute;rence pour d&eacute;butant n'est compl&egrave;te sans cet exemple!<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Print</span>&nbsp;<span class="quo">"Hello&nbsp;World!"</span><br />
@@ -33,17 +33,17 @@ Aucune r&eacute;f&eacute;rence d&eacute;butants n'est complet sans cet exemple.<
 Le texte entre la paire de guillemets est une cha&icirc;ne litt&eacute;rale.  La d&eacute;claration <tt><a href="KeyPgPrint.html">Print</a></tt> est utilis&eacute;e pour la sortie du texte &agrave; l'&eacute;cran.  Si vous pouvez &eacute;diter, compiler et ex&eacute;cuter cet exemple, vous &ecirc;tes sur la bonne voie.<br \>
 <br \>
 </div><div class="fb_sect_title">Utilisation d'une variable pour stocker des donn&eacute;es</div><div class="fb_sect_cont"><br \>
-Parfois, dans un programme, nous voulons stocker des informations quelque part, dans la m&eacute;moire, puis l'utiliser plus tard.  Pour stocker quelque chose dans la m&eacute;moire, nous utilisons une variable.  Toutes les variables dans FreeBasic sont d'un type sp&eacute;cifique, comme un nombre ou une cha&icirc;ne.  Nous utilisons l'instruction <tt><a href="KeyPgDim.html">Dim</a></tt> pour d&eacute;clarer un nom de variable et pr&eacute;ciser quel type d'information nous voulons y entreposer.<br \>
+Parfois, dans un programme, nous voulons stocker des informations quelque part, dans la m&eacute;moire, puis l'utiliser plus tard.  Pour stocker quelque chose dans la m&eacute;moire, nous utilisons une variable.  Toutes les variables dans FreeBASIC sont d'un type sp&eacute;cifique, comme un nombre ou une cha&icirc;ne.  Nous utilisons l'instruction <tt><a href="KeyPgDim.html">Dim</a></tt> pour d&eacute;clarer un nom de variable et pr&eacute;ciser quel type d'information nous voulons y entreposer.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">text</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
 <span class="wrd">text</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Hello&nbsp;World!"</span><br />
 <span class="key">Print</span>&nbsp;<span class="wrd">text</span><br />
 </div></tt><br />
-Nous utilisons <tt><a href="KeyPgDim.html">Dim</a></tt> pour faire savoir au compilateur que nous voulons utiliser une variable appel&eacute;e <tt><i>text</i></tt> dans notre programme et que nous allons d&eacute;poser dedans des donn&eacute;es de type  <tt><a href="KeyPgString.html">String (Cha&icirc;ne)</a></tt>.  Ensuite nous attribuons (copie) <tt>"Hello World!"</tt> dans la variable.  Enfin, nous utilisons <tt><a href="KeyPgPrint.html">Print</a></tt> pour l'afficher &agrave; l'&eacute;cran.<br \>
+Nous utilisons <tt><a href="KeyPgDim.html">Dim</a></tt> pour faire savoir au compilateur que nous voulons utiliser une variable appel&eacute;e <tt><i>text</i></tt> dans notre programme et que nous allons d&eacute;poser dedans des donn&eacute;es de type  <tt><a href="KeyPgString.html">String (Cha&icirc;ne)</a></tt>.  Ensuite nous attribuons (copions) <tt>"Hello World!"</tt> dans la variable.  Enfin, nous utilisons <tt><a href="KeyPgPrint.html">Print</a></tt> pour l'afficher &agrave; l'&eacute;cran.<br \>
 <br \>
 </div><div class="fb_sect_title">Utilisation d'une variable dans une expression</div><div class="fb_sect_cont"><br \>
-Une <i>expression</i> est un terme g&eacute;n&eacute;rique pour d&eacute;crire une partie du code source qui peut &ecirc;tre &eacute;valu&eacute;e.  Apr&egrave;s qu'une expression ait &eacute;t&eacute; &eacute;valu&eacute;e, nous pouvons alors faire quelque chose avec elle, comme l'assigner (copier) &agrave; une variable.<br \>
+Une <i>expression</i> est un terme g&eacute;n&eacute;rique pour d&eacute;crire une partie du code source qui peut &ecirc;tre &eacute;valu&eacute;e.  Apr&egrave;s qu'une expression ait &eacute;t&eacute; &eacute;valu&eacute;e, nous pouvons alors faire quelque chose avec elle, comme l'assigner &agrave; une variable.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><span class="oth">,</span>&nbsp;<span class="wrd">text</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span><br />
@@ -52,7 +52,7 @@ Une <i>expression</i> est un terme g&eacute;n&eacute;rique pour d&eacute;crire u
 <span class="wrd">text</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="quo">"&nbsp;"</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="quo">"!"</span><br />
 <span class="key">Print</span>&nbsp;<span class="wrd">text</span><br />
 </div></tt><br />
-Nous affectons certaines donn&eacute;es aux variables <tt><i>a</i></tt> et <tt><i>b</i></tt>.  Puis nous utilisons les variables <tt><i>a</i></tt> et <tt><i>b</i></tt> dans une qui est affect&eacute;e &agrave; <tt><i>text</i></tt>.  Enfin, nous affichons le r&eacute;sultat &agrave; l'&eacute;cran.<br \>
+Nous affectons certaines donn&eacute;es aux variables <tt><i>a</i></tt> et <tt><i>b</i></tt>.  Puis nous utilisons les variables <tt><i>a</i></tt> et <tt><i>b</i></tt> dans une expression qui est affect&eacute;e &agrave; <tt><i>text</i></tt>.  Enfin, nous affichons le r&eacute;sultat &agrave; l'&eacute;cran.<br \>
 <br \>
 </div><div class="fb_sect_title">Saisir des donn&eacute;es de la part de l'utilisateur</div><div class="fb_sect_cont"><br \>
 Souvent, nous n'avons aucune id&eacute;e des donn&eacute;es n&eacute;cessaires pour le programme car c'est l'utilisateur qui doit les fournir.  Nous ne pouvons les mettre dans notre code source du programme puisque nous ne les conna&icirc;trons que lorsque l'utilisateur utilisera le programme et nous dira ce qu'il en est.<br \>
@@ -79,10 +79,10 @@ Variables et expressions ne sont pas seulement limit&eacute;s &agrave; des cha&i
 <span class="key">Print</span>&nbsp;<span class="quo">"a&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">b</span><br />
 <span class="key">Print</span>&nbsp;<span class="quo">"a&nbsp;+&nbsp;b&nbsp;=&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">c</span><br />
 </div></tt><br />
-Nous attribuons des valeurs aux variables <tt><i>a</i></tt>, <tt><i>b</i></tt> et <tt><i>c</i></tt>.  Nous utilisons le type <tt><a href="KeyPgInteger.html">Integer (Entier)</a></tt> pour les variables.  Un entier ne peut &ecirc;tre positif ou n&eacute;gatif, mais il n'y a pas de fractions.<br \>
+Nous attribuons des valeurs aux variables <tt><i>a</i></tt>, <tt><i>b</i></tt> et <tt><i>c</i></tt>.  Nous utilisons le type <tt><a href="KeyPgInteger.html">Integer (Entier)</a></tt> pour les variables.  Un entier ne peut &ecirc;tre positif ou n&eacute;gatif, mais il n'a pas de partie d&eacute;cimale.<br \>
 <br \>
 </div><div class="fb_sect_title">Faire des maths avec saisie de donn&eacute;es</div><div class="fb_sect_cont"><br \>
-Ceci est similaire &agrave; l'exemple pr&eacute;c&eacute;dent, Ceci est similaire &agrave; l'exemple pr&eacute;c&eacute;dent, sauf que nous laissons l'utilisateur choisir les nombres que nous allons additionner.<br \>
+Ceci est similaire &agrave; l'exemple pr&eacute;c&eacute;dent, sauf que nous laissons l'utilisateur choisir les nombres que nous allons additionner.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><span class="oth">,</span>&nbsp;<span class="wrd">r</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
@@ -92,10 +92,10 @@ Ceci est similaire &agrave; l'exemple pr&eacute;c&eacute;dent, Ceci est similair
 <span class="wrd">r</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="wrd">b</span><br />
 <span class="key">Print</span>&nbsp;<span class="quo">"La&nbsp;somme&nbsp;des&nbsp;nombres&nbsp;est&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="wrd">r</span><br />
 </div></tt><br />
-<tt><a href="KeyPgDim.html">Dim</a></tt> permet au compilateur de savoir quels noms de variables nous voulons utiliser et qu'elles vont contenir des donn&eacute;es de type <tt><a href="KeyPgInteger.html">Integer</a></tt>.  Nous utilisons <tt><a href="KeyPgInput.html">Input</a></tt> pour que l'utilisateur donne les valeurs des nombres et <tt><a href="KeyPgPrint.html">Print</a></tt> pour afficher le r&eacute;sultat.<br \>
+<tt><a href="KeyPgDim.html">Dim</a></tt> permet au compilateur de savoir quels noms de variables nous voulons utiliser, et qu'elles vont contenir des donn&eacute;es de type <tt><a href="KeyPgInteger.html">Integer</a></tt>.  Nous utilisons <tt><a href="KeyPgInput.html">Input</a></tt> pour que l'utilisateur donne les valeurs des nombres et <tt><a href="KeyPgPrint.html">Print</a></tt> pour afficher le r&eacute;sultat.<br \>
 <br \>
 </div><div class="fb_sect_title">Faire plus de maths avec saisie de donn&eacute;es</div><div class="fb_sect_cont"><br \>
-Les variables num&eacute;riques ne sont pas limit&eacute;es seulement &agrave; des nombres entiers.  Nous pouvons &eacute;galement utiliser des types de donn&eacute;es <tt><a href="KeyPgSingle.html">Single</a></tt> ou <tt><a href="KeyPgDouble.html">Double</a></tt> pr&eacute;cision qui peuvent repr&eacute;senter des fractions.  Dans cet exemple nous saisirons des entr&eacute;es de l'utilisateur correspondant &agrave; un poids en livres pour une conversion en kilogrammes.<br \>
+Les variables num&eacute;riques ne sont pas limit&eacute;es seulement &agrave; des nombres entiers.  Nous pouvons &eacute;galement utiliser des types de donn&eacute;es <tt><a href="KeyPgSingle.html">Single</a></tt> ou <tt><a href="KeyPgDouble.html">Double</a></tt> pr&eacute;cision qui peuvent repr&eacute;senter des nombres d&eacute;cimaux.  Dans cet exemple nous saisirons des entr&eacute;es de l'utilisateur correspondant &agrave; un poids en livres pour une conversion en kilogrammes.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">lb</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><span class="oth">,</span>&nbsp;<span class="wrd">kg</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />

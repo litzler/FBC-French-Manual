@@ -27,7 +27,7 @@ Les trois &eacute;tapes de base pour le profilage d'un programme sont:<br \>
 FreeBASIC prend en charge le profilage des fonctions; pas de profilage bloc-de-base et ligne-par-ligne.<br \>
 <br \>
 <div class="fb_sect_title">Pr&eacute;parer un programme pour le profilage</div><div class="fb_sect_cont"><br \>
-Seul le code qui est compil&eacute; avec l'option de ligne de commande <i><a href="CompilerOptprofile.html">-profile</a></i> peut &ecirc;tre profil&eacute;.  Passer l'option <i><a href="CompilerOptprofile.html">-profile</a></i> pour le compilateur FreeBASIC pour pr&eacute;parer le programme au profilage.  Ceci indique au compilateur d'ins&eacute;rer du code de d&eacute;marrage sp&eacute;cial au d&eacute;but de l'application ainsi qu'au d&eacute;but de chaque fonction.<br \>
+Seul le code qui est compil&eacute; avec l'option de ligne de commande <i><a href="CompilerOptprofile.html">-profile</a></i> peut &ecirc;tre profil&eacute;.  Passer l'option <i><a href="CompilerOptprofile.html">-profile</a></i> au compilateur FreeBASIC pour pr&eacute;parer le programme au profilage.  Ceci indique au compilateur d'ins&eacute;rer du code de d&eacute;marrage sp&eacute;cial au d&eacute;but de l'application ainsi qu'au d&eacute;but de chaque fonction.<br \>
 <pre class="fb_pre">
 fbc program.bas -profile
 </pre><br \>
@@ -71,7 +71,7 @@ Quand l'option '-profile' est valid&eacute;e, un ou plusieurs morceaux de code s
 <li> dos n&eacute;cessitera <tt>gcrt0.o</tt> (le code de profilage est dans <tt>libc.a</tt>) <br \>
 <li> linux n&eacute;cessitera <tt>gcrt1.o</tt> (le code de profilage est dans <tt>libc.a</tt>) <br \>
 <br \>
-</ul>Les d&eacute;tails peuvent varier d'un portage de FreeBasic &agrave; l'autre, mais le code source construit pour le profilage avec FreeBasic devrait &ecirc;tre compatible avec d'autres langages qui supportent GPROF.<br \>
+</ul>Les d&eacute;tails peuvent varier d'un portage de FreeBASIC &agrave; l'autre, mais le code source construit pour le profilage avec FreeBASIC devrait &ecirc;tre compatible avec d'autres langages qui supportent GPROF.<br \>
 <br \>
 </div>
 </div>

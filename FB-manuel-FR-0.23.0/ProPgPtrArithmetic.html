@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Manipulation des valeurs d'adresse math&eacute;matiquement.<br \>
+	Manipulation math&eacute;matique des valeurs d'adresse.<br \>
 <br \>
 <b><a href="#OVERVIEW">Vue d'ensemble</a></b><br \>
 <b><a href="#ADDSUB">Addition et soustraction de pointeurs</a></b><br \>
@@ -36,7 +36,7 @@ Par exemple, le texte suivant,<br \>
 </div></tt><br />
 attribuera les valeurs "<tt>1</tt>" et "<tt>2</tt>" &agrave; chaque entier dans le tableau point&eacute; par <tt><i>p</i></tt>. Comme <tt><i>p</i></tt> est un <tt><a href="KeyPgInteger.html">Integer</a> <a href="KeyPgPointer.html">Pointer</a></tt>, l'expression "<tt>*(p + 1)</tt>" dit de d&eacute;r&eacute;f&eacute;rencer un <tt><a href="KeyPgInteger.html">Integer</a></tt> de quatre (4) octets &agrave; partir de <tt><i>p</i></tt>; le "<tt>1</tt>" indique une distance de "<tt>1 * taille d'un <a href="KeyPgInteger.html">Integer</a></tt>", ou quatre (4) octets.<br \>
 <br \>
-La soustraction suit exactement le m&ecirc;me principe. Remember, <i>a</i> - <i>b</i> = <i>a</i> + -<i>b</i>.<br \>
+La soustraction suit exactement le m&ecirc;me principe. Souvenez-vous, <i>a</i> - <i>b</i> = <i>a</i> + -<i>b</i>.<br \>
 <br \>
 <a name="INCDEC"></a></div><div class="fb_sect_title">Incr&eacute;mentation et de d&eacute;cr&eacute;mentation des pointeurs</div><div class="fb_sect_cont"><br \>
 <br \>
@@ -51,11 +51,11 @@ Parfois il est plus commode de modifier le pointeur lui-m&ecirc;me, dans ce cas,
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">p</span>&nbsp;<span class="oth">+=</span>&nbsp;<span class="num">1</span><br />
 <span class="key">Wend</span><br />
 </div></tt><br />
-parcourt un tableau qu'il ne trouve pas l'&eacute;l&eacute;ment avec la valeur "<t>0</t>". S'il trouve un &eacute;l&eacute;ment avec la valeur "<tt>66</tt>" il affiche un message.<br \>
+parcourt un tableau tant qu'il ne trouve pas l'&eacute;l&eacute;ment avec la valeur "<t>0</t>". S'il trouve un &eacute;l&eacute;ment avec la valeur "<tt>66</tt>" il affiche un message.<br \>
 <br \>
 <a name="DISTANCE"></a></div><div class="fb_sect_title">Distance entre deux des pointeurs</div><div class="fb_sect_cont"><br \>
 <br \>
-La distance entre deux des pointeurs est r&eacute;cup&eacute;r&eacute;e avec <tt><a href="KeyPgOpSubtract.html">Operator - (Subtract)</a></tt> et est mesur&eacute;e en valeur, pas en octets. Par exemple, le texte suivant,<br \>
+La distance entre deux des pointeurs est r&eacute;cup&eacute;r&eacute;e avec <tt><a href="KeyPgOpSubtract.html">Operator - (Subtract)</a></tt> et est mesur&eacute;e en valeur d'un &eacute;l&eacute;ment, pas en octets. Par exemple, le texte suivant,<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Type</span>&nbsp;<span class="wrd">T</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span><br />
