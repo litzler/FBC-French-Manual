@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Les initialiseurs de variables sont servent &agrave; initialiser des tableaux, des variables et des types d&eacute;finis par l'utilisateur.<br \>
+	Les initialiseurs de variables servent &agrave; initialiser des tableaux, des variables et des types d&eacute;finis par l'utilisateur.<br \>
 <br \>
 <div class="fb_sect_title">Syntaxe</div><div class="fb_sect_cont"><tt><br \>
 <div class="fb_indent"><a href="KeyPgDim.html">Dim</a> <i>scalar_symbol</i> [AS <a href="DataType.html">DataType</a>] = <i>expression</i><br \>
@@ -21,7 +21,7 @@
 </div><div class="fb_sect_title">Description</div><div class="fb_sect_cont"><br \>
 Les tableaux, les variables et les types d&eacute;finis par l'utilisateur peuvent recevoir une valeur lors de leur d&eacute;claration en utilisant <tt><a href="KeyPgDim.html">Dim</a></tt>, avec la syntaxe ci-dessus.  S'il vous pla&icirc;t, notez les diff&eacute;rences importantes entre les diff&eacute;rents types d'initialisation.  Les variables scalaires sont initialis&eacute;es comme dans une affectation normale, en utilisant un signe &eacute;gal.  Les types d&eacute;finis par l'utilisateur et les tableaux sont assign&eacute;s &agrave; l'aide d'un signe &eacute;gal suivi d'un signe plus grand que (=&gt;).  Les valeurs d'un tableau sont donn&eacute;es par des valeurs s&eacute;par&eacute;es par des virgules d&eacute;limit&eacute;es par des accolades, et les valeurs des types d&eacute;finis par l'utilisateur sont indiqu&eacute;es par des valeurs s&eacute;par&eacute;es par des virgules d&eacute;limit&eacute;es par des parenth&egrave;ses.<br \>
 <br \>
-Ces m&eacute;thodes d'initialisation des variables peuvent &ecirc;tre imbriqu&eacute;es les unes dans les autres pour les tâches complexes.  Par exemple, pour initialiser un tableau multi-dimensionnel:<br \>
+Ces m&eacute;thodes d'initialisation des variables peuvent &ecirc;tre imbriqu&eacute;es les unes dans les autres pour les t&acirc;ches complexes.  Par exemple, pour initialiser un tableau multi-dimensionnel:<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">array</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">5</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=&gt;</span>&nbsp;<span class="oth">{{</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">3</span><span class="oth">,</span>&nbsp;<span class="num">4</span><span class="oth">,</span>&nbsp;<span class="num">5</span><span class="oth">},</span>&nbsp;<span class="oth">{</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">3</span><span class="oth">,</span>&nbsp;<span class="num">4</span><span class="oth">,</span>&nbsp;<span class="num">5</span><span class="oth">}}</span><br />
@@ -43,7 +43,7 @@ Les types d&eacute;finis par l'utilisateur et les tableaux peuvent aussi &ecirc;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">(</span><span class="num">2.0</span><span class="oth">,</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="oth">@</span><span class="quo">"GoodBye"</span><span class="oth">)</span>&nbsp;<span class="wrd">_</span><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">}</span><br />
 </div></tt><br />
-Pour les variables statiques ou globales, au niveau module , les valeurs d'initialisation doivent &ecirc;tre des expressions constantes.  Autrement, FreeBasic signale une erreur de compilation.<br \>
+Pour les variables statiques ou globales, au niveau module , les valeurs d'initialisation doivent &ecirc;tre des expressions constantes.  Autrement, FreeBASIC signale une erreur de compilation.<br \>
 <br \>
 </div><div class="fb_sect_title">Diff&eacute;rences avec QB</div><div class="fb_sect_cont"><br \>
 <ul><li> Les initialiseurs de variables sont nouveau pour FreeBASIC<br \>

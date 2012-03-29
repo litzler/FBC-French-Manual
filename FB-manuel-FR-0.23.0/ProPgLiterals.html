@@ -11,7 +11,7 @@
 </div> 
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
-	Cha&icirc;ne non-variable non-compilable et valeurs num&eacute;riques.<br \>
+	Cha&icirc;ne non-variable au moment de la compilation et valeurs num&eacute;riques.<br \>
 <br \>
 Les litt&eacute;raux sont des nombres ou des cha&icirc;nes de caract&egrave;res sp&eacute;cifi&eacute;s directement dans le code source.  Les valeurs litt&eacute;rales peuvent &ecirc;tre utilis&eacute;es en les assignant &agrave; une variable ou une constante, en les passant &agrave; une proc&eacute;dure ou en les utilisant dans une expression.<br \>
 <br \>
@@ -60,7 +60,7 @@ Les entiers litt&eacute;raux se terminant par:<br \>
 <li> "<tt>LL</tt>", sont consid&eacute;r&eacute;s comme des entiers 64 bits sign&eacute;s. (<tt><a href="KeyPgLongint.html">LongInt</a></tt>)<br \>
 <li> "<tt>ULL</tt>", sont consid&eacute;r&eacute;s comme des entiers 64 bits non sign&eacute;s. (<tt><a href="KeyPgUlongint.html">ULongInt</a></tt>)<br \>
 <br \>
-</ul>Les pr&eacute;fixes, les suffixes et les lettres des chiffres hexad&eacute;cimaux sont tous insensibles &agrave; la casse.<br \>
+</ul>Les pr&eacute;fixes, les suffixes et les lettres des chiffres hexad&eacute;cimaux sont tous non-sensibles &agrave; la casse.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">123</span><span class="wrd">L</span><br />
@@ -76,13 +76,13 @@ Les nombres &agrave; virgule flottante sont exprim&eacute;s avec des chiffres d&
 <i>ou</i><br \>
 <tt>.partie d&eacute;cimale[[D|E][[+|-]exposant]][suffixe]</tt><br \>
 <br \>
-Par d&eacute;faut, les nombres &agrave; virgule flottante qui n'ont pas soit un exposant ou un suffixe sont consid&eacute;r&eacute;s comme ayant une valeur double pr&eacute;cision en virgule flottante, sauf dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, o&ugrave; les nombres de 7 chiffres (ou moins) sont consid&eacute;r&eacute;s comme en simple pr&eacute;cision.<br \>
+Par d&eacute;faut, les nombres &agrave; virgule flottante qui n'ont pas soit un exposant, soit un suffixe, sont consid&eacute;r&eacute;s comme ayant une valeur double pr&eacute;cision en virgule flottante, sauf dans le dialecte <i><a href="CompilerOptlang.html">-lang qb</a></i>, o&ugrave; les nombres de 7 chiffres (ou moins) sont consid&eacute;r&eacute;s comme en simple pr&eacute;cision.<br \><br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">123.456</span><br />
 <span class="key">Dim</span>&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Double</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="oth">-</span><span class="num">123.0</span><br />
 </div></tt><br />
 <br \>
-La lettre "<tt>D</tt>" ou "<tt>E</tt>", plac&eacute;e apr&egrave;s le partie enti&egrave;re/d&eacute;cimale du nombre, permet l'expression du nombre avec un exposant.  L'exposant peut &ecirc;tre sp&eacute;cifi&eacute; comme positif ou n&eacute;gatif &agrave; l'aide du signe plus ("<tt>+</tt>") ou moins ("<tt>-</tt>").  Les exposants qui n'ont pas un signe sont positifs.<br \>
+La lettre "<tt>D</tt>" ou "<tt>E</tt>", plac&eacute;e apr&egrave;s le partie enti&egrave;re / d&eacute;cimale du nombre, permet l'expression du nombre avec un exposant.  L'exposant peut &ecirc;tre sp&eacute;cifi&eacute; comme positif ou n&eacute;gatif &agrave; l'aide du signe plus ("<tt>+</tt>") ou moins ("<tt>-</tt>").  Les exposants qui n'ont pas de signe sont positifs.<br \>
 Un exposant n'est pas n&eacute;cessaire apr&egrave;s la lettre si elle est utilis&eacute;e seule juste pour pr&eacute;ciser le type.  "<tt>D</tt>" indique un nombre &agrave; virgule flottante en double pr&eacute;cision.  "<tt>E</tt>" sp&eacute;cifie un nombre &agrave; virgule flottante utilisant la pr&eacute;cision par d&eacute;faut.<br \>
 <br \>
 <tt><div class="freebasic">
@@ -94,7 +94,7 @@ Un exposant n'est pas n&eacute;cessaire apr&egrave;s la lettre si elle est utili
 </div></tt><br />
 <br \>
 Un suffixe "<tt>!</tt>" ou "<tt>F</tt>" sur un nombre sp&eacute;cifie une valeur en simple pr&eacute;cision (32 bits au total) en virgule flottante.  Un suffixe "<tt>#</tt>" sp&eacute;cifie une valeur en double pr&eacute;cision en virgule flottante.<br \>
-Notez que les lettres suffixes et les prescripteurs d'exposant sont insensibles &agrave; la casse.<br \>
+Notez que les lettres suffixes et les prescripteurs d'exposant sont non-sensibles &agrave; la casse.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Single</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">3.1!</span><br />
@@ -107,6 +107,7 @@ Notez que les lettres suffixes et les prescripteurs d'exposant sont insensibles 
 Une cha&icirc;ne litt&eacute;rale est une s&eacute;quence de caract&egrave;res comprise entre deux guillemets doubles.  Une s&eacute;quence de caract&egrave;res d'&eacute;chappement ou non.<br \>
 <br \>
 Les guillemets doubles peuvent &ecirc;tre sp&eacute;cifi&eacute;s dans la cha&icirc;ne litt&eacute;rale en utilisant deux guillemets doubles ensemble.<br \>
+<br \>
 <tt><div class="freebasic">
 <span class="key">Print</span>&nbsp;<span class="quo">"Hello&nbsp;World!"</span><br />
 <span class="key">Print</span>&nbsp;<span class="quo">"That's&nbsp;right!"</span><br />
@@ -114,18 +115,20 @@ Les guillemets doubles peuvent &ecirc;tre sp&eacute;cifi&eacute;s dans la cha&ic
 </div></tt><br />
 <br \>
 Une cha&icirc;ne litt&eacute;rale peut contenir des s&eacute;quences d'&eacute;chappement si elle est pr&eacute;fix&eacute;e par <tt><a href="KeyPgOpPpEscape.html">! Operator</a></tt> (Echappement cha&icirc;ne litt&eacute;rale).  Voir <a href="TblEscapeSequences.html">S&eacute;quences d'&eacute;chappement</a> pour une liste des s&eacute;quences d'&eacute;chappement accept&eacute;es.<br \>
+<br \>
 <tt><div class="freebasic">
 <span class="key">Print</span>&nbsp;<span class="oth">!</span><span class="quo">"Hello\nWorld!"</span><br />
 </div></tt><br />
 <br \>
 Par d&eacute;faut, les cha&icirc;nes litt&eacute;rales ne supportent pas les s&eacute;quences d'&eacute;chappement sauf si <tt><a href="KeyPgOptionescape.html">Option Escape</a></tt> a &eacute;t&eacute; utilis&eacute;e dans le source; dans ce cas, toutes les cha&icirc;nes litt&eacute;rales suivantes supporteront les s&eacute;quences d'&eacute;chappement.<br \>
 <br \>
-Une cha&icirc;ne peut &ecirc;tre sp&eacute;cifi&eacute;e explicitement comme ne supportant pas les s&eacute;quences d'&eacute;chappement lorsqu'elle est pr&eacute;fix&eacute;e par <tt><a href="KeyPgOpPpNoescape.html">$ Operator</a></tt> (Non Echappement cha&icirc;ne litt&eacute;rale).<br \>
+Une cha&icirc;ne peut &ecirc;tre sp&eacute;cifi&eacute;e explicitement comme ne supportant pas les s&eacute;quences d'&eacute;chappement lorsqu'elle est pr&eacute;fix&eacute;e par l'<tt><a href="KeyPgOpPpNoescape.html">Operator $</a></tt> (Non Echappement cha&icirc;ne litt&eacute;rale).<br \>
+<br \>
 <tt><div class="freebasic">
 <span class="key">Print</span>&nbsp;<span class="quo">$"C:\temp"</span><br />
 </div></tt><br />
 <br \>
-En plus des fichiers ASCII avec des s&eacute;quences d'&eacute;chappement Unicode (<tt>\u</tt>), FreeBasic peut analyser les fichiers source UTF-8, UTF-16LE, UTF-16BE, UTF-32LE et UTF-32BE FreeBasic peut analyser source eee fichiers permettant des caract&egrave;res unicode directement dans la cha&icirc;ne litt&eacute;rale.<br \>
+En plus des fichiers ASCII avec des s&eacute;quences d'&eacute;chappement Unicode (<tt>\u</tt>), FreeBASIC peut analyser les fichiers source UTF-8, UTF-16LE, UTF-16BE, UTF-32LE et UTF-32BE, permettant des caract&egrave;res Unicode directement dans la cha&icirc;ne litt&eacute;rale.<br \>
 <br \>
 </div><div class="fb_sect_title">Voir aussi</div><div class="fb_sect_cont"><br \>
 <ul><li> <tt><a href="KeyPgPpdefine.html">#define</a></tt><br \>
