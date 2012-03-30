@@ -6,7 +6,7 @@
 <body>
 <div id="fb_body_wrapper">
 <div id="fb_tab">
-<div id="fb_tab_l">Guide pour d&eacute;butants, de types en tant qu'objets (Partie 1)</div>
+<div id="fb_tab_l">Guide pour d&eacute;butants: des types en tant qu'objets (Partie 1)</div>
 <div id="fb_tab_r">&nbsp;<img src="images/fblogo_mini.gif" /></div> 
 </div> 
 <div id="fb_pg_wrapper">
@@ -14,7 +14,7 @@
 	<br \>
 <b>Introduction</b><br \>
 <br \>
-  Ce tutoriel est destin&eacute; aux personnes qui veulent en savoir plus sur les nouvelles fonctionnalit&eacute;s ajout&eacute;es &agrave; <tt><b>Type</b></tt>, commun&eacute;ment d&eacute;nomm&eacute;es '<i>types comme des objets</i>' et '<i>du genre POO</i>' (Programmation Orient&eacute;e Objets).  Il vise &agrave; vous guider &agrave; travers ces nouvelles fonctionnalit&eacute;s, ainsi est il destin&eacute; aux personnes qui ne comprennent pas vraiment encore, mais qui veulent apprendre.  Un <tt><b>Type</b></tt> en FreeBASIC est un type de donn&eacute;es agr&eacute;g&eacute;es, comme une structure en C ou un '<i>record</i>' en Pascal.  Voici un court exemple d'utilisation typique de <tt><b>Type</b></tt>.<br \>
+  Ce tutoriel est destin&eacute; aux personnes qui veulent en savoir plus sur les nouvelles fonctionnalit&eacute;s ajout&eacute;es &agrave; <tt><b>Type</b></tt>, commun&eacute;ment d&eacute;nomm&eacute;es '<i>types comme des objets</i>' et '<i>du genre POO</i>' (Programmation Orient&eacute;e Objets).  Il vise &agrave; vous guider &agrave; travers ces nouvelles fonctionnalit&eacute;s, ainsi est-il destin&eacute; aux personnes qui ne comprennent pas vraiment encore, mais qui veulent apprendre.  Un <tt><b>Type</b></tt> en FreeBASIC est un type de donn&eacute;es agr&eacute;g&eacute;es, comme une structure en C ou un '<i>record</i>' en Pascal.  Voici un court exemple d'utilisation typique de <tt><b>Type</b></tt>.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Type</span>&nbsp;<span class="wrd">person_info</span><br />
@@ -57,15 +57,15 @@ Nous allons commencer par examiner la <tt><b>Property</b></tt> (propri&eacute;t&
 <span class="key">Print</span>&nbsp;<span class="wrd">foo.x</span><br />
 </div></tt><br />
 <br \>
-Nous incluons dans notre <tt><b>Type</b></tt> certaines d&eacute;clarations de <tt><b>Property</b></tt>; elles sont tr&egrave;s semblables aux d&eacute;clarations de fonction ordinaires.  La premi&egrave;re d&eacute;clare un procureur (getter), la seconde un fixeur (setter).  Le membre <tt>p_x</tt> est simplement un nombre <tt><b>Integer</b></tt>.<br \>
+Nous incluons dans notre <tt><b>Type</b></tt> certaines d&eacute;clarations de <tt><b>Property</b></tt>; elles sont tr&egrave;s semblables aux d&eacute;clarations de fonction ordinaires.  La premi&egrave;re d&eacute;clare un "procureur" (getter), la seconde un "fixeur" (setter).  Le membre <tt>p_x</tt> est simplement un nombre <tt><b>Integer</b></tt>.<br \>
 <br \>
 Ensuite, nous &eacute;crivons le code pour les <tt><b>Property</b></tt>; encore une fois, la syntaxe est tr&egrave;s similaire &agrave; celle des fonctions normales.  Notez la mani&egrave;re dont nous retournons une valeur: au lieu de <tt><b>Function = valeur</b></tt>, nous faisons <tt><b>Property = valeur</b></tt>.  Vous pouvez faire aussi <tt><b>Return valeur</b></tt>.  Notez &eacute;galement que vous pouvez vous r&eacute;f&eacute;rer directement au membre <tt><b>p_x</b></tt>; vous pouvez &eacute;galement utiliser le mot-cl&eacute; <tt><b>this</b></tt>, par exemple <tt><b>this.p_x = n</b></tt>; utiliser <tt><b>this</b></tt> n'est g&eacute;n&eacute;ralement pas n&eacute;cessaire, mais il peut aider dans certaines circonstances ambigu&euml;s.<br \>
 <br \>
-Vient ensuite un peu de code de test; cela montre comment nous pouvons utiliser <tt><b>Property</b></tt> comme s'il s'agissait d'un membre ordinaire.  Lorsque vous ex&eacute;cutez le programme, il sera &eacute;galement affich&eacute; &agrave; l'&eacute;cran pour montrer quel code de <tt><b>Property</b></tt> "get/set" a &eacute;t&eacute; appel&eacute;.<br \>
+Vient ensuite un peu de code de test; cela montre comment nous pouvons utiliser <tt><b>Property</b></tt> comme s'il s'agissait d'un membre ordinaire.  Lorsque vous ex&eacute;cutez le programme, il sera &eacute;galement affich&eacute; &agrave; l'&eacute;cran pour montrer quel code de <tt><b>Property</b></tt> "get / set" a &eacute;t&eacute; appel&eacute;.<br \>
 <br \>
-Maintenant, ce code est assez trivial, mais comme on s'habitue &agrave; l'id&eacute;e vous verrez qu'il peut &ecirc;tre utilis&eacute; pour certains bons usages.  Imaginez, comme un exemple, que vous &eacute;crivez une interface graphique (GUI) et que le <tt><b>Type</b></tt> repr&eacute;sente un bouton sur l'&eacute;cran, vous pourriez avoir <tt><b>button.text = "Hello World!"</b></tt>, et faire que le code de <tt><b>Property</b></tt> mette &agrave; jour l'&eacute;cran pour montrer les changements.  Ou peut-&ecirc;tre que vous utilisez <tt><b>Type</b></tt> pour maintenir une sorte de liste; vous pouvez avoir <tt><b>list.size += 10</b></tt> et puis mettre un peu de code dans votre <tt><b>Property</b></tt> de rendre la liste plus grande.<br \>
+Maintenant, ce code est assez trivial, mais comme on s'habitue &agrave; l'id&eacute;e vous verrez qu'il peut &ecirc;tre utilis&eacute; pour certains bons usages.  Imaginez, comme un exemple, que vous &eacute;crivez une interface graphique (GUI) et que le <tt><b>Type</b></tt> repr&eacute;sente un bouton sur l'&eacute;cran, vous pourriez avoir <tt><b>button.text = "Hello World!"</b></tt>, et faire que le code de <tt><b>Property</b></tt> mette &agrave; jour l'&eacute;cran pour montrer les changements.  Ou peut-&ecirc;tre que vous utiliserez <tt><b>Type</b></tt> pour maintenir une sorte de liste; vous pouvez avoir <tt><b>list.size += 10</b></tt> et puis mettre un peu de code dans votre <tt><b>Property</b></tt> pour rendre la liste plus grande.<br \>
 <br \>
-<b>Constructeur/Destructeur</b><br \>
+<b>Constructeur / Destructeur</b><br \>
 <br \>
 Les <tt><b>Constructor</b></tt>s sont des fonctions qui sont appel&eacute;es quand le <tt><b>Type</b></tt> est cr&eacute;&eacute; - lorsque vous utilisez <tt><b>Dim</b></tt>, par exemple.  Un <tt><b>Destructor</b></tt> est une fonction appel&eacute;e quand <tt><b>Type</b></tt> sort de la port&eacute;e; il peut s'agir de la fin du programme, pour un <tt><b>Type</b></tt> dans le code principal ou quand une fonction se termine, pour un <tt><b>Type</b></tt> local.  Regardez l'exemple suivant, expansion du pr&eacute;c&eacute;dent.<br \>
 <br \>
@@ -168,9 +168,9 @@ Vous pouvez &eacute;galement avoir des <tt><b>Sub</b></tt>s et <tt><b>Function</
 <br \>
 Alors, cette fois nous avons ajout&eacute; une <tt><b>Sub</b></tt>, qui multiplie par 5 l'entier point&eacute; par <tt><b>p_x</b></tt> et une fonction qui r&eacute;cup&egrave;re l'adresse m&eacute;moire contenue dans ce pointeur.<br \>
 <br \>
-<b>Private/Public</b><br \>
+<b>Private / Public</b><br \>
 <br \>
-Par d&eacute;faut, tous les membres du <tt><b>Type bar</b></tt> sont <tt><b>Public</b></tt>; cela signifie que nous pouvons les lire/&eacute;crire ou appeler.  Cependant, parfois, vous voudrez peut-&ecirc;tre les rendre <tt><b>Private</b></tt>.  Prenons l'exemple de notre membre <tt><b>p_x</b></tt>; alors nous pouvons faire <tt><b>Print *foo.p_x</b></tt> et cela nous permettra d'afficher la valeur vers laquelle il pointe.  Nous pourrions vouloir le rendre <tt><b>Private</b></tt>, de sorte que seuls les membres du <tt><b>Type bar</b></tt> (<tt><b>Constructor</b></tt>, <tt><b>Destructor</b></tt>, <tt><b>Property</b></tt> et <tt><b>M&eacute;thodes</b></tt>) peuvent y acc&eacute;der.  De cette fa&ccedil;on, nous pouvons nous assurer que nous ne tra&icirc;tons avec <tt><b>p_x</b></tt> que par les moyens que nous avons choisis.  Si par exemple on '<tt><b>Deallocate(foo.p_x)</b></tt>' dans notre code principal, lorsque le <tt><b>Destructor</b></tt> fonctionnera, il essaiera de le lib&eacute;rer &agrave; nouveau, ce qui est connu sous le nom de "double lib&eacute;ration".  Modifiez la d&eacute;claration de <tt><b>Type</b></tt> comme suit:<br \>
+Par d&eacute;faut, tous les membres du <tt><b>Type bar</b></tt> sont <tt><b>Public</b></tt>; cela signifie que nous pouvons les lire / &eacute;crire ou appeler.  Cependant, parfois, vous voudrez peut-&ecirc;tre les rendre <tt><b>Private</b></tt>.  Prenons l'exemple de notre membre <tt><b>p_x</b></tt>; alors nous pouvons faire <tt><b>Print *foo.p_x</b></tt> et cela nous permettra d'afficher la valeur vers laquelle il pointe.  Nous pourrions vouloir le rendre <tt><b>Private</b></tt>, de sorte que seuls les membres du <tt><b>Type bar</b></tt> (<tt><b>Constructor</b></tt>, <tt><b>Destructor</b></tt>, <tt><b>Property</b></tt> et <tt><b>M&eacute;thodes</b></tt>) peuvent y acc&eacute;der.  De cette fa&ccedil;on, nous pouvons nous assurer que nous ne tra&icirc;tons avec <tt><b>p_x</b></tt> que par les moyens que nous avons choisis.  Si par exemple on '<tt><b>Deallocate(foo.p_x)</b></tt>' dans notre code principal, lorsque le <tt><b>Destructor</b></tt> fonctionnera, il essaiera de le lib&eacute;rer &agrave; nouveau, ce qui est connu sous le nom de "double lib&eacute;ration".  Modifiez la d&eacute;claration de <tt><b>Type</b></tt> comme suit:<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Type</span>&nbsp;<span class="wrd">bar</span><br />
@@ -247,7 +247,7 @@ Dans ce code, j'utilise <tt><b>lhs</b></tt> (left-hand) et <tt><b>rhs</b></tt> (
 <br \>
 Vous l'auriez construit ainsi <tt><b>type(xpart, ypart, zpart)</b></tt>.<br \>
 <br \>
-La plupart ou tous les op&eacute;rateurs peuvent &ecirc;tre surcharg&eacute;s, et la plupart d'entre eux sont des op&eacute;rateurs binaires, ce qui signifie qu'ils ont deux op&eacute;randes comme dans l'exemple <b>+</b> ci-dessus.  Certains sont des op&eacute;rateurs unaires ayant seulement le c&ocirc;t&eacute; droit, comme <tt><b>Not</b></tt> et <tt><b>- unaire</b></tt>.  Ils seraient obtenus comme ceci <tt><b>Operator Not(ByRef rhs As bar) As bar</b></tt>.<br \>
+La plupart ou tous les op&eacute;rateurs peuvent &ecirc;tre surcharg&eacute;s, et la plupart d'entre eux sont des op&eacute;rateurs binaires, ce qui signifie qu'ils ont deux op&eacute;randes comme dans l'exemple <tt><b>+</b></tt> ci-dessus.  Certains sont des op&eacute;rateurs unaires ayant seulement le c&ocirc;t&eacute; droit, comme <tt><b>Not</b></tt> et <tt><b>- unaire</b></tt>.  Ils seraient obtenus comme ceci <tt><b>Operator Not(ByRef rhs As bar) As bar</b></tt>.<br \>
 <br \>
 Il y a quelques cas particuliers o&ugrave; ils doivent &ecirc;tre d&eacute;clar&eacute;s &agrave; l'int&eacute;rieur du <tt><b>Type</b></tt>; ce sont les op&eacute;rateurs d'affectation et les "cast".<br \>
 <br \>
@@ -259,7 +259,7 @@ Les op&eacute;rateurs d'affectation sont comme ceci <tt><b>+= -= mod=</b></tt> e
 <span class="wrd">foo</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">x</span><br />
 </div></tt><br />
 <br \>
-Et "casts" sont des cas inverses, ils sont utilis&eacute;s lorsque vous "cast" vers un autre type de donn&eacute;es comme ceci:<br \>
+Et les "cast"s sont des cas inverses, ils sont utilis&eacute;s lorsque vous "cast"ez vers un autre type de donn&eacute;es comme ceci:<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">bar</span>&nbsp;<span class="wrd">foo</span><br />
@@ -310,7 +310,7 @@ op&eacute;rateurs unaires:<br \>
 op&eacute;rateurs binaires:<br \>
   <tt>+</tt>, <tt>-</tt>, <tt>*</tt>, <tt>/</tt>, <tt>\</tt>, <tt>mod</tt>, <tt>shl</tt>, <tt>shr</tt>, <tt>and</tt>, <tt>or</tt>, <tt>xor</tt>, <tt>imp</tt>, <tt>eqv</tt>, <tt>^</tt>, <tt>=</tt>, <tt>&lt;&gt;</tt>, <tt>&lt;</tt>, <tt>&gt;</tt>, <tt>&lt;=</tt>, <tt>&gt;=</tt><br \>
 <br \>
-<b>Constructeurs/M&eacute;thodes surcharg&eacute;s</b><br \>
+<b>Constructeurs / M&eacute;thodes surcharg&eacute;s</b><br \>
 <br \>
 Comme pour les fonctions normales, le <tt><b>Constructor</b></tt> et les m&eacute;thodes de notre <tt><b>Type</b></tt> peuvent &ecirc;tre surcharg&eacute;s.  Pour les <tt><b>Constructor</b></tt>s, cela fournit un moyen de sp&eacute;cifier les d&eacute;tails sur la fa&ccedil;on dont l'instance doit l'&ecirc;tre construite.  Voici un court exemple:<br \>
 <br \>
