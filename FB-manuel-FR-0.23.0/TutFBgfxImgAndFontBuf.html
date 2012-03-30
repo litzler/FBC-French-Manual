@@ -31,11 +31,11 @@ ScrPtr vs ImgBuf<br \>
 <br \>
 FBgfx a un nouveau type de donn&eacute;es depuis la version 0.17 et suivantes. Ce type est appel&eacute; IMAGE. Vous pouvez l'utiliser en incluant l'en-t&ecirc;te FBgfx dans votre programme (# include "fbgfx.bi") et ensuite acc&eacute;der &agrave; l'espace de noms pour FBgfx, via FB.IMAGE. Quand nous cr&eacute;erons des zones tampons dans ce tutoriel, nous utiliserons le type "fb.Image Ptr". Un pointeur, car c'est de la m&eacute;moire dynamique que l'on peut redimensionner.<br \>
 <br \>
-Pour utiliser une image dans la biblioth&egrave;que FBgfx, vous devez le cr&eacute;er via un tampon image. Votre tampon est une zone de m&eacute;moire allou&eacute;e (cr&eacute;&eacute;e, mis &agrave; disposition) pour votre image. Vous avez &agrave; d&eacute;sallouer (lib&eacute;rer, rendre disponible &agrave; d'autres programmes), la m&eacute;moire tampon lorsque vous avez termin&eacute; de l'utiliser &agrave; la fin de votre programme. FBgfx a son propre format de pixel interne, ainsi qu'une t&ecirc;te au d&eacute;but de chaque tampon image cr&eacute;&eacute;. L'en-t&ecirc;te de l'image contient des informations sur votre image. Comme sa largeur, hauteur, profondeur de bits, etc, tandis que le tampon pixel contient les couleurs r&eacute;elles, pour chaque pixel individuel en format RVB (rouge, bleu, vert).<br \>
+Pour utiliser une image dans la biblioth&egrave;que FBgfx, vous devez la cr&eacute;er via un tampon image. Votre tampon est une zone de m&eacute;moire allou&eacute;e (cr&eacute;&eacute;e, mise &agrave; disposition) pour votre image. Vous avez &agrave; d&eacute;sallouer (lib&eacute;rer, rendre disponible &agrave; d'autres programmes), la m&eacute;moire tampon lorsque vous avez termin&eacute; de l'utiliser &agrave; la fin de votre programme. FBgfx a son propre format de pixel interne, ainsi qu'une en-t&ecirc;te au d&eacute;but de chaque tampon image cr&eacute;&eacute;. L'en-t&ecirc;te de l'image contient des informations sur votre image. Comme sa largeur, hauteur, profondeur de bits, etc, tandis que le tampon pixel contient les couleurs r&eacute;elles, pour chaque pixel individuel en format RVB (rouge, bleu, vert).<br \>
 <br \>
 <b>Cr&eacute;er des zones tampons</b><br \>
 <br \>
-La taille du buffer que vous cr&eacute;ezt varie en fonction de la profondeur d'&eacute;cran. Le "bytes-per-pixel ou bpp = octets par pixel" est le nombre d'octets n&eacute;cessaires pour stocker les pixels individuels. Ainsi, un &eacute;cran 32-bit de profondeur de pixel aura besoin de 4 octets par pixel (8 bits dans un octet). Vous n'avez pas besoin de vous inqui&eacute;ter &agrave; ce sujet, cependant, l'utilisation de <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt> pour cr&eacute;er votre configuration m&eacute;moire tampon rend cela tr&egrave;s facile pour obtenir les informations n&eacute;cessaires &agrave; la cr&eacute;ation de nos tampons. Vous avez seulement besoin de conna&icirc;tre cette information pour comprendre quelle quantit&eacute; de m&eacute;moire la taille d'un tampon peut occuper au total, concernant les informations d'utilisation de la m&eacute;moire.<br \>
+La taille du tampon que vous cr&eacute;ez varie en fonction de la profondeur d'&eacute;cran. Le "bytes-per-pixel ou bpp = octets par pixel" est le nombre d'octets n&eacute;cessaires pour stocker les pixels individuels. Ainsi, un &eacute;cran 32-bit de profondeur de pixel aura besoin de 4 octets par pixel (8 bits dans un octet). Vous n'avez pas besoin de vous inqui&eacute;ter &agrave; ce sujet, car l'utilisation de <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt> pour cr&eacute;er votre configuration m&eacute;moire tampon rend cela tr&egrave;s facile pour obtenir les informations n&eacute;cessaires &agrave; la cr&eacute;ation de nos tampons. Vous avez besoin de l'information d'utilisation de la m&eacute;moire seulement pour d&eacute;terminer quelle quantit&eacute; de m&eacute;moire le tampon occupera au total.<br \>
 <br \>
 En fait, la cr&eacute;ation du  tampon m&eacute;moire est tr&egrave;s simple. C'est juste une simple cr&eacute;ation d'un <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt> et un appel &agrave; <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> (Exemple1.bas):<br \>
 <br \>
@@ -83,7 +83,7 @@ Ceci cr&eacute;e des constantes qui seront utilis&eacute;es pour d&eacute;cider 
 <span class="key">ScreenRes</span>&nbsp;<span class="num">640</span><span class="oth">,</span>&nbsp;<span class="num">480</span><span class="oth">,</span>&nbsp;<span class="num">32</span><br />
 </div></tt><br />
 <br \>
-Ceci cr&eacute;e notre &eacute;cran FBgfx. <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> a besoin de conna&icirc;tre la profondeur de bit &agrave; l'avance. Toutefois, <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> FBgfx a maintenant un param&egrave;tre suppl&eacute;mentaire vous permettant de r&eacute;gler la profondeur soi-m&ecirc;me.<br \>
+Ceci cr&eacute;e notre &eacute;cran FBgfx. <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> a besoin de conna&icirc;tre la profondeur de bit &agrave; l'avance. Toutefois, <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> FBgfx a maintenant un param&egrave;tre suppl&eacute;mentaire permettant de r&eacute;gler soi-m&ecirc;me la profondeur.<br \>
 <br \>
 <tt><div class="freebasic">
 &nbsp;&nbsp;<span class="com">''&nbsp;Create&nbsp;our&nbsp;buffer</span><br />
@@ -94,7 +94,7 @@ Avant tout il faut cr&eacute;er un pointeur qui du type <tt>fb.Image</tt>. C'est
 <br \>
 L'appel d'<tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> renvoie l'adresse d'une zone de la m&eacute;moire d'un <tt>fb.Image</tt> nouvellement cr&eacute;&eacute; qui sert &agrave; l'initialisation de notre pointeur. La taille de ce tampon d&eacute;pend de la profondeur de bits, mais la largeur et la hauteur de l'image contenue dans le tampon seront celles que nous avons d&eacute;finies pr&eacute;c&eacute;demment. <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> peut aussi prendre une couleur de remplissage et de profondeur dans les troisi&egrave;me et quatri&egrave;me arguments, respectivement; si ce n'est pas sp&eacute;cifi&eacute;, l'image sera cr&eacute;&eacute;e remplie avec la couleur transparente et sa profondeur sera celle de la couleur courante de l'&eacute;cran.<br \>
 <br \>
-Nous avons maintenant un espace allou&eacute; en m&eacute;moire. C'est un espace suffisant pour contenir une image "ImgWxImgH", avec les donn&eacute;es que "FBgfx" d&eacute;tient au sein de son type <tt>fb.Image</tt>. Nous allons avoir besoin de le d&eacute;truire plus tard, pour une gestion appropri&eacute;e de la m&eacute;moire.<br \>
+Nous avons maintenant un espace allou&eacute; en m&eacute;moire. C'est un espace suffisant pour contenir une image "ImgW x ImgH", avec les donn&eacute;es que "FBgfx" d&eacute;tient au sein de son type <tt>fb.Image</tt>. Nous allons avoir besoin de le d&eacute;truire plus tard, pour une gestion appropri&eacute;e de la m&eacute;moire.<br \>
 <br \>
 <tt><div class="freebasic">
 &nbsp;&nbsp;<span class="com">''&nbsp;Print&nbsp;the&nbsp;address&nbsp;of&nbsp;our&nbsp;buffer.</span><br />
@@ -102,7 +102,7 @@ Nous avons maintenant un espace allou&eacute; en m&eacute;moire. C'est un espace
 <span class="key">Sleep</span><br />
 </div></tt><br />
 <br \>
-Ceci, juste pour vous faire savoir ce que nous avons fait. Nous affichons l'adresse de <tt>myBuf</tt>. Si ce n'est pas <tt>0</tt>, nous pouvons supposer que <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> a fonctionn&eacute;.<br \>
+Ceci, juste pour vous faire savoir ce que nous avons fait. Nous affichons l'adresse de <tt>myBuf</tt>. Si ce n'est pas <tt>0</tt> (z&eacute;ro), nous pouvons supposer que <tt><a href="KeyPgImagecreate.html">ImageCreate</a></tt> a fonctionn&eacute;.<br \>
 <br \>
 <tt><div class="freebasic">
 &nbsp;&nbsp;<span class="com">''&nbsp;Destroy&nbsp;our&nbsp;buffer.&nbsp;&nbsp;Always&nbsp;DESTROY&nbsp;buffers&nbsp;you&nbsp;CREATE</span><br />
@@ -115,9 +115,9 @@ Ici, nous d&eacute;truisons notre tampon avec un appel &agrave; <tt><a href="Key
 <br \>
 <b>Format du tampon</b><br \>
 <br \>
-Maintenant que nous savons comment cr&eacute;er des tampons, on peut vouloir avoir plus d'informations sur ce qui aura lieu &agrave; l'int&eacute;rieur. Vous pouvez ouvrir le fichier d'en-t&ecirc;te <tt>fbgfx.bi</tt> et trouver le type <tt>fb.Image</tt> et voir tous ces trucs excellents &agrave; l'int&eacute;rieur de celui-ci.<br \>
+Maintenant que nous savons comment cr&eacute;er des tampons, on peut vouloir plus d'informations sur ce qui aura lieu &agrave; l'int&eacute;rieur. Vous pouvez ouvrir le fichier d'en-t&ecirc;te <tt>fbgfx.bi</tt> et trouver le type <tt>fb.Image</tt> et voir tous ces "trucs" excellents &agrave; l'int&eacute;rieur de celui-ci.<br \>
 <br \>
-En fait, Nous  n'avons pas besoin d'en savoir beaucoup sur le format lui-m&ecirc;me. La raison en est que nous avons utilis&eacute; une <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt>. Dans la m&eacute;moire, tout ce qui suit <tt>Buf + <a href="KeyPgSizeof.html">SizeOf</a>(fb.Image)</tt>  correspond aux pixels. Tout ce qui est avant correspond &agrave; l'en-t&ecirc;te. L'en-t&ecirc;te est tr&egrave;s facilement accessible parce que nous avons utilis&eacute; un <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt>. Tout ce que vous devez savoir est ce que vous voulez chercher.<br \>
+En fait, Nous  n'avons pas besoin d'en savoir beaucoup plus sur le format lui-m&ecirc;me. La raison en est que nous avons utilis&eacute; une <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt>. Dans la m&eacute;moire, tout ce qui suit <tt>Buf + <a href="KeyPgSizeof.html">SizeOf</a>(fb.Image)</tt>  correspond aux pixels. Tout ce qui est avant correspond &agrave; l'en-t&ecirc;te. L'en-t&ecirc;te est tr&egrave;s facilement accessible parce que nous avons utilis&eacute; un <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt>. Tout ce que vous devez savoir est ce que vous voulez chercher.<br \>
 <br \>
 <b>FB.IMAGE Data Type</b><br \>
 <br \>
@@ -136,9 +136,9 @@ En fait, Nous  n'avons pas besoin d'en savoir beaucoup sur le format lui-m&ecirc
 <span class="key">End</span>&nbsp;<span class="key">Type</span><br />
 </div></tt><br />
 <br \>
-Cette m&ecirc;me information peut &ecirc;tre trouv&eacute;e dans <tt>fbgfx.bi</tt>. Comme vous pouvez le voir, ce type de donn&eacute;es permet de stocker *beaucoup* d'information ordonn&eacute;e concernant votre tampon. La largeur, la hauteur, pitch (octets par ligne) et la profondeur de bits (octets par pixel) sont toutes int&eacute;gr&eacute;es. Dans l'union est inclus le type d'en-t&ecirc;te et l'ancienne en-t&ecirc;te elle-m&ecirc;me dans le m&ecirc;me espace. Le format de nouvel en-t&ecirc;te est indiqu&eacute;e par une valeur type de 7. Le format d'ancienne en-t&ecirc;te n'est pas utilis&eacute; dans le dialecte par d&eacute;faut dans les nouvelles versions de FB, alors nous n'allons pas le couvrir ici.<br \>
+Cette m&ecirc;me information peut &ecirc;tre trouv&eacute;e dans <tt>fbgfx.bi</tt>. Comme vous pouvez le voir, ce type de donn&eacute;es permet de stocker *beaucoup* d'informations ordonn&eacute;es concernant votre tampon. La largeur, la hauteur, le pitch (octets par ligne) et la profondeur de bits (octets par pixel) sont tous int&eacute;gr&eacute;s. Dans l'union est inclus dans le m&ecirc;me espace le type d'en-t&ecirc;te et l'ancienne en-t&ecirc;te. Le format de nouvelle en-t&ecirc;te est indiqu&eacute;e par une valeur type de 7. Le format d'ancienne en-t&ecirc;te n'est pas utilis&eacute; dans le dialecte par d&eacute;faut dans les nouvelles versions de FB, alors nous n'allons pas en parler ici.<br \>
 <br \>
-Comment pouvons-nous acc&eacute;der &agrave; ces informations dans l'en-t&ecirc;te? Si vous connaissez bien les pointeurs (vous devriez l'&ecirc;tre, nous avons utilis&eacute; un pointeur pour notre tampon dans le premier exemple), alors tout ce que vous avez &agrave; faire est d'acc&eacute;der &agrave; votre tampon comme un pointeur, et acc&eacute;der directement aux donn&eacute;es &agrave; l'int&eacute;rieur. Cela peut vous laisser croire que tout ce qui est contenu dans votre m&eacute;moire tampon est le type <tt>fb.Image</tt> lui-m&ecirc;me, mais ce n'est tout simplement pas vrai. L'utilisation d'une <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt> permet au compilateur de penser que c'est ce qui est contenu dans la m&eacute;moire tampon, m&ecirc;me si seule la premi&egrave;re partie le fait.<br \>
+Comment pouvons-nous acc&eacute;der &agrave; ces informations dans l'en-t&ecirc;te? Si vous connaissez bien les pointeurs (vous devriez! nous avons utilis&eacute; un pointeur pour notre tampon dans le premier exemple), alors tout ce que vous avez &agrave; faire est d'acc&eacute;der &agrave; votre tampon comme un pointeur, et acc&eacute;der directement aux donn&eacute;es &agrave; l'int&eacute;rieur. Cela peut vous laisser croire que tout ce qui est contenu dans votre m&eacute;moire tampon est le type <tt>fb.Image</tt> lui-m&ecirc;me, mais ce n'est tout simplement pas vrai. L'utilisation d'une <tt>fb.Image <a href="KeyPgPtr.html">Ptr</a></tt> permet au compilateur de penser que c'est ce qui est contenu dans la m&eacute;moire tampon, m&ecirc;me si seule la premi&egrave;re partie le fait.<br \>
 <br \>
 <b>R&eacute;cup&eacute;rer des Pixels</b><br \>
 <br \>
@@ -159,17 +159,17 @@ N'oubliez pas d'inclure notre type de donn&eacute;es <tt>fb.Image</tt>!<br \>
 <span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myPix</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span>&nbsp;<span class="key">UInteger</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">myBuf</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="key">SizeOf</span><span class="oth">(</span><span class="wrd">FB.Image</span><span class="oth">)</span>&nbsp;<span class="oth">)</span>&nbsp;<span class="oth">)</span><br />
 </div></tt><br />
 <br \>
-Ouf. Tr&egrave;s bien. Nous devons nous assurer que nous obtenons bien l'adresse exacte de nos pixels. Un nombre entier contient 4 octets. 3 d'entre eux sont utilis&eacute;s pour nos RVB et l'extra est g&eacute;n&eacute;ralement utilis&eacute; pour le canal alpha lorsque vous en avez besoin (certaines personnes tr&egrave;s d&eacute;brouillardes et utiliseront l'octet alpha - ou canal alpha - pour stocker toutes sortes de donn&eacute;es). M&ecirc;me si nous avons seulement UN OCTET de d&eacute;calage, notre Rouge deviendra Vert et notre Beu deviendra Rouge! Nous devons donc appliquer un <tt><a href="KeyPgUbyte.html">UByte</a> <a href="KeyPgPtr.html">Ptr</a></tt> en premier.<br \>
+Ouf. Tr&egrave;s bien. Nous devons nous assurer que nous obtenons bien l'adresse exacte de nos pixels. Un nombre entier contient 4 octets. 3 d'entre eux sont utilis&eacute;s pour RVB et l'extra est g&eacute;n&eacute;ralement utilis&eacute; pour le canal alpha lorsque vous en avez besoin (certaines personnes tr&egrave;s d&eacute;brouillardes utiliseront l'octet alpha - ou canal alpha - pour stocker toutes sortes de donn&eacute;es). Seulement UN OCTET de d&eacute;calage, et notre Rouge deviendra Vert, et notre Bleu deviendra Rouge! Nous devons donc appliquer un <tt><a href="KeyPgUbyte.html">UByte</a> <a href="KeyPgPtr.html">Ptr</a></tt> en premier.<br \>
 <br \>
-Vous avez sans doute &eacute;galement remarqu&eacute; que nous avons simplement ajout&eacute; <tt>sizeof(fb.Image)</tt>&agrave; notre adresse. C'est un autre avantage de l'utilisation de <tt>fb.Image</tt>! Si vous ajoutez sa taille au d&eacute;but du buffer, nous avons juste saut&eacute; toutes les adresses m&eacute;moire li&eacute;es &agrave; l'en-t&ecirc;te et nous sommes maintenant sur nos pixels.<br \>
+Vous avez sans doute &eacute;galement remarqu&eacute; que nous avons simplement ajout&eacute; <tt>sizeof(fb.Image)</tt>&agrave; notre adresse. C'est un autre avantage de l'utilisation de <tt>fb.Image</tt>! Si vous ajoutez sa taille au d&eacute;but du buffer, vous sautez toutes les adresses m&eacute;moire li&eacute;es &agrave; l'en-t&ecirc;te et vous &ecirc;tes maintenant sur les pixels.<br \>
 <br \>
-Finalement, nous effectuons un <tt><a href="KeyPgUinteger.html">UInteger</a> <a href="KeyPgPtr.html">Ptr</a></tt> sur la tout, principalement pour la s&eacute;curit&eacute;. Nous sommes en mode 32 bits de profondeur, nous avons donc 4 octets par pixel.  Cela correspond &agrave; un <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
+Finalement, nous effectuons un <tt><a href="KeyPgUinteger.html">UInteger</a> <a href="KeyPgPtr.html">Ptr</a></tt> sur la totalit&eacute;, principalement par s&eacute;curit&eacute;. Nous sommes en mode 32 bits de profondeur, nous avons donc 4 octets par pixel.  Cela correspond &agrave; un <tt><a href="KeyPgUinteger.html">UInteger</a></tt>.<br \>
 <br \>
 Voici une petite ligne si vous ne comprenez toujours pas comment cela fonctionne. Voici notre tampon: | FB.IMAGE Header | Pixels |<br \>
 <br \>
-Si ce qui est contenu dans la premi&egrave;re section de notre tampon est l'en-t&ecirc;te de <tt>fb.Image</tt>, c'est bien &eacute;videmment qu'il va &ecirc;tre aussi grand en taille. Ainsi, nous pouvons obtenir notre adresse pour les pixels, simplement en ajoutant la taille de la  <tt>fb.Image</tt> &agrave; l'adresse de notre type de donn&eacute;e d'origine.<br \>
+Si ce qui est contenu dans la premi&egrave;re section de notre tampon est l'en-t&ecirc;te de <tt>fb.Image</tt>, nous pouvons obtenir l'adresse des pixels, simplement en ajoutant la taille de l'en-t&ecirc;te <tt>fb.Image</tt> &agrave; l'adresse de notre type de donn&eacute;e d'origine.<br \>
 <br \>
-Un probl&egrave;me cependant! Si nous ajoutons cette taille du tampon &agrave; notre adresse, pour tenter d'en obtenir une nouvelle, nous nous retrouvons avec des r&eacute;sultats &eacute;tranges.  C'est parce que notre type de donn&eacute;es n'est pas d'un octet de longueur. Nous devons d'abord Cast <tt><a href="KeyPgUbyte.html">UByte</a> <a href="KeyPgPtr.html">Ptr</a></tt> puis ajouter l'adresse. Un <tt><a href="KeyPgUbyte.html">UByte</a></tt> a une longueur d'un octet, ainsi nous obtiendrons en m&eacute;moire l'octet exact n&eacute;cessaire pour les manipulatios.<br \>
+Un probl&egrave;me cependant! Si nous ajoutons cette taille du tampon &agrave; notre adresse, pour tenter d'en obtenir une nouvelle, nous nous retrouvons avec des r&eacute;sultats &eacute;tranges.  C'est parce que notre type de donn&eacute;es n'est pas d'un octet de longueur. Nous devons d'abord Cast <tt><a href="KeyPgUbyte.html">UByte</a> <a href="KeyPgPtr.html">Ptr</a></tt> puis ajouter l'adresse. Un <tt><a href="KeyPgUbyte.html">UByte</a></tt> a une longueur d'un octet, ainsi nous obtiendrons en m&eacute;moire l'octet exact n&eacute;cessaire pour les manipulations.<br \>
 <br \>
 Enfin, nous sommes en 32-bits.  Nous avons seulement fait un Cast <tt><a href="KeyPgUbyte.html">UByte</a> <a href="KeyPgPtr.html">Ptr</a></tt>.  Bien que nous puissions simplement attribuer au "uInteger ptr" l'adresse du <tt><a href="KeyPgUbyte.html">UByte</a></tt>, c'est une meilleure pratique de Cast vers un <tt><a href="KeyPgUinteger.html">UInteger</a> <a href="KeyPgPtr.html">Ptr</a></tt> en premier.  Nous avons enfin l'adresse de nos pixels, dans le type de donn&eacute;es convenable (un par pixel!). Nous pouvons manipuler les pixels directement maintenant, si nous le souhaitons.<br \>
 <br \>
@@ -189,7 +189,7 @@ C'est ce dont je parlais plus t&ocirc;t. FB traitera votre pointeur comme si c'&
 <br \>
 <b>D&eacute;tails de l'en-t&ecirc;te</b><br \>
 <br \>
-La premi&egrave;re ligne du tampon d'image qui sera utilis&eacute;e comme une police contient les informations d'en-t&ecirc;te de votre police, sur la base d'un octet par octet (rappelez-vous que la premi&egrave;re rang&eacute;e de pixels correspond aux premiers octets car il sont stock&eacute;s dans ligne -> colonne).<br \>
+La premi&egrave;re ligne du tampon d'image qui sera utilis&eacute;e comme une police contient les informations d'en-t&ecirc;te de votre police, sur une base octet par octet (rappelez-vous que la premi&egrave;re rang&eacute;e de pixels correspond aux premiers octets car il sont stock&eacute;s ligne -> colonne).<br \>
 <br \>
 Le tout premier octet nous dit quelle version de l'en-t&ecirc;te que nous utilisons. Actuellement, seul 0 est pris en charge, car une seule version en-t&ecirc;te est autoris&eacute;e. Le deuxi&egrave;me octet nous indique le premier caract&egrave;re pris en charge dans notre police et le troisi&egrave;me octet nous indique le dernier.<br \>
 <br \>
@@ -238,7 +238,7 @@ Cr&eacute;er notre buffer de police. Rappelez-vous, nous avons besoin d'ajouter 
 <span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">UByte</span>&nbsp;<span class="key">Ptr</span>&nbsp;<span class="wrd">myHeader</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Cast</span><span class="oth">(</span><span class="key">UByte</span>&nbsp;<span class="key">Ptr</span><span class="oth">,</span>&nbsp;<span class="wrd">myFont</span>&nbsp;<span class="oth">)</span><br />
 </div></tt><br />
 <br \>
-Nous obtenons notre buffer de police, exact, dans le bon format et n'ayant pas d'avertissements concernant les adresses. L'en-t&ecirc;te est sur une base d'un octet pour un octet, donc nous ne pouvons pas travailler sur lui avec un type <tt>fb.Image</tt>.<br \>
+Nous obtenons notre buffer de police, exact, dans le bon format et n'ayant pas d'avertissements concernant les adresses. L'en-t&ecirc;te est sur une base d'un octet pour un octet, donc nous ne pouvons pas travailler dessus avec un type <tt>fb.Image</tt>.<br \>
 <br \>
 <br \>
 <tt><div class="freebasic">
@@ -274,7 +274,7 @@ Juste pour vous rappeler<br \>
 <br \>
 <b>Affectation des caract&egrave;res de la police</b><br \>
 <br \>
-C'est assez simple. Nous allons utiliser la police par d&eacute;faut de <span >FreeBASIC</span> pour la dessiner sur notre tampon. N'oubliez pas que les dessins commencent &agrave; la colonne 1, non pas la colonne 0, parce que la toute premi&egrave;re colonne est r&eacute;serv&eacute;e pour les donn&eacute;es d'en-t&ecirc;te. D&eacute;marrer en dessinant d'abord le premier caract&egrave;re support&eacute; et donnez-lui la couleur que vous voulez. Attention, vous ne pouvez pas avoir de couleur personnalis&eacute;e lors de l'&eacute;laboration de votre de police. Lorsque vous ajoutez un caract&egrave;re &agrave; votre buffer, sa couleur est bloqu&eacute;e d&eacute;finitivement sur celle qui est utilis&eacute;e pour le dessiner! Voir la section "Conseils et astuces" pour contourner ce probl&egrave;me.<br \>
+C'est assez simple. Nous allons utiliser la police par d&eacute;faut de <span >FreeBASIC</span> pour la dessiner sur notre tampon. N'oubliez pas que les dessins commencent &agrave; la colonne 1, non pas la colonne 0, parce que la toute premi&egrave;re colonne est r&eacute;serv&eacute;e pour les donn&eacute;es d'en-t&ecirc;te. D&eacute;marrez en dessinant d'abord le premier caract&egrave;re support&eacute; et donnez-lui la couleur que vous voulez. Attention, vous ne pouvez pas avoir de couleur personnalis&eacute;e lors de l'&eacute;laboration de votre de police. Lorsque vous ajoutez un caract&egrave;re &agrave; votre buffer, sa couleur est bloqu&eacute;e d&eacute;finitivement sur celle qui est utilis&eacute;e pour le dessiner! Voir la section "Conseils et astuces" pour contourner ce probl&egrave;me.<br \>
 <br \>
 Voici le code modifi&eacute; (Exemple4.bas), o&ugrave; nous allons ajouter le dessin de la police via la police FreeBASIC par d&eacute;faut dans notre tampon.<br \>
 <br \>
@@ -291,7 +291,7 @@ Juste pour avoir un indice rapide du caract&egrave;re ASCII courant on dessine s
 <span class="key">Draw</span>&nbsp;<span class="key">String</span>&nbsp;<span class="wrd">myFont</span><span class="oth">,</span>&nbsp;<span class="oth">(</span>&nbsp;<span class="wrd">DoVar</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">8</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="oth">),</span>&nbsp;<span class="key">Chr</span><span class="oth">(</span><span class="wrd">CurChar</span><span class="oth">),</span>&nbsp;<span class="key">RGB</span><span class="oth">(</span><span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">,</span>&nbsp;<span class="key">Rnd</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">255</span><span class="oth">)</span><br />
 </div></tt><br />
 <br \>
-Sautez la premi&egrave;re ligne du tampon image, car elle contient des informations sur la police. Utilisez la police police FBgfx pour dessiner notre police personnalis&eacute;e. Remplissez-la avec une couleur al&eacute;atoire. Notez que nous avons dessin&eacute; dans le tampon, avec "<tt>Draw String myFont</tt>...".<br \>
+Sautez la premi&egrave;re ligne du tampon image, car elle contient des informations sur la police. Utilisez la police FBgfx pour dessiner notre police personnalis&eacute;e. Remplissez-la avec une couleur al&eacute;atoire. Notez que nous avons dessin&eacute; dans le tampon, avec "<tt>Draw String myFont</tt>...".<br \>
 <br \>
 <br \>
 <tt><div class="freebasic">
@@ -308,15 +308,15 @@ Pour plus de clart&eacute; seulement, de fa&ccedil;on &agrave; voir le dessin de
 <span class="key">Sleep</span><br />
 </div></tt><br />
 <br \>
-Testez notre nouvelle police. Bien s&ucirc;r, c'est la m&ecirc;me que celle &agrave; laquelle nous sommes habitu&eacute;s. Vous pourriez avoir cr&eacute;&eacute; la v&ocirc;tre &agrave; partir du tampon de votre propre police personnalis&eacute;e.<br \>
+Testez votre nouvelle police. Bien s&ucirc;r, c'est la m&ecirc;me que celle &agrave; laquelle vous &ecirc;tes habitu&eacute;s. Vous pourriez cr&eacute;er la v&ocirc;tre &agrave; partir du tampon de votre propre police personnalis&eacute;e.<br \>
 <br \>
 <div class="fb_header">Trucs & astuces</div><br \>
 <br \>
 <b>Colorisation de vos polices personnalis&eacute;es</b><br \>
 <br \>
-Bon, maintenant que vous avez r&eacute;alis&eacute; qu'une fois que vous colorisez une police personnalis&eacute;e, vous ne pouvez pas utiliser <tt><a href="KeyPgDrawString.html">Draw String</a></tt> pour changer cette couleur. Eh bien, aucune crainte, nous pouvons contourner cela (CustFontCol.bas). Cependant, cela pourrait &ecirc;tre un peu lent.<br \>
+Bon, maintenant vous savez qu'une fois que vous colorisez une police personnalis&eacute;e, vous ne pouvez pas utiliser <tt><a href="KeyPgDrawString.html">Draw String</a></tt> pour changer sa couleur. Eh bien, aucune crainte, nous pouvons contourner cela (CustFontCol.bas). Cependant, cela pourrait &ecirc;tre un peu lent.<br \>
 <br \>
-Nous pouvons cr&eacute;er un objet police, contenant une fonction qui retourne un tampon police. Que fait ce code? il redessine le tampon de la police chaque fois que nous changeons de couleur et renvoie le tampon de la police stock&eacute;e dans l'objet. Cela *pourrait* th&eacute;oriquement &ecirc;tre acc&eacute;l&eacute;r&eacute; si l'on connaissait la gamme des caract&egrave;res &agrave; redessiner, alors nous pourrions redessiner que ceux-l&agrave; du plus bas au plus &eacute;lev&eacute;. Mais d&eacute;terminer cela, pourrait aussi &ecirc;tre tr&egrave;s lent.<br \>
+Nous pouvons cr&eacute;er un objet police, contenant une fonction qui retourne un tampon police. Que fait ce code? il redessine le tampon de la police chaque fois que nous changeons de couleur et renvoie le tampon de la police stock&eacute;e dans l'objet. Cela *pourrait* th&eacute;oriquement &ecirc;tre acc&eacute;l&eacute;r&eacute; si l'on connaissait la gamme des caract&egrave;res &agrave; redessiner, alors nous pourrions ne redessiner que ceux-l&agrave; du plus bas au plus &eacute;lev&eacute;. Mais d&eacute;terminer cela, pourrait aussi &ecirc;tre tr&egrave;s lent.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="def">#include&nbsp;"fbgfx.bi"<br />

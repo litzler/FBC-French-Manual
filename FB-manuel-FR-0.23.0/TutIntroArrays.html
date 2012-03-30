@@ -12,15 +12,15 @@
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
 	<i>Ecrit par <a href="WikiRick.html">rdc</a></i><br \="">
-<br \="">Les tableaux sont sans doute la seule construction de programmation la plus utile qui est &agrave; votre disposition dans FreeBasic. Beaucoup de probl&egrave;mes que vous allez essayer de r&eacute;soudre avec une solution de programmation portent sur des donn&eacute;es organis&eacute;es dans un format tabulaire, et les tableaux sont parfaits pour la gestion de ce type de donn&eacute;es. Comprendre les tableaux est une comp&eacute;tence essentielle pour devenir un programmeur comp&eacute;tent.<br \="">
+<br \="">Les tableaux sont sans doute la seule construction de programmation la plus utile qui est &agrave; votre disposition dans FreeBASIC. Beaucoup de probl&egrave;mes que vous allez essayer de r&eacute;soudre avec une solution de programmation portent sur des donn&eacute;es organis&eacute;es dans un format tabulaire, et les tableaux sont parfaits pour la gestion de ce type de donn&eacute;es. Comprendre les tableaux est une comp&eacute;tence essentielle pour devenir un programmeur comp&eacute;tent.<br \="">
 <br \="">
-Les tableaux sont des segments de m&eacute;moire contigus d'un seul type ou de donn&eacute;es composites. Vous pouvez penser un tableau comme une table, avec des lignes et des colonnes de donn&eacute;es. Un tableau peut avoir une ou plusieurs lignes, et chaque ligne peut avoir une ou plusieurs colonnes. Le nombre de lignes et de colonnes d&eacute;finissent les dimensions du tableau. FreeBasic utilise le sch&eacute;ma de "ligne-majeur" pour les tableaux, ce qui signifie que la premi&egrave;re r&eacute;f&eacute;rence de dimension, est la ligne, dans un tableau qui a plus d'une dimension. FreeBasic prend en charge jusqu'&agrave; huit dimensions dans un tableau.<br \="">
+Les tableaux sont des segments de m&eacute;moire contigus d'un seul type ou de donn&eacute;es composites. Vous pouvez penser un tableau comme une table, avec des lignes et des colonnes de donn&eacute;es. Un tableau peut avoir une ou plusieurs lignes, et chaque ligne peut avoir une ou plusieurs colonnes. Le nombre de lignes et de colonnes d&eacute;finissent les dimensions du tableau. FreeBASIC utilise le sch&eacute;ma de "ligne-majeur" pour les tableaux, ce qui signifie que la premi&egrave;re r&eacute;f&eacute;rence de dimension, est la ligne, dans un tableau qui a plus d'une dimension. FreeBASIC prend en charge jusqu'&agrave; huit dimensions dans un tableau.<br \="">
 <br \="">
 <div class="fb_header"> Tableaux uni-dimensionnels </div><br \="">
 <br \="">
-Un tableau avec une seule ligne est appel&eacute; tableau uni-dimensionnel. Si un tableau est uni-dimensionnel, alors la ligne n'est pas d&eacute;finie dans la d&eacute;claration, seulement le nombre de colonnes dans la ligne. Comme un tableau n&eacute;cessite un minimum d'une ligne, la ligne est pr&eacute;sum&eacute;e exister dans ce cas. Les extraits de code suivants cr&eacute;ent un tableau d'entiers &agrave; une seule dimension en utilisant les diff&eacute;rents syst&egrave;mes de d&eacute;finition d'un tableau disponibles dans FreeBasic.<br \="">
+Un tableau avec une seule ligne est appel&eacute; tableau uni-dimensionnel. Si un tableau est uni-dimensionnel, alors la ligne n'est pas d&eacute;finie dans la d&eacute;claration, seulement le nombre de colonnes dans la ligne. Comme un tableau n&eacute;cessite un minimum d'une ligne, la ligne est pr&eacute;sum&eacute;e exister dans ce cas. Les extraits de code suivants cr&eacute;ent un tableau d'entiers &agrave; une seule dimension en utilisant les diff&eacute;rents syst&egrave;mes de d&eacute;finition d'un tableau disponibles dans FreeBASIC.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">10</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 <br>
 <span class="key">Dim</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
@@ -32,13 +32,13 @@ La premi&egrave;re m&eacute;thode d&eacute;finira un tableau avec une seule rang
 <br \="">
 Vous pouvez acc&eacute;der &agrave; chaque &eacute;l&eacute;ment d'un tableau en utilisant une valeur d'indice. Dans le cas d'un tableau &agrave; une dimension, l'indice se r&eacute;f&egrave;re &agrave; un num&eacute;ro de colonne dans la ligne par d&eacute;faut. Le format est d'utiliser le nom de la variable tableau suivi de l'indice entre parenth&egrave;ses.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="wrd">myArray</span><span class="oth">(</span><span class="num">5</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">7</span><br>
 </div></tt><br>
 <br \="">
 Cela mettra la colonne 5 du tableau &agrave; 7.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="wrd">myInt</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">5</span><span class="oth">)</span><br>
 </div></tt><br>
 <br \="">
@@ -48,7 +48,7 @@ Cela mettra la colonne 5 du tableau &agrave; 7.<br \="">
 <br \="">
 Un tableau bi-dimensionnel est un tableau qui a plus d'une rang&eacute;e, avec des colonnes d&eacute;finies. Un tableau bi-dimensionnel est comme une table, avec un nombre d&eacute;fini de lignes, o&ugrave; chacune a un nombre d&eacute;fini de colonnes. L'extrait de code suivant d&eacute;finit un tableau en utilisant la m&eacute;thode par d&eacute;faut.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">10</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 </div></tt><br>
 <br \="">
@@ -56,7 +56,7 @@ La premi&egrave;re dimension d&eacute;finit le nombre de lignes du tableau, alor
 <br \="">
 Vous pouvez aussi d&eacute;finir les bornes inf&eacute;rieure et sup&eacute;rieure d'un tableau.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">10</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 </div></tt><br>
 <br \="">
@@ -66,13 +66,13 @@ Cette d&eacute;finition positionne le nombre de lignes &agrave; 2, num&eacute;ro
 <br \="">
 Pour acc&eacute;der aux &eacute;l&eacute;ments d'un tableau bi-dimensionnel, vous devez utiliser deux index. Le premier s&eacute;lectionne la ligne et le second la colonne de cette ligne.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="wrd">myArray</span><span class="oth">(</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">5</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">7</span><br>
 </div></tt><br>
 <br \="">
 Ce code met &agrave; 7 la colonne 5 de la ligne 1.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="wrd">myInt</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">5</span><span class="oth">)</span><br>
 </div></tt><br>
 <br \="">
@@ -84,11 +84,11 @@ Pour les tableaux de trois dimensions ou plus, vous devez utiliser le m&ecirc;me
 <br \="">
 Par exemple, pour d&eacute;finir un cube dans l'espace, vous devez utiliser les formats y, x, z, o&ugrave; y d&eacute;finit l'axe vertical, x l'axe horizontal et z l'axe de la profondeur. Pour cr&eacute;er un tableau dans ce format, vous pouvez d&eacute;finir le tableau ainsi: <br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">myCube</span><span class="oth">(</span><span class="wrd">y</span><span class="oth">,</span>&nbsp;<span class="wrd">x</span><span class="oth">,</span>&nbsp;<span class="wrd">z</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">Integer.</span>&nbsp;<br>
 </div></tt><br>
 <br \="">
-<tt><b>MyCube(10, 10, 10)</b></tt> cr&eacute;era un cube de 11 unit&eacute;s verticalement, 0 &agrave; 10, 11  unit&eacute;s horizontalement, 0 &agrave; 10 et 10 unit&eacute;s en profondeur, 0 &agrave; 10. Pour acc&eacute;der au centre du cube, vous pouvez utiliser <tt><b>iCenter = myCube(5, 5, 5)</b></tt>. <br \="">
+<tt><b>MyCube(10, 10, 10)</b></tt> cr&eacute;era un cube de 11 unit&eacute;s verticalement, de 0 &agrave; 10, 11  unit&eacute;s horizontalement, de 0 &agrave; 10 et 11 unit&eacute;s en profondeur, de 0 &agrave; 10. Pour acc&eacute;der au centre du cube, vous pouvez utiliser <tt><b>iCenter = myCube(5, 5, 5)</b></tt>. <br \="">
 <br \="">
 Vous n'aurez probablement jamais besoin d'utiliser des tableaux de plus de trois dimensions, &agrave; moins que vous accomplissiez des calculs math&eacute;matiques avanc&eacute;s. Toutefois, si vous avez besoin d'utiliser des tableaux de dimensions sup&eacute;rieures, les m&ecirc;mes principes s'appliquent.<br \="">
 <br \="">
@@ -96,17 +96,17 @@ Vous n'aurez probablement jamais besoin d'utiliser des tableaux de plus de trois
 <br \="">
 Les tableaux d&eacute;crits ci-dessus sont des tableaux statiques; la taille du tableau ne peut pas changer au cours de l'ex&eacute;cution du programme. Vous pouvez &eacute;galement cr&eacute;er des tableaux dynamiques qui peuvent changer de taille au cours de l'ex&eacute;cution. Les tableaux dynamiques sont utiles pour cr&eacute;er des structures de donn&eacute;es telles que les piles ou les files d'attente.<br \="">
 <br \="">
-Les tableaux statiques, ceux d&eacute;crits ci-dessus, sont conserv&eacute;s sur le tas (heap), alors que les tableaux dynamiques sont attribu&eacute;es partir du stock (pool) de m&eacute;moire de l'ordinateur. Le compilateur alloue dynamiquement la m&eacute;moire pour le tableau sur la base des dimensions demand&eacute;es par le tableau.<br \="">
+Les tableaux statiques, ceux d&eacute;crits ci-dessus, sont conserv&eacute;s sur le tas (heap), alors que les tableaux dynamiques sont attribu&eacute;s partir du stock (pool) de m&eacute;moire de l'ordinateur. Le compilateur alloue dynamiquement la m&eacute;moire pour le tableau sur la base des dimensions demand&eacute;es par le tableau.<br \="">
 <br \="">
 Vous sp&eacute;cifiez un tableau dynamique en utilisant le mot-clef <tt><b>ReDim</b></tt>.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">ReDim</span>&nbsp;<span class="wrd">myArray</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">5</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">5</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 </div></tt><br>
 <br \="">
 Si vous ne connaissez pas les limites du tableau n&eacute;cessaires au d&eacute;but de l'ex&eacute;cution du programme, vous pouvez d&eacute;finir un tableau avec des des indices vides.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">myArray</span><span class="oth">()</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 </div></tt><br>
 <br \="">
@@ -118,7 +118,7 @@ Les tableaux dynamiques peuvent changer de taille pendant l'ex&eacute;cution. <t
 <br \="">
 <div class="fb_header"> Fonctions sur les tableaux </div><br \="">
 <br \="">
-Il ya un certain nombre de <a href="CatPgArray.html">fonctions</a> que vous pouvez utiliser avec des tableaux.<br \="">
+Il y a un certain nombre de <a href="CatPgArray.html">fonctions</a> que vous pouvez utiliser avec des tableaux.<br \="">
 <br \="">
 <div class="fb_header"> Tableaux de Types composites </div><br \="">
 <br \="">
@@ -126,7 +126,7 @@ Les d&eacute;finitions de <tt><b>Type</b></tt> vous permettent de regrouper des 
 <br \="">
 Vous cr&eacute;ez des tableaux de <tt><b>Type</b></tt>s comme vous le feriez avec n'importe quel type de donn&eacute;es intrins&egrave;ques. L'extrait de code suivant illustre la syntaxe.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Type</span>&nbsp;<span class="wrd">myPoint</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">row</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">col</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
@@ -143,7 +143,7 @@ Vous cr&eacute;ez des tableaux de <tt><b>Type</b></tt>s comme vous le feriez ave
 <br \="">
 Le code d&eacute;finit un ensemble de 3 lignes, avec les points d'extr&eacute;mit&eacute;s <tt><b>p1</b></tt> et <tt><b>p2</b></tt>, o&ugrave; chaque point d'extr&eacute;mit&eacute; se situe &agrave; <tt><b>row</b></tt> et <tt><b>col</b></tt>. Vous pouvez acc&eacute;der aux &eacute;l&eacute;ments du tableau en utilisant une combinaison d'indice de tableau et d'op&eacute;rateur point.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="wrd">myLineSet</span><span class="oth">(</span><span class="num">1</span><span class="oth">).</span><span class="wrd">p1.row</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br>
 <span class="wrd">myLineSet</span><span class="oth">(</span><span class="num">1</span><span class="oth">).</span><span class="wrd">p1.col</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br>
 <span class="wrd">myLineSet</span><span class="oth">(</span><span class="num">1</span><span class="oth">).</span><span class="wrd">p2.row</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10</span><br>
@@ -153,9 +153,9 @@ Le code d&eacute;finit un ensemble de 3 lignes, avec les points d'extr&eacute;mi
 <br \="">
 <div class="fb_header"> Les tableaux dans les <tt><b>Type</b></tt>s </div><br \="">
 <br \="">
-Non seulement vous pouvez cr&eacute;er un tableau de <tt><b>Type</b></tt> composite, vous pouvez avoir un tableau comme champ dans un <tt><b>Type</b></tt> composite. L'exemple ci-dessus peut &ecirc;tre &eacute;crit de mani&egrave;re plus efficace en remplaçant <tt><b>p1</b></tt> et <tt><b>p2</b></tt> avec un tableau.<br \="">
+Non seulement vous pouvez cr&eacute;er un tableau de <tt><b>Type</b></tt> composite, vous pouvez avoir un tableau comme champ dans un <tt><b>Type</b></tt> composite. L'exemple ci-dessus peut &ecirc;tre &eacute;crit de mani&egrave;re plus efficace en rempla&ccedil;ant <tt><b>p1</b></tt> et <tt><b>p2</b></tt> avec un tableau.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Type</span>&nbsp;<span class="wrd">myPoint</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">row</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">col</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
@@ -171,7 +171,7 @@ Non seulement vous pouvez cr&eacute;er un tableau de <tt><b>Type</b></tt> compos
 <br \="">
 Ici <tt><b>pts</b></tt> est un tableau de <tt><b>myPoint</b></tt>. Pour acc&eacute;der &agrave; cette structure vous pouvez utiliser une combinaison d'indices et d'op&eacute;rateurs points.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="wrd">myLineSet</span><span class="oth">(</span><span class="num">1</span><span class="oth">).</span><span class="wrd">pts</span><span class="oth">(</span><span class="num">1</span><span class="oth">).</span><span class="wrd">row</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br>
 <span class="wrd">myLineSet</span><span class="oth">(</span><span class="num">1</span><span class="oth">).</span><span class="wrd">pts</span><span class="oth">(</span><span class="num">1</span><span class="oth">).</span><span class="wrd">col</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">1</span><br>
 <span class="wrd">myLineSet</span><span class="oth">(</span><span class="num">1</span><span class="oth">).</span><span class="wrd">pts</span><span class="oth">(</span><span class="num">2</span><span class="oth">).</span><span class="wrd">row</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">10</span><br>
@@ -183,7 +183,7 @@ Ici <tt><b>pts</b></tt> est un tableau de <tt><b>myPoint</b></tt>. Pour acc&eacu
 <br \="">
 Utiliser un tableau pour les points de terminaison vous permet d'&eacute;tendre facilement la d&eacute;finition de la ligne pour supporter autre chose que des lignes, par exemple des triangles et des carr&eacute;s. L'extrait de code suivant montre une d&eacute;finition possible.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Type</span>&nbsp;<span class="wrd">myObj</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">objid</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Union</span><br>
@@ -207,7 +207,7 @@ Par exemple, si vous avez besoin de d&eacute;crire un cube, vous pouvez tout sim
 <br \="">
 Vous pouvez initialiser un tableau avec des valeurs en utilisant la d&eacute;claration <tt><b>Dim</b></tt> d'une mani&egrave;re similaire &agrave; l'initialisation de tous les autres types de donn&eacute;es intrins&egrave;ques et de d&eacute;finitions de type. L'extrait de code suivant illustre la syntaxe en utilisant un tableau uni-dimensionnel.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">aArray</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">5</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=&gt;</span>&nbsp;<span class="oth">{</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">3</span><span class="oth">,</span>&nbsp;<span class="num">4</span><span class="oth">,</span>&nbsp;<span class="num">5</span><span class="oth">}</span><br>
 </div></tt><br>
 <br \="">
@@ -215,24 +215,24 @@ Cet extrait de code dimensionne un tableau d'entiers avec 5 &eacute;l&eacute;men
 <br \="">
 Vous pouvez &eacute;galement dimensionner des tableaux multi-dimensionnels de la m&ecirc;me mani&egrave;re, en sp&eacute;cifiant des blocs de donn&eacute;es figurant dans des accolades comme l'extrait de code suivant l'illustre.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">bArray</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">5</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=&gt;</span>&nbsp;<span class="oth">{{</span><span class="num">1</span><span class="oth">,</span>&nbsp;<span class="num">2</span><span class="oth">,</span>&nbsp;<span class="num">3</span><span class="oth">,</span>&nbsp;<span class="num">4</span><span class="oth">,</span>&nbsp;<span class="num">5</span><span class="oth">},{</span><span class="num">6</span><span class="oth">,</span>&nbsp;<span class="num">7</span><span class="oth">,</span>&nbsp;<span class="num">8</span><span class="oth">,</span>&nbsp;<span class="num">9</span><span class="oth">,</span>&nbsp;<span class="num">10</span><span class="oth">}}</span><br>
 </div></tt><br>
 <br \="">
-Dans cet exemple, le premier bloc, <tt><b>{1, 2, 3, 4, 5}</b></tt>, correspond &agrave; la ligne 1, et le deuxi&egrave;me bloc, <tt><b>{6, 7, 8, 9, 10}</b></tt>, correspond &agrave; la ligne 2. Rappelez-vous que les tableaux FreeBasic sont "ligne-majeur", ainsi la ligne est sp&eacute;cifi&eacute;e avant la colonne. Lorsque vous initialisez un tableau de cette mani&egrave;re, vous devez &ecirc;tre s&ucirc;r que le nombre d'&eacute;l&eacute;ments d&eacute;finis s'int&eacute;grera dans le tableau.<br \="">
+Dans cet exemple, le premier bloc, <tt><b>{1, 2, 3, 4, 5}</b></tt>, correspond &agrave; la ligne 1, et le deuxi&egrave;me bloc, <tt><b>{6, 7, 8, 9, 10}</b></tt>, correspond &agrave; la ligne 2. Rappelez-vous que les tableaux FreeBASIC sont "ligne-majeur", ainsi la ligne est sp&eacute;cifi&eacute;e avant la colonne. Lorsque vous initialisez un tableau de cette mani&egrave;re, vous devez &ecirc;tre s&ucirc;r que le nombre d'&eacute;l&eacute;ments d&eacute;finis s'int&eacute;grera dans le tableau.<br \="">
 <br \="">
 <div class="fb_header"> Initialisation de tableau de <tt><b>Type</b></tt> </div><br \="">
 <br \="">
 Non seulement vous pouvez initialiser un tableau de <tt><b>Type</b></tt>s de donn&eacute;es simples, Vous pouvez &eacute;galement initialiser un tableau avec des <tt><b>Type</b></tt>s composites. L'extrait de code suivant illustre un tableau de <tt><b>Type</b></tt>s qui contient lui-m&ecirc;me un tableau comme un &eacute;l&eacute;ment.<br \="">
 <br \="">
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Type</span>&nbsp;<span class="wrd">aType</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">a</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">b</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Byte</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="wrd">c</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><span class="oth">)</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="oth">*</span>&nbsp;<span class="num">10</span><br>
 <span class="key">End</span>&nbsp;<span class="key">Type</span><br>
 <br>
-<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">aType</span>&nbsp;<span class="wrd">myType</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><span class="oth">)</span>&nbsp;<span class="oth">=&gt;</span>&nbsp;<span class="oth">{</span>&nbsp;<span class="oth">(</span><span class="num">1234</span><span class="oth">,</span>&nbsp;<span class="num">12</span><span class="oth">,</span>&nbsp;<span class="oth">{</span><span class="quo">"Hello"</span><span class="oth">,</span>&nbsp;<span class="quo">"World"</span><span class="oth">}),</span>&nbsp;<span class="oth">(</span><span class="num">5678</span><span class="oth">,</span>&nbsp;<span class="num">24</span><span class="oth">,</span>&nbsp;<span class="oth">{</span><span class="quo">"From"</span><span class="oth">,</span>&nbsp;<span class="quo">"Freebasic"</span><span class="oth">})}</span>&nbsp;<br>
+<span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">aType</span>&nbsp;<span class="wrd">myType</span><span class="oth">(</span><span class="num">1</span>&nbsp;<span class="key">To</span>&nbsp;<span class="num">2</span><span class="oth">)</span>&nbsp;<span class="oth">=&gt;</span>&nbsp;<span class="oth">{</span>&nbsp;<span class="oth">(</span><span class="num">1234</span><span class="oth">,</span>&nbsp;<span class="num">12</span><span class="oth">,</span>&nbsp;<span class="oth">{</span><span class="quo">"Hello"</span><span class="oth">,</span>&nbsp;<span class="quo">"World"</span><span class="oth">}),</span>&nbsp;<span class="oth">(</span><span class="num">5678</span><span class="oth">,</span>&nbsp;<span class="num">24</span><span class="oth">,</span>&nbsp;<span class="oth">{</span><span class="quo">"From"</span><span class="oth">,</span>&nbsp;<span class="quo">"FreeBASIC"</span><span class="oth">})}</span>&nbsp;<br>
 </div></tt><br>
 <br \="">
 Les accolades signifient qu'il s'agit d'une initialisation de tableau, tandis que les parenth&egrave;ses indiquent l'initialisation d'un <tt><b>Type</b></tt>. Comme le <tt><b>Type</b></tt> contient un tableau, vous pouvez utiliser les accolades pour charger les donn&eacute;es dans ce tableau incorpor&eacute;, comme vous le feriez avec un tableau autonome. Si le tableau incorpor&eacute; est un tableau multi-dimensionnel, vous aurez alors besoin d'envelopper chaque ligne avec <tt><b>{</b></tt> et <tt><b>}</b></tt> comme vous le feriez pour un tableau autonome. <br \="">

@@ -14,7 +14,7 @@
 	<br \>
 <i>Ecrit par aetherFox pour <a href="http://petesqbsite.com/sections/express/issue9/index.html#compilation">QB Express Issue #9</a></i><br \>
 <br \>
-La compilation conditionnelle est une de ces parties de la programmation qui sont oubli&eacute;es dans les coins poussi&eacute;reux des banques de connaissances des programmeurs du monde fini, mais c'est encore l'un des ajouts les plus ing&eacute;nieux pour n'importe quelle langage. Habituellement r&eacute;serv&eacute;e aux programmeurs C, avec la puissance du nouveau pr&eacute;processeur FreeBASIC, vous pouvez maintenant utiliser la compilation conditionnelle pour am&eacute;liorer votre programme.<br \>
+La compilation conditionnelle est une de ces parties de la programmation qui sont oubli&eacute;es dans les coins poussi&eacute;reux des banques de connaissances des programmeurs du monde fini, mais c'est encore l'un des ajouts les plus ing&eacute;nieux pour n'importe quel langage. Habituellement r&eacute;serv&eacute;e aux programmeurs C, avec la puissance du nouveau pr&eacute;processeur FreeBASIC, vous pouvez maintenant utiliser la compilation conditionnelle pour am&eacute;liorer votre programme.<br \>
 <br \>
 Le pr&eacute;processeur permet de la flexibilit&eacute; en changeant la fa&ccedil;on dont le code est g&eacute;n&eacute;r&eacute; par l'utilisation de la compilation conditionnelle. Prenez ce sc&eacute;nario: vous d&eacute;bogguez du code dans votre programme et vous voulez ajouter du code suppl&eacute;mentaire pour afficher quelques variables, mais celles-ci seront supprim&eacute;es dans la version finale. Le code ressemblerait &agrave; ceci:<br \>
 <br \>
@@ -40,7 +40,7 @@ Fondamentalement, le code ci-dessus v&eacute;rifie si <tt>DEBUG</tt> a &eacute;t
 </span></div></tt><br />
 </tt><br \>
 <br \>
-La directive <tt><a href="KeyPgPpundef.html">#undef</a></tt> est une fa&ccedil;on de "d&eacute;-d&eacute;finir" quelque chose, dans ce cas, DEBUG. Alors qu'elle est strictement inutile (il suffit de commenter la ligne <tt><a href="KeyPgPpdefine.html">#define</a> DEBUG</tt>), elle rend le code plus clair, et a d'autres usages:<br \>
+La directive <tt><a href="KeyPgPpundef.html">#undef</a></tt> est une fa&ccedil;on de "d&eacute;-d&eacute;finir" quelque chose, dans ce cas, DEBUG. Alors qu'elle est strictement inutile (il suffit de d&eacute;commenter la ligne <tt><a href="KeyPgPpdefine.html">#define</a> DEBUG</tt>), elle rend le code plus clair, et a d'autres usages:<br \>
 <br \>
 <tt><tt><div class="freebasic">
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#ifndef&nbsp;DEBUG<br />
@@ -62,7 +62,7 @@ Tout comme dans un langage de programmation normale, le sens du conditionnel peu
 </span></div></tt><br />
 </tt><br \>
 <br \>
-Bien s&ucirc;r, il existe de nombreuses applications &agrave; cela. Qui a dit que vous avez besoin pour ce faire sur le code de d&eacute;bogage uniquement? Vous pouvez effectivement v&eacute;rifier l'effet d'un nouveau morceau de code ou de quelques routines de test en d&eacute;finissant simplement un nom comme <tt>TESTCODE</tt> et l'utilisation des directives du pr&eacute;processeur pour inclure votre code pour la compilation conditionnelle:<br \>
+Bien s&ucirc;r, il existe de nombreuses applications &agrave; cela. Qui a dit que vous avez besoin de faire cela uniquement sur le code de d&eacute;bogage? Vous pouvez effectivement v&eacute;rifier l'effet d'un nouveau morceau de code ou de quelques routines de test en d&eacute;finissant simplement un nom comme <tt>TESTCODE</tt> et l'utilisation des directives du pr&eacute;processeur pour inclure votre code pour la compilation conditionnelle:<br \>
 <br \>
 <tt><tt><div class="freebasic">
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="def">#define&nbsp;TESTCODE<br />

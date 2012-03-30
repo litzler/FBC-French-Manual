@@ -13,7 +13,7 @@
 <div id="fb_pg_body">
 	<i>Ecrit par <a href="WikiRick.html">rdc</a></i><br \>
 <br \>
-Imaginez le bloc d'instructions IF comme une question qui exige une r&eacute;ponse Vrai ou Faux. La r&eacute;ponse d&eacute;termine l'ex&eacute;cution de la section de code de votre programme . Puisque les ordinateurs ne fonctionnent qu'avec des chiffres, vous formuler la question comme une &eacute;quation conditionnelle qui entra&icirc;nera soit 0 pour faux ou non nul pour vrai.<br \>
+Imaginez le bloc d'instructions IF comme une question qui exige une r&eacute;ponse VRAI ou FAUX. La r&eacute;ponse d&eacute;termine l'ex&eacute;cution de la section de code de votre programme. Puisque les ordinateurs ne fonctionnent qu'avec des chiffres, vous formulez la question comme une &eacute;quation conditionnelle qui entra&icirc;nera soit 0 pour FAUX ou non nul pour VRAI.<br \>
 <br \>
 L'instruction IF admet les formats suivants.<br \>
 <br \>
@@ -21,9 +21,9 @@ L'instruction IF admet les formats suivants.<br \>
 <span class="key">If</span>&nbsp;<span class="oth">&lt;</span><span class="wrd">expression</span><span class="oth">&gt;</span>&nbsp;<span class="key">Then</span>&nbsp;<span class="key">Do</span>&nbsp;<span class="wrd">something</span><span class="oth">[:</span><span class="key">Do</span>&nbsp;<span class="wrd">something</span><span class="oth">]</span><br />
 </div></tt><br />
 <br \>
-&lt;expression&gt; est la question qui requiert la r&eacute;ponse Vrai ou Faux. Si la r&eacute;ponse est Vrai, c'est &agrave; dire non Faux, alors le code suivant le THEN est ex&eacute;cut&eacute;. Si la r&eacute;ponse est Faux alors la ligne suivante de code est ex&eacute;cut&eacute;e.<br \>
+&lt;expression&gt; est la question qui requiert la r&eacute;ponse VRAI ou FAUX. Si la r&eacute;ponse est VRAI, c'est &agrave; dire non FAUX, alors le code suivant le THEN est ex&eacute;cut&eacute;. Si la r&eacute;ponse est FAUX alors la ligne suivante de code est ex&eacute;cut&eacute;e.<br \>
 <br \>
-Vous pouvez ex&eacute;cuter plus d'une d&eacute;claration apr&egrave;s le THEN si vous s&eacute;parez les d&eacute;clarations par deux points (:). Toutes les d&eacute;clarations doivent &ecirc;tre sur la m&ecirc;me ligne. Un format plus facile est d'utiliser le bloc de code IF, comme indiqu&eacute; ci-dessous.<br \>
+Vous pouvez ex&eacute;cuter plus d'une d&eacute;claration apr&egrave;s le THEN si vous s&eacute;parez les d&eacute;clarations par deux points (:). Toutes les d&eacute;clarations doivent &ecirc;tre sur la m&ecirc;me ligne. Un format plus lisible est d'utiliser le bloc de code IF, comme indiqu&eacute; ci-dessous.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">If</span>&nbsp;<span class="oth">&lt;</span><span class="wrd">expression</span><span class="oth">&gt;</span>&nbsp;<span class="key">Then</span><br />
@@ -33,7 +33,7 @@ Vous pouvez ex&eacute;cuter plus d'une d&eacute;claration apr&egrave;s le THEN s
 <span class="key">End</span>&nbsp;<span class="key">If</span><br />
 </div></tt><br />
 <br \>
-Dans ce format, si la r&eacute;ponse est Vrai le bloc de code suivant est alors ex&eacute;cut&eacute;, en commen&ccedil;ant avec la d&eacute;claration de 1 et l'ex&eacute;cution de toutes les d&eacute;clarations jusqu'&agrave; ce que END IF soit atteint. Le programme va alors commencer &agrave; ex&eacute;cuter le code apr&egrave;s le END IF. Si la r&eacute;ponse est fausse, le code dans le bloc de code est ignor&eacute; et le code suivant le END IF est ex&eacute;cut&eacute;.<br \>
+Dans ce format, si la r&eacute;ponse est VRAI le bloc de code suivant est alors ex&eacute;cut&eacute;, en commen&ccedil;ant avec la d&eacute;claration de 1 et l'ex&eacute;cution de toutes les d&eacute;clarations jusqu'&agrave; ce que END IF soit atteint. Le programme va alors commencer &agrave; ex&eacute;cuter le code apr&egrave;s le END IF. Si la r&eacute;ponse est fausse, le code dans le bloc de code est ignor&eacute; et le code suivant le END IF est ex&eacute;cut&eacute;.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">If</span>&nbsp;<span class="oth">&lt;</span><span class="wrd">expression</span><span class="oth">&gt;</span>&nbsp;<span class="key">Then</span><br />
@@ -45,7 +45,7 @@ Dans ce format, si la r&eacute;ponse est Vrai le bloc de code suivant est alors 
 <span class="key">End</span>&nbsp;<span class="key">If</span><br />
 </div></tt><br />
 <br \>
-Dans ce format si &lt;expression&gt; is Vrai alors le code suivant le THEN est ex&eacute;cut&eacute;. Si la r&eacute;ponse est Faux alors le code suivant le ELSE est ex&eacute;cut&eacute;. Dans ce format, vous pouvez donner du code &agrave; la fois les r&eacute;ponses Vrai et Faux de l'&lt;expression&gt;.<br \>
+Dans ce format si &lt;expression&gt; est VRAI alors le code suivant le THEN est ex&eacute;cut&eacute;. Si la r&eacute;ponse est FAUX alors le code suivant le ELSE est ex&eacute;cut&eacute;. Dans ce format, vous pouvez donner du code &agrave; la fois pour les r&eacute;ponses VRAI et FAUX de l'&lt;expression&gt;.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">If</span>&nbsp;<span class="oth">&lt;</span><span class="wrd">expression</span><span class="oth">&gt;</span>&nbsp;<span class="key">Then</span><br />
@@ -55,7 +55,7 @@ Dans ce format si &lt;expression&gt; is Vrai alors le code suivant le THEN est e
 <span class="key">End</span>&nbsp;<span class="key">If</span><br />
 </div></tt><br />
 <br \>
-Dans ce format si &lt;expression&gt; is Vrai alors le code suivant le THEN est ex&eacute;cut&eacute;. Si la r&eacute;ponse est Faux alors le ELSEIF est ex&eacute;cut&eacute;. Si le ELSEIF est Vrai, le code suivant le THEN (du ELSEIF) est ex&eacute;cut&eacute;, sinon le code suivant le ENDIF est ex&eacute;cut&eacute;. Vous pouvez avoir autant de d&eacute;clarations ELSEIF que n&eacute;cessaire pour couvrir enti&egrave;rement la gamme de questions que vous avez &agrave; poser.<br \>
+Dans ce format si &lt;expression&gt; est VRAI alors le code suivant le THEN est ex&eacute;cut&eacute;. Si la r&eacute;ponse est FAUX alors le ELSEIF est ex&eacute;cut&eacute;. Si le ELSEIF est VRAI, le code suivant le THEN (du ELSEIF) est ex&eacute;cut&eacute;, sinon le code suivant le ENDIF est ex&eacute;cut&eacute;. Vous pouvez avoir autant de d&eacute;clarations ELSEIF que n&eacute;cessaire pour couvrir enti&egrave;rement la gamme de questions que vous avez &agrave; poser.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">If</span>&nbsp;<span class="oth">&lt;</span><span class="wrd">expression</span><span class="oth">&gt;</span>&nbsp;<span class="key">Then</span><br />
@@ -67,9 +67,9 @@ Dans ce format si &lt;expression&gt; is Vrai alors le code suivant le THEN est e
 <span class="key">End</span>&nbsp;<span class="key">If</span><br />
 </div></tt><br />
 <br \>
-Ce format est une combinaison de tous les autres formats. Si &lt;expression&gt; est Vrai, alors le code suivant le THEN est ensuite ex&eacute;cut&eacute;. Si la r&eacute;ponse est Faux alors le ELSEIF est ex&eacute;cut&eacute;. Si le ELSEIF est Vrai, le code suivant le THEN (du ELSEIF) est ex&eacute;cut&eacute;, sinon le code suivant le ELSE est ex&eacute;cut&eacute;.<br \>
+Ce format est une combinaison de tous les autres formats. Si &lt;expression&gt; est VRAI, alors le code suivant le THEN est ensuite ex&eacute;cut&eacute;. Si la r&eacute;ponse est FAUX alors le ELSEIF est ex&eacute;cut&eacute;. Si le ELSEIF est VRAI, le code suivant le THEN (du ELSEIF) est ex&eacute;cut&eacute;, sinon le code suivant le ELSE est ex&eacute;cut&eacute;.<br \>
 <br \>
-Ce format vous permet de poser une s&eacute;rie de questions et si la r&eacute;ponse est Faux &agrave; toutes les questions, vous pouvez prendre une direction par d&eacute;faut de l'action bas&eacute;e sur le bloc ELSE.<br \>
+Ce format vous permet de poser une s&eacute;rie de questions et si la r&eacute;ponse est FAUX &agrave; toutes les questions, vous pouvez prendre une direction par d&eacute;faut de l'action bas&eacute;e sur le bloc ELSE.<br \>
 <br \>
 Comme vous pouvez le voir, vous pouvez poser la question d'un certain nombre de fa&ccedil;ons, puis ex&eacute;cuter le code bas&eacute; sur un certain nombre de combinaisons de r&eacute;ponses. Cela vous donne beaucoup de flexibilit&eacute; &agrave; la fois dans la fa&ccedil;on de formuler une question et de quoi faire sur la base des r&eacute;ponses.<br \>
 <br \>
@@ -83,7 +83,7 @@ Vous pouvez m&eacute;langer l'arithm&eacute;tique et les op&eacute;rateurs logiq
 <span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">var1</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">6</span><span class="oth">)</span>&nbsp;<span class="oth">&gt;</span>&nbsp;<span class="num">10</span>&nbsp;<span class="key">Then</span><br />
 </div></tt><br />
 <br \>
-Vous remarquerez que les parenth&egrave;ses sont utilis&eacute;es pour regrouper les diff&eacute;rentes parties de l'expression. Vous devez utiliser des parenth&egrave;ses pour vous assurer de l'ex&eacute;cution logique des portions d'expressions. L'expression doit finalement donner Vrai ou Faux, m&ecirc;me si vous utilisez des op&eacute;rateurs arithm&eacute;tiques dans l'expression.<br \>
+Vous remarquerez que les parenth&egrave;ses sont utilis&eacute;es pour regrouper les diff&eacute;rentes parties de l'expression. Vous devez utiliser des parenth&egrave;ses pour vous assurer de l'ex&eacute;cution logique des portions d'expressions. L'expression doit finalement donner VRAI ou FAUX, m&ecirc;me si vous utilisez des op&eacute;rateurs arithm&eacute;tiques dans l'expression.<br \>
 <br \>
 <div class="fb_header"> Utilisation des op&eacute;rateurs bit &agrave; bit dans une d&eacute;claration IF </div><br \>
 <br \>
@@ -95,15 +95,15 @@ Voyez l'extrait de code ci-dessous. <br \>
 <span class="key">If</span>&nbsp;<span class="oth">(</span><span class="wrd">var1</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><span class="oth">)</span>&nbsp;<span class="key">And</span>&nbsp;<span class="oth">(</span><span class="wrd">var2</span>&nbsp;<span class="oth">&lt;</span>&nbsp;<span class="num">3</span><span class="oth">)</span>&nbsp;<span class="key">Then</span><br />
 </div></tt><br />
 <br \>
-Si <tt>var1</tt> est &eacute;gal &agrave; 5, le compilateur retourne Vrai, sinon -1 pour l'expression. Si <tt>var2</tt> est inf&eacute;rieur &agrave; 3 alors le compilateur retourne Vrai, sinon -1 pour cette expression. Le compilateur &eacute;value ensuite l'op&eacute;rateur AND, avec -1 AND -1 retourne -1. Comme -1 est non-z&eacute;ro, ou Vrai, le code qui suit le THEN sera ex&eacute;cut&eacute;. <br \>
+Si <tt>var1</tt> est &eacute;gal &agrave; 5, le compilateur retourne VRAI, sinon -1 pour l'expression. Si <tt>var2</tt> est inf&eacute;rieur &agrave; 3 alors le compilateur retourne VRAI, sinon -1 pour cette expression. Le compilateur &eacute;value ensuite l'op&eacute;rateur AND, avec -1 AND -1 retourne -1. Comme -1 est non-z&eacute;ro, ou VRAI, le code qui suit le THEN sera ex&eacute;cut&eacute;. <br \>
 <br \>
-Si l'une ou l'autre des d&eacute;clarations entre parenth&egrave;ses est &eacute;valu&eacute;e &agrave; 0, alors le AND retournera 0, ce qui correspond &agrave; Faux, et le code qui suit le THEN ne sera pas ex&eacute;cut&eacute;. Lorsque vous utilisez les op&eacute;rateurs de bits, vous devez formuler les expressions conditionnelles de chaque c&ocirc;t&eacute; de l'op&eacute;rateur de bits de telle sorte que leur retour soit Vrai ou Faux. Cela vous donnera des r&eacute;sultats coh&eacute;rents dans vos &eacute;valuations.<br \>
+Si l'une ou l'autre des d&eacute;clarations entre parenth&egrave;ses est &eacute;valu&eacute;e &agrave; 0, alors le AND retournera 0, ce qui correspond &agrave; FAUX, et le code qui suit le THEN ne sera pas ex&eacute;cut&eacute;. Lorsque vous utilisez les op&eacute;rateurs de bits, vous devez formuler les expressions conditionnelles de chaque c&ocirc;t&eacute; de l'op&eacute;rateur de bits de telle sorte que leur retour soit VRAI ou FAUX. Cela vous donnera des r&eacute;sultats coh&eacute;rents dans vos &eacute;valuations.<br \>
 <br \>
 <div class="fb_header"> Le probl&egrave;me NOT </div><br \>
 <br \>
 L'op&eacute;rateur binaire NOT peut &ecirc;tre un probl&egrave;me dans une d&eacute;claration IF. Vous pouvez &ecirc;tre amen&eacute; &agrave; utiliser l'&eacute;criture <i>If Not var Then</i>, avec NOT effectuant une op&eacute;ration logique, plut&ocirc;t qu'une op&eacute;ration bit &agrave; bit. En FreeBASIC, NOT effectue une op&eacute;ration bit &agrave; bit, et non pas une op&eacute;ration logique.<br \>
 <br \>
-Si <i>var</i> contient la valeur de 3, alors NOT 3 donne -4, ce qui sera consid&eacute;r&eacute; comme le r&eacute;sultat Vrai et le code suivant le THEN sera ex&eacute;cut&eacute;, ce qui n'est probablement pas ce qui est attendu. Au lieu d'&eacute;crire <i>If Not var Then</i>, &eacute;crivez <i>If var &lt;&gt; 0 Then</i>.<br \>
+Si <i>var</i> contient la valeur de 3, alors NOT 3 donne -4, ce qui sera consid&eacute;r&eacute; comme le r&eacute;sultat VRAI et le code suivant le THEN sera ex&eacute;cut&eacute;, ce qui n'est probablement pas ce qui est attendu. Au lieu d'&eacute;crire <i>If Not var Then</i>, &eacute;crivez <i>If var &lt;&gt; 0 Then</i>.<br \>
 <br \>
 <div class="fb_header"> Conditions qui se chevauchent </div><br \>
 <br \>
@@ -111,7 +111,7 @@ Lorsque vous utilisez des conditions combin&eacute;es, assurez-vous que les cond
 <br \>
 <div class="fb_header">D&eacute;clarations IF imbriqu&eacute;es </div><br \>
 <br \>
-Parfois, il est n&eacute;cessaire d'imbriquer des d&eacute;clarations IF afin de mieux d&eacute;crire le processus d&eacute;cisionnel de l'&eacute;valuation. Bien que la d&eacute;claration IF puisse g&eacute;rer plusieurs arguments dans une expression, il y a des cas o&ugrave; vous voudrez peut-&ecirc;tre progressivement contr&ocirc;ler certaines gammes de valeurs en utilisant des blocs de IF imbriqu&eacute;es.<br \>
+Parfois, il est n&eacute;cessaire d'imbriquer des d&eacute;clarations IF afin de mieux d&eacute;crire le processus d&eacute;cisionnel de l'&eacute;valuation. Bien que la d&eacute;claration IF puisse g&eacute;rer plusieurs arguments dans une expression, il y a des cas o&ugrave; vous voudrez peut-&ecirc;tre progressivement contr&ocirc;ler certaines gammes de valeurs en utilisant des blocs de IF imbriqu&eacute;s.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">If</span>&nbsp;<span class="oth">&lt;</span><span class="wrd">expression</span><span class="oth">&gt;</span>&nbsp;<span class="key">Then</span>&nbsp;<br />
@@ -125,7 +125,7 @@ Parfois, il est n&eacute;cessaire d'imbriquer des d&eacute;clarations IF afin de
 <span class="key">End</span>&nbsp;<span class="key">If</span><br />
 </div></tt><br />
 <br \>
-Il est important de fermer chaque bloc correctement avec un END IF lorsqu'il est ouvert par un IF pour &eacute;viter des erreurs compilateur ou  de logique. Les erreurs du compilateur sont assez faciles &agrave; r&eacute;soudre, tandis que les erreurs de logique peuvent &ecirc;tre difficiles &agrave; traquer et corriger. La meilleure fa&ccedil;on de s'assurer que vous fermer les blocs correctement est l'indentation des d&eacute;clarations IF imbriqu&eacute;es et ensuite l'indentation des d&eacute;clarations END IF correspondant au m&ecirc;me niveau que le IF. Dans l'exemple ci-dessus, l'indentation vous visualise les couples IF .... END IF. <br \>
+Il est important de fermer chaque bloc correctement avec un END IF lorsqu'il est ouvert par un IF pour &eacute;viter des erreurs compilateur ou  de logique. Les erreurs du compilateur sont assez faciles &agrave; r&eacute;soudre, tandis que les erreurs de logique peuvent &ecirc;tre difficiles &agrave; traquer et &agrave; corriger. La meilleure fa&ccedil;on de s'assurer que vous fermez les blocs correctement est l'indentation des d&eacute;clarations IF imbriqu&eacute;es et ensuite l'indentation des d&eacute;clarations END IF correspondant au m&ecirc;me niveau que le IF. Dans l'exemple ci-dessus, l'indentation vous visualise les couples IF .... END IF. <br \>
 <br \>
 <div class="fb_header"> La fonction IIF</div><br \>
 <br \>
@@ -138,21 +138,21 @@ IIF, ou fonction "immediate If" renvoie l'une des deux valeurs num&eacute;riques
 IIF peut &ecirc;tre utilis&eacute; comme une fonction autonome ou &agrave; l'int&eacute;rieur d'autres expressions o&ugrave; vous ne voulez pas diviser l'expression pour ins&eacute;rer une instruction IF. Les valeurs num&eacute;riques peuvent &ecirc;tre des valeurs litt&eacute;rales, des variables ou des appels de fonctions num&eacute;riques. La limitation de la fonction, c'est qu'elle ne retourne qu'une valeur num&eacute;rique, et non une cha&icirc;ne, mais vous pouvez contourner cette limitation en utilisant des pointeurs.<br \>
 <br \>
 <div class="fb_table"><table><tr><td>
-L'instruction IIF &eacute;value &agrave; la fois les conditions Vrai et Faux si devez &eacute;viter d'effectuer une op&eacute;ration ill&eacute;gale comme la division par z&eacute;ro dans un des &eacute;tats, m&ecirc;me si cette condition n'est pas retourn&eacute;e par la fonction.</td></tr></table></div><br \>
+L'instruction IIF &eacute;value &agrave; la fois les conditions VRAI et FAUX donc vous devez &eacute;viter d'effectuer une op&eacute;ration ill&eacute;gale comme la division par z&eacute;ro dans un des &eacute;tats, m&ecirc;me si cette condition n'est pas retourn&eacute;e par la fonction.</td></tr></table></div><br \>
 <br \>
 <div class="fb_header"> Formuler la question </div><br \>
 <br \>
-La d&eacute;claration IF est un outil puissant, mais vous devez vous assurer que vous formulez correctement la question qui est l'&lt;expression&gt;. Chaque expression doit se r&eacute;soudre par Vrai ou faux, toujours avec Vrai ex&eacute;cutant le code qui suit THEN.<br \>
+La d&eacute;claration IF est un outil puissant, mais vous devez vous assurer que vous formulez correctement la question dans &lt;expression&gt;. Chaque expression doit se r&eacute;soudre par VRAI ou FAUX, toujours avec VRAI ex&eacute;cutant le code qui suit THEN.<br \>
 <br \>
-Lors de l'&eacute;criture une d&eacute;claration IF vous devez vous demander si l'expression se r&eacute;sout par Vrai ou Faux? Cela est particuli&egrave;rement vrai pour les expressions compos&eacute;es qui ont un certain nombre de termes dans l'expression. Chaque terme doit se r&eacute;soudre par Vrai ou faux, et l'ensemble des termes doit se r&eacute;soudre par True ou False. S'il existe le moindre doute sur l'&eacute;valuation correcte de l'expression compos&eacute;, cassez les d&eacute;clarations IF imbriqu&eacute;es.<br \>
+Lors de l'&eacute;criture d'une d&eacute;claration IF vous devez vous demander si l'expression se r&eacute;sout par VRAI ou FAUX? Cela est particuli&egrave;rement vrai pour les expressions compos&eacute;es qui ont un certain nombre de termes dans l'expression. Chaque terme doit se r&eacute;soudre par VRAI ou FAUX, et l'ensemble des termes doit se r&eacute;soudre par VRAI ou FAUX. S'il existe le moindre doute sur l'&eacute;valuation correcte de l'expression compos&eacute;e, cassez les d&eacute;clarations IF imbriqu&eacute;es.<br \>
 <br \>
 <div class="fb_header"> V&eacute;rification des gammes de valeurs </div><br \>
 <br \>
 Souvent, vous aurez besoin de v&eacute;rifier pour une plage de valeurs dans une instruction IF, et pour que le compilateur &eacute;value correctement la condition pour la plage, vous devez formuler les expressions correctement. Il existe essentiellement deux types d'expressions de gamme: exclusives et inclusives. Les expressions exclusives excluent une plage de valeurs. Les expressions inclusives incluent une gamme de valeurs. Chaque famille a un format particulier qui doit &ecirc;tre suivi d'une &eacute;valuation ad&eacute;quate.<br \>
 <br \>
-<b> Excluure une plage de valeurs </b><br \>
+<b> Exclure une plage de valeurs </b><br \>
 <br \>
-Supposez que vous avez une plage de valeurs et que vous vouliez faire quelque chose de sp&eacute;cial si la valeur est inf&eacute;rieure ou &eacute;gale &agrave; 1 ou sup&eacute;rieure ou &eacute;gale &agrave; 10. Pour ex&eacute;cuter cela vous devez exclure les nombres de 2 &agrave; 9 de l'action sp&eacute;ciale.<br \>
+Supposez que vous ayez une plage de valeurs et que vous vouliez faire quelque chose de sp&eacute;cial si la valeur est inf&eacute;rieure ou &eacute;gale &agrave; 1 ou sup&eacute;rieure ou &eacute;gale &agrave; 10. Pour ex&eacute;cuter cela vous devez exclure les nombres de 2 &agrave; 9 de l'action sp&eacute;ciale.<br \>
 <br \>
 Vous pouvez formuler cela comme une question qui peut ensuite &ecirc;tre traduite en code.<br \>
 <br \>
@@ -172,13 +172,13 @@ La clef ici est OR. Si la borne inf&eacute;rieure de la valeur est &eacute;gale 
 <span class="key">End</span>&nbsp;<span class="key">If</span><br />
 </div></tt><br />
 <br \>
-Rappelez-vous que OU retournera Vrai si la condition est Vraie. Si la valeur est 1 ou moins, ou la valeur est de 10 ou plus, alors l'expression retournera Vrai et l'action sp&eacute;ciale sera effectu&eacute;e.<br \>
+Rappelez-vous que OU retournera VRAI si la condition est VRAI. Si la valeur est 1 ou moins, ou la valeur est de 10 ou plus, alors l'expression retournera VRAI et l'action sp&eacute;ciale sera effectu&eacute;e.<br \>
 <br \>
 <b> Inclure une gamme de valeurs </b><br \>
 <br \>
 L'inclusion est l'oppos&eacute; de l'exclusion. Comme vous pouvez le deviner, le format est similaire, mais vous utilisez l'op&eacute;rateur AND qui est l'oppos&eacute; de l'op&eacute;rateur OR.<br \>
 <br \>
-Supposons que vous voulez faire quelque chose de sp&eacute;cial si la valeur est de 5, 6 ou 7. Donc que vous souhaitez inclure ces nombres dans votre expression de gamme. Encore une fois, vous pouvez commencer par poser une question.<br \>
+Supposons que vous vouliez faire quelque chose de sp&eacute;cial si la valeur est de 5, 6 ou 7. Donc que vous souhaitez inclure ces nombres dans votre expression de gamme. Encore une fois, vous pouvez commencer par poser une question.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Is</span>&nbsp;<span class="wrd">the</span>&nbsp;<span class="wrd">value</span>&nbsp;<span class="wrd">a</span>&nbsp;<span class="wrd">number</span>&nbsp;<span class="wrd">between</span>&nbsp;<span class="num">5</span>&nbsp;<span class="key">And</span>&nbsp;<span class="num">7</span>&nbsp;<span class="oth">(</span><span class="wrd">inclusive</span><span class="oth">)?</span><br />
@@ -196,7 +196,7 @@ Ici vous souhaitez inclure les nombres 5, 6, 7 pour examen. Donc si la valeur es
 <span class="key">End</span>&nbsp;<span class="key">If</span><br />
 </div></tt><br />
 <br \>
-Rappelez-vous que l'op&eacute;rateur AND ne retourneront Vrai que si les deux op&eacute;randes sont Vrai. Si la valeur est de 6, 6 est sup&eacute;rieur &agrave; 5 et 6 est &eacute;galement inf&eacute;rieur &agrave; 7, alors les deux affirmations sont Vrai, et l'expression prend la valeur Vrai..<br \>
+Rappelez-vous que l'op&eacute;rateur AND ne retourneront VRAI que si les deux op&eacute;randes sont VRAI. Si la valeur est de 6, 6 est sup&eacute;rieur &agrave; 5 et 6 est &eacute;galement inf&eacute;rieur &agrave; 7, alors les deux affirmations sont VRAI, et l'expression prend la valeur VRAI..<br \>
 
 </div>
 </div> 

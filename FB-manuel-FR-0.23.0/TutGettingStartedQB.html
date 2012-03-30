@@ -19,7 +19,7 @@ Vous pouvez t&eacute;l&eacute;charger FreeBASIC ici: http://www.freebasic.net/in
 Et FBIDE ici: http://fbide.sourceforge.net/<br \>
 <br \>
 Lors de l'installation de FBIDE, s&eacute;lectionnez "FBIDE only," pour ne pas installer l'ancienne version de FB incluse dans ce paquet.<br \>
-Lors de l'ex&eacute;cution FBIDE la premi&egrave;re fois, vous aurez &agrave; parcourir les r&eacute;pertoires (browse) pour trouver le compilateur FB sur votre ordinateur.<br \>
+Lors de l'ex&eacute;cution FBIDE la premi&egrave;re fois, vous aurez &agrave; parcourir les r&eacute;pertoires pour trouver le compilateur FB sur votre ordinateur.<br \>
 <br \>
 <b>Hello World!</b><br \>
 <br \>
@@ -29,7 +29,7 @@ Ouvrez FBIDE et tapez la commande suivante:<br \>
  PRINT "Bonjour le monde!"
  SLEEP
 </pre><br \>
-Maintenant, appuyez sur F5. F&eacute;licitations, vous venez de voir comment FreeBasic est vraiment tout comme QB FreeBasic. Maintenant, vous pouvez utiliser la plupart des commandes de la console pour QB comme vous vous en souvenez. Par exemple: <br \>
+Maintenant, appuyez sur F5. F&eacute;licitations, vous venez de voir comment FreeBASIC est vraiment tout comme QB FreeBASIC. Maintenant, vous pouvez utiliser la plupart des commandes de la console pour QB comme vous vous en souvenez. Par exemple: <br \>
 <br \>
 <pre class="fb_pre">
  LOCATE 10,10
@@ -55,7 +55,7 @@ A partir de l&agrave;, toutes les commandes graphiques standard fonctionnent, co
 
  SLEEP
 </pre><br \>
-FreeBasic a &eacute;galement de nouvelles fonctionnalit&eacute;s graphiques. Par exemple, QB n'a jamais eu de SCREEN 14 ou plus. Essayez de lancer ce programme:<br \>
+FreeBASIC a &eacute;galement de nouvelles fonctionnalit&eacute;s graphiques. Par exemple, QB n'a jamais eu de SCREEN 14 ou plus. Essayez de lancer ce programme:<br \>
 <pre class="fb_pre">
  SCREEN 15
  LINE (1,1)-(100,100),1,bf
@@ -67,7 +67,7 @@ FreeBasic a &eacute;galement de nouvelles fonctionnalit&eacute;s graphiques. Par
 </pre><br \>
 Apr&egrave;s l'ouverture d'une fen&ecirc;tre graphique via la commande SCREEN, vous pouvez &eacute;galement appuyer sur ALT-ENTRER pour changer du mode fen&ecirc;tr&eacute; et au mode plein &eacute;cran.<br \>
 <br \>
-Une autre fonctionnalit&eacute; int&eacute;ressante de la biblioth&egrave;que graphique dans FreeBasic est que vous pouvez faire un changement de page dans n'importe quel mode vid&eacute;o. Le code suivant illustre cela. <br \>
+Une autre fonctionnalit&eacute; int&eacute;ressante de la biblioth&egrave;que graphique dans FreeBASIC est que vous pouvez faire un changement de page dans n'importe quel mode vid&eacute;o. Le code suivant illustre cela. <br \>
 <br \>
 <pre class="fb_pre">
  DIM as integer page
@@ -98,7 +98,7 @@ Ceci fonctionne pour n'importe quel mode, vous pouvez donc utiliser les modes &a
 <br \>
 <b>Pourquoi ASM n'est plus n&eacute;cessaire</b><br \>
 <br \>
-Je n'aurais pas dit cela si ce n'&eacute;tait pas vrai. Utilisation d' ASM dans BASIC pour augmenter la fonctionnalit&eacute; de votre programme n'est plus n&eacute;cessaire. Ignorant SDL, Allegro, DirectX, OpenGL, etc... pour une minute, vous avez le changement de page et des modes graphiques avanc&eacute;s &agrave; votre disposition, ainsi que Inkey, que nous avons tous appris &agrave; aimer ou d&eacute;tester, mais il y a &eacute;galement deux commandes d'entr&eacute;e nouvelles qui font des choses pour lesquelles les utilisateurs de QB devaient recourir &agrave; du code assembleur, depuis la nuit des temps:<br \>
+Je n'aurais pas dit cela si ce n'&eacute;tait pas vrai. L'utilisation d' ASM dans BASIC pour augmenter la fonctionnalit&eacute; de votre programme n'est plus n&eacute;cessaire. Ignorez SDL, Allegro, DirectX, OpenGL, etc... pour une minute, vous avez le changement de page et des modes graphiques avanc&eacute;s &agrave; votre disposition, ainsi que Inkey, que nous avons tous appris &agrave; aimer ou d&eacute;tester, mais il y a &eacute;galement deux commandes d'entr&eacute;e nouvelles qui font des choses pour lesquelles les utilisateurs de QB devaient recourir &agrave; du code assembleur, depuis la nuit des temps:<br \>
 <br \>
 <pre class="fb_pre">
  DIM as integer x, y, buttons
