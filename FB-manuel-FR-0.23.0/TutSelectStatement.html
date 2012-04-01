@@ -13,10 +13,10 @@
 <div id="fb_pg_body">
 	<i>Ecrit par <a href="WikiRick.html">rdc</a></i><br \>
 <br \>
-Le bloc <b>Select Case</b> peut &ecirc;tre consid&eacute;r&eacute;e comme une s&eacute;rie If-ElseIf optimis&eacute;e et fonctionne de la m&ecirc;me mani&egrave;re. Le format standard de <b>Select Case</b> peut utiliser n'importe lequel des types de donn&eacute;es standard pour &lt;expression&gt; et le format <b>Select Case As Const</b> est optimis&eacute; pour les valeurs enti&egrave;res.
+Le bloc <b>Select Case</b> peut &ecirc;tre consid&eacute;r&eacute; comme une s&eacute;rie If-ElseIf optimis&eacute;e et fonctionne de la m&ecirc;me mani&egrave;re. Le format standard de <b>Select Case</b> peut utiliser n'importe quel type de donn&eacute;es standard pour &lt;expression&gt; et le format <b>Select Case As Const</b> est optimis&eacute; pour les valeurs enti&egrave;res.
 <br \>
 <br \>
-Cet extrait de code montre la syntaxe de <b>Select Case</b>e standard. L'expression est g&eacute;n&eacute;ralement une variable qui peut &ecirc;tre de l'un des types de donn&eacute;es standard ou des &eacute;l&eacute;ments individuels d'un type ou d'un tableau.<br \>
+Cet extrait de code montre la syntaxe standard de <b>Select Case</b>. L'expression est g&eacute;n&eacute;ralement une variable qui peut &ecirc;tre de l'un des types de donn&eacute;es standard ou des &eacute;l&eacute;ments individuels d'un type ou d'un tableau.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="key">Select</span>&nbsp;<span class="key">Case</span>&nbsp;<span class="oth">&lt;</span><span class="wrd">expression</span><span class="oth">&gt;</span><br />
@@ -68,9 +68,9 @@ La clause &lt;list&gt; de l'instruction <b>Case</b> peut avoir n'importe lequel 
 <span class="key">End</span>&nbsp;<span class="key">Select</span><br />
 </div></tt><br />
 <br \>
-La &lt;list&gt; des formats de d&eacute;claration pour <b>Select Case As Const</b> sont limit&eacute;s &agrave; des valeurs ou des &eacute;num&eacute;rations de valeurs. Autrement dit, les expressions op&eacute;rateurs sont pas autoris&eacute;s dans un cas <b>As Const</b>.<br \>
+La &lt;list&gt; des formats de d&eacute;claration pour <b>Select Case As Const</b> est limit&eacute;e &agrave; des valeurs ou des &eacute;num&eacute;rations de valeurs. Autrement dit, les expressions op&eacute;rateurs sont pas autoris&eacute;es dans un cas <b>As Const</b>.<br \>
 <br \>
-Quand un bloc <b>Case</b> est ex&eacute;cut&eacute;, les instructions suivant le mot-cl&eacute; <b>Case</b> jusqu'au mot-cl&eacute; <b>Case</b> (ou End Select) suivant seront ex&eacute;cut&eacute;es. Un seul bloc d'instructions dans un <b>Case</b> sera ex&eacute;cut&eacute; &agrave; un moment donn&eacute;. Si un <b>Case Else</b> est pr&eacute;sent, alors les instructions dans le bloc <b>Else</b> seront ex&eacute;cut&eacute;es si aucun <b>Case</b> ne correspond &agrave; la portion de la d&eacute;claration <b>Select</b>. Le programme suivant illustre l'utilisation du bloc <b>Select Case</b>.<br \>
+Quand un bloc <b>Case</b> est ex&eacute;cut&eacute;, les instructions suivant le mot-cl&eacute; <b>Case</b> jusqu'au mot-cl&eacute; <b>Case</b> suivant (ou End Select) seront ex&eacute;cut&eacute;es. Un seul bloc d'instructions dans un <b>Case</b> sera ex&eacute;cut&eacute; &agrave; un moment donn&eacute;. Si un <b>Case Else</b> est pr&eacute;sent, alors les instructions dans le bloc <b>Else</b> seront ex&eacute;cut&eacute;es si aucun <b>Case</b> ne correspond &agrave; la portion de la d&eacute;claration <b>Select</b>. Le programme suivant illustre l'utilisation du bloc <b>Select Case</b>.<br \>
 <br \>
 <tt><div class="freebasic">
 <span class="com">'Ascii&nbsp;code&nbsp;of&nbsp;key&nbsp;press</span><br />
@@ -95,7 +95,7 @@ Quand un bloc <b>Case</b> est ex&eacute;cut&eacute;, les instructions suivant le
 <br \>
 Dans le programme, lorsque vous appuyez sur une touche, la valeur est traduite en un nombre en utilisant la fonction Asc. Puisque ce sera toujours une valeur enti&egrave;re inf&eacute;rieure &agrave; 4097 (car les codes de caract&egrave;res ascii vont de 0 &agrave; 255), le format utilis&eacute; est <b>Select Case As Const</b>.<br \>
 <br \>
-Le compilateur dcompare la valeur de code de touche avec chacun des <b>Case</b> pour voir si le bloc doit s'ex&eacute;cuter. Si le code de touche se situe dans une fourchette particuli&egrave;re, la d&eacute;claration d'affichage va ex&eacute;cuter, puis le flux du programme se poursuivra avec la ligne qui suit <b>End Select</b>. S'il ne correspond &agrave; aucun des <b>Case</b>, alors le programme se poursuivra avec la ligne qui suit <b>End Select</b>.<br \>
+Le compilateur compare la valeur de code de touche avec chacun des <b>Case</b> pour voir si le bloc doit s'ex&eacute;cuter. Si le code de touche se situe dans une fourchette particuli&egrave;re, la d&eacute;claration d'affichage va s'ex&eacute;cuter, puis le flux du programme se poursuivra avec la ligne qui suit <b>End Select</b>. S'il ne correspond &agrave; aucun des <b>Case</b>, alors le programme se poursuivra avec la ligne qui suit <b>End Select</b>.<br \>
 <br \>
 Un bloc <b>Select Case</b> est g&eacute;n&eacute;ralement la traduction d'un bloc si-ElseIf. Pour illustrer cela, le programme pr&eacute;c&eacute;dent est transform&eacute; ci-dessous en bloc <b>If-ElseIf</b>.<br \>
 <br \>

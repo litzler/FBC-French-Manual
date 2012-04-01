@@ -23,9 +23,9 @@ Normalement, vous acc&eacute;dez aux donn&eacute;es directement par l'interm&eac
 <br \>
 Utiliser des pointeurs est l&eacute;g&egrave;rement diff&eacute;rent. Imaginez que vous avez un petit bout de papier qui repr&eacute;sente notre pointeur. Pour le moment il est vierge et ne pointe nulle part. Ce pointeur non-d&eacute;fini ne peut &ecirc;tre utilis&eacute; tant qu'il n'est pas initialis&eacute;. Pour l'initialiser, &eacute;crivez 1 dessus. Maintenant notre pointeur "pointe" vers la case 1 de notre carton &agrave; oeufs. Pour placer une donn&eacute;e (un oeuf) dans la case 1, nous consultons notre bout de papier, il indique la case 1 et nous pla&ccedil;ons l'oeuf dans cette case. Pour r&eacute;cup&eacute;rer l'oeuf nous effectuons la manoeuvre opos&eacute;e.  Nous faisons correspondre notre bout de papier au trou 1 et ensuite r&eacute;cup&eacute;rons l'oeuf. La mise en place de l'oeuf et sa r&eacute;cup&eacute;ration se r&eacute;alisent par l'interm&eacute;diaire de notre bout de papier et est appel&eacute; d&eacute;r&eacute;f&eacute;rencer le pointeur. C'est &agrave; dire que nous r&eacute;cup&eacute;rons la donn&eacute;e par l'interm&eacute;diaire de la r&eacute;f&eacute;rence contenue dans le pointeur, le num&eacute;ro 1. Le pointeur ne contient pas la donn&eacute;e; il contient une r&eacute;f&eacute;rence vers cette donn&eacute;e.<br \>
 <br \>
-Dans FreeBasic nous d&eacute;finissons un pointeur en utilisant les instructions <a href="KeyPgDim.html">Dim</a> et <a href="KeyPgPtr.html">Ptr</a>:<br \>
+Dans FreeBASIC nous d&eacute;finissons un pointeur en utilisant les instructions <a href="KeyPgDim.html">Dim</a> et <a href="KeyPgPtr.html">Ptr</a>:<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">aptr</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
 </div></tt><br />
 </tt><br \>
@@ -34,7 +34,7 @@ Cette d&eacute;claration correspond &agrave; notre bout de papier blanc de l'exe
 <br \>
 Pour qu'un pointeur soit utilisable, il doit &ecirc;tre initialis&eacute;:<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">aptr</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
 <br />
 <span class="wrd">aptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span><span class="key">SizeOf</span><span class="oth">(</span><span class="key">Integer</span><span class="oth">))</span><br />
@@ -45,7 +45,7 @@ Nous avons utilis&eacute; <a href="KeyPgAllocate.html">Allocate</a> de fa&ccedil
 <br \>
 Une fois le pointeur initialis&eacute;, nous pouvons maintenant l'utiliser:<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="oth">*</span><span class="wrd">aptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
 <span class="key">Print</span>&nbsp;<span class="quo">"aptr:&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="oth">*</span><span class="wrd">aptr</span><br />
 </div></tt><br />
@@ -55,7 +55,7 @@ Notez le pr&eacute;fixe <b>*</b> devant <tt><i>aptr</i></tt>. Le <b>*</b> est l'
 <br \>
 Voici un exemple complet de programme:<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="key">Option</span>&nbsp;<span class="key">Explicit</span><br />
 <br />
 <span class="key">Dim</span>&nbsp;<span class="wrd">aptr</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="key">Ptr</span><br />
@@ -68,17 +68,17 @@ Voici un exemple complet de programme:<br \>
 </div></tt><br />
 </tt><br \>
 <br \>
-La fonction <a href="KeyPgDeallocate.html">Deallocate</a> lib&egrave;re la m&eacute;moire point&eacute;e par <tt><i>aptr</i></tt> et ainsi <tt><i>aptr</i></tt> est de nouveau non-d&eacute;fini. C'est comme effacer le num&eacute;ro sur votre bout de papier. Si nous utilisions <tt><i>aptr</i></tt> apr&egrave;s d&eacute;sallocation, le programme se planerait.<br \>
+La fonction <a href="KeyPgDeallocate.html">Deallocate</a> lib&egrave;re la m&eacute;moire point&eacute;e par <tt><i>aptr</i></tt> et ainsi <tt><i>aptr</i></tt> est de nouveau non-d&eacute;fini. C'est comme effacer le num&eacute;ro sur votre bout de papier. Si nous utilisions <tt><i>aptr</i></tt> apr&egrave;s d&eacute;sallocation, le programme se planterait.<br \>
 <br \>
 <b>A quoi servent les pointeurs?</b><br \>
 <br \>
-Une des principales raisons pour ajouter des pointeurs &agrave; FreeBasic est que beaucoup de biblioth&egrave;ques externes n&eacute;cessitent des pointeurs vers des structures et des pointeurs vers des cha&icirc;nes. Par exemple, l'API Win32 a de nombreuses structures qui doivent &ecirc;tre remplies et transmises &agrave; une fonction via un pointeur.<br \>
+Une des principales raisons pour ajouter des pointeurs &agrave; FreeBASIC est que beaucoup de biblioth&egrave;ques externes n&eacute;cessitent des pointeurs vers des structures et des pointeurs vers des cha&icirc;nes. Par exemple, l'API Win32 a de nombreuses structures qui doivent &ecirc;tre remplies et transmises &agrave; une fonction via un pointeur.<br \>
 <br \>
-Une autre utilisation d'un pointeur se trouve dans la d&eacute;finition d'un <a href="KeyPgType.html">Type</a>. Dans FreeBasic, les d&eacute;finitions de <a href="KeyPgType.html">Type</a> ne peuvent contenir que des cha&icirc;nes de longueur d&eacute;finie, mais que faire si vous ne connaissez pas la longueur de la cha&icirc;ne avant le fonctionnement du programme? Un pointeur peut &ecirc;tre utile dans ce cas.<br \>
+Une autre utilisation d'un pointeur se trouve dans la d&eacute;finition d'un <a href="KeyPgType.html">Type</a>. Dans FreeBASIC, les d&eacute;finitions de <a href="KeyPgType.html">Type</a> ne peuvent contenir que des cha&icirc;nes de longueur d&eacute;finie, mais que faire si vous ne connaissez pas la longueur de la cha&icirc;ne avant le fonctionnement du programme? Un pointeur peut &ecirc;tre utile dans ce cas.<br \>
 <br \>
 (Il convient de pr&eacute;ciser que les d&eacute;finitions de <a href="KeyPgType.html">Type</a> peuvent d&eacute;sormais prendre en charge les cha&icirc;nes de longueur variable.)<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="key">Option</span>&nbsp;<span class="key">Explicit</span><br />
 <br />
 <span class="key">Type</span>&nbsp;<span class="wrd">mytptr</span><br />
@@ -93,7 +93,7 @@ Une autre utilisation d'un pointeur se trouve dans la d&eacute;finition d'un <a 
 <span class="key">Dim</span>&nbsp;<span class="wrd">mytype</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">mytptr</span><br />
 <br />
 <span class="com">'Set&nbsp;a&nbsp;variable&nbsp;string&nbsp;into&nbsp;the&nbsp;type&nbsp;def</span><br />
-<span class="wrd">mytype.sptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pSetString</span><span class="oth">(</span><span class="quo">"Hello&nbsp;World&nbsp;From&nbsp;FreeBasic!"</span><span class="oth">)</span><br />
+<span class="wrd">mytype.sptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pSetString</span><span class="oth">(</span><span class="quo">"Hello&nbsp;World&nbsp;From&nbsp;FreeBASIC!"</span><span class="oth">)</span><br />
 <span class="key">Print</span>&nbsp;<span class="quo">"aptr:&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="oth">*</span><span class="wrd">mytype.sptr</span><br />
 <span class="key">Deallocate</span><span class="oth">(</span><span class="wrd">mytype.sptr</span><span class="oth">)</span><br />
 <span class="key">Sleep</span><br />
@@ -114,15 +114,15 @@ Une autre utilisation d'un pointeur se trouve dans la d&eacute;finition d'un <a 
 <br \>
 Ici nous d&eacute;finisons notre <a href="KeyPgType.html">Type</a> avec un champ <tt><b>sptr</b></tt> comme <a href="KeyPgZstring.html">ZString</a> <a href="KeyPgPtr.html">Ptr</a>. Les <a href="KeyPgZstring.html">ZString</a>s sont des cha&icirc;nes termin&eacute;es par un indicateur nul qui sont utilis&eacute;es par de nombreuses biblioth&egrave;ques externes et sont con&ccedil;ues pour l'allocation dynamique. D&egrave;s que nous avons cr&eacute;&eacute; notre <a href="KeyPgType.html">Type</a> nous en cr&eacute;ons une instance avec l'instruction <a href="KeyPgDim.html">Dim</a>:<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">mytype</span>&nbsp;<span class="key">As</span>&nbsp;<span class="wrd">mytptr</span><br />
 </div></tt><br />
 </tt><br \>
 <br \>
 Nous appelons ensuite notre fonction pSetString pour obtenir l'adresse de la cha&icirc;ne de longueur variable que nous voulons dans notre d&eacute;finition de <a href="KeyPgType.html">Type</a>.<br \>
 <br \>
-<tt><tt><div class="freebasic">
-<span class="wrd">mytype.sptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pSetString</span><span class="oth">(</span><span class="quo">"Hello&nbsp;World&nbsp;From&nbsp;FreeBasic!"</span><span class="oth">)</span><br />
+<tt><tt><div class="FreeBASIC">
+<span class="wrd">mytype.sptr</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">pSetString</span><span class="oth">(</span><span class="quo">"Hello&nbsp;World&nbsp;From&nbsp;FreeBASIC!"</span><span class="oth">)</span><br />
 </div></tt><br />
 </tt><br \>
 <br \>
@@ -130,7 +130,7 @@ Souvenez-vous que sptr est d&eacute;fini comme un pointeur, non une variable cha
 <br \>
 La fonction pSetString une <a href="KeyPgZstring.html">ZString</a> temporaire "sz", pour <a href="KeyPgAllocate.html">Allocate</a> de l'espace pour le param&egrave;tre cha&icirc;ne "s" qui est pass&eacute;. Comme une <a href="KeyPgZstring.html">ZString</a> est une cha&icirc;ne termin&eacute;e par "null", nous devons ajouter 1 &agrave; la longueur de "s" pour le "null terminator" (incateur de fin nul) dans la fonction <a href="KeyPgAllocate.html">Allocate</a> .<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="com">'allocate&nbsp;some&nbsp;space&nbsp;+&nbsp;1&nbsp;for&nbsp;the&nbsp;chr(0)</span><br />
 <span class="wrd">sz</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="key">Allocate</span><span class="oth">(</span><span class="key">Len</span><span class="oth">(</span><span class="wrd">s</span><span class="oth">)</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">1</span><span class="oth">)</span><br />
 </div></tt><br />
@@ -138,7 +138,7 @@ La fonction pSetString une <a href="KeyPgZstring.html">ZString</a> temporaire "s
 <br \>
 Une fois que nous avons allou&eacute; un espace pour la cha&icirc;ne, nous utilisons l'op&eacute;rateur de r&eacute;f&eacute;rence * pour charger les donn&eacute;es dans l'emplacement m&eacute;moire.<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="com">'load&nbsp;the&nbsp;string&nbsp;into&nbsp;the&nbsp;memory&nbsp;location</span><br />
 <span class="oth">*</span><span class="wrd">sz</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="wrd">s</span><br />
 </div></tt><br />
@@ -146,7 +146,7 @@ Une fois que nous avons allou&eacute; un espace pour la cha&icirc;ne, nous utili
 <br \>
 Ensuite, nous retournons  un pointeur (l'adresse de la cha&icirc;ne) vers notre type, qui est enregistr&eacute; dans mytype.sptr.<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="com">'return&nbsp;the&nbsp;pointer</span><br />
 <span class="key">Return</span>&nbsp;<span class="wrd">sz</span><br />
 </div></tt><br />
@@ -154,7 +154,7 @@ Ensuite, nous retournons  un pointeur (l'adresse de la cha&icirc;ne) vers notre 
 <br \>
 Nous pouvons maintenant d&eacute;r&eacute;f&eacute;rencer la cha&icirc;ne dans notre type en utilisant l'op&eacute;rateur de r&eacute;f&eacute;rence.<br \>
 <br \>
-<tt><tt><div class="freebasic">
+<tt><tt><div class="FreeBASIC">
 <span class="key">Print</span>&nbsp;<span class="quo">"aptr:&nbsp;"</span><span class="oth">;</span>&nbsp;<span class="oth">*</span><span class="wrd">mytype.sptr</span><br />
 </div></tt><br />
 </tt><br \>

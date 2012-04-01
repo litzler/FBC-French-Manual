@@ -19,9 +19,9 @@
 <li>D&eacute;roulement du programme<br \>
 </ul><b>Variables</b><br \>
 <ul><li>Types de donn&eacute;es de base<br \>
-</ul><b>Entr&eacute;e/Sortie (E/S)</b><br \>
+</ul><b>Entr&eacute;e / Sortie (E/S)</b><br \>
 <br \>
-Ci-dessus vous avez les concepts de programmation les plus importants pour un d&eacute;butant absolu qui veut apprendre la programmation.  Je vais expliquer comment ces concepts fonctionnent en FreeBASIC.  Il est &eacute;galement important d'apprendre &agrave; utiliser le manuel, situ&eacute; &agrave; www.freebasic.net/wiki.  La plupart des communaut&eacute;s de programmation et les langages ont des manuels avec des descriptions et des d&eacute;monstrations.  TOUJOURS consulter le manuel avant d'aller voir ailleurs.  Il y a des chances que les informations que vous cherchez soient dans le manuel, et si elles n'y sont pas, elles peuvent &ecirc;tre ajout&eacute;es.<br \>
+Ci-dessus vous avez les concepts de programmation les plus importants pour un d&eacute;butant absolu qui veut apprendre la programmation.  Je vais expliquer comment ces concepts fonctionnent en FreeBASIC.  Il est &eacute;galement important d'apprendre &agrave; utiliser le manuel, situ&eacute; &agrave; www.FreeBASIC.net/wiki.  La plupart des communaut&eacute;s de programmation et les langages ont des manuels avec des descriptions et des d&eacute;monstrations.  TOUJOURS consulter le manuel avant d'aller voir ailleurs.  Il y a des chances pour que les informations que vous cherchez soient dans le manuel, et si elles n'y sont pas, elles peuvent &ecirc;tre ajout&eacute;es.<br \>
 <br \>
 Ce tutoriel concerne la version 1.0. Ne vous souciez pas pour le num&eacute;ro de r&eacute;vision ^^;;<br \>
 <br \>
@@ -29,11 +29,11 @@ Ce tutoriel concerne la version 1.0. Ne vous souciez pas pour le num&eacute;ro d
 <br \>
 <b>Qu'est-ce qu'un compilateur?</b><br \>
 <br \>
-FreeBasic est un langage de programmation compil&eacute;, plut&ocirc;t qu'interpr&eacute;t&eacute;.  Ce que cela signifie, c'est que FreeBASIC prend le code que vous tapez, comme "PRINT" ou "SLEEP" et le transforme directement en code "Assembleur" ou "Machine".  Les codes "Assembleur" et "Machine" sont compris par les ordinateurs.  En g&eacute;n&eacute;ral, vous ne coderez jamais en code "Machine", quel que soit le "niveau bas" (low level) (la fa&ccedil;on dont vous &ecirc;tes proche du code machine de programmation) o&ugrave; vous irez.<br \>
+FreeBASIC est un langage de programmation compil&eacute;, plut&ocirc;t qu'interpr&eacute;t&eacute;.  Cela signifie que FreeBASIC prend le code que vous tapez, comme "PRINT" ou "SLEEP" et le transforme directement en code "Assembleur" ou "Machine".  Les codes "Assembleur" et "Machine" sont compris par les ordinateurs.  En g&eacute;n&eacute;ral, vous ne coderez jamais en code "Machine", quel que soit le "niveau bas" (low level) (la fa&ccedil;on dont vous &ecirc;tes proche du code machine de programmation) o&ugrave; vous irez.<br \>
 <br \>
-FreeBASIC est un langage de programmation de haut niveau.  FreeBASIC fait en sorte que le programmeur ait &agrave; faire moins de travail possible. Avec une programmation de haut niveau, vous n'avez pas &agrave; vous soucier des domaines les plus complexes de la programmation.  Dans les langages de programmation tels que C et ASM, qui sont de bas niveau, le programmeur a l'avantage de la manipulation de l'ordinateur sur un plan plus pr&eacute;cis et moins humain, avec l'inconv&eacute;nient d'avoir &agrave; en savoir plus sur ce qui se passe en interne.<br \>
+FreeBASIC est un langage de programmation de haut niveau.  FreeBASIC fait en sorte que le programmeur ait &agrave; faire le moins de travail possible. Avec une programmation de haut niveau, vous n'avez pas &agrave; vous soucier des domaines les plus complexes de la programmation.  Dans les langages de programmation tels que C et ASM, qui sont de bas niveau, le programmeur a l'avantage de la manipulation de l'ordinateur sur un plan plus pr&eacute;cis et moins humain, avec l'inconv&eacute;nient d'avoir &agrave; en savoir plus sur ce qui se passe en interne.<br \>
 <br \>
-Le choix de votre compilateur d&eacute;pendra de la situation.  Si vous d&eacute;sirez un contr&ocirc;le complet sur chaque action entreprise par votre ordinateur, vous choisirez de coder en ASM ou C.  Cependant, comme les ordinateurs et les compilateurs ont progress&eacute;, vous n'avez plus &agrave; vous soucier autant de la vitesse et les d&eacute;tails de niveau inf&eacute;rieur de votre code.  &Agrave; bien des &eacute;gards, tout l'objet de la programmation de niveau sup&eacute;rieur est de s'assurer que vous n'aurez pas &agrave; vous soucier des ces choses.  FreeBASIC g&egrave;re de nombreuses optimisations et am&eacute;liorations que vous auriez normalement eu &agrave; faire vous-m&ecirc;me, tout en vous permettant d'acc&eacute;der aux zones de niveau inf&eacute;rieur de contr&ocirc;le si vous le souhaitez.  Un probl&egrave;me par rapport &agrave; cela, cependant, qui est un probl&egrave;me commun &agrave; la plupart des formes de plus haut niveau de la programmation, est le niveau &eacute;lev&eacute; des actions implicites prises par le compilateur.  Si vous voulez travailler avec le code de niveau inf&eacute;rieur dans un langage de haut niveau, vous avez besoin de savoir comment contr&ocirc;ler explicitement certains aspects de votre code.<br \>
+Le choix de votre compilateur d&eacute;pendra de la situation.  Si vous d&eacute;sirez un contr&ocirc;le complet sur chaque action entreprise par votre ordinateur, vous choisirez de coder en ASM ou C.  Cependant, comme les ordinateurs et les compilateurs ont progress&eacute;, vous n'avez plus &agrave; vous soucier autant de la vitesse et des d&eacute;tails de niveau inf&eacute;rieur de votre code.  &Agrave; bien des &eacute;gards, tout l'objet de la programmation de niveau sup&eacute;rieur est de s'assurer que vous n'aurez pas &agrave; vous soucier des ces choses.  FreeBASIC g&egrave;re de nombreuses optimisations et am&eacute;liorations que vous auriez normalement eu &agrave; faire vous-m&ecirc;me, tout en vous permettant d'acc&eacute;der aux zones de niveau inf&eacute;rieur de contr&ocirc;le si vous le souhaitez.  Un probl&egrave;me par rapport &agrave; cela, cependant, qui est un probl&egrave;me commun &agrave; la plupart des formes de plus haut niveau de la programmation, est le niveau &eacute;lev&eacute; des actions implicites prises par le compilateur.  Si vous voulez travailler avec le code de niveau inf&eacute;rieur dans un langage de haut niveau, vous avez besoin de savoir comment contr&ocirc;ler explicitement certains aspects de votre code.<br \>
 <br \>
 <b>Syntaxe</b><br \>
 <br \>
@@ -45,22 +45,22 @@ La syntaxe du FreeBASIC est g&eacute;n&eacute;ralement comme suit:  NomCommande 
 <br \>
 Si ce qui pr&eacute;c&egrave;de peut sembler d&eacute;routant au premier abord, c'est en fait tr&egrave;s simple.  Tout cela signifie que vous donnez au compilateur une commande, puis vous donnez vos arguments apr&egrave;s la commande.  Les arguments sont s&eacute;par&eacute;s les uns des autres par des virgules.  Un exemple de commande pourrait &ecirc;tre:  <tt><i>Draw Circle, 10</i></tt>.  On peut supposer que <tt><i>Draw</i></tt> dessinera quelque chose, <tt><i>Circle</i></tt> sera la forme dessin&eacute;e et 10 le rayon du cercle.  Dans ce cas, les r&egrave;gles de syntaxe pour cette commande pourraient ressembler &agrave;:  <tt><i>Draw [Shape,] [Size]</i></tt><br \>
 <br \>
-Le code de FreeBASIC n'est *pas* sensible &agrave; la casse.  Appeler la commande "DRaW" est identique &agrave; appeler la commande "draw".<br \>
+Le code de FreeBASIC <tt><b>n'est pas</b></tt> sensible &agrave; la casse.  Appeler la commande "DRaW" est identique &agrave; appeler la commande "draw".<br \>
 <br \>
 <b>D&eacute;roulement du programme</b><br \>
 <br \>
-Le code FreeBASIC est lu depuis le HAUT du code, jusqu'au BAS, une ligne &agrave; la fois.  Lorsque la ligne de code est lue par le compilateur, ou que le code compil&eacute; pour cette ligne est lu par l'ordinateur, la commande qui se trouve sur la ligne sera ex&eacute;cut&eacute;e (elle sera ex&eacute;cut&eacute;e, ce qui se produira, votre ordinateur fera ce que le code lui dit de faire).  Un exemple de code peut &ecirc;tre:<br \>
+Le code FreeBASIC est lu depuis le HAUT, jusqu'au BAS, une ligne &agrave; la fois.  Lorsque la ligne de code est lue par le compilateur, ou que le code compil&eacute; pour cette ligne est lu par l'ordinateur, la commande qui se trouve sur la ligne sera ex&eacute;cut&eacute;e (elle sera ex&eacute;cut&eacute;e, ce qui se produira, votre ordinateur fera ce que le code lui dit de faire).  Un exemple de code peut &ecirc;tre:<br \>
 <br \>
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Print</span>&nbsp;<span class="quo">"HI"</span><br />
 <span class="key">Sleep</span><br />
 </div></tt><br />
 <br \>
 Puisque le code PRINT est sur une ligne avant SLEEP, PRINT sera ex&eacute;cut&eacute; en premier.  SLEEP est sur la ligne suivante et sera ex&eacute;cut&eacute;e apr&egrave;s que l'ex&eacute;cution de PRINT soit termin&eacute;e.<br \>
 <br \>
-Des commentaires peuvent &ecirc;tre faits en FreeBasic, qui seront ignor&eacute;s et ne deviendront pas une partie de votre programme.  Des commentaires peuvent prendre jusqu'&agrave; une ligne compl&egrave;te si vous les commencez par <tt><b>'</b></tt> ou peuvent &ecirc;tre des commentaires sur plusieurs lignes si vous les commencez par <tt><b>/</b></tt> et les terminez par <tt><b>/</b></tt>.  Voici un exemple d'utilisation des commentaires.  Remarquez comment aucun des codes ou caract&egrave;res dans les commentaires ne sont utilis&eacute;s par le compilateur.<br \>
+Des commentaires peuvent &ecirc;tre faits en FreeBASIC, qui seront ignor&eacute;s et ne deviendront pas une partie de votre programme.  Des commentaires peuvent prendre jusqu'&agrave; une ligne compl&egrave;te si vous les commencez par <tt><b>'</b></tt> ou peuvent &ecirc;tre des commentaires sur plusieurs lignes si vous les commencez par <tt><b>/</b></tt> et les terminez par <tt><b>/</b></tt>.  Voici un exemple d'utilisation des commentaires.  Remarquez comment aucun des codes ou caract&egrave;res dans les commentaires ne sont utilis&eacute;s par le compilateur.<br \>
 <br \>
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="com">'&nbsp;&nbsp;ABLASHD</span><br />
 <span class="com">'&nbsp;PRINT&nbsp;"HI!"&nbsp;'&nbsp;Cette&nbsp;ligne&nbsp;de&nbsp;code&nbsp;ne&nbsp;sera&nbsp;jamais&nbsp;affich&eacute;e,&nbsp;car&nbsp;elle&nbsp;est&nbsp;comment&eacute;e.</span><br />
 <span class="key">Print</span>&nbsp;<span class="quo">"Ceci&nbsp;n'est&nbsp;pas&nbsp;un&nbsp;commentaire.&nbsp;&nbsp;Cet&nbsp;&eacute;v&eacute;nement&nbsp;aura&nbsp;lieu."</span>&nbsp;&nbsp;<span class="com">'&nbsp;Affiche&nbsp;que&nbsp;ceci&nbsp;n'est&nbsp;pas&nbsp;uncommentaire.</span><br />
@@ -71,41 +71,41 @@ Des commentaires peuvent &ecirc;tre faits en FreeBasic, qui seront ignor&eacute;
 <br \>
 Que sont les variables?  Elles sont la partie la plus importante de la programmation, voici pourquoi.  Chaque fois que vous faites quelque chose d'utile dans la programmation, vous allez stocker des informations dans des variables.<br \>
 <br \>
-Vous souvenez-vous fait alg&egrave;bre ou avoir utilis&eacute; des lettres en math&eacute;matiques, &agrave; l'&eacute;cole?  Un exemple pourrait ressembler &agrave;:  <tt><i>x = 4, 1 + x = 5</i></tt>.  En programmation, les variables correspondent exactement &agrave; cela.  Ce sont des mots ou des lettres qui contiennent des valeurs dans la programmation.  Ces valeurs peuvent stocker des donn&eacute;es importantes comme un nom, &agrave; combien s'&eacute;l&egrave;ve la sant&eacute; de votre personnage principal dans votre jeu vid&eacute;o ou m&ecirc;me quelque chose d'aussi simple que la couleur d'un pixel.  Lorsque vous cr&eacute;ez une variable, en r&eacute;alit&eacute; vous stockez les donn&eacute;es qu'elle contient dans un petit morceau de la m&eacute;moire de l'ordinateur.  En FreeBASIC et la plupart des langages de programmation, vous travaillerez beaucoup avec des variables.<br \>
+Vous souvenez-vous avoir fait de l'alg&egrave;bre ou avoir utilis&eacute; des lettres en math&eacute;matiques, &agrave; l'&eacute;cole?  Un exemple pourrait ressembler &agrave;:  <tt><i>x = 4, 1 + x = 5</i></tt>.  En programmation, les variables correspondent exactement &agrave; cela.  Ce sont des mots ou des lettres qui contiennent des valeurs dans la programmation.  Ces valeurs peuvent stocker des donn&eacute;es importantes comme un nom, &agrave; combien s'&eacute;l&egrave;ve la sant&eacute; de votre personnage principal dans votre jeu vid&eacute;o ou m&ecirc;me quelque chose d'aussi simple que la couleur d'un pixel.  Lorsque vous cr&eacute;ez une variable, en r&eacute;alit&eacute; vous stockez les donn&eacute;es qu'elle contient dans un petit morceau de la m&eacute;moire de l'ordinateur.  En FreeBASIC et la plupart des langages de programmation, vous travaillerez beaucoup avec des variables.<br \>
 <br \>
-Pour cr&eacute;er des variables en FreeBASIC, utilisez la commande DIM.  De quoi DIM est-il l'abr&eacute;viation?  Je ne sais pas, mais il pourrait &ecirc;tre l'abr&eacute;viation de DIMENSION, o&ugrave; les programmeurs d&eacute;finissent la "taille" de leur variable.  DIM est utilis&eacute; pour dire FreeBasic que nous cr&eacute;ons une nouvelle variable dans notre programme.  La commande est d&eacute;crite plus en d&eacute;tail sur la page <a href="KeyPgDim.html">Dim</a>, mais nous allons l'expliquer moins en d&eacute;tail ici.<br \>
+Pour cr&eacute;er des variables en FreeBASIC, utilisez la commande DIM.  De quoi DIM est-il l'abr&eacute;viation?  Je ne sais pas, mais il pourrait &ecirc;tre l'abr&eacute;viation de DIMENSION, o&ugrave; les programmeurs d&eacute;finissent la "taille" de leur variable.  DIM est utilis&eacute; pour dire &agrave; FreeBASIC que nous cr&eacute;ons une nouvelle variable dans notre programme.  La commande est d&eacute;crite plus en d&eacute;tail sur la page <a href="KeyPgDim.html">Dim</a>, mais nous allons l'expliquer moins en d&eacute;tail ici.<br \>
 <br \>
 La syntaxe la plus simple pour les DIM est:  <tt><b>DIM [NomDeVariable] AS [TypeDeDonn&eacute;e] [= [Valeur] ]</b></tt><br \>
 <br \>
-Que fait cela, il dit &agrave; FreeBASIC:<br \>
+Cela dit &agrave; FreeBASIC:<br \>
 - Nous cr&eacute;ons une variable, parce que nous avons tap&eacute; la commande DIM<br \>
 - Nous nommons la variable [NomDeVariable] (o&ugrave; "NomDeVariable" est le nom de la variable que nous voulons c&eacute;er.  Une variable peut &ecirc;tre nomm&eacute;e X, Y, AlexPritchard, BLahblh, Foo, etc.)<br \>
 - Nous sp&eacute;cifions le type de la variable, car nous avons tap&eacute; AS apr&egrave;s "NomDeVariable"<br \>
-- Nous cr&eacute;ons une variable du type [TypeDeDonn&eacute;e] (Le type de donn&eacute;e peut &ecirc;tre quelque chose qui contient chiffres, des lettres, ou tout un tas de choses!)<br \>
+- Nous cr&eacute;ons une variable du type [TypeDeDonn&eacute;e] (Le type de donn&eacute;e peut &ecirc;tre quelque chose qui contient des chiffres, des lettres ou tout autres choses!)<br \>
 - On peut aussi assigner la valeur de la variable par EQUALS (=) apr&egrave;s sa cr&eacute;ation.<br \>
 <br \>
 Exemple:<br \>
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">foo</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">5</span><br />
 <span class="key">Print</span>&nbsp;<span class="wrd">foo</span><br />
 <span class="key">Sleep</span><br />
 </div></tt><br />
 <br \>
-Dans notre programme, on cr&eacute;&eacute; <tt><i>foo</i></tt>. FOO est cr&eacute;&eacute; comme un INTEGER (Un <a href="CatPgStdDataTypes.html">type de donn&eacute;es</a> qui peut contenir des nombres). Nous avons donn&eacute; &agrave; <tt><i>foo</i></tt> la valeur de 5.  Puis nous appelons la commande PRINT, qui PRINT (AFFICHE) l'information &agrave; l'&eacute;cran.  Nous PRINTons <tt><i>foo</i></tt>, donc le nombre 5 sera PRINT&eacute; &agrave; l'&eacute;cran.  Puis nous SLEEPons, ce qui met notre programme en pause jusqu'&agrave; ce qu'on appuie sur une touche.<br \>
+Dans notre programme, on cr&eacute;&eacute; <tt><i>foo</i></tt>. FOO est cr&eacute;&eacute; comme un INTEGER (Un <a href="CatPgStdDataTypes.html">type de donn&eacute;es</a> qui peut contenir des nombres). Nous avons donn&eacute; &agrave; <tt><i>foo</i></tt> la valeur 5.  Puis nous appelons la commande PRINT, qui PRINT (AFFICHE) l'information &agrave; l'&eacute;cran.  Nous PRINTons <tt><i>foo</i></tt>, donc le nombre 5 sera PRINT&eacute; &agrave; l'&eacute;cran.  Puis nous SLEEPons, ce qui met notre programme en pause jusqu'&agrave; ce qu'on appuie sur une touche.<br \>
 <br \>
 <b>Les types de donn&eacute;es de base</b><br \>
 <br \>
-Les variables sont un sujet difficile, je pense, pour d&eacute;buter dans la programmation.  Il y a beaucoup de diff&eacute;rents types de variables! Le type de variable est le type de donn&eacute;es.  "Le type de donn&eacute;e qui est d&eacute;tenue dans ce type de variable" et vous vous demandez pourquoi il a &eacute;t&eacute; ramen&eacute; &agrave; un type de donn&eacute;es? ^^;;  Pour les d&eacute;butants, on va vous familiariser avec ces types de variables:<br \>
+Les variables sont un sujet complexe, je pense, pour d&eacute;buter dans la programmation.  Il y a beaucoup de diff&eacute;rents types de variables! Le type de variable est le type de donn&eacute;es.  "Le type de donn&eacute;e qui est d&eacute;tenue dans ce type de variable" et vous vous demandez pourquoi il a &eacute;t&eacute; ramen&eacute; &agrave; un type de donn&eacute;es? ^^;;  Pour les d&eacute;butants, on va vous familiariser avec ces types de variables:<br \>
 <br \>
 Integer (Entier)- Contient des nombres SANS PARTIE DECIMALE.  Sera g&eacute;n&eacute;ralement de la taille d'un registre de votre ordinateur, ce qui n'est pas un sujet que je vais d&eacute;velopper.<br \>
-Double - Contient des nombres AVEC PARTIE DECIMALE.  Contient aussi bien de tr&egrave;s grans comme de tr&egrave;s petits nombres, avec des niveaux &eacute;lev&eacute;s de pr&eacute;cision (une mani&egrave;re pour donner exactement &agrave; une variable toute valeur que vous d&eacute;sirez lui attribuer)<br \>
-String (Chaîne) - Une fonctionnalit&eacute; int&eacute;ressante de FreeBASIC.  STRING est un type de donn&eacute;es qui contient des lettres et des chiffres pour vous.  Construit pour stocker des informations telles que votre nom et des informations int&eacute;ressantes &agrave; afficher &agrave; l'&eacute;cran, telles que les Instructions de cuisson.<br \>
+Double - Contient des nombres AVEC PARTIE DECIMALE.  Contient aussi bien de tr&egrave;s grands comme de tr&egrave;s petits nombres, avec des niveaux &eacute;lev&eacute;s de pr&eacute;cision (une mani&egrave;re pour donner exactement &agrave; une variable toute valeur que vous d&eacute;sirez lui attribuer)<br \>
+String (Cha&icirc;ne) - Une fonctionnalit&eacute; int&eacute;ressante de FreeBASIC.  STRING est un type de donn&eacute;es qui contient des lettres et des chiffres pour vous.  Construit pour stocker des informations telles que votre nom et des informations int&eacute;ressantes &agrave; afficher &agrave; l'&eacute;cran, telles que les Instructions de cuisson.<br \>
 <br \>
-Souvenez-vous, suivez la syntaxe correcte de DIM.  DIM "nomdevariable" AS INTEGER cr&eacute;era un INTEGER appel&eacute; "nomdevariable", que vous pourrez utiliser dans votre programme.  Vous pouvez remplacer INTEGER par DOUBLE ou STRING.  ATTENTION!  Les types de donn&eacute;es ne sont *pas* toujours compatibles les uns avec les autres!  Vous ne pouvez pas donner &agrave; une STRING la valeur 5!  Vous pouvez cependant lui donner la valeur de "5" (les guillemets sp&eacute;cifient des caract&egrave;res de chaîne dans FB).  Vous ne pouvez pas avoir un nombre entier ou double &eacute;gal &agrave; "5", car "5" est une chaîne et pas un nombre.<br \>
+Souvenez-vous, suivez la syntaxe correcte de DIM.  DIM "nomdevariable" AS INTEGER cr&eacute;era un INTEGER appel&eacute; "nomdevariable", que vous pourrez utiliser dans votre programme.  Vous pouvez remplacer INTEGER par DOUBLE ou STRING.  ATTENTION!  Les types de donn&eacute;es ne sont *pas* toujours compatibles les uns avec les autres!  Vous ne pouvez pas donner &agrave; une STRING la valeur 5!  Vous pouvez cependant lui donner la valeur de "5" (les guillemets sp&eacute;cifient des caract&egrave;res de cha&icirc;ne dans FB).  Vous ne pouvez pas avoir un nombre entier ou double &eacute;gal &agrave; "5", car "5" est une cha&icirc;ne et pas un nombre.<br \>
 <br \>
 Voici un exemple vraiment "cool", qui montre comment vous pouvez utiliser des variables pour stocker votre nom.<br \>
 <br \>
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="com">''&nbsp;Cr&eacute;e&nbsp;la&nbsp;variable&nbsp;MyName.&nbsp;&nbsp;Lui&nbsp;affecte&nbsp;la&nbsp;valeur&nbsp;'Alex'</span><br />
 <span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="wrd">MyName</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="quo">"Alex"</span><br />
 <br />
@@ -118,7 +118,7 @@ Voici un exemple vraiment "cool", qui montre comment vous pouvez utiliser des va
 <br \>
 <div class="fb_header">Entr&eacute;e/Sortie (E/S)</div><br \>
 <br \>
-L'<tt><b>Entr&eacute;e</b></tt> est de la r&eacute;ception de l'information.  Lorsque vous demandez une <tt><b>Entr&eacute;e</b></tt> sur quelque chose, quelqu'un ou quelque chose vous est donn&eacute;.  Vous obtenez une <tt><b>Sortie</b></tt> de leur part.  (DEMANDER QUELQUE CHOSE, R&eacute;cup&eacute;rer quelque chose)<br \>
+L'<tt><b>Entr&eacute;e</b></tt> correspond &agrave; la r&eacute;ception de l'information.  Lorsque vous demandez une <tt><b>Entr&eacute;e</b></tt> sur quelque chose, quelqu'un ou quelque chose vous est donn&eacute;.  Vous obtenez une <tt><b>Sortie</b></tt> de leur part.  (DEMANDER QUELQUE CHOSE, R&eacute;cup&eacute;rer quelque chose)<br \>
 <br \>
 La <tt><b>Sortie</b></tt> est l'envoi d'informations.  Quand vous effectuez une <tt><b>Sortie</b></tt> vers quelqu'un, vous &ecirc;tes celui qui lui donne une <tt><b>Entr&eacute;e</b></tt>.  (DONNER QUELQUE CHOSE, Envoyer quelque chose)<br \>
 <br \>
@@ -127,12 +127,12 @@ Input (Entr&eacute;e) et Output (Sortie) sont souvent rassembl&eacute;s et abr&e
 <br \>
 FreeBASIC poss&egrave;de de NOMBREUSES m&eacute;thodes d'<tt><b>Entr&eacute;e</b></tt> et de <tt><b>Sortie</b></tt>.  Pour un d&eacute;butant, la plupart d'entre elles pourraient finir par vous d&eacute;router, car elles n&eacute;cessitent g&eacute;n&eacute;ralement une meilleure connaissance des variables et de formes plus complexes de la programmation.  Nous allons &eacute;tudier les bases m&ecirc;me des E/S.<br \>
 <br \>
-Vous vous souvenez de la commande PRINT dans les exemples ci-dessus?  C'est une <tt><b>Sortie</b></tt>.  PRINT effectue une <tt><b>Sortie</b></tt> vers l'&eacute;cran de l'ordinateur.  PRINT est une forme tr&egrave;s basique de <tt><b>Sortie</b></tt> et elle est &eacute;galement facile &agrave; &eacute;tudier!  Il vous suffit d'appeler la commande PRINT, puis lui dire ce que vous voulez afficher.  Si vous voulez PRINT des mots, vous les donnez entre des guillemets doubles.  Si vous souhaitez afficher une variable, il suffit de donner &agrave; PRINT le nom de la variable que vous d&eacute;sirez afficher.<br \>
+Vous vous souvenez de la commande PRINT dans les exemples ci-dessus?  C'est une <tt><b>Sortie</b></tt>.  PRINT effectue une <tt><b>Sortie</b></tt> vers l'&eacute;cran de l'ordinateur.  PRINT est une forme tr&egrave;s basique de <tt><b>Sortie</b></tt> et elle est &eacute;galement facile &agrave; &eacute;tudier!  Il vous suffit d'appeler la commande PRINT, puis lui dire ce que vous voulez afficher.  Si vous voulez PRINT des mots, vous les lui donnez entre des guillemets doubles.  Si vous souhaitez afficher une variable, il suffit de donner &agrave; PRINT le nom de la variable que vous d&eacute;sirez afficher.<br \>
 <br \>
 Print [CeQuiEst&agrave;Afficher]<br \>
 Exemple:<br \>
 <br \>
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="com">''&nbsp;Affiche&nbsp;le&nbsp;mot&nbsp;HI!&nbsp;&agrave;&nbsp;l'&eacute;cran</span><br />
 <span class="key">Print</span>&nbsp;<span class="quo">"HI!"</span><br />
 <br />
@@ -144,7 +144,7 @@ Exemple:<br \>
 <span class="key">Sleep</span><br />
 </div></tt><br />
 <br \>
-INPUT n'est pas beaucoup plus compliqu&eacute;.  Cependant, chaque fois que vous utilisez INPUT, vous devez r&eacute;cup&eacute;rer ce que vous avez obtenu d'INPUT et le mettre dans quelque chose.  Exactement comme pour une sortie, nous devons donner quelque chose &agrave; la commande PRINT pour qu'elle le sorte.  Nous connaissez d&eacute;j&agrave; des variables, n'est-ce pas?  Nous allons utiliser nos des variables pour stocker les informations entr&eacute;es par l'utilisateur.<br \>
+INPUT n'est pas beaucoup plus compliqu&eacute;.  Cependant, chaque fois que vous utilisez INPUT, vous devez r&eacute;cup&eacute;rer ce que vous avez obtenu d'INPUT et le mettre dans quelque chose.  Exactement comme pour une sortie, nous devons donner quelque chose &agrave; la commande PRINT pour qu'elle le sorte.  Nous connaissez d&eacute;j&agrave; des variables, n'est-ce pas?  Nous allons utiliser des variables pour stocker les informations entr&eacute;es par l'utilisateur.<br \>
 <br \>
 1) Nous avons besoin d'une variable pour stocker ces informations dedans.<br \>
 2) Nous avons besoin d'appeler une commande pour obtenir une entr&eacute;e.<br \>
@@ -154,14 +154,14 @@ Je sais comment faire 1 et 3, mais que faire pour le 2?  Nous allons apprendre u
 <br \>
 La syntaxe d'INPUT est la suivante:  INPUT [VariableAEntrer]<br \>
 <br \>
-You can also use input like so:  INPUT [Chaîne &agrave; Afficher Pour Demander &agrave; l'Utilisateur ce qu'il doit Entrer,] [VariableAEntrer]<br \>
+Vous pouvez aussi l'utiliser comme ceci:  INPUT [Cha&icirc;ne &agrave; Afficher Pour Demander &agrave; l'Utilisateur ce qu'il doit Entrer,] [VariableAEntrer]<br \>
 <br \>
 La premi&egrave;re version d'INPUT  vous permettra de recueillir l'ENTREE et la placera dans la variable.  La seconde version OUTPUT (AFFICHE) votre message &agrave; l'&eacute;cran avant de demander pour l'ENTREE.  De cette fa&ccedil;on, l'utilisateur saura ce qu'il doit entrer!  En variante, vous pouvez simplement utiliser la commande PRINT avant qu'INPUT envoie un message, mais parfois pouvoir mettre le code relatif sur une seule ligne est plus commode.<br \>
 <br \>
 Exemple:<br \>
 <br \>
-<tt><div class="freebasic">
-<span class="com">''&nbsp;Cr&eacute;e&nbsp;une&nbsp;chaîne.&nbsp;&nbsp;Nous&nbsp;chargerons&nbsp;le&nbsp;nom&nbsp;utilisateur&nbsp;dans&nbsp;une&nbsp;chaîne!</span><br />
+<tt><div class="FreeBASIC">
+<span class="com">''&nbsp;Cr&eacute;e&nbsp;une&nbsp;cha&icirc;ne.&nbsp;&nbsp;Nous&nbsp;chargerons&nbsp;le&nbsp;nom&nbsp;utilisateur&nbsp;dans&nbsp;une&nbsp;cha&icirc;ne!</span><br />
 <span class="key">Dim</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">String</span>&nbsp;<span class="wrd">MyName</span><br />
 <br />
 <span class="com">''&nbsp;Obtient&nbsp;le&nbsp;nom&nbsp;utilisateur!</span><br />
@@ -178,9 +178,9 @@ Exemple:<br \>
 <span class="key">Sleep</span><br />
 </div></tt><br />
 <br \>
-Cela illustre INPUT et OUTPUT!  Les deux sont essentiels dans la programmation, ou au moins la programmation graphique.  OUTPUT peut faire beaucoup de choses diff&eacute;rentes, ainsi que INPUT.  Vous pourriez obtenir entr&eacute;e de capteurs d'un bras robotique plut&ocirc;t que par le clavier de l'utilisateur.  Vous avez peut-&ecirc;tre la sortie sur une perceuse &eacute;lectrique plut&ocirc;t que  sur un moniteur.  Cela d&eacute;pend r&eacute;ellement du mat&eacute;riel et le but de votre programme.<br \>
+Cela illustre INPUT et OUTPUT!  Les deux sont essentiels dans la programmation, ou au moins la programmation graphique.  OUTPUT peut faire beaucoup de choses diff&eacute;rentes, ainsi que INPUT.  Vous pourriez obtenir l'entr&eacute;e &agrave; partir de capteurs d'un bras robotique plut&ocirc;t que par le clavier de l'utilisateur.  Vous avez peut-&ecirc;tre la sortie sur une perceuse &eacute;lectrique plut&ocirc;t que  sur un moniteur.  Cela d&eacute;pend r&eacute;ellement du mat&eacute;riel et le but de votre programme.<br \>
 <br \>
-A ce moment-l&agrave;, et dans la plupart des cas, vous n'avez pas &agrave; trop &agrave; vous inqui&eacute;ter d'o&ugrave; vient l'entr&eacute;e ou o&ugrave; elle va relativement &agrave; vos fonctions standard d'E/S.  Des m&eacute;thodes plus avanc&eacute;es d'E / S vous permettent de d&eacute;cider d'o&ugrave; elle vient (de quelle entr&eacute;e) et o&ugrave; elle va (o&ugrave; envoyer la sortie).<br \>
+A ce moment-l&agrave;, et dans la plupart des cas, vous n'avez pas &agrave; trop &agrave; vous inqui&eacute;ter d'o&ugrave; vient l'entr&eacute;e ou o&ugrave; elle va relativement &agrave; vos fonctions standard d'E/S.  Des m&eacute;thodes plus avanc&eacute;es d'E / S vous permettent de d&eacute;cider d'o&ugrave; elle vient (de quelle entr&eacute;e) et o&ugrave; elle va (vers quelle sortie).<br \>
 <br \>
 <div class="fb_header">D&eacute;finitions de programmation</div><br \>
 <br \>
@@ -192,11 +192,11 @@ Compilation:  Le processus de transformation du texte d'un langage &agrave; l'au
 <br \>
 Code Machine:  Des 0 et des 1.  C'est *le* code que votre ordinateur comprendra.<br \>
 <br \>
-Param&egrave;tre:  Les donn&eacute;es que vous passez &agrave; une commande que vous appelez dans la programmation.  Les param&egrave;tres pass&eacute;s permettent aux commandes de savoir COMMENT elles devront faire quelque chose ou ce qu'elles devront faire.  Pass&eacute; lea param&egrave;tre 'Rectangle' &agrave; la commade 'Draw', serait logique si cela dessinait un rectangle sur votre &eacute;cran.<br \>
+Param&egrave;tre:  Les donn&eacute;es que vous passez &agrave; une commande que vous appelez dans la programmation.  Les param&egrave;tres pass&eacute;s permettent aux commandes de savoir COMMENT elles devront faire quelque chose ou ce qu'elles devront faire.  Passer le param&egrave;tre 'Rectangle' &agrave; la commade 'Draw', serait logique si cela dessinait un rectangle sur votre &eacute;cran.<br \>
 <br \>
 Pixel:  Un 'point' sur votre moniteur.  Les moniteurs sont constitu&eacute;s de milliers de petits points qui sont &eacute;clair&eacute;s de diff&eacute;rentes couleurs.  La couleur d&eacute;pend de la valeur de la variable pixel que le moniteur re&ccedil;oit.  Croyez-le ou non, m&ecirc;me votre mat&eacute;riel utilise des variables, de nombreuses fa&ccedil;ons.<br \>
 <br \>
-Syntaxe:  Comment les mots sont regroup&eacute;s.  Votre syntaxe dans la programmation sont des ensembles de r&egrave;gles qui vous disent quel o&ugrave; code peut &ecirc;tre plac&eacute;.  Elle veille &agrave; ce que seul le code logique soit autoris&eacute;.  Ex:  Print "Hi".  PRINT est la COMMANDE, "Hi" est ce que la commande PRINT va utiliser.  Est-ce logique?<br \>
+Syntaxe:  Comment les mots sont regroup&eacute;s.  Votre syntaxe dans la programmation sont des ensembles de r&egrave;gles qui vous disent quel code peut &ecirc;tre plac&eacute; et  o&ugrave;.  Elle veille &agrave; ce que seul le code logique soit autoris&eacute;.  Ex:  Print "Hi".  PRINT est la COMMANDE, "Hi" est ce que la commande PRINT va utiliser.  Est-ce logique?<br \>
 <br \>
 Variable:  Un mot qui contient des donn&eacute;es dans la programmation.  Vous attribuez des valeurs &agrave; ces mots et avec ces valeurs, vous pouvez sauvegarder les informations de votre programme.
 </div>

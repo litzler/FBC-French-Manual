@@ -15,17 +15,17 @@
 <br \>
 <div class="fb_header"> Variable Scope </div><br \>
 <br \>
-<tt><b>Scope = port&eacute;e</b></tt> fait r&eacute;f&eacute;rence &agrave; la visibilit&eacute; d'une variable, o&ugrave; vous pouvez acc&eacute;der &agrave; une variable dans un programme. Avant de pouvoir comprendre les diff&eacute;rents niveaux de port&eacute;e, vous devez comprendre la structure d'un programme en FreeBasic.<br \>
+<tt><b>Scope = port&eacute;e</b></tt> fait r&eacute;f&eacute;rence &agrave; la visibilit&eacute; d'une variable, o&ugrave; vous pouvez acc&eacute;der &agrave; une variable dans un programme. Avant de pouvoir comprendre les diff&eacute;rents niveaux de port&eacute;e, vous devez comprendre la structure d'un programme en FreeBASIC.<br \>
 <br \>
 <b> Structure d'un programme </b><br \>
 <br \>
-Un programme complet est compos&eacute; d'un ou plusieurs fichiers <b>.bas</b>, appel&eacute;s modules. Chaque module peut contenir, &agrave; la fois, du code de niveau module et du code contenu dans les sous-routines et fonctions. Du code de niveau module est du code qui <i><b>n'est pas</b></i> contenu dans une sous-routine ou une fonction. L'extrait suivant illustre les diff&eacute;rentes parties d'un module.<br \>
+Un programme complet est compos&eacute; d'un ou plusieurs fichiers <b>.bas</b>, appel&eacute;s modules. Chaque module peut contenir, &agrave; la fois, du code de niveau module et du code contenu dans les sous-programmes et fonctions. Du code de niveau module est du code qui <i><b>n'est pas</b></i> contenu dans un sous-programme ou une fonction. L'extrait suivant illustre les diff&eacute;rentes parties d'un module.<br \>
 <br \>
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Dim</span>&nbsp;<span class="wrd">aInt</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="com">'Variable&nbsp;d&eacute;clar&eacute;e&nbsp;au&nbsp;niveau&nbsp;module</span><br />
 <br />
 <span class="key">Sub</span>&nbsp;<span class="wrd">DoSomething</span><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">aInt</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="com">'Variable&nbsp;d&eacute;clar&eacute;e&nbsp;au&nbsp;niveau&nbsp;sous-routine</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">aInt</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span>&nbsp;<span class="com">'Variable&nbsp;d&eacute;clar&eacute;e&nbsp;au&nbsp;niveau&nbsp;sous-programme</span><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">...</span>&nbsp;<span class="com">'Ce&nbsp;code&nbsp;est&nbsp;local&nbsp;&agrave;&nbsp;Sub</span><br />
 <span class="key">End</span>&nbsp;<span class="key">Sub</span><br />
@@ -44,23 +44,23 @@ Un programme complet est compos&eacute; d'un ou plusieurs fichiers <b>.bas</b>, 
 <br \>
 <b> Variables locales </b><br \>
 <br \>
-Si vous d&eacute;finissez une variable au niveau du module (et n'utilisez pas <tt><b>Shared</b></tt>), la variable est dite avoir une port&eacute;e au niveau du module local. Elle est visible par le code au niveau du module, mais pas des sous-routines ou fonctions au sein du module. Dans l'exemple ci-dessus la variable du module <tt><b>aInt</b></tt> est visible uniquement pour le code de niveau module. <br \>
+Si vous d&eacute;finissez une variable au niveau du module (et n'utilisez pas <tt><b>Shared</b></tt>), la variable est dite avoir une port&eacute;e au niveau du module local. Elle est visible par le code au niveau du module, mais pas des sous-programmes ou fonctions au sein du module. Dans l'exemple ci-dessus la variable du module <tt><b>aInt</b></tt> est visible uniquement pour le code de niveau module. <br \>
 <br \>
-Les variables d&eacute;finies dans une sous-routine ou une fonction sont locales &agrave; la sous-routine ou fonction et ne sont pas visibles du code de niveau module ou de toute autre sous-programme ou fonction.<br \>
+Les variables d&eacute;finies dans un sous-programme ou une fonction sont locales au           sous-programme ou &agrave; la fonction et ne sont pas visibles du code de niveau module ou de toute autre sous-programme ou fonction.<br \>
 <br \>
 <b> Variables d&eacute;finies au sein de structures de contr&ocirc;le </b><br \>
 <br \>
-Les variables qui sont d&eacute;finies dans des constructions <tt><b>If</b></tt>, <tt><b>For-Next</b></tt>, <tt><b>While-Wend</b></tt> et <tt><b>Do-Loop</b></tt> sont locales au code de la structure du bloc de contr&ocirc;le. Autrement dit, ils ne sont pas visibles &agrave; l'ext&eacute;rieur des limites du d&eacute;but et de fin du bloc de contr&ocirc;le, tout comme une variable d&eacute;clar&eacute;e dans une sous-routine ou une fonction. <br \>
+Les variables qui sont d&eacute;finies dans des constructions <tt><b>If</b></tt>, <tt><b>For-Next</b></tt>, <tt><b>While-Wend</b></tt> et <tt><b>Do-Loop</b></tt> sont locales au code de la structure du bloc de contr&ocirc;le. Autrement dit, elles ne sont pas visibles &agrave; l'ext&eacute;rieur des limites du d&eacute;but et de fin du bloc de contr&ocirc;le, tout comme une variable d&eacute;clar&eacute;e dans un sous-programme ou une fonction. <br \>
 <br \>
 <b> Les variables partag&eacute;es (Shared) </b><br \>
 <br \>
-Dans l'exemple, si vous voulez que <tt><b>aInt</b></tt> soit visible au sein de la sous-routine ou de la fonction, vous devez d&eacute;clarer la variable comme &eacute;tant <tt><b>Shared</b></tt> et ensuite ne pas d&eacute;clarer une variable avec le m&ecirc;me nom dans des sous-routine, fonction ou bloc de contr&ocirc;le. Les variables <tt><b>Shared</b></tt> sont visibles par le code de niveau module, celui de niveau sous-routines ou fonctions et au sein des structures de contr&ocirc;le.<br \>
+Dans l'exemple, si vous voulez que <tt><b>aInt</b></tt> soit visible au sein du sous-programme ou de la fonction, vous devez d&eacute;clarer la variable comme &eacute;tant <tt><b>Shared</b></tt> et ensuite ne pas d&eacute;clarer une variable avec le m&ecirc;me nom dans des sous-programmes, fonction ou bloc de contr&ocirc;le. Les variables <tt><b>Shared</b></tt> sont visibles par le code de niveau module, celui de niveau sous-programmes ou fonctions et au sein des structures de contr&ocirc;le.<br \>
 <br \>
 <b> Les conflits de port&eacute;e</b><br \>
 <br \>
-Dans l'extrait de code ci-dessus, si <tt><b>aInt</b></tt> est d&eacute;clar&eacute;e <tt><b>Shared</b></tt> et que chaque sous-routine et fonction d&eacute;clare <tt><b>aInt</b></tt>, il y aurait un conflit une port&eacute;e, car il y aurait m&ecirc;me un nom de variable utilis&eacute; pour diff&eacute;rents niveaux de port&eacute;e.<br \>
+Dans l'extrait de code ci-dessus, si <tt><b>aInt</b></tt> est d&eacute;clar&eacute;e <tt><b>Shared</b></tt> et que chaque sous-programme et fonction d&eacute;clare <tt><b>aInt</b></tt>, il y aura un conflit une port&eacute;e, car il y aura un m&ecirc;me nom de variable utilis&eacute; pour diff&eacute;rents niveaux de port&eacute;e.<br \>
 <br \>
-Le compilateur r&eacute;sout cela en prenant la port&eacute;e courante en compte et planifie la variable avec cette port&eacute;e. Comme les sous-routines et fonctions ont un niveau de port&eacute;e inf&eacute;rieur &agrave; celui d'un module, <tt><b>aInt</b></tt> fait r&eacute;f&eacute;rence soit &agrave; la variable d&eacute;clar&eacute;e dans la sous-routine ou la fonction, et non pas &agrave; celle qui a &eacute;t&eacute; d&eacute;clar&eacute;e au niveau d'un module, m&ecirc;me si elle a &eacute;t&eacute; d&eacute;clar&eacute;e comme une variable partag&eacute;e.<br \>
+Le compilateur r&eacute;sout cela en prenant la port&eacute;e courante en compte et planifie la variable avec cette port&eacute;e. Comme les sous-programmes et fonctions ont un niveau de port&eacute;e inf&eacute;rieur &agrave; celui d'un module, <tt><b>aInt</b></tt> fait r&eacute;f&eacute;rence soit &agrave; la variable d&eacute;clar&eacute;e dans le sous-programme ou la fonction, et non pas &agrave; celle qui a &eacute;t&eacute; d&eacute;clar&eacute;e au niveau d'un module, m&ecirc;me si elle a &eacute;t&eacute; d&eacute;clar&eacute;e comme une variable partag&eacute;e.<br \>
 <br \>
 <b> Plusieurs modules </b><br \>
 <br \>
@@ -74,7 +74,7 @@ Vous pouvez ajouter l'attribut <tt><b>Shared</b></tt> &agrave; <tt><b>Common</b>
 <br \>
 Vous pouvez cr&eacute;er un bloc de port&eacute;e temporaire en utilisant les mots-cl&eacute;s <tt><b>Scope</b></tt> et <tt><b>End Scope</b></tt>. Le bloc de port&eacute;e est tr&egrave;s utile lors de la cr&eacute;ation de macros multi-ligne o&ugrave; vous pouvez avoir besoin de cr&eacute;er des variables de travail temporaires mais en &eacute;vitant de cr&eacute;er des conflits de nom dans le programme. L'extrait suivant montre comment cr&eacute;er un bloc de port&eacute;e.<br \>
 <br \>
-<tt><div class="freebasic">
+<tt><div class="FreeBASIC">
 <span class="key">Scope</span><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">Dim</span>&nbsp;<span class="wrd">tmp</span>&nbsp;<span class="key">As</span>&nbsp;<span class="key">Integer</span><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="oth">...</span>&nbsp;<span class="com">'Du&nbsp;code</span><br />
@@ -83,7 +83,7 @@ Vous pouvez cr&eacute;er un bloc de port&eacute;e temporaire en utilisant les mo
 <br \>
 La port&eacute;e d'une variable cr&eacute;&eacute;e dans un bloc de port&eacute;e est limit&eacute;e au bloc lui-m&ecirc;me. Cependant, le bloc de port&eacute;e h&eacute;rite de la visibilit&eacute; de la port&eacute;e environnante, afin que les variables cr&eacute;&eacute;es avec la m&ecirc;me port&eacute;e que le bloc de port&eacute;e soient visibles dans le bloc.<br \>
 <br \>
-Par exemple, si vous avez <tt><b>aInt</b></tt> qui est de port&eacute;e niveau module et le bloc de port&eacute;e qui est de port&eacute;e niveau module, alors <tt><b>aInt</b></tt>serait visible &agrave; l'int&eacute;rieur du bloc de port&eacute;e. À moins bien s&ucirc;r qu'il n'y ait un conflit de port&eacute;e, auquel cas la variable &agrave; l'int&eacute;rieur du bloc de port&eacute;e aurait pr&eacute;s&eacute;ance sur la variable avec le m&ecirc;me nom mais en dehors du bloc port&eacute;e.<br \>
+Par exemple, si vous avez <tt><b>aInt</b></tt> qui est de port&eacute;e niveau module et le bloc de port&eacute;e qui est de port&eacute;e niveau module, alors <tt><b>aInt</b></tt> serait visible &agrave; l'int&eacute;rieur du bloc de port&eacute;e. A moins bien s&ucirc;r qu'il n'y ait un conflit de port&eacute;e, auquel cas la variable &agrave; l'int&eacute;rieur du bloc de port&eacute;e aurait pr&eacute;s&eacute;ance sur la variable avec le m&ecirc;me nom mais en dehors du bloc port&eacute;e.<br \>
 <br \>
 <div class="fb_header"> Dur&eacute;e de vie d'une variable </div><br \>
 <br \>
@@ -93,17 +93,17 @@ La port&eacute;e ne d&eacute;finit pas seulement la visibilit&eacute; d'une vari
 <br \>
 Les variables au niveau du module existent pour la dur&eacute;e de vie d'un programme, puisqu'elles sont d&eacute;clar&eacute;es dans le corps principal du programme. Le code de niveau module est le code d'ex&eacute;cution principal du programme et se termine lorsque le programme se termine..<br \>
 <br \>
-<b> Les variables de niveau sous-routine et fonction </b><br \>
+<b> Les variables de niveau sous-programme et fonction </b><br \>
 <br \>
-Les variables d&eacute;clar&eacute;es dans un sous-programme ou une fonction existent aussi longtemps que le programme est dans le corps du sous-programme ou de la fonction. A l'entr&eacute;e dans la <tt><b>Sub/Function</b></tt>, la variable est cr&eacute;&eacute;e, initialis&eacute;e et est accessible dans <tt><b>Sub/Function</b></tt>. D&egrave;s la sortie de <tt><b>Sub/Function</b></tt>, la variable est d&eacute;truite.<br \>
+Les variables d&eacute;clar&eacute;es dans un sous-programme ou une fonction existent aussi longtemps que le programme est dans le corps du sous-programme ou de la fonction. A l'entr&eacute;e dans la <tt><b>Sub/Function</b></tt>, la variable est cr&eacute;&eacute;e, initialis&eacute;e et est accessible dans <tt><b>Sub / Function</b></tt>. D&egrave;s la sortie de <tt><b>Sub / Function</b></tt>, la variable est d&eacute;truite.<br \>
 <br \>
 <b> Les variables statiques  </b><br \>
 <br \>
-Une exception aux variables d&eacute;clar&eacute;es dans <tt><b>Sub/Function</b></tt> c'est la variable <tt><b>Static</b></tt>. Les variables <tt>Static</tt> conservent leur valeur entre les appels &agrave; <tt><b>Sub/Function</b></tt> et ont donc une dur&eacute;e de vie niveau module. <br \>
+Une exception aux variables d&eacute;clar&eacute;es dans <tt><b>Sub / Function</b></tt> c'est la variable <tt><b>Static</b></tt>. Les variables <tt>Static</tt> conservent leur valeur entre les appels &agrave; <tt><b>Sub / Function</b></tt> et ont donc une dur&eacute;e de vie niveau module. <br \>
 <br \>
 <b> Les variables de blocs de contr&ocirc;le </b><br \>
 <br \>
-Les variables d&eacute;clar&eacute;es dans un bloc de contr&ocirc;le, comme un <tt><b>For-Next</b></tt> existent tant que le bloc de contr&ocirc;le est ex&eacute;cut&eacute;. Au moment de quitter le bloc de contr&ocirc;le, les variables soient d&eacute;truites.<br \>
+Les variables d&eacute;clar&eacute;es dans un bloc de contr&ocirc;le, comme un <tt><b>For-Next</b></tt> existent tant que le bloc de contr&ocirc;le est ex&eacute;cut&eacute;. Au moment de quitter le bloc de contr&ocirc;le, les variables sont d&eacute;truites.<br \>
 <br \>
 <b>  Variables Scope...End Scope </b><br \>
 <br \>

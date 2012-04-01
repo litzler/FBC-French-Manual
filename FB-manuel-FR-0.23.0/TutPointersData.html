@@ -13,7 +13,7 @@
 <div id="fb_pg_body">
 	<i>Ecrit par <a href="WikiRick.html">rdc</a></i><br \>
 <br \>
-Si vous lisez l'article <a href="TutPointers.html">Introduction aux pointeurs</a> vous savez que les pointeurs contiennent des adresses d'emplacements m&eacute;moire. Vous pouvez manipuler les donn&eacute;es de ces emplacements m&eacute;moire en utilisant l'op&eacute;rateur de r&eacute;f&eacute;rence *. L'utilisation de pointeurs avec un seul item de donn&eacute;es unique n'est pas un probl&egrave;me, mais que faire si vous avez besoin de stocker de multiples &eacute;l&eacute;ments de donn&eacute;es et de les manipuler &agrave; l'aide d'un pointeur? C'est peut &ecirc;tre un peu plus difficile &agrave; moins de comprendre comment les donn&eacute;es sont stock&eacute;es en m&eacute;moire.<br \>
+Si vous avez lu l'article <a href="TutPointers.html">Introduction aux pointeurs</a> vous savez que les pointeurs contiennent l'adresse d'emplacements m&eacute;moire. Vous pouvez manipuler les donn&eacute;es de ces emplacements m&eacute;moire en utilisant l'op&eacute;rateur de r&eacute;f&eacute;rence *. L'utilisation de pointeurs avec item de donn&eacute;e unique n'est pas un probl&egrave;me, mais que faire si vous avez besoin de stocker de multiples &eacute;l&eacute;ments de donn&eacute;es et de les manipuler &agrave; l'aide d'un pointeur? C'est peut &ecirc;tre un peu plus difficile &agrave; moins de comprendre comment les donn&eacute;es sont stock&eacute;es en m&eacute;moire.<br \>
 <br \>
 Un emplacement m&eacute;moire dans un ordinateur a une longueur de 1 octet. Assez grand pour contenir un caract&egrave;re ANSI (par opposition aux caract&egrave;res Unicode, qui sont des caract&egrave;res larges et occupent deux octets. Nous ne discuterons pas de caract&egrave;res Unicode dans cet article.) Cependant, tous les types de donn&eacute;es n'ont pas un seul octet de longueur. Voici un programme simple qui affiche la longueur en octets de chaque type de donn&eacute;es.<br \>
 <br \>
@@ -61,7 +61,6 @@ Un emplacement m&eacute;moire dans un ordinateur a une longueur de 1 octet. Asse
 <span class="key">Sleep</span><br />
 </div></tt><br />
 </tt><br \>
-<br \>
 Affiche &agrave; l'&eacute;cran:<br \>
 <br \>
 <tt><tt><div class="freebasic">
@@ -82,7 +81,6 @@ Affiche &agrave; l'&eacute;cran:<br \>
 <span class="key">ZString</span><span class="oth">:</span>&nbsp;&nbsp;<span class="num">27</span><br />
 </div></tt><br />
 </tt><br \>
-<br \>
 Notez que la longueur d'un pointeur est toujours de 4 octets (la m&ecirc;me que celle d'un entier), ind&eacute;pendamment des donn&eacute;es point&eacute;es, puisque un pointeur contient une adresse m&eacute;moire et non les donn&eacute;es.<br \>
 <br \>
 En regardant la longueur des diff&eacute;rents types de donn&eacute;es, vous voyez que pour <a href="KeyPgAllocate.html">Allocate</a> suffisamment d'espace pour 10 entiers, il faut 40 octets de m&eacute;moire. Chaque entier prend 4 octets. Donc la question est, comment acc&eacute;der &agrave; chaque valeur enti&egrave;re de la m&eacute;moire tampon? La r&eacute;ponse, l'arithm&eacute;tique des pointeurs. Jetez un oeil au programme suivant.<br \>
@@ -108,7 +106,6 @@ En regardant la longueur des diff&eacute;rents types de donn&eacute;es, vous voy
 <span class="key">End</span><br />
 </div></tt><br />
 </tt><br \>
-<br \>
 Dans ce programme nous dimensionnons deux variables, un <a href="KeyPgInteger.html">Integer</a> et un <a href="KeyPgInteger.html">Integer</a> <a href="KeyPgPointer.html">Pointer</a>, aptr. Aptr pointera sur notre tampon m&eacute;moire qui contiendra deux entiers. La fonction <a href="KeyPgAllocate.html">Allocate</a> requiert la taille du tampon m&eacute;moire dont nous avons besoin, donc nous multiplions la taille d'un <a href="KeyPgInteger.html">Integer</a> par 2 pour r&eacute;server 8 octets de m&eacute;moire (chaque entier prendra 4 octets d'espace). <br \>
 <br \>
 Apr&egrave;s le processus d'allocation, aptr contient l'adresse du premier octet de notre tampon m&eacute;moire. Stocker le premier entier consiste tout simplement &agrave; utiliser la r&eacute;f&eacute;rence de l'op&eacute;rateur et de lui donner la valeur &agrave; 1. Pour afficher sa valeur, nous utilisons simplement *aptr.<br \>
@@ -121,7 +118,6 @@ Pour charger la deuxi&egrave;me valeur dans notre tampon, nous utilisons:<br \>
 <span class="oth">*(</span><span class="wrd">aptr</span>&nbsp;<span class="oth">+</span>&nbsp;<span class="num">4</span><span class="oth">)</span>&nbsp;<span class="oth">=</span>&nbsp;<span class="num">2</span><br />
 </div></tt><br />
 </tt><br \>
-<br \>
 Cela peut para&icirc;tre un peu &eacute;trange au premier abord. Aptr pointe sur le premier octet dans notre tampon m&eacute;moire. Un entier occupe 4 octets, donc pour arriver &agrave; la position de l'octet entier suivant, il faut ajouter 4 &agrave; aptr. Nous avons besoin de parenth&egrave;ses autour de l'op&eacute;ration d'addition, car l'op&eacute;rateur de r&eacute;f&eacute;rence * a une priorit&eacute; sup&eacute;rieure &agrave; +. Les parenth&egrave;ses nous assurent que nous effectuons l'op&eacute;ration d'addition en premier et qu'ensuite nous appliquons l'op&eacute;rateur d'indirection.<br \>
 <br \>
 Notez que nous n'avons pas incr&eacute;menter aptr directement. Si nous l'avions fait, aptr pointerait plus vers le d&eacute;but du tampon m&eacute;moire et le programme planterait quand on d&eacute;sallouerait le tampon, car <a href="KeyPgDeallocate.html">Deallocate</a> s'effectuerait en-dehors du tampon m&eacute;moire. Si le besoin se faisait sentir d' incr&eacute;menter directement un pointeur, alors il faudrait cr&eacute;er une variable pointeur temporaire et l'incr&eacute;menter, plut&ocirc;t que le pointeur utilis&eacute; dans l'allocation initiale.<br \>

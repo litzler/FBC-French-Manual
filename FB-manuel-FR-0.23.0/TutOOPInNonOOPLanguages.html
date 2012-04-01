@@ -12,21 +12,21 @@
 <div id="fb_pg_wrapper">
 <div id="fb_pg_body">
 	<br \>
-Contrairement &agrave; la croyance populaire, la programmation orient&eacute;e objet ne n&eacute;cessite pas un langage orient&eacute; objet.<br \>
+Contrairement &agrave; la croyance populaire, la programmation orient&eacute;e objet (POO) ne n&eacute;cessite pas un langage orient&eacute; objet.<br \>
 <br \>
-Ce que vous obtenez avec un langage OO est un ensemble de constructions qui vous aident &agrave; &eacute;crire des programmes OO, mais dans de nombreux cas ils sont inutiles et parfois elles sont contreproductives.<br \>
+Ce que vous obtenez avec un langage OO est un ensemble de constructions qui vous aident &agrave; &eacute;crire des programmes OO, mais dans de nombreux cas elles sont inutiles et parfois contre-productives.<br \>
 <br \>
 Quoi qu'il en soit, ce n'est pas une diatribe contre les langages OO, mais plut&ocirc;t une diatribe contre l'acceptation aveugle de l'id&eacute;e qu'un langage sp&eacute;cifiquement OO est n&eacute;cessaire pour &eacute;crire des programmes orient&eacute;s objets.<br \>
 <br \>
-Afin de d&eacute;montrer qu'il n'est pas n&eacute;cessaire d'avoir un langage OO cet exemple pr&eacute;sente une technique qui est g&eacute;n&eacute;ralement pr&eacute;sent&eacute;e comme un exemple de programmation bas&eacute;e classe; et c'est ainsi, mais vous ne trouverez pas le mot "class" dans cet exemple.<br \>
+Afin de d&eacute;montrer qu'il n'est pas n&eacute;cessaire d'avoir un langage OO cet exemple pr&eacute;sente une technique qui est g&eacute;n&eacute;ralement pr&eacute;sent&eacute;e comme un exemple de programmation bas&eacute;e classe, mais vous ne trouverez pas le mot "class" dans cet exemple.<br \>
 <br \>
 Le code a &eacute;t&eacute; test&eacute; en utilisant FB 0.16 pour win32.<br \>
 <br \>
 Si vous avez &agrave; concat&eacute;ner un grand nombre de cha&icirc;nes dans la plupart des BASICs, vous trouverez g&eacute;n&eacute;ralement que c'est un processus co&ucirc;teux en temps. En fait, les op&eacute;rations de cha&icirc;ne FreeBASIC sont remarquablement rapides, mais vous pouvez faire encore mieux en utilisant un constructeur de cha&icirc;nes.<br \>
 <br \>
-Un constructeur cha&icirc;ne est tout simplement une classe qui g&egrave;re un tampon de cha&icirc;ne de telle mani&egrave;re &agrave; &eacute;viter les appels r&eacute;p&eacute;t&eacute;s &agrave; la fonction d'allocation m&eacute;moire, car cela est une op&eacute;ration relativement co&ucirc;teuse en temps. Les m&eacute;thodes de la classe fournissent des moyens de manipulation le tampon et de conversion entre elle et le type de cha&icirc;ne d'origine.<br \>
+Un constructeur cha&icirc;ne est tout simplement une classe qui g&egrave;re un tampon de cha&icirc;ne de mani&egrave;re &agrave; &eacute;viter les appels r&eacute;p&eacute;t&eacute;s &agrave; la fonction d'allocation m&eacute;moire, car c'est une op&eacute;ration relativement co&ucirc;teuse en temps. Les m&eacute;thodes de la classe fournissent des moyens de manipulation du tampon et de conversion avec le type de cha&icirc;ne d'origine.<br \>
 <br \>
-Le truc qui le rend plus rapide que le type construit pour les grandes cha&icirc;nes et les grands nombres d'ajouts est que la cha&icirc;ne est stock&eacute;e dans un tampon&eacute;moire allou&eacute; qui est toujours plus grand que la longueur r&eacute;elle de la cha&icirc;ne. Cela signifie que l'ajout &agrave; la fin de la cha&icirc;ne signifie en g&eacute;n&eacute;ral de simplement copier le contenu de la nouvelle cha&icirc;ne &agrave; l'emplacement de la m&eacute;moire apr&egrave;s le dernier caract&egrave;re de la cha&icirc;ne actuelle. Dans cette impl&eacute;mentation, le tampon est une ZString ainsi il est donc facile de la convertir en une cha&icirc;ne ordinaire dynamique.<br \>
+Le truc qui le rend plus rapide que le type construit pour les grandes cha&icirc;nes et les grands nombres d'ajouts est que la cha&icirc;ne est stock&eacute;e dans un tampon m&eacute;moire allou&eacute; qui est toujours plus grand que la longueur r&eacute;elle de la cha&icirc;ne. Cela signifie que l'ajout &agrave; la fin de la cha&icirc;ne correspond en g&eacute;n&eacute;ral &agrave; simplement copier le contenu de la nouvelle cha&icirc;ne &agrave; l'emplacement de la m&eacute;moire apr&egrave;s le dernier caract&egrave;re de la cha&icirc;ne actuelle. Dans cette impl&eacute;mentation, le tampon est une ZString ainsi il est donc facile de la convertir en une cha&icirc;ne ordinaire dynamique.<br \>
 <br \>
 Le module FreeBASIC encapsule une d&eacute;finition de type pour une structure. Les instances de cette structure organisent les attributs de l'objet. Les m&eacute;thodes sont tout simplement les fonctions publiques normales du FreeBASIC et les sous-programmes d&eacute;finis dans le m&ecirc;me module. Lorsque vous voulez appeler une m&eacute;thode vous utilisez la syntaxe normale FreeBASIC:<br \>
 <br \>
